@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {
