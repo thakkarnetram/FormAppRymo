@@ -10,11 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  Button,
   StyleSheet,
-  Platform,
-  Alert,
-  Touchable,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import {
@@ -26,7 +22,11 @@ import {
   responsiveScreenFontSize,
 } from 'react-native-responsive-dimensions';
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import {Picker} from '@react-native-picker/picker';
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import FileSystem from 'react-native-fs';
+import Share from 'react-native-share';
+import RNFS from 'react-native-fs';
 const Form1 = () => {
   // Managing states of input values
   const [name, setName] = useState();
@@ -36,6 +36,14 @@ const Form1 = () => {
   const [selectedGender, setSelectedGender] = useState('');
   const [dob, setDob] = useState(new Date());
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [options, setOptions] = useState({
+    carriedByParent: false,
+    walking: false,
+    walker: false,
+    walkingSticks: false,
+    wheelChair: false,
+  });
+  const [pickerSelectedValue, setPickerSelectedValue] = useState('');
 
   // Functions for managing values onChange
   const handleNameChange = text => {
@@ -71,9 +79,29 @@ const Form1 = () => {
     setDatePickerVisibility(false);
   };
 
-  const handleCancel = () => {
-    setDatePickerVisibility(false);
+  // const handleCancel = () => {
+  //   setDatePickerVisibility(false);
+  // };
+
+  // Multiple choice checkbox handler
+  const handleOptionChange = option => {
+    setOptions({...options, [option]: !options[option]});
   };
+
+  const selectedValues = [];
+  Object.entries(options).forEach(([key, value]) => {
+    if (value) {
+      selectedValues.push(key);
+    }
+  });
+  const logMCQ = console.log(`Selected Options: ${selectedValues.join(', ')}`);
+
+  // dropdown handlers
+  const handleValueChange = itemValue => {
+    setPickerSelectedValue(itemValue);
+  };
+
+  const logHealth = console.log(`Selected value is ${pickerSelectedValue}`);
 
   // Logging the values
   const handleLogValues = (name, age, gender) => {
@@ -81,8 +109,92 @@ const Form1 = () => {
       `Name is => ${name}, 
        Age is => ${age},
        Selected Gender is => ${gender},
-       Date of Birth is => ${dob.toLocaleDateString()}`,
+       Date of Birth is => ${dob.toLocaleDateString()} ,
+       Mode of Ambulation => ${logMCQ},
+       Health Status => ${logHealth}
+       `,
     );
+  };
+
+  // function to generate PDF
+
+  const handleExportPdf = async () => {
+    try {
+      const html = generateHtml();
+      const options = {
+        html,
+        fileName: 'form.pdf',
+        directory: RNFS.ExternalDirectoryPath,
+      };
+      const file = await RNHTMLtoPDF.convert(options);
+      console.log('PDF file:', file.filePath);
+      return file.filePath;
+    } catch (error) {
+      console.error('Failed to export PDF:', error);
+    }
+  };
+
+  // Sharing PDF
+  const sharePdf = async () => {
+    try {
+      const pdfFileUri = `${FileSystem.documentDirectory}form.pdf`;
+      const shareOptions = {
+        title: 'Share PDF',
+        message: 'Sharing PDF generated from form data',
+        url: pdfFileUri,
+        type: 'application/pdf',
+      };
+      await Share.open(shareOptions);
+    } catch (error) {
+      console.error('Failed to share PDF:', error);
+    }
+  };
+
+  // Generating html
+  const generateHtml = () => {
+    let html = `
+      <html>
+        <head>
+          <style>
+            // Add your custom styles here
+          </style>
+        </head>
+        <body>
+          <h1>Form Data</h1>
+    `;
+
+    if (name) {
+      html += `<h2>Name: ${name}</h2>`;
+    }
+
+    if (age) {
+      html += `<h2>Age: ${age}</h2>`;
+    }
+
+    if (maleChecked || femaleChecked) {
+      const gender = maleChecked ? 'Male' : 'Female';
+      html += `<h2>Gender: ${gender}</h2>`;
+    }
+
+    if (dob) {
+      html += `<h2>Date of Birth: ${dob.toLocaleDateString()}</h2>`;
+    }
+
+    const modesOfAmbulation = Object.keys(options).filter(key => options[key]);
+    if (modesOfAmbulation.length > 0) {
+      html += `<h2>Modes of Ambulation: ${modesOfAmbulation.join(', ')}</h2>`;
+    }
+
+    if (pickerSelectedValue) {
+      html += `<h2>Health Option: ${pickerSelectedValue}</h2>`;
+    }
+
+    html += `
+        </body>
+      </html>
+    `;
+
+    return html;
   };
 
   return (
@@ -147,6 +259,88 @@ const Form1 = () => {
               />
             )}
           </View>
+          <View style={styles.inputFieldContainerMCQ}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>
+                Mode of Ambulation:
+              </Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={options.carriedByParent}
+                  onValueChange={() => handleOptionChange('carriedByParent')}
+                />
+                <Text style={styles.checkboxLabel}>Carried by Parent</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={options.walking}
+                  onValueChange={() => handleOptionChange('walking')}
+                />
+                <Text style={styles.checkboxLabel}>Walking</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={options.walker}
+                  onValueChange={() => handleOptionChange('walker')}
+                />
+                <Text style={styles.checkboxLabel}>Walker</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={options.walkingSticks}
+                  onValueChange={() => handleOptionChange('walkingSticks')}
+                />
+                <Text style={styles.checkboxLabel}>Walking Sticks</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={options.wheelChair}
+                  onValueChange={() => handleOptionChange('wheelChair')}
+                />
+                <Text style={styles.checkboxLabel}>Wheel Chair</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputFieldContainerPICKER}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.healthOptionHead}>
+                Select your Health Option
+              </Text>
+              <View style={styles.pickerContainer}>
+                <Picker
+                  selectedValue={pickerSelectedValue}
+                  onValueChange={handleValueChange}>
+                  <Picker.Item
+                    label="Diet"
+                    value="diet"
+                    style={{color: 'white', fontSize: responsiveFontSize(1.2)}}
+                  />
+                  <Picker.Item
+                    label="Exercise"
+                    value="exercise"
+                    style={{color: 'white', fontSize: responsiveFontSize(1.2)}}
+                  />
+                  <Picker.Item
+                    label="Mental Health"
+                    value="mental_health"
+                    style={{color: 'white', fontSize: responsiveFontSize(1.2)}}
+                  />
+                </Picker>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputFieldContainerEXPORT}>
+            <TouchableOpacity
+              style={styles.exportBtn}
+              onPress={handleExportPdf}>
+              <Text style={styles.exportText}>Export as PDF</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.inputFieldContainerSHARE}>
+            <TouchableOpacity style={styles.exportBtn} onPress={sharePdf}>
+              <Text style={styles.exportText}>Share PDF</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -154,7 +348,7 @@ const Form1 = () => {
 };
 const styles = StyleSheet.create({
   scrollViewContainer: {
-    backgroundColor: '#dee0df', // reference
+    // backgroundColor: '#dee0df', // reference
   },
   inputFieldContainer: {
     width: responsiveScreenWidth(85),
@@ -235,6 +429,90 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(1),
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  inputFieldContainerMCQ: {
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(25),
+    flexDirection: 'column',
+    backgroundColor: '#006eff',
+    top: 30,
+    marginLeft: 50,
+    borderRadius: 10,
+    marginBottom: 40,
+    marginRight: 50,
+  },
+  multipleChoiceHeader: {
+    color: 'white',
+    fontSize: responsiveFontSize(1.25),
+    margin: 20,
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  checkboxWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+    marginLeft: 20,
+  },
+  checkboxLabel: {
+    color: 'white',
+    fontSize: responsiveFontSize(1.2),
+    marginLeft: 8,
+  },
+  inputFieldContainerPICKER: {
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(6),
+    backgroundColor: '#006eff',
+    top: 30,
+    marginLeft: 50,
+    borderRadius: 10,
+    marginBottom: 40,
+    marginRight: 50,
+  },
+  pickerContainer: {
+    width: responsiveScreenWidth(30),
+    marginTop: 8,
+    marginLeft: 60,
+  },
+  healthOptionHead: {
+    color: 'white',
+    fontSize: responsiveFontSize(1.25),
+    margin: 25,
+  },
+  inputFieldContainerEXPORT: {
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(5),
+    flexDirection: 'column',
+    backgroundColor: '#10006eff',
+    top: 30,
+    marginLeft: 50,
+    borderRadius: 10,
+    marginBottom: 40,
+    marginRight: 50,
+    elevation: 10,
+  },
+  inputFieldContainerSHARE: {
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(5),
+    flexDirection: 'column',
+    backgroundColor: '#004cff',
+    top: 10,
+    marginLeft: 50,
+    borderRadius: 10,
+    marginBottom: 40,
+    marginRight: 50,
+    elevation: 10,
+  },
+  exportBtn: {
+    alignItems: 'center',
+  },
+  exportText: {
+    fontSize: responsiveFontSize(1.4),
+    color: 'white',
+    margin: 12,
   },
 });
 
