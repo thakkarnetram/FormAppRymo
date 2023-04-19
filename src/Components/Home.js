@@ -17,6 +17,10 @@ import {
   responsiveScreenWidth,
   responsiveScreenFontSize,
 } from 'react-native-responsive-dimensions';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const Home = ({navigation}) => {
   return (
@@ -26,7 +30,7 @@ const Home = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              navigation.navigate('Form');
+              navigation.navigate('Main');
             }}>
             <Text style={styles.buttonTextStyle}>Form 1</Text>
           </TouchableOpacity>
@@ -55,16 +59,16 @@ const styles = StyleSheet.create({
     marginTop: 50,
     borderRadius: 20,
     backgroundColor: 'black',
-    height: responsiveHeight(5),
-    width: responsiveWidth(20),
+    height: hp('5%'),
+    width: wp('30'),
   },
   buttonTextStyle: {
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white',
-    marginTop: 15,
-    marginLeft: 5,
-    fontSize: responsiveScreenFontSize(1.2),
+    marginVertical: hp('1%'),
+    marginHorizontal: hp('1%'),
+    fontSize: hp('2%'),
   },
 });
 
