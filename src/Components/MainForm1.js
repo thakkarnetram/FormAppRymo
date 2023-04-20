@@ -136,8 +136,8 @@ const MainForm1 = () => {
 
   const preNatalOptionsHandler = preNatalOption => {
     setPreNatalOptions({
-      ...preNatalOption,
-      [preNatalOption]: !preNatalOption[preNatalOption],
+      ...preNatalOptions,
+      [preNatalOption]: !preNatalOptions[preNatalOption],
     });
   };
   const preNatalOptionValues = [];
@@ -166,11 +166,9 @@ const MainForm1 = () => {
   const [ciabOptions, setCiabOptions] = useState('');
   const [userWeight, setUserWeight] = useState('');
   const [userHeight, setUserHeight] = useState('');
-  const [nicuStayOptions, setNicuStayOptions] = useState({
-    '1Day-7Days': false,
-    '1Week-4Weeks': false,
-    '4Week-4Months': false,
-  });
+  const [day1To7days, setDay1To7days] = useState(false);
+  const [week1To4weeks, setWeek1To4weeks] = useState(false);
+  const [week4To4months, setWeek4To4months] = useState(false);
   const [presentHistory, setPresentHistory] = useState('');
   const [chiefComplaint, setChiefComplaint] = useState('');
 
@@ -193,18 +191,23 @@ const MainForm1 = () => {
     setUserHeight(userHeight);
   };
 
-  const nIcuStayOptionsHandler = nicuStayOption => {
-    setNicuStayOptions({
-      ...nicuStayOption,
-      [nicuStayOption]: !nicuStayOption[nicuStayOption],
-    });
+  const day1To7daysHandler = day1To7days => {
+    setDay1To7days(day1To7days);
+    setWeek1To4weeks(false);
+    setWeek4To4months(false);
   };
-  const nicuStayOptionValues = [];
-  Object.entries(nicuStayOptions).forEach(([key, value]) => {
-    if (value) {
-      nicuStayOptionValues.push(key);
-    }
-  });
+
+  const week1To4weeksHandler = week1To4weeks => {
+    setWeek1To4weeks(week1To4weeks);
+    setDay1To7days(false);
+    setWeek4To4months(false);
+  };
+
+  const week4To4monthsHandler = week4To4months => {
+    setWeek4To4months(week4To4months);
+    setDay1To7days(false);
+    setWeek1To4weeks(false);
+  };
 
   const presentHistoryHandler = presentHistory => {
     setPresentHistory(presentHistory);
@@ -245,27 +248,27 @@ const MainForm1 = () => {
   // Generating html
   const generateHtml = () => {
     let html =
-      '<html><head><style>body{font-family:Arial; padding:20px;} h1{font-size:24px; margin-bottom:20px;} .section{margin-bottom:30px; border-bottom:1px solid #ccc; padding-bottom:20px;} .label{font-weight:bold; margin-bottom:5px; color:#555;} .value{font-weight:normal;}</style></head><body>';
+      '<html><head><style>body{font-family:Arial; padding:10px;} h1{font-size:24px; margin-bottom:10px;} .section{margin-bottom:15px; border-bottom:1px solid #ccc; padding-bottom:20px;} .label{font-weight:bold; margin-bottom:5px; color:#555;} .value{font-weight:bold;}</style></head><body>';
     if (firstName.trim()) {
-      html += `<div class="section"><div class="label">First Name:</div><div class="value">${firstName.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>First Name:</h2></div><div class="value"><h3>${firstName.trim()}</h3></div></div>`;
     }
     if (lastName.trim()) {
-      html += `<div class="section"><div class="label">Last Name:</div><div class="value">${lastName.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Last Name:</h2></div><div class="value"><h3>${lastName.trim()}</h3></div></div>`;
     }
     if (userAge.trim()) {
-      html += `<div class="section"><div class="label">Age:</div><div class="value">${userAge.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Age:</h2></div><div class="value"><h3>${userAge.trim()}</h3></div></div>`;
     }
     if (male) {
-      html += `<div class="section"><div class="label">Gender:</div><div class="value">Male</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Gender:</h2></div><div class="value"><h3>Male</h3></div></div>`;
     } else if (female) {
-      html += `<div class="section"><div class="label">Gender:</div><div class="value">Female</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Gender:</h2></div><div class="value"><h3>Female</h3></div></div>`;
     }
 
     const today = new Date();
     const dobString =
       userDob.getTime() === 0 ? '00/00/0000' : userDob.toLocaleDateString();
     if (userDob.getTime() !== today.getTime()) {
-      html += `<div class="section"><div class="label">Date of Birth:</div><div class="value dob">${dobString}</div></div>`;
+      html += `<div class="section"><div class="label"><h2> Date of Birth : </h2></div><div class="value dob"><h3>${dobString}</h3></div></div>`;
     }
 
     const doeString =
@@ -273,60 +276,247 @@ const MainForm1 = () => {
         ? '00/00/0000'
         : evaluationDate.toLocaleDateString();
     if (evaluationDate.getTime() !== today.getTime()) {
-      html += `<div class="section"><div class="label">Date of Evaluation:</div><div class="value doe">${doeString}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Date of Evaluation:</h2></div><div class="value doe"><h3>${doeString}</h3></div></div>`;
     }
     if (informant.trim()) {
-      html += `<div class="section"><div class="label">Informant:</div><div class="value">${informant.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Informant:</h2></div><div class="value"><h3>${informant.trim()}</h3></div></div>`;
     }
     if (addressedBy.trim()) {
-      html += `<div class="section"><div class="label">Addressed By:</div><div class="value">${addressedBy.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${addressedBy.trim()}</h3></div></div>`;
     }
     if (diagnosis.trim()) {
-      html += `<div class="section"><div class="label">Diagnosis:</div><div class="value">${diagnosis.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Diagnosis:</h2></div><div class="value"><h3>${diagnosis.trim()}</h3></div></div>`;
     }
     if (referredBy.trim()) {
-      html += `<div class="section"><div class="label">Referred By:</div><div class="value">${referredBy.trim()}</div></div>`;
+      html += `<div class="section"><div class="label"><h2>Referred By:</h2></div><div class="value"><h3>${referredBy.trim()}</h3></div></div>`;
     }
     if (gmfcOptions) {
       html += `
-      <div class="section"><div class="label"><td style="padding: 10px;">GMFC</td></div><div class="value">
-          <tr style="background-color: #f2f2f2;">
-            <td style="padding: 10px;">${gmfcOptions}</td>
-          </tr>
-          </div></div>
+          <div class="section"><div class="label">
+          <h2>GMFC</h2></div><div class="value">
+          <h3>${gmfcOptions}</h3>
+          </div>
+          </div>
         `;
     }
 
     if (macsOptions) {
       html += `
-      <div class="section"><div class="label"><td style="padding: 10px;">GMFC</td></div><div class="value">
-          <tr style="background-color: #f2f2f2;">
-            <td style="padding: 10px;">${macsOptions}</td>
-          </tr>
-          </div></div>
+      <div class="section"><div class="label">
+          <h2>MACS</h2></div><div class="value">
+          <h3>${macsOptions}</h3>
+          </div>
+          </div>
         `;
     }
 
     if (miniMacOptions) {
       html += `
-      <div class="section"><div class="label"><td style="padding: 10px;">GMFC</td></div><div class="value">
-          <tr style="background-color: #f2f2f2;">
-            <td style="padding: 10px;">${miniMacOptions}</td>
-          </tr>
-          </div></div>
+      <div class="section"><div class="label">
+          <h2>Mini Mac</h2></div><div class="value">
+          <h3>${miniMacOptions}</h3>
+          </div>
+          </div>
         `;
     }
 
     if (cfcsOptions) {
       html += `
-      <div class="section"><div class="label"><td style="padding: 10px;">GMFC</td></div><div class="value">
-          <tr style="background-color: #f2f2f2;">
-            <td style="padding: 10px;">${cfcsOptions}</td>
-          </tr>
-          </div></div>
+      <div class="section"><div class="label">
+      <h2>CFCS</h2></div><div class="value">
+      <h3>${cfcsOptions}</h3>
+      </div>
+      </div>
         `;
     }
 
+    html += `</br>`;
+
+    if (selectedNatalOptions || fullTerm || preTerm) {
+      html += `
+    <div class="section">
+      <div class="label">
+        <h1>HISTORY</h1>
+      </div>
+      <div class="value">
+      </div>
+    </div>
+    `;
+    }
+
+    const preNatal = Object.keys(preNatalOptions).filter(
+      key => preNatalOptions[key],
+    );
+    if (preNatal.length > 0) {
+      html += `
+      <div class="section">
+        <div class="label"><h2> Pre Natal :</h2></div>
+        <div class="value">
+          <h3>Modes of Ambulation: ${preNatal.join(', ')}</h3>
+        </div>
+      </div>
+    `;
+    }
+
+    if (fullTerm) {
+      html += `
+      <div class="section">
+        <div class="label"><h2>Natal :</h2></div>
+        <div class="value"><h3>Full Term</h3></div>
+      </div>
+    `;
+    } else if (preTerm) {
+      html += `
+      <div class="section">
+        <div class="label"><h2>Natal :</h2></div>
+        <div class="value"><h3>Pre Term</h3></div>
+      </div>
+    `;
+    }
+
+    html += `</br>`;
+
+    if (
+      ciabYes ||
+      ciabNo ||
+      userWeight ||
+      userHeight ||
+      day1To7days ||
+      week1To4weeks ||
+      week4To4months ||
+      presentHistory ||
+      chiefComplaint
+    ) {
+      html += `
+    <div class="section">
+      <div class="label">
+        <h1>Post Natal</h1>
+      </div>
+      <div class="value">
+      </div>
+    </div>
+      `;
+    }
+
+    if (ciabYes) {
+      html += `
+      <div class="section">
+        <div class="label"><h2>CIAB :</h2></div>
+        <div class="value"><h3>Yes</h3></div>
+      </div>
+    `;
+    } else if (ciabNo) {
+      html += `
+      <div class="section">
+        <div class="label"><h2>CIAB :</h2></div>
+        <div class="value"><h3>No</h3></div>
+      </div>
+    `;
+    }
+
+    if (userWeight.trim()) {
+      html += `<div class="section">
+      <div class="label">
+      <h2>Weight (kgs) </h2>
+      </div><div class="value">
+      <h3>${userWeight.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (userHeight.trim()) {
+      html += `<div class="section">
+      <div class="label">
+      <h2>Height (cms) </h2>
+      </div><div class="value">
+      <h3>${userHeight.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (day1To7days) {
+      html += `<div class="section">
+      <div class="label">
+      <h2>NICU STAY</h2>
+      </div><div class="value">
+      <h3>1 day - 7 day</h3>
+      </div></div>`;
+    } else if (week1To4weeks) {
+      html += `<div class="section">
+      <div class="label">
+      <h2>NICU STAY</h2>
+      </div><div class="value">
+      <h3>1 Week - 4 Week</h3>
+      </div></div>`;
+    } else if (week4To4months) {
+      html += `<div class="section">
+      <div class="label">
+      <h2>NICU STAY</h2>
+      </div><div class="value">
+      <h3>4 Week - 4 Month</h3>
+      </div></div>`;
+    }
+
+    if (presentHistory.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Present History - </h2>
+      </div><div class="value"><h3>${presentHistory.trim()}</h3>
+      </div></div>`;
+    }
+    if (chiefComplaint.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Chief Complaint - </h2>
+      </div><div class="value"><h3>${chiefComplaint.trim()}</h3>
+      </div></div>`;
+    }
+
+    html += `</br>`;
+
+    if (handHolding || rolling || crawling || sitting || standing || walking) {
+      html += `
+    <div class="section">
+      <div class="label">
+        <h1> Developemental Milestones (months)</h1>
+      </div>
+      <div class="value">
+      </div>
+    </div>
+      `;
+    }
+    if (handHolding.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Hand Holding - </h2>
+      </div><div class="value"><h3>${handHolding.trim()}</h3>
+      </div></div>`;
+    }
+    if (rolling.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Rolling - </h2>
+      </div><div class="value"><h3>${rolling.trim()}</h3>
+      </div></div>`;
+    }
+    if (crawling.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Crawling - </h2>
+      </div><div class="value"><h3>${crawling.trim()}</h3>
+      </div></div>`;
+    }
+    if (sitting.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Sitting- </h2>
+      </div><div class="value"><h3>${handHolding.trim()}</h3>
+      </div></div>`;
+    }
+    if (standing.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Standing - </h2>
+      </div><div class="value"><h3>${standing.trim()}</h3>
+      </div></div>`;
+    }
+    if (walking.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Walking - </h2>
+      </div><div class="value"><h3>${walking.trim()}</h3>
+      </div></div>`;
+    }
     return html;
   };
 
@@ -347,7 +537,7 @@ const MainForm1 = () => {
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         console.log('Storage permission granted');
       } else {
-        console.log('Storage permission denied');
+        console.log('Storage permission denied', granted);
       }
     } catch (err) {
       console.warn(err);
@@ -355,7 +545,6 @@ const MainForm1 = () => {
   }
   const handleSaveToLocal = async () => {
     const permissionGranted = await requestStoragePermission();
-
     if (permissionGranted) {
       setPermission(true);
       handleExportPdf();
@@ -485,7 +674,7 @@ const MainForm1 = () => {
         message: 'Patient Report Ready',
       });
     } catch (error) {
-      console.error('Failed to share PDF:');
+      console.error();
     }
   };
 
@@ -495,6 +684,7 @@ const MainForm1 = () => {
     <SafeAreaView>
       <ScrollView>
         <View style={styles.mainContainer}>
+          {/* SECTION I => PATIENT INFORMATION */}
           <View style={styles.inputTextContainer}>
             <TextInput
               value={firstName}
@@ -802,6 +992,256 @@ const MainForm1 = () => {
               </View>
             </View>
           </View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              color: '#5F7EFF',
+              fontSize: wp('5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            History
+          </Text>
+          {/* SECTION II => HISTORY  */}
+          <View style={styles.inputFieldContainerMCQ}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Pre Natal</Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.HyperTension}
+                  onValueChange={() => preNatalOptionsHandler('HyperTension')}
+                />
+                <Text style={styles.checkboxLabel}>HyperTension</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Diabetes}
+                  onValueChange={() => preNatalOptionsHandler('Diabetes')}
+                />
+                <Text style={styles.checkboxLabel}>Diabetes</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Convulsion}
+                  onValueChange={() => preNatalOptionsHandler('Convulsion')}
+                />
+                <Text style={styles.checkboxLabel}>Convulsion</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Any_Medication}
+                  onValueChange={() => preNatalOptionsHandler('Any_Medication')}
+                />
+                <Text style={styles.checkboxLabel}>Any_Medication</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Hyperthyroidism}
+                  onValueChange={() =>
+                    preNatalOptionsHandler('Hyperthyroidism')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Hyperthyroidism</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Infections}
+                  onValueChange={() => preNatalOptionsHandler('Infections')}
+                />
+                <Text style={styles.checkboxLabel}>Infections</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainerNatal}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.natalHead}>NATAL</Text>
+              <View style={styles.checkContainerNatal}>
+                <CheckBox
+                  style={styles.fullTermCheckBox}
+                  value={fullTerm}
+                  onValueChange={fullTermHandler}
+                />
+                <Text style={styles.fullTermBoxText}>Full Term</Text>
+                <CheckBox
+                  style={styles.preTermCheckBox}
+                  value={preTerm}
+                  onValueChange={preTermHandler}
+                />
+                <Text style={styles.preTermCheckBoxText}>Pre Term</Text>
+              </View>
+            </View>
+          </View>
+          {/* Section III => POST NATAL */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Post Natal
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.ciabHead}>CIAB</Text>
+              <View style={styles.ciabContainer}>
+                <CheckBox
+                  style={styles.ciabYesCheck}
+                  value={ciabYes}
+                  onValueChange={ciabYesHandler}
+                />
+                <Text style={styles.ciabYesCheckText}>Yes</Text>
+                <CheckBox
+                  style={styles.ciabNoCheck}
+                  value={ciabNo}
+                  onValueChange={ciabNoHandler}
+                />
+                <Text style={styles.ciabNoCheckText}>No</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.weigthHeightContainer}>
+            <TextInput
+              value={userWeight}
+              onChangeText={userWeightHandler}
+              keyboardType="numeric"
+              placeholder="Weight (kg)"
+              placeholderTextColor="#FFFFFF"
+              style={styles.userWeightText}
+            />
+          </View>
+          <View style={styles.weigthHeightContainer}>
+            <TextInput
+              value={userHeight}
+              onChangeText={userHeightHandler}
+              keyboardType="numeric"
+              placeholder="Height (cm)"
+              placeholderTextColor="#FFFFFF"
+              style={styles.userHeightText}
+            />
+          </View>
+          <View style={styles.inputFieldContainer3Q}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>NICU Stay</Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={day1To7days}
+                  onValueChange={day1To7daysHandler}
+                />
+                <Text style={styles.checkboxLabel}>1 day - 7 days</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={week1To4weeks}
+                  onValueChange={week1To4weeksHandler}
+                />
+                <Text style={styles.checkboxLabel}>1 week - 4 weeks</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={week4To4months}
+                  onValueChange={week4To4monthsHandler}
+                />
+                <Text style={styles.checkboxLabel}>4 week - 4 months</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputTextContainerMultiLine}>
+            <TextInput
+              value={presentHistory}
+              multiline={true}
+              numberOfLines={4}
+              onChangeText={presentHistoryHandler}
+              keyboardType="ascii-capable"
+              placeholder="Present History"
+              placeholderTextColor="#FFFFFF"
+              style={styles.presentText}
+            />
+          </View>
+          <View style={styles.inputTextContainerMultiLine}>
+            <TextInput
+              value={chiefComplaint}
+              multiline={true}
+              numberOfLines={4}
+              onChangeText={chiefComplaintHandler}
+              keyboardType="ascii-capable"
+              placeholder="Chief Complaint"
+              placeholderTextColor="#FFFFFF"
+              style={styles.complaintText}
+            />
+          </View>
+          {/* Section IV =>  Developemental Milestones (months) */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Developemental Milestones (months)
+          </Text>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={handHolding}
+              onChangeText={handHoldingHandler}
+              keyboardType="numeric"
+              placeholder="Hand Holding"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={rolling}
+              onChangeText={rollingHandler}
+              keyboardType="numeric"
+              placeholder="Rolling"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={crawling}
+              onChangeText={crawlingHandler}
+              keyboardType="numeric"
+              placeholder="Crawling"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={sitting}
+              onChangeText={sittingHandler}
+              keyboardType="numeric"
+              placeholder="Sitting"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={standing}
+              onChangeText={standingHandler}
+              keyboardType="numeric"
+              placeholder="Standing"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={walking}
+              onChangeText={walkingHandler}
+              keyboardType="numeric"
+              placeholder="Walking"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
           {/* Save & Share Buttons  */}
           <View style={styles.inputFieldContainerSHARE}>
             <TouchableOpacity style={styles.exportBtn} onPress={handleSharePdf}>
@@ -823,11 +1263,11 @@ const MainForm1 = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#c3dde6',
   },
   inputTextContainer: {
     width: wp('90%'),
-    height: hp('5%'),
+    height: hp('6%'),
     marginVertical: wp('2%'),
     marginHorizontal: wp('4%'),
     backgroundColor: '#5F7EFF',
@@ -836,14 +1276,17 @@ const styles = StyleSheet.create({
   firstName: {
     color: 'white',
     fontSize: wp('3.5%'),
+    marginVertical: wp('1%'),
     marginHorizontal: wp('1.5%'),
   },
   lastName: {
+    marginVertical: wp('1%'),
     color: 'white',
     fontSize: wp('3.5%'),
     marginHorizontal: wp('1.5%'),
   },
   userAge: {
+    marginVertical: wp('1%'),
     color: 'white',
     fontSize: wp('3.5%'),
     marginHorizontal: wp('1.5%'),
@@ -1017,6 +1460,159 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('1.5%'),
     marginVertical: wp('1.8%'),
   },
+  inputFieldContainerMCQ: {
+    width: wp('90%'),
+    height: hp('35%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  multipleChoiceHeader: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    fontWeight: 'bold',
+    marginVertical: wp('3.2%'),
+    marginHorizontal: wp('4%'),
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  checkboxWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: wp('1.3%'),
+    marginHorizontal: wp('3%'),
+  },
+  checkboxLabel: {
+    color: 'white',
+    fontSize: wp('3%'),
+    marginHorizontal: wp('3%'),
+  },
+  checkBoxContainerNatal: {
+    width: wp('90%'),
+    height: hp('7%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  natalHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('4%'),
+    marginVertical: hp('2%'),
+  },
+  checkContainerNatal: {
+    marginHorizontal: wp('2%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  fullTermCheckBox: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('2%'),
+  },
+  fullTermBoxText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('1%'),
+  },
+  preTermCheckBox: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('3%'),
+  },
+  preTermCheckBoxText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: hp('1%'),
+    marginHorizontal: wp('3%'),
+  },
+  ciabHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('2%'),
+  },
+  ciabContainer: {
+    marginHorizontal: wp('8%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  ciabYesCheck: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('2%'),
+  },
+  ciabYesCheckText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('1%'),
+  },
+  ciabNoCheck: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('3%'),
+  },
+  ciabNoCheckText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: hp('1%'),
+    marginHorizontal: wp('3%'),
+  },
+  weigthHeightContainer: {
+    width: wp('90%'),
+    height: hp('6%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  userWeightText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: wp('1%'),
+    marginHorizontal: wp('1.5%'),
+  },
+  userHeightText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: wp('1%'),
+    marginHorizontal: wp('1.5%'),
+  },
+  inputFieldContainer3Q: {
+    width: wp('90%'),
+    height: hp('25%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  presentText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('1.5%'),
+  },
+  complaintText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('1.5%'),
+  },
+  developmentMilestoneContainer: {
+    width: wp('90%'),
+    height: hp('6%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  developmentMileStoneText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: wp('1%'),
+    marginHorizontal: wp('1.5%'),
+  },
   inputFieldContainerEXPORT: {
     width: wp('80%'),
     height: hp('5%'),
@@ -1031,7 +1627,7 @@ const styles = StyleSheet.create({
   inputFieldContainerSHARE: {
     width: wp('80%'),
     height: hp('5%'),
-    marginVertical: wp('150%'),
+    marginVertical: wp('10%'),
     marginHorizontal: wp('10%'),
     flexDirection: 'column',
     backgroundColor: '#5F7EFF',

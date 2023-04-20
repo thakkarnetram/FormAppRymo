@@ -10,12 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
   responsiveScreenHeight,
-  responsiveScreenWidth,
-  responsiveScreenFontSize,
 } from 'react-native-responsive-dimensions';
 import {
   widthPercentageToDP as wp,
@@ -30,7 +25,7 @@ const Home = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              navigation.navigate('Main');
+              navigation.navigate('Form 1');
             }}>
             <Text style={styles.buttonTextStyle}>Form 1</Text>
           </TouchableOpacity>

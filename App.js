@@ -35,7 +35,7 @@ function App() {
           options={{headerTitleAlign: 'center'}}
         /> */}
         <Stack.Screen
-          name="Main"
+          name="Form 1"
           component={MainForm1}
           options={{headerTitleAlign: 'center'}}
         />

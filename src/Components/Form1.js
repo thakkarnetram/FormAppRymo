@@ -153,10 +153,10 @@ import RNFS from 'react-native-fs';
 //       html += `<h2>Date of Birth: ${dob.toLocaleDateString()}</h2>`;
 //     }
 
-//     const modesOfAmbulation = Object.keys(options).filter(key => options[key]);
-//     if (modesOfAmbulation.length > 0) {
-//       html += `<h2>Modes of Ambulation: ${modesOfAmbulation.join(', ')}</h2>`;
-//     }
+    // const modesOfAmbulation = Object.keys(options).filter(key => options[key]);
+    // if (modesOfAmbulation.length > 0) {
+    //   html += `<h2>Modes of Ambulation: ${modesOfAmbulation.join(', ')}</h2>`;
+    // }
 
 //     if (pickerSelectedValue) {
 //       html += `<h2>Health Option: ${pickerSelectedValue}</h2>`;
@@ -332,48 +332,48 @@ import RNFS from 'react-native-fs';
 //               />
 //             )}
 //           </View>
-//           <View style={styles.inputFieldContainerMCQ}>
-//             <View style={{flexDirection: 'column'}}>
-//               <Text style={styles.multipleChoiceHeader}>
-//                 Mode of Ambulation:
-//               </Text>
-//               <View style={styles.checkboxWrapper}>
-//                 <CheckBox
-//                   value={options.carriedByParent}
-//                   onValueChange={() => handleOptionChange('carriedByParent')}
-//                 />
-//                 <Text style={styles.checkboxLabel}>Carried by Parent</Text>
-//               </View>
-//               <View style={styles.checkboxWrapper}>
-//                 <CheckBox
-//                   value={options.walking}
-//                   onValueChange={() => handleOptionChange('walking')}
-//                 />
-//                 <Text style={styles.checkboxLabel}>Walking</Text>
-//               </View>
-//               <View style={styles.checkboxWrapper}>
-//                 <CheckBox
-//                   value={options.walker}
-//                   onValueChange={() => handleOptionChange('walker')}
-//                 />
-//                 <Text style={styles.checkboxLabel}>Walker</Text>
-//               </View>
-//               <View style={styles.checkboxWrapper}>
-//                 <CheckBox
-//                   value={options.walkingSticks}
-//                   onValueChange={() => handleOptionChange('walkingSticks')}
-//                 />
-//                 <Text style={styles.checkboxLabel}>Walking Sticks</Text>
-//               </View>
-//               <View style={styles.checkboxWrapper}>
-//                 <CheckBox
-//                   value={options.wheelChair}
-//                   onValueChange={() => handleOptionChange('wheelChair')}
-//                 />
-//                 <Text style={styles.checkboxLabel}>Wheel Chair</Text>
-//               </View>
-//             </View>
-//           </View>
+          // <View style={styles.inputFieldContainerMCQ}>
+          //   <View style={{flexDirection: 'column'}}>
+          //     <Text style={styles.multipleChoiceHeader}>
+          //       Mode of Ambulation:
+          //     </Text>
+          //     <View style={styles.checkboxWrapper}>
+          //       <CheckBox
+          //         value={options.carriedByParent}
+          //         onValueChange={() => handleOptionChange('carriedByParent')}
+          //       />
+          //       <Text style={styles.checkboxLabel}>Carried by Parent</Text>
+          //     </View>
+          //     <View style={styles.checkboxWrapper}>
+          //       <CheckBox
+          //         value={options.walking}
+          //         onValueChange={() => handleOptionChange('walking')}
+          //       />
+          //       <Text style={styles.checkboxLabel}>Walking</Text>
+          //     </View>
+          //     <View style={styles.checkboxWrapper}>
+          //       <CheckBox
+          //         value={options.walker}
+          //         onValueChange={() => handleOptionChange('walker')}
+          //       />
+          //       <Text style={styles.checkboxLabel}>Walker</Text>
+          //     </View>
+          //     <View style={styles.checkboxWrapper}>
+          //       <CheckBox
+          //         value={options.walkingSticks}
+          //         onValueChange={() => handleOptionChange('walkingSticks')}
+          //       />
+          //       <Text style={styles.checkboxLabel}>Walking Sticks</Text>
+          //     </View>
+          //     <View style={styles.checkboxWrapper}>
+          //       <CheckBox
+          //         value={options.wheelChair}
+          //         onValueChange={() => handleOptionChange('wheelChair')}
+          //       />
+          //       <Text style={styles.checkboxLabel}>Wheel Chair</Text>
+          //     </View>
+          //   </View>
+          // </View>
           // <View style={styles.inputFieldContainerPICKER}>
           //   <View style={{flexDirection: 'row'}}>
           //     <Text style={styles.healthOptionHead}>
@@ -504,38 +504,38 @@ import RNFS from 'react-native-fs';
   //   fontWeight: 'bold',
   //   textAlign: 'center',
   // },
-//   inputFieldContainerMCQ: {
-//     width: responsiveScreenWidth(85),
-//     height: responsiveScreenHeight(25),
-//     flexDirection: 'column',
-//     backgroundColor: '#006eff',
-//     top: 30,
-//     marginLeft: 50,
-//     borderRadius: 10,
-//     marginBottom: 40,
-//     marginRight: 50,
-//   },
-//   multipleChoiceHeader: {
-//     color: 'white',
-//     fontSize: responsiveFontSize(1.25),
-//     margin: 20,
-//   },
-//   checkboxContainer: {
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     alignItems: 'center',
-//   },
-//   checkboxWrapper: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     marginBottom: 16,
-//     marginLeft: 20,
-//   },
-//   checkboxLabel: {
-//     color: 'white',
-//     fontSize: responsiveFontSize(1.2),
-//     marginLeft: 8,
-//   },
+  // inputFieldContainerMCQ: {
+  //   width: responsiveScreenWidth(85),
+  //   height: responsiveScreenHeight(25),
+  //   flexDirection: 'column',
+  //   backgroundColor: '#006eff',
+  //   top: 30,
+  //   marginLeft: 50,
+  //   borderRadius: 10,
+  //   marginBottom: 40,
+  //   marginRight: 50,
+  // },
+  // multipleChoiceHeader: {
+  //   color: 'white',
+  //   fontSize: responsiveFontSize(1.25),
+  //   margin: 20,
+  // },
+  // checkboxContainer: {
+  //   flexDirection: 'row',
+  //   flexWrap: 'wrap',
+  //   alignItems: 'center',
+  // },
+  // checkboxWrapper: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   marginBottom: 16,
+  //   marginLeft: 20,
+  // },
+  // checkboxLabel: {
+  //   color: 'white',
+  //   fontSize: responsiveFontSize(1.2),
+  //   marginLeft: 8,
+  // },
 //   inputFieldContainerPICKER: {
 //     width: responsiveScreenWidth(85),
 //     height: responsiveScreenHeight(6),
