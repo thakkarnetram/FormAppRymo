@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "formApp.app"
-               BlueprintName = "formApp"
-               ReferencedContainer = "container:formApp.xcodeproj">
+               BuildableName = "PediatricAssessment.app"
+               BlueprintName = "PediatricAssessment"
+               ReferencedContainer = "container:PediatricAssessment.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "formAppTests.xctest"
-               BlueprintName = "formAppTests"
-               ReferencedContainer = "container:formApp.xcodeproj">
+               BuildableName = "PediatricAssessmentTests.xctest"
+               BlueprintName = "PediatricAssessmentTests"
+               ReferencedContainer = "container:PediatricAssessment.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "formApp.app"
-            BlueprintName = "formApp"
-            ReferencedContainer = "container:formApp.xcodeproj">
+            BuildableName = "PediatricAssessment.app"
+            BlueprintName = "PediatricAssessment"
+            ReferencedContainer = "container:PediatricAssessment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "formApp.app"
-            BlueprintName = "formApp"
-            ReferencedContainer = "container:formApp.xcodeproj">
+            BuildableName = "PediatricAssessment.app"
+            BlueprintName = "PediatricAssessment"
+            ReferencedContainer = "container:PediatricAssessment.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

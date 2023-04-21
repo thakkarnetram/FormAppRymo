@@ -43,13 +43,13 @@ import RNFS from 'react-native-fs';
 //   const [selectedGender, setSelectedGender] = useState('');
 //   const [dob, setDob] = useState(new Date());
 //   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-//   const [options, setOptions] = useState({
-//     carriedByParent: false,
-//     walking: false,
-//     walker: false,
-//     walkingSticks: false,
-//     wheelChair: false,
-//   });
+  // const [options, setOptions] = useState({
+  //   carriedByParent: false,
+  //   walking: false,
+  //   walker: false,
+  //   walkingSticks: false,
+  //   wheelChair: false,
+  // });
 //   const [pickerSelectedValue, setPickerSelectedValue] = useState('');
 
 //   // Functions for managing values onChange
@@ -91,16 +91,16 @@ import RNFS from 'react-native-fs';
 //   // };
 
 //   // Multiple choice checkbox handler
-//   const handleOptionChange = option => {
-//     setOptions({...options, [option]: !options[option]});
-//   };
+  // const handleOptionChange = option => {
+  //   setOptions({...options, [option]: !options[option]});
+  // };
 
-//   const selectedValues = [];
-//   Object.entries(options).forEach(([key, value]) => {
-//     if (value) {
-//       selectedValues.push(key);
-//     }
-//   });
+  // const selectedValues = [];
+  // Object.entries(options).forEach(([key, value]) => {
+  //   if (value) {
+  //     selectedValues.push(key);
+  //   }
+  // });
 //   const logMCQ = console.log(`Selected Options: ${selectedValues.join(', ')}`);
 
 //   // dropdown handlers

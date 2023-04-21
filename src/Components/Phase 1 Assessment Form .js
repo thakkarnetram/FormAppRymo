@@ -3,7 +3,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -34,8 +34,21 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Orientation from 'react-native-orientation-locker';
+import Immersive from 'react-native-immersive';
 
-const MainForm1 = () => {
+const Phase_1_Assessment_Form = () => {
+  // locking screen to potrait mode
+  Orientation.lockToPortrait();
+
+  useEffect(() => {
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
+
+  // Immersive fullScreen
+  Immersive.setImmersive(true);
   // Declaring all the states
   const [permission, setPermission] = useState(false);
   // section I => Personal Details
@@ -50,7 +63,7 @@ const MainForm1 = () => {
   const [userDob, setUserDob] = useState(new Date());
   const [evaluationDate, setEvaluationDate] = useState(new Date());
   const [informant, setInformant] = useState('');
-  const [addressedBy, setAddressedBy] = useState('');
+  const [assessmentBy, setAssessmentBy] = useState('');
   const [diagnosis, setDiagnosis] = useState('');
   const [referredBy, setReferredBy] = useState('');
   const [gmfcOptions, setGmfcOptions] = useState();
@@ -94,8 +107,8 @@ const MainForm1 = () => {
   const informantHandler = text => {
     setInformant(text);
   };
-  const addressedByHandler = text => {
-    setAddressedBy(text);
+  const assessmentByHandler = text => {
+    setAssessmentBy(text);
   };
   const diagnosisHandler = text => {
     setDiagnosis(text);
@@ -164,8 +177,8 @@ const MainForm1 = () => {
   const [ciabYes, setCiabYes] = useState(false);
   const [ciabNo, setCiabNo] = useState(false);
   const [ciabOptions, setCiabOptions] = useState('');
-  const [userWeight, setUserWeight] = useState('');
-  const [userHeight, setUserHeight] = useState('');
+  const [userBirthWeight, setUserBirthWeight] = useState('');
+  const [userHeadCircumference, setUserHeadCircumference] = useState('');
   const [day1To7days, setDay1To7days] = useState(false);
   const [week1To4weeks, setWeek1To4weeks] = useState(false);
   const [week4To4months, setWeek4To4months] = useState(false);
@@ -183,12 +196,12 @@ const MainForm1 = () => {
     setCiabOptions('No');
   };
 
-  const userWeightHandler = userWeight => {
-    setUserWeight(userWeight);
+  const userBirthWeightHandler = userBirthWeight => {
+    setUserBirthWeight(userBirthWeight);
   };
 
-  const userHeightHandler = userHeight => {
-    setUserHeight(userHeight);
+  const userHeadCircumferenceHandler = userHeadCircumference => {
+    setUserHeadCircumference(userHeadCircumference);
   };
 
   const day1To7daysHandler = day1To7days => {
@@ -245,10 +258,183 @@ const MainForm1 = () => {
     setWalking(walking);
   };
 
+  // Section V => Subjective Assessment
+  const [sightIntact, setSightIntact] = useState(false);
+  const [sightNotIntact, setSightNotIntact] = useState(false);
+  const [hearingIntact, setHearingIntact] = useState(false);
+  const [hearingNotIntact, setHearingNotIntact] = useState(false);
+  const [speechIntact, setSpeechIntact] = useState(false);
+  const [speechNotIntact, setSpeechNotIntact] = useState(false);
+  const [carried, setCarried] = useState(false);
+  const [walkingSticks, setWalkingSticks] = useState(false);
+  const [wheelChair, setWheelChair] = useState(false);
+  const [walkingWalker, setWalkingWalker] = useState(false);
+  const [walkingIndependently, setWalkingIndependently] = useState(false);
+
+  const sightIntactHandler = sightIntact => {
+    setSightIntact(sightIntact);
+    setSightNotIntact(false);
+  };
+
+  const sightNotIntactHandler = sightNotIntact => {
+    setSightNotIntact(sightNotIntact);
+    setSightIntact(false);
+  };
+
+  const hearingIntactHandler = hearingIntact => {
+    setHearingIntact(hearingIntact);
+    setHearingNotIntact(false);
+  };
+
+  const hearingNotIntactHandler = hearingNotIntact => {
+    setHearingNotIntact(hearingNotIntact);
+    setHearingIntact(false);
+  };
+
+  const speechIntactHandler = speechIntact => {
+    setSpeechIntact(speechIntact);
+    setSpeechNotIntact(false);
+  };
+
+  const speechNotIntactHandler = speechNotIntact => {
+    setSpeechNotIntact(speechNotIntact);
+    setSpeechIntact(false);
+  };
+
+  const carriedHandler = carried => {
+    setCarried(carried);
+    setWalkingSticks(false);
+    setWheelChair(false);
+    setWalkingWalker(false);
+    setWalkingIndependently(false);
+  };
+
+  const walkingSticksHandler = walkingSticks => {
+    setWalkingSticks(walkingSticks);
+    setCarried(false);
+    setWheelChair(false);
+    setWalkingWalker(false);
+    setWalkingIndependently(false);
+  };
+
+  const wheelChairHandler = wheelChair => {
+    setWheelChair(wheelChair);
+    setCarried(false);
+    setWalkingSticks(false);
+    setWalkingWalker(false);
+    setWalkingIndependently(false);
+  };
+
+  const walkingWalkerHandler = walkingWalker => {
+    setWalkingWalker(walkingWalker);
+    setCarried(false);
+    setWalkingSticks(false);
+    setWheelChair(false);
+    setWalkingIndependently(false);
+  };
+
+  const walkingIndependentlyHandler = walkingIndependently => {
+    setWalkingIndependently(walkingIndependently);
+    setCarried(false);
+    setWalkingSticks(false);
+    setWheelChair(false);
+    setWalkingWalker(false);
+  };
+
+  // Section VI => General Observation
+
+  const [mri, setMri] = useState('');
+  const [eeg, setEeg] = useState('');
+  const [bera, setBera] = useState('');
+  const [opthalmalogy, setOpthalmalogy] = useState('');
+  const [xRays, setXRays] = useState('');
+
+  const setMriHandler = mri => {
+    setMri(mri);
+  };
+  const setEegHandler = eeg => {
+    setEeg(eeg);
+  };
+  const setBeraHandler = bera => {
+    setBera(bera);
+  };
+  const setOpthalmalogyHandler = opthalmalogy => {
+    setOpthalmalogy(opthalmalogy);
+  };
+  const setXRaysHandler = xRays => {
+    setXRays(xRays);
+  };
+
+  // Section VII => Objective assessment
+  const [hypotonia, sethypotonia] = useState(false);
+  const [hypertonia, sethypertonia] = useState(false);
+  const [deformities, setDeformities] = useState('');
+  const [contracture, setContracture] = useState('');
+  const [tightness, setTightness] = useState('');
+
+  const hypotoniaHandler = hypotonia => {
+    sethypotonia(hypotonia);
+    sethypertonia(false);
+  };
+
+  const hypertoniaHandler = hypertonia => {
+    sethypertonia(hypertonia);
+    sethypotonia(false);
+  };
+
+  const deformitiesHandler = deformities => {
+    setDeformities(deformities);
+  };
+
+  const contractureHandler = contracture => {
+    setContracture(contracture);
+  };
+
+  const tightnessHandler = tightness => {
+    setTightness(tightness);
+  };
+
   // Generating html
   const generateHtml = () => {
-    let html =
-      '<html><head><style>body{font-family:Arial; padding:10px;} h1{font-size:24px; margin-bottom:10px;} .section{margin-bottom:15px; border-bottom:1px solid #ccc; padding-bottom:20px;} .label{font-weight:bold; margin-bottom:5px; color:#555;} .value{font-weight:bold;}</style></head><body>';
+    let html = `
+    <html>
+    <head>
+      <style>
+      body{font-family:Arial;
+       padding:10px;} h1{font-size:24px; margin-bottom:10px;} 
+       .section{margin-bottom:15px; border-bottom:1px solid #ccc; padding-bottom:20px;}
+        .label{font-weight:bold; margin-bottom:5px; color:#555;} 
+        .value{font-weight:bold;}
+        </style>
+        </head>
+        <body>`;
+
+    // Section I => Patient Details
+    if (
+      firstName ||
+      lastName ||
+      userAge ||
+      male ||
+      female ||
+      userDob ||
+      evaluationDate ||
+      informant ||
+      assessmentBy ||
+      diagnosis ||
+      referredBy ||
+      gmfcOptions ||
+      macsOptions ||
+      miniMacOptions ||
+      cfcsOptions
+    ) {
+      html += `
+      <div class="label">
+        <h1>1. Patient Details</h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
     if (firstName.trim()) {
       html += `<div class="section"><div class="label"><h2>First Name:</h2></div><div class="value"><h3>${firstName.trim()}</h3></div></div>`;
     }
@@ -281,8 +467,8 @@ const MainForm1 = () => {
     if (informant.trim()) {
       html += `<div class="section"><div class="label"><h2>Informant:</h2></div><div class="value"><h3>${informant.trim()}</h3></div></div>`;
     }
-    if (addressedBy.trim()) {
-      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${addressedBy.trim()}</h3></div></div>`;
+    if (assessmentBy.trim()) {
+      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${assessmentBy.trim()}</h3></div></div>`;
     }
     if (diagnosis.trim()) {
       html += `<div class="section"><div class="label"><h2>Diagnosis:</h2></div><div class="value"><h3>${diagnosis.trim()}</h3></div></div>`;
@@ -331,16 +517,14 @@ const MainForm1 = () => {
     }
 
     html += `</br>`;
-
+    // Section 2
     if (selectedNatalOptions || fullTerm || preTerm) {
       html += `
-    <div class="section">
       <div class="label">
-        <h1>HISTORY</h1>
+        <h1>2. HISTORY</h1>
       </div>
       <div class="value">
       </div>
-    </div>
     `;
     }
 
@@ -379,8 +563,8 @@ const MainForm1 = () => {
     if (
       ciabYes ||
       ciabNo ||
-      userWeight ||
-      userHeight ||
+      userBirthWeight ||
+      userHeadCircumference ||
       day1To7days ||
       week1To4weeks ||
       week4To4months ||
@@ -388,13 +572,11 @@ const MainForm1 = () => {
       chiefComplaint
     ) {
       html += `
-    <div class="section">
       <div class="label">
         <h1>Post Natal</h1>
       </div>
       <div class="value">
       </div>
-    </div>
       `;
     }
 
@@ -414,21 +596,21 @@ const MainForm1 = () => {
     `;
     }
 
-    if (userWeight.trim()) {
+    if (userBirthWeight.trim()) {
       html += `<div class="section">
       <div class="label">
-      <h2>Weight (kgs) </h2>
+      <h2>Birth Weight (kgs) </h2>
       </div><div class="value">
-      <h3>${userWeight.trim()}</h3>
+      <h3>${userBirthWeight.trim()}</h3>
       </div></div>`;
     }
 
-    if (userHeight.trim()) {
+    if (userHeadCircumference.trim()) {
       html += `<div class="section">
       <div class="label">
-      <h2>Height (cms) </h2>
+      <h2>Head Circumference (cms) </h2>
       </div><div class="value">
-      <h3>${userHeight.trim()}</h3>
+      <h3>${userHeadCircumference.trim()}</h3>
       </div></div>`;
     }
 
@@ -470,15 +652,104 @@ const MainForm1 = () => {
 
     html += `</br>`;
 
-    if (handHolding || rolling || crawling || sitting || standing || walking) {
+    // Section 3
+
+    if (
+      sightIntact ||
+      sightNotIntact ||
+      hearingIntact ||
+      hearingNotIntact ||
+      speechIntact ||
+      speechNotIntact ||
+      carried ||
+      walkingSticks ||
+      wheelChair ||
+      walkingWalker ||
+      walkingIndependently
+    ) {
       html += `
-    <div class="section">
       <div class="label">
-        <h1> Developemental Milestones (months)</h1>
+        <h1>3. Subjective Assessment</h1>
       </div>
       <div class="value">
       </div>
-    </div>
+      `;
+    }
+
+    if (sightIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Sight - </h2>
+      </div><div class="value"><h3>Intact</h3>
+      </div></div>`;
+    } else if (sightNotIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Sight - </h2>
+      </div><div class="value"><h3>Not Intact</h3>
+      </div></div>`;
+    }
+
+    if (hearingIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Hearing - </h2>
+      </div><div class="value"><h3>Intact</h3>
+      </div></div>`;
+    } else if (hearingNotIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Hearing - </h2>
+      </div><div class="value"><h3>Not Intact</h3>
+      </div></div>`;
+    }
+
+    if (speechIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Speech/Communication - </h2>
+      </div><div class="value"><h3>Intact</h3>
+      </div></div>`;
+    } else if (speechNotIntact) {
+      html += `<div class="section">
+      <div class="label"><h2>Speech/Communication - </h2>
+      </div><div class="value"><h3>Not Intact</h3>
+      </div></div>`;
+    }
+
+    if (carried) {
+      html += `<div class="section">
+      <div class="label"><h2>Mode Of Ambulation -</h2>
+      </div><div class="value"><h3>Carried by Parent</h3>
+      </div></div>`;
+    } else if (walkingSticks) {
+      html += `<div class="section">
+      <div class="label"><h2>Mode Of Ambulation -</h2>
+      </div><div class="value"><h3>Walking with Sticks</h3>
+      </div></div>`;
+    } else if (wheelChair) {
+      html += `<div class="section">
+      <div class="label"><h2>Mode Of Ambulation -</h2>
+      </div><div class="value"><h3>Wheel Chair</h3>
+      </div></div>`;
+    } else if (walkingWalker) {
+      html += `<div class="section">
+      <div class="label"><h2>Mode Of Ambulation -</h2>
+      </div><div class="value"><h3>Walking with Walker</h3>
+      </div></div>`;
+    } else if (walkingIndependently) {
+      html += `<div class="section">
+      <div class="label"><h2>Mode Of Ambulation -</h2>
+      </div><div class="value"><h3>Walking Independently</h3>
+      </div></div>`;
+    }
+
+    html += `</br>`;
+
+    // Section 4
+
+    if (handHolding || rolling || crawling || sitting || standing || walking) {
+      html += `
+      <div class="label">
+        <h1>4. Developemental Milestones (months)</h1>
+      </div>
+      <div class="value">
+      </div>
       `;
     }
     if (handHolding.trim()) {
@@ -517,6 +788,99 @@ const MainForm1 = () => {
       </div><div class="value"><h3>${walking.trim()}</h3>
       </div></div>`;
     }
+
+    // Section 5
+
+    if (mri || eeg || bera || opthalmalogy || xRays) {
+      html += `
+      <div class="label">
+        <h1>5. General Observations </h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
+
+    if (mri.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>MRI - </h2>
+      </div><div class="value"><h3>${mri.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (eeg.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>EEG - </h2>
+      </div><div class="value"><h3>${eeg.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (bera.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Bera - </h2>
+      </div><div class="value"><h3>${bera.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (opthalmalogy.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Ophthalmalogy - </h2>
+      </div><div class="value"><h3>${opthalmalogy.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (xRays.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>X-Rays - </h2>
+      </div><div class="value"><h3>${xRays.trim()}</h3>
+      </div></div>`;
+    }
+
+    html += `</br>`;
+    // Section 6
+
+    if (hypertonia || hypotonia || deformities || contracture || tightness) {
+      html += `
+      <div class="label">
+        <h1>6. Objective Assessment </h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
+
+    if (hypotonia) {
+      html += `<div class="section">
+      <div class="label"><h2>Tone - </h2>
+      </div><div class="value"><h3>${hypotonia}</h3>
+      </div></div>`;
+    } else if (hypertonia) {
+      html += `<div class="section">
+      <div class="label"><h2>Tone - </h2>
+      </div><div class="value"><h3>${hypertonia}</h3>
+      </div></div>`;
+    }
+
+    if (deformities.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Deformities - </h2>
+      </div><div class="value"><h3>${deformities.trim()}</h3>
+      </div></div>`;
+    }
+    if (contracture.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Contracture - </h2>
+      </div><div class="value"><h3>${contracture.trim()}</h3>
+      </div></div>`;
+    }
+
+    if (tightness.trim()) {
+      html += `<div class="section">
+      <div class="label"><h2>Tightness - </h2>
+      </div><div class="value"><h3>${tightness.trim()}</h3>
+      </div></div>`;
+    }
+
     return html;
   };
 
@@ -555,89 +919,17 @@ const MainForm1 = () => {
     }
   };
   // Saving to Local Storage Logic
-  const handleExportPdf = async (
-    firstName,
-    lastName,
-    userAge,
-    male,
-    female,
-    userDob,
-    evaluationDate,
-    informant,
-    addressedBy,
-    diagnosis,
-    referredBy,
-    gmfcOptions,
-    macsOptions,
-    miniMacOptions,
-    cfcsOptions,
-    preNatalOptions,
-    fullTerm,
-    preTerm,
-    selectedNatalOptions,
-    ciabYes,
-    ciabNo,
-    userWeight,
-    userHeight,
-    nicuStayOptions,
-    presentHistory,
-    chiefComplaint,
-    handHolding,
-    rolling,
-    crawling,
-    sitting,
-    standing,
-    walking,
-    attachmentUrl,
-    directory,
-    fileName,
-  ) => {
+  const handleExportPdf = async (attachmentUrl, directory, fileName) => {
     try {
       // Request storage permission if needed
       handleSaveToLocal();
       // Generate the HTML to convert to PDF
-      const htmlContent = generateHtml(
-        firstName,
-        lastName,
-        userAge,
-        male,
-        female,
-        userDob,
-        evaluationDate,
-        informant,
-        addressedBy,
-        diagnosis,
-        referredBy,
-        gmfcOptions,
-        macsOptions,
-        miniMacOptions,
-        cfcsOptions,
-        preNatalOptions,
-        fullTerm,
-        preTerm,
-        selectedNatalOptions,
-        ciabYes,
-        ciabNo,
-        userWeight,
-        userHeight,
-        nicuStayOptions,
-        presentHistory,
-        chiefComplaint,
-        handHolding,
-        rolling,
-        crawling,
-        sitting,
-        standing,
-        walking,
-        attachmentUrl,
-        directory,
-        fileName,
-      );
+      const htmlContent = generateHtml(attachmentUrl, directory, fileName);
 
       // Create the options for the PDF conversion
       const pdfOptions = {
         html: htmlContent,
-        fileName: 'form',
+        fileName: `${firstName}_${evaluationDate.toISOString().slice(0, 10)}`,
         directory: RNHTMLtoPDF.DocumentDirectory,
       };
 
@@ -659,7 +951,7 @@ const MainForm1 = () => {
       // Create the options for the PDF conversion
       const options = {
         html: htmlContent,
-        fileName: 'form',
+        fileName: `${firstName}_${evaluationDate.toISOString().slice(0, 10)}`,
         directory: 'PDFReports',
       };
 
@@ -790,12 +1082,12 @@ const MainForm1 = () => {
           </View>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
-              value={addressedBy}
+              value={assessmentBy}
               multiline={true}
               numberOfLines={4}
-              onChangeText={addressedByHandler}
+              onChangeText={assessmentByHandler}
               keyboardType="ascii-capable"
-              placeholder="Addressed By"
+              placeholder="Assessment By"
               placeholderTextColor="#FFFFFF"
               style={styles.addressedByText}
             />
@@ -1103,20 +1395,20 @@ const MainForm1 = () => {
           </View>
           <View style={styles.weigthHeightContainer}>
             <TextInput
-              value={userWeight}
-              onChangeText={userWeightHandler}
+              value={userBirthWeight}
+              onChangeText={userBirthWeightHandler}
               keyboardType="numeric"
-              placeholder="Weight (kg)"
+              placeholder="Birth Weight (kg)"
               placeholderTextColor="#FFFFFF"
               style={styles.userWeightText}
             />
           </View>
           <View style={styles.weigthHeightContainer}>
             <TextInput
-              value={userHeight}
-              onChangeText={userHeightHandler}
+              value={userHeadCircumference}
+              onChangeText={userHeadCircumferenceHandler}
               keyboardType="numeric"
-              placeholder="Height (cm)"
+              placeholder="Head Circumference (cm)"
               placeholderTextColor="#FFFFFF"
               style={styles.userHeightText}
             />
@@ -1170,6 +1462,115 @@ const MainForm1 = () => {
               placeholderTextColor="#FFFFFF"
               style={styles.complaintText}
             />
+          </View>
+          {/* Section III => Subjective Assessment */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4.5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Subjective Assessment
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.sightHead}>Sight </Text>
+              <View style={styles.sightContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={sightIntact}
+                  onValueChange={sightIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={sightNotIntact}
+                  onValueChange={sightNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.hearingHead}>Hearing </Text>
+              <View style={styles.hearingContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={hearingIntact}
+                  onValueChange={hearingIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={hearingNotIntact}
+                  onValueChange={hearingNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.speechHead}>Speech</Text>
+              <View style={styles.speechContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={speechIntact}
+                  onValueChange={speechIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={speechNotIntact}
+                  onValueChange={speechNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputFieldContainer5Q}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader5Q}>
+                Mode of Ambulation
+              </Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={carried} onValueChange={carriedHandler} />
+                <Text style={styles.checkboxLabel5Q}>Carried By Parent</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingSticks}
+                  onValueChange={walkingSticksHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Walking Sticks</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={wheelChair}
+                  onValueChange={wheelChairHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Wheel Chair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingWalker}
+                  onValueChange={walkingWalkerHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Walking Walker</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingIndependently}
+                  onValueChange={walkingIndependentlyHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>
+                  Walking Independently
+                </Text>
+              </View>
+            </View>
           </View>
           {/* Section IV =>  Developemental Milestones (months) */}
           <Text
@@ -1242,7 +1643,148 @@ const MainForm1 = () => {
               style={styles.developmentMileStoneText}
             />
           </View>
+
+          {/* Section VI => General Observation */}
+
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Investigation
+          </Text>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={mri}
+              onChangeText={setMriHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="MRI"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={eeg}
+              onChangeText={setEegHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="EEG"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={bera}
+              onChangeText={setBeraHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="BERA"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={opthalmalogy}
+              onChangeText={setOpthalmalogyHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Opthalmaology"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={xRays}
+              onChangeText={setXRaysHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="XRAYS"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+
+          {/* Objective Assessment */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Objective Assessment
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.toneHead}>Tone</Text>
+              <View style={styles.toneContainer}>
+                <CheckBox
+                  style={styles.hypotoniaYes}
+                  value={hypotonia}
+                  onValueChange={hypotoniaHandler}
+                />
+                <Text style={styles.hypotoniaYesText}>Hypotonia</Text>
+                <CheckBox
+                  style={styles.hypertoniaNo}
+                  value={hypertonia}
+                  onValueChange={hypertoniaHandler}
+                />
+                <Text style={styles.hypertoniaNoText}>Hypertonia</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.objectiveAssessmentContainer}>
+            <TextInput
+              value={deformities}
+              onChangeText={deformitiesHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Deformities"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssessmentText}
+            />
+          </View>
+          <View style={styles.objectiveAssessmentContainer}>
+            <TextInput
+              value={contracture}
+              onChangeText={contractureHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Contracture"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssessmentText}
+            />
+          </View>
+          <View style={styles.objectiveAssessmentContainer}>
+            <TextInput
+              value={tightness}
+              onChangeText={tightnessHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Tightness"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssessmentText}
+            />
+          </View>
           {/* Save & Share Buttons  */}
+
           <View style={styles.inputFieldContainerSHARE}>
             <TouchableOpacity style={styles.exportBtn} onPress={handleSharePdf}>
               <Text style={styles.exportText}>Share PDF</Text>
@@ -1613,6 +2155,138 @@ const styles = StyleSheet.create({
     marginVertical: wp('1%'),
     marginHorizontal: wp('1.5%'),
   },
+  sightHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('2%'),
+  },
+  sightContainer: {
+    marginHorizontal: wp('8%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  intactYes: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('2%'),
+  },
+  intactYesText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('1%'),
+  },
+  intactNo: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('3%'),
+  },
+  intactNoText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: hp('1%'),
+    marginHorizontal: wp('3%'),
+  },
+  hearingHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('2%'),
+  },
+  hearingContainer: {
+    marginHorizontal: wp('8%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  speechHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('2%'),
+  },
+  speechContainer: {
+    marginHorizontal: wp('8%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  inputFieldContainer5Q: {
+    width: wp('90%'),
+    height: hp('35%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  multipleChoiceHeader5Q: {
+    color: 'white',
+    fontSize: wp('3.7%'),
+    fontWeight: 'bold',
+    marginVertical: wp('3.2%'),
+    marginHorizontal: wp('4%'),
+  },
+  checkboxLabel5Q: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+  },
+  investigationContainer: {
+    width: wp('90%'),
+    height: hp('10%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  investigationText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: wp('3%'),
+    marginHorizontal: wp('1.5%'),
+  },
+  toneHead: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('2%'),
+  },
+  toneContainer: {
+    marginHorizontal: wp('8%'),
+    marginVertical: hp('1%'),
+    flexDirection: 'row',
+  },
+  hypotoniaYes: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('2%'),
+  },
+  hypotoniaYesText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginHorizontal: wp('3%'),
+    marginVertical: hp('1%'),
+  },
+  hypertoniaNo: {
+    marginVertical: hp('1.2%'),
+    marginHorizontal: wp('3%'),
+  },
+  hypertoniaNoText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: hp('1%'),
+    marginHorizontal: wp('3%'),
+  },
+  objectiveAssessmentContainer: {
+    width: wp('90%'),
+    height: hp('10%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  objectiveAssessmentText: {
+    color: 'white',
+    fontSize: wp('3.5%'),
+    marginVertical: wp('3%'),
+    marginHorizontal: wp('1.5%'),
+  },
   inputFieldContainerEXPORT: {
     width: wp('80%'),
     height: hp('5%'),
@@ -1647,4 +2321,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainForm1;
+export default Phase_1_Assessment_Form;

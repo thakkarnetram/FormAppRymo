@@ -1,4 +1,4 @@
-package com.formapp;
+package com.pediatricassessment;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
@@ -9,8 +9,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
-import com.rnfs.RNFSPackage;
-import com.zoontek.rnpermissions.RNPermissionsPackage; 
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =

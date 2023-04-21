@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -12,31 +12,35 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import Home from './src/Components/Home';
+import Pediatric_Assessment from './src/Components/Pediatric Assessment';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import Form1 from './src/Components/Form1';
-import MainForm1 from './src/Components/MainForm1';
-
+import Phase_1_Assessment_Form from './src/Components/Phase 1 Assessment Form ';
+import Orientation from 'react-native-orientation-locker';
+import Immersive from 'react-native-immersive';
 const Stack = createNativeStackNavigator();
 
 function App() {
+  Orientation.lockToPortrait();
+
+  useEffect(() => {
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
+  Immersive.setImmersive(true);
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{headerTitleAlign: 'center'}}
+          name="Pediatric Assessment"
+          component={Pediatric_Assessment}
+          options={{headerShown: false}}
         />
-        {/* <Stack.Screen
-          name="Form"
-          component={Form1}
-          options={{headerTitleAlign: 'center'}}
-        /> */}
         <Stack.Screen
-          name="Form 1"
-          component={MainForm1}
+          name="Phase 1 Assessment Form"
+          component={Phase_1_Assessment_Form}
           options={{headerTitleAlign: 'center'}}
         />
       </Stack.Navigator>
