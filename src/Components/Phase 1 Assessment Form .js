@@ -37,16 +37,15 @@ import {
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
 
-const Phase_1_Assessment_Form = () => {
+const Phase_1_Assesment_Form = () => {
   // locking screen to potrait mode
-  Orientation.lockToPortrait();
 
   useEffect(() => {
+    Orientation.lockToPortrait();
     return () => {
-      Orientation.unlockAllOrientations();
+      Orientation.unlockAllOrientations(); // Unlocks all orientations when the component unmounts
     };
   }, []);
-
   // Immersive fullScreen
   Immersive.setImmersive(true);
   // Declaring all the states
@@ -63,7 +62,7 @@ const Phase_1_Assessment_Form = () => {
   const [userDob, setUserDob] = useState(new Date());
   const [evaluationDate, setEvaluationDate] = useState(new Date());
   const [informant, setInformant] = useState('');
-  const [assessmentBy, setAssessmentBy] = useState('');
+  const [AssesmentBy, setAssesmentBy] = useState('');
   const [diagnosis, setDiagnosis] = useState('');
   const [referredBy, setReferredBy] = useState('');
   const [gmfcOptions, setGmfcOptions] = useState();
@@ -107,8 +106,8 @@ const Phase_1_Assessment_Form = () => {
   const informantHandler = text => {
     setInformant(text);
   };
-  const assessmentByHandler = text => {
-    setAssessmentBy(text);
+  const AssesmentByHandler = text => {
+    setAssesmentBy(text);
   };
   const diagnosisHandler = text => {
     setDiagnosis(text);
@@ -258,7 +257,7 @@ const Phase_1_Assessment_Form = () => {
     setWalking(walking);
   };
 
-  // Section V => Subjective Assessment
+  // Section V => Subjective Assesment
   const [sightIntact, setSightIntact] = useState(false);
   const [sightNotIntact, setSightNotIntact] = useState(false);
   const [hearingIntact, setHearingIntact] = useState(false);
@@ -365,7 +364,7 @@ const Phase_1_Assessment_Form = () => {
     setXRays(xRays);
   };
 
-  // Section VII => Objective assessment
+  // Section VII => Objective Assesment
   const [hypotonia, sethypotonia] = useState(false);
   const [hypertonia, sethypertonia] = useState(false);
   const [deformities, setDeformities] = useState('');
@@ -458,266 +457,321 @@ const Phase_1_Assessment_Form = () => {
     setHipAdductionLTR2(text);
   };
 
-  // Section => Modified asworths
-  const [backExt, setBackExt] = useState(['0-10', '10-15', '15-20', '20-25']);
-  const [backFlex, setBackFlex] = useState(['0-30', '30-60', '60-90']);
-  const [backLat, setBackLat] = useState(['0-10', '10-15', '15-20', '20-25']);
-  const [neckFlex, setNeckFlex] = useState(['0-15', '15-30', '30-50']);
-  const [neckExt, setNeckExt] = useState(['0-20', '20-40', '40-60']);
-  const [neckLat, setNeckLat] = useState(['0-15', '15-30', '30-45']);
-  const [hipFlex, setHipFlex] = useState(['0-25', '25-50', '50-75', '75-100']);
-  const [hipExt, setHipExt] = useState(['0-15', '15-30']);
-  const [hipAdd, setHipAdd] = useState(['0-15', '15-30', '30-45']);
-  const [hipAbd, setHipAbd] = useState(['0-15', '15-30', '30-45']);
-  const [kneeFlex, setKneeFlex] = useState(['0-50', '50-100', '100-150']);
-  const [hipMedRot, setHipMedRot] = useState(['0-15', '15-30']);
+  // Section => ROM
+  const [backExt, setBackExt] = useState('');
+  const [backFlex, setBackFlex] = useState('');
+  const [backLat, setBackLat] = useState('');
+  const [neckFlex, setNeckFlex] = useState('');
+  const [neckExt, setNeckExt] = useState('');
+  const [neckLat, setNeckLat] = useState('');
+  const [hipFlex, setHipFlex] = useState('');
+  const [hipExt, setHipExt] = useState('');
+  const [hipAdd, setHipAdd] = useState('');
+  const [hipAbd, setHipAbd] = useState('');
+  const [kneeFlex, setKneeFlex] = useState('');
+  const [hipMedRot, setHipMedRot] = useState('');
+  const [hipLat, setHipLat] = useState('');
+  const [shoulderAbd, setShoulderAbd] = useState('');
+  const [shoulderAdd, setShoulderAdd] = useState('');
+  const [shoulderFlex, setShoulderFlex] = useState('');
+  const [shoulderExt, setShoulderExt] = useState('');
+  const [elbowFlex, setElbowFlex] = useState('');
+  const [forearmSup, setForearmSup] = useState('');
+  const [forearmPro, setForearmPro] = useState('');
+  const [ankleDF, setAnkleDF] = useState('');
+  const [anklePF, setAnklePF] = useState('');
+  const [ankleInversion, setAnkleInversion] = useState('');
+  const [ankleEversion, setAnkleEversion] = useState('');
+  const [wristFlex, setWristFlex] = useState('');
+  const [wristExt, setWristExt] = useState('');
 
-  const handleBackExtChange = (index, value) => {
-    const updatedRange = [...backExt];
-    updatedRange[index] = value;
-    setBackExt(updatedRange);
+  const hipLatHandler = hipLat => {
+    setHipLat(hipLat);
   };
 
-  const handleBackFlexChange = (index, value) => {
-    const updatedRange = [...backFlex];
-    updatedRange[index] = value;
-    setBackFlex(updatedRange);
+  const shoulderAbdHandler = shoulderAbd => {
+    setShoulderAbd(shoulderAbd);
   };
 
-  const handleBackLatChange = (index, value) => {
-    const updatedRange = [...backLat];
-    updatedRange[index] = value;
-    setBackLat(updatedRange);
+  const shoulderAddHandler = shoulderAdd => {
+    setShoulderAdd(shoulderAdd);
   };
 
-  const handleNeckFlexChange = (index, value) => {
-    const updatedRange = [...neckFlex];
-    updatedRange[index] = value;
-    setNeckFlex(updatedRange);
+  const shoulderFlexHandler = shoulderFlex => {
+    setShoulderFlex(shoulderFlex);
   };
 
-  const handleNeckExtChange = (index, value) => {
-    const updatedRange = [...neckExt];
-    updatedRange[index] = value;
-    setNeckExt(updatedRange);
+  const shoulderExtHandler = shoulderExt => {
+    setShoulderExt(shoulderExt);
   };
 
-  const handleNeckLatChange = (index, value) => {
-    const updatedRange = [...neckLat];
-    updatedRange[index] = value;
-    setNeckLat(updatedRange);
+  const elbowFlexHandler = elbowFlex => {
+    setElbowFlex(elbowFlex);
   };
 
-  const handleHipFlexChange = (index, value) => {
-    const updatedRange = [...hipFlex];
-    updatedRange[index] = value;
-    setHipFlex(updatedRange);
+  const forearmSupHandler = forearmSup => {
+    setForearmSup(forearmSup);
   };
 
-  const handleHipExtChange = (index, value) => {
-    const updatedRange = [...hipExt];
-    updatedRange[index] = value;
-    setHipExt(updatedRange);
+  const forearmProHandler = forearmPro => {
+    setForearmPro(forearmPro);
   };
 
-  const handleHipAddChange = (index, value) => {
-    const updatedRange = [...hipAdd];
-    updatedRange[index] = value;
-    setHipAdd(updatedRange);
+  const ankleDFHandler = ankleDF => {
+    setAnkleDF(ankleDF);
   };
 
-  const handleHipAbdChange = (index, value) => {
-    const updatedRange = [...hipAbd];
-    updatedRange[index] = value;
-    setHipAbd(updatedRange);
+  const anklePFHandler = anklePF => {
+    setAnklePF(anklePF);
   };
 
-  const handleKneeFlexChange = (index, value) => {
-    const updatedRange = [...kneeFlex];
-    updatedRange[index] = value;
-    setKneeFlex(updatedRange);
+  const ankleInversionHandler = ankleInversion => {
+    setAnkleInversion(ankleInversion);
   };
 
-  const handleHipMedRotChange = (index, value) => {
-    const updatedRange = [...hipMedRot];
-    updatedRange[index] = value;
-    setHipMedRot(updatedRange);
+  const ankleEversionHandler = ankleEversion => {
+    setAnkleEversion(ankleEversion);
+  };
+
+  const wristFlexHandler = wristFlex => {
+    setWristFlex(wristFlex);
+  };
+
+  const wristExtHandler = wristExt => {
+    setWristExt(wristExt);
+  };
+  const backExtHandler = backExt => {
+    setBackExt(backExt);
+  };
+
+  const backFlexHandler = backFlex => {
+    setBackFlex(backFlex);
+  };
+
+  const backLatHandler = backLat => {
+    setBackLat(backLat);
+  };
+
+  const neckFlexHandler = neckFlex => {
+    setNeckFlex(neckFlex);
+  };
+
+  const neckExtHandler = neckExt => {
+    setNeckExt(neckExt);
+  };
+
+  const neckLatHandler = neckLat => {
+    setNeckLat(neckLat);
+  };
+
+  const hipFlexHandler = hipFlex => {
+    setHipFlex(hipFlex);
+  };
+
+  const hipExtHandler = hipExt => {
+    setHipExt(hipExt);
+  };
+
+  const hipAddHandler = hipAdd => {
+    setHipAdd(hipAdd);
+  };
+
+  const hipAbdHandler = hipAbd => {
+    setHipAbd(hipAbd);
+  };
+
+  const kneeFlexHandler = kneeFlex => {
+    setKneeFlex(kneeFlex);
+  };
+
+  const hipMedRotHandler = hipMedRot => {
+    setHipMedRot(hipMedRot);
+  };
+
+  // Section => Modified Ashworth
+  const [upperExtremities, setUpperExtremities] = useState();
+  const [lowerExtremities, setLowerExtremities] = useState();
+  const upperExtremitiesHandler = upperExtremities => {
+    setUpperExtremities(upperExtremities);
+  };
+  const lowerExtremitiesHandler = lowerExtremities => {
+    setLowerExtremities(lowerExtremities);
   };
 
   // Section => Functional Evaluation
-  const [supineToProneMoveable, setSupineToProneMoveable] = useState(false);
+  const [supineToProneImmobile, setSupineToProneImmobile] = useState(false);
   const [supineToProneAssistance, setSupineToProneAssistance] = useState(false);
   const [supineToProneIndependent, setSupineToProneIndependent] =
     useState(false);
 
-  const [supineToSitMoveable, setSupineToSitMoveable] = useState(false);
+  const [supineToSitImmobile, setSupineToSitImmobile] = useState(false);
   const [supineToSitAssistance, setSupineToSitAssistance] = useState(false);
   const [supineToSitIndependent, setSupineToSitIndependent] = useState(false);
 
-  const [sittingMoveable, setSittingMoveable] = useState(false);
+  const [sittingImmobile, setSittingImmobile] = useState(false);
   const [sittingAssistance, setSittingAssistance] = useState(false);
   const [sittingIndependent, setSittingIndependent] = useState(false);
 
-  var [quadsMoveable, setQuadsMoveable] = useState(false);
+  var [quadsImmobile, setQuadsImmobile] = useState(false);
   var [quadsAssistance, setQuadsAssistance] = useState(false);
   var [quadsIndependent, setQuadsIndependent] = useState(false);
 
-  const [kneelingMoveable, setKneelingMoveable] = useState(false);
+  const [kneelingImmobile, setKneelingImmobile] = useState(false);
   const [kneelingAssistance, setKneelingAssistance] = useState(false);
   const [kneelingIndependent, setKneelingIndependent] = useState(false);
 
-  const [halfKneelingMoveable, setHalfKneelingMoveable] = useState(false);
+  const [halfKneelingImmobile, setHalfKneelingImmobile] = useState(false);
   const [halfKneelingAssistance, setHalfKneelingAssistance] = useState(false);
   const [halfKneelingIndependent, setHalfKneelingIndependent] = useState(false);
 
-  const [standingMoveable, setStandingMoveable] = useState(false);
+  const [standingImmobile, setStandingImmobile] = useState(false);
   const [standingAssistance, setStandingAssistance] = useState(false);
   const [standingIndependent, setStandingIndependent] = useState(false);
 
-  const [ambulationMoveable, setAmbulationMoveable] = useState(false);
+  const [ambulationImmobile, setAmbulationImmobile] = useState(false);
   const [ambulationAssistance, setAmbulationAssistance] = useState(false);
   const [ambulationIndependent, setAmbulationIndependent] = useState(false);
 
-  const supineToProneMoveableHandler = () => {
-    setSupineToProneMoveable(true);
+  const supineToProneImmobileHandler = () => {
+    setSupineToProneImmobile(true);
     setSupineToProneAssistance(false);
     setSupineToProneIndependent(false);
   };
 
   const supineToProneAssistanceHandler = () => {
-    setSupineToProneMoveable(false);
+    setSupineToProneImmobile(false);
     setSupineToProneAssistance(true);
     setSupineToProneIndependent(false);
   };
 
   const supineToProneIndependentHandler = () => {
-    setSupineToProneMoveable(false);
+    setSupineToProneImmobile(false);
     setSupineToProneAssistance(false);
     setSupineToProneIndependent(true);
   };
 
-  const supineToSitMoveableHandler = () => {
-    setSupineToSitMoveable(true);
+  const supineToSitImmobileHandler = () => {
+    setSupineToSitImmobile(true);
     setSupineToSitAssistance(false);
     setSupineToSitIndependent(false);
   };
 
   const supineToSitAssistanceHandler = () => {
-    setSupineToSitMoveable(false);
+    setSupineToSitImmobile(false);
     setSupineToSitAssistance(true);
     setSupineToSitIndependent(false);
   };
 
   const supineToSitIndependentHandler = () => {
-    setSupineToSitMoveable(false);
+    setSupineToSitImmobile(false);
     setSupineToSitAssistance(false);
     setSupineToSitIndependent(true);
   };
 
-  const sittingMoveableHandler = () => {
-    setSittingMoveable(true);
+  const sittingImmobileHandler = () => {
+    setSittingImmobile(true);
     setSittingAssistance(false);
     setSittingIndependent(false);
   };
 
   const sittingAssistanceHandler = () => {
-    setSittingMoveable(false);
+    setSittingImmobile(false);
     setSittingAssistance(true);
     setSittingIndependent(false);
   };
 
   const sittingIndependentHandler = () => {
-    setSittingMoveable(false);
+    setSittingImmobile(false);
     setSittingAssistance(false);
     setSittingIndependent(true);
   };
 
-  const quadsMoveableHandler = () => {
-    setQuadsMoveable(true);
+  const quadsImmobileHandler = () => {
+    setQuadsImmobile(true);
     setQuadsAssistance(false);
     setQuadsIndependent(false);
   };
 
   const quadsAssistanceHandler = () => {
-    setQuadsMoveable(false);
+    setQuadsImmobile(false);
     setQuadsAssistance(true);
     setQuadsIndependent(false);
   };
 
   const quadsIndependentHandler = () => {
-    setQuadsMoveable(false);
+    setQuadsImmobile(false);
     setQuadsAssistance(false);
     setQuadsIndependent(true);
   };
 
-  const kneelingMoveableHandler = () => {
-    setKneelingMoveable(true);
+  const kneelingImmobileHandler = () => {
+    setKneelingImmobile(true);
     setKneelingAssistance(false);
     setKneelingIndependent(false);
   };
 
   const kneelingAssistanceHandler = () => {
-    setKneelingMoveable(false);
+    setKneelingImmobile(false);
     setKneelingAssistance(true);
     setKneelingIndependent(false);
   };
 
   const kneelingIndependentHandler = () => {
-    setKneelingMoveable(false);
+    setKneelingImmobile(false);
     setKneelingAssistance(false);
     setKneelingIndependent(true);
   };
 
-  const halfKneelingMoveableHandler = () => {
-    setHalfKneelingMoveable(true);
+  const halfKneelingImmobileHandler = () => {
+    setHalfKneelingImmobile(true);
     setHalfKneelingAssistance(false);
     setHalfKneelingIndependent(false);
   };
 
   const halfKneelingAssistanceHandler = () => {
-    setHalfKneelingMoveable(false);
+    setHalfKneelingImmobile(false);
     setHalfKneelingAssistance(true);
     setHalfKneelingIndependent(false);
   };
 
   const halfKneelingIndependentHandler = () => {
-    setHalfKneelingMoveable(false);
+    setHalfKneelingImmobile(false);
     setHalfKneelingAssistance(false);
     setHalfKneelingIndependent(true);
   };
 
-  const standingMoveableHandler = () => {
-    setStandingMoveable(true);
+  const standingImmobileHandler = () => {
+    setStandingImmobile(true);
     setStandingAssistance(false);
     setStandingIndependent(false);
   };
 
   const standingAssistanceHandler = () => {
-    setStandingMoveable(false);
+    setStandingImmobile(false);
     setStandingAssistance(true);
     setStandingIndependent(false);
   };
 
   const standingIndependentHandler = () => {
-    setStandingMoveable(false);
+    setStandingImmobile(false);
     setStandingAssistance(false);
     setStandingIndependent(true);
   };
 
-  const ambulationMoveableHandler = () => {
-    setAmbulationMoveable(true);
+  const ambulationImmobileHandler = () => {
+    setAmbulationImmobile(true);
     setAmbulationAssistance(false);
     setAmbulationIndependent(false);
   };
 
   const ambulationAssistanceHandler = () => {
-    setAmbulationMoveable(false);
+    setAmbulationImmobile(false);
     setAmbulationAssistance(true);
     setAmbulationIndependent(false);
   };
 
   const ambulationIndependentHandler = () => {
-    setAmbulationMoveable(false);
+    setAmbulationImmobile(false);
     setAmbulationAssistance(false);
     setAmbulationIndependent(true);
   };
@@ -734,7 +788,7 @@ const Phase_1_Assessment_Form = () => {
     setFunctionLimitations(functionLimitation);
   };
 
-  // Single System Assessment
+  // Single System Assesment
   const [canInitiate, setCanInitiate] = useState(false);
   const [cantInitiate, setCantInitiate] = useState(false);
   const [initiateComs, setInitiateComs] = useState('');
@@ -949,7 +1003,7 @@ const Phase_1_Assessment_Form = () => {
     setComsExtraneousMovement(comsExtraneousMovement);
   };
 
-  // Multi System Assessment => Posture and Movement
+  // Multi System Assesment => Posture and Movement
   // a posture
   const [postureAnswer, setPostureAnswer] = useState('');
 
@@ -1131,6 +1185,352 @@ const Phase_1_Assessment_Form = () => {
     setCoordinationComs(coordinationComs);
   };
 
+  // Sensory Systems
+  const [registrationOptions, setRegistrationOptions] = useState({
+    Arousal: false,
+    Attention: false,
+    Affect: false,
+    Alertness: false,
+  });
+
+  const [registrationComs, setRegistrationComs] = useState('');
+
+  const [sensoryProfile, setSensoryProfile] = useState('');
+
+  const [tactileUnder, setTactileOver] = useState(false);
+  const [tactileOver, setTactileUnder] = useState(false);
+
+  const [proprioceptiveUnder, setProprioceptiveUnder] = useState(false);
+  const [proprioceptiveOver, setProprioceptiveOver] = useState(false);
+
+  const [vestibularUnder, setVestibularUnder] = useState(false);
+  const [vestibularOver, setVestibularOver] = useState(false);
+
+  const [auditoryUnder, setAuditoryUnder] = useState(false);
+  const [auditoryOver, setAuditoryOver] = useState(false);
+
+  const [visualUnder, setVisualUnder] = useState(false);
+  const [visualOver, setVisualOver] = useState(false);
+
+  const [gustatoryUnder, setGustatoryUnder] = useState(false);
+  const [gustatoryOver, setGustatoryOver] = useState(false);
+
+  const [sensorySystemsComs, setSensorySystemsComs] = useState('');
+
+  const sensorySystemComsHandler = sensorySystemsComs => {
+    setSensorySystemsComs(sensorySystemsComs);
+  };
+
+  const registrationComshandler = registrationComs => {
+    setRegistrationComs(registrationComs);
+  };
+
+  const tactileUnderHandler = () => {
+    setTactileOver(false);
+    setTactileUnder(true);
+  };
+
+  const tactileOverHandler = () => {
+    setTactileOver(true);
+    setTactileUnder(false);
+  };
+
+  const proprioceptiveUnderHandler = () => {
+    setProprioceptiveOver(false);
+    setProprioceptiveUnder(true);
+  };
+
+  const proprioceptiveOverHandler = () => {
+    setProprioceptiveOver(true);
+    setProprioceptiveUnder(false);
+  };
+
+  const vestibularUnderHandler = () => {
+    setVestibularOver(false);
+    setVestibularUnder(true);
+  };
+
+  const vestibularOverHandler = () => {
+    setVestibularOver(true);
+    setVestibularUnder(false);
+  };
+
+  const auditoryUnderHandler = () => {
+    setAuditoryOver(false);
+    setAuditoryUnder(true);
+  };
+
+  const auditoryOverHandler = () => {
+    setAuditoryOver(true);
+    setAuditoryUnder(false);
+  };
+
+  const visualUnderHandler = () => {
+    setVisualOver(false);
+    setVisualUnder(true);
+  };
+
+  const visualOverHandler = () => {
+    setVisualOver(true);
+    setVisualUnder(false);
+  };
+
+  const gustatoryOverHandler = () => {
+    setGustatoryOver(true);
+    setGustatoryUnder(false);
+  };
+
+  const gustatoryUnderHandler = () => {
+    setGustatoryOver(false);
+    setGustatoryUnder(true);
+  };
+
+  const registrationOptionsHandler = registrationOption => {
+    setRegistrationOptions({
+      ...registrationOptions,
+      [registrationOption]: !registrationOptions[registrationOption],
+    });
+  };
+  const registrationOptionsValues = [];
+  Object.entries(registrationOptions).forEach(([key, value]) => {
+    if (value) {
+      registrationOptionsValues.push(key);
+    }
+  });
+
+  const sensoryProfileHandler = sensoryProfile => {
+    setSensoryProfile(sensoryProfile);
+  };
+
+  // Sensory Modulation
+  const [gravitationalInsecurity, setGravitationalInsecurity] = useState();
+  const [aversiveResponse, setAversiveResponse] = useState();
+  const [posturalInsecurity, setPosturalInsecurity] = useState();
+  const [tactileDefensiveness, setTactileDefensiveness] = useState();
+  const [poorRTS, setPoorRTS] = useState();
+  const [sensoryAvoiding, setSensoryAvoiding] = useState();
+  const [distractibility, setDistractibility] = useState();
+  const [hyperactivity, setHyperactivity] = useState();
+  const [sensoryComs, setSensoryComs] = useState('');
+
+  const sensoryComsHandler = sensoryComs => {
+    setSensoryComs(sensoryComs);
+  };
+
+  const gravitationalInsecurityHandler = gravitationalInsecure => {
+    setGravitationalInsecurity(gravitationalInsecure);
+  };
+
+  const aversiveResponseHandler = aversiveResponds => {
+    setAversiveResponse(aversiveResponds);
+  };
+
+  const posturalInsecurityHandler = posturalInsecure => {
+    setPosturalInsecurity(posturalInsecure);
+  };
+
+  const tactileDefensivenessHandler = tactileDefensive => {
+    setTactileDefensiveness(tactileDefensive);
+  };
+
+  const poorRTSHandler = poorReTS => {
+    setPoorRTS(poorReTS);
+  };
+
+  const sensoryAvoidingHandler = sensoryAvoid => {
+    setSensoryAvoiding(sensoryAvoid);
+  };
+
+  const distractibilityHandler = distract => {
+    setDistractibility(distract);
+  };
+
+  const hyperactivityHandler = hyperactive => {
+    setHyperactivity(hyperactive);
+  };
+
+  // Sensory Processing b
+  const [formSpace, setFormSpace] = useState();
+  const [visuomotorcoordination, setVisuomotorcoordination] = useState();
+  const [tactileDiscrimination, setTactileDiscrimination] = useState();
+  const [praxis, setPraxis] = useState();
+  const [
+    vestibularProprioceptiveProcessing,
+    setVestibularProprioceptiveProcessing,
+  ] = useState();
+  const [sensoryBcoms, setSensoryBcoms] = useState('');
+
+  const formSpaceHandler = formSpace => {
+    setFormSpace(formSpace);
+  };
+
+  const visuomotorcoordinationHandler = visuomotorcoordination => {
+    setVisuomotorcoordination(visuomotorcoordination);
+  };
+
+  const tactileDiscriminationHandler = tactileDiscrimination => {
+    setTactileDiscrimination(tactileDiscrimination);
+  };
+
+  const praxisHandler = praxis => {
+    setPraxis(praxis);
+  };
+
+  const vestibularProprioceptiveProcessingHandler =
+    vestibularProprioceptiveProcess => {
+      setVestibularProprioceptiveProcessing(vestibularProprioceptiveProcess);
+    };
+
+  const sensoryBcomsHandler = sensoryBcoms => {
+    setSensoryBcoms(sensoryBcoms);
+  };
+
+  // Visual System
+  const [focalVision, setFocalVision] = useState('');
+  const [ambientVision, setAmbientVision] = useState('');
+  const [eyeMovementSystem, setEyeMovementSystem] = useState('');
+  const [localization, setLocalization] = useState('');
+  const [tracking, setTracking] = useState('');
+  const [visualComs, setVisualComs] = useState('');
+
+  const focalVisionHandler = focalVision => {
+    setFocalVision(focalVision);
+  };
+
+  const ambientVisionHandler = ambientVision => {
+    setAmbientVision(ambientVision);
+  };
+
+  const eyeMovementSystemHandler = eyeMovementSystem => {
+    setEyeMovementSystem(eyeMovementSystem);
+  };
+
+  const localizationHandler = localization => {
+    setLocalization(localization);
+  };
+
+  const trackingHandler = tracking => {
+    setTracking(tracking);
+  };
+
+  const visualComsHandler = visualCom => {
+    setVisualComs(visualCom);
+  };
+
+  // section 16
+  const [gmfm, setGmfm] = useState('');
+  const [pedi, setPedi] = useState('');
+  const [pediatricBalanceScale, setPediatricBalanceScale] = useState('');
+  const [wotaAquaticScale, setWotaAquaticScale] = useState('');
+  const [section16Coms, setSection16Coms] = useState('');
+
+  const gmfmHandler = gmfm => {
+    setGmfm(gmfm);
+  };
+
+  const pediHandler = pedi => {
+    setPedi(pedi);
+  };
+
+  const pediatricBalanceScaleHandler = pediatricBalanceScale => {
+    setPediatricBalanceScale(pediatricBalanceScale);
+  };
+
+  const wotaAquaticScaleHandler = wotaAquaticScale => {
+    setWotaAquaticScale(wotaAquaticScale);
+  };
+
+  const section16ComsHandler = section16Coms => {
+    setSection16Coms(section16Coms);
+  };
+
+  // section  17
+  const [bodyStructurePositive, setBodyStructurePositive] = useState('');
+  const [bodyStructureNegative, setBodyStructureNegative] = useState('');
+
+  const [bodyFunctionPositive, setBodyFunctionPositive] = useState('');
+  const [bodyFunctionNegative, setBodyFunctionNegative] = useState('');
+
+  const [activitiesPositive, setActivitiesPositive] = useState('');
+  const [activitiesNegative, setActivitiesNegative] = useState('');
+
+  const [environmentalPositive, setEnvironmentalPositive] = useState('');
+  const [environmentalNegative, setEnvironmentalNegative] = useState('');
+
+  const [shortTermGoals, setShortTermGoals] = useState('');
+  const [longTermGoals, setLongTermGoals] = useState('');
+  const [intervention, setIntervention] = useState('');
+  const [equipments, setEquipments] = useState('');
+  const [recommendationOptions, setRecommendationOptions] = useState({
+    Physiotherapy: false,
+    SensoryIntegration: false,
+    OccupationalTherapy: false,
+    AquaticTherapy: false,
+    SpeechTherapy: false,
+    RemedialTherapy: false,
+    BehavioralTherapy: false,
+  });
+
+  const bodyStructurePositiveHandler = bodyStructurePositive => {
+    setBodyStructurePositive(bodyStructurePositive);
+  };
+
+  const bodyStructureNegativeHandler = bodyStructureNegative => {
+    setBodyStructureNegative(bodyStructureNegative);
+  };
+
+  const bodyFunctionPositiveHandler = bodyFunctionPositive => {
+    setBodyFunctionPositive(bodyFunctionPositive);
+  };
+
+  const bodyFunctionNegativeHandler = bodyFunctionNegative => {
+    setBodyFunctionNegative(bodyFunctionNegative);
+  };
+
+  const activitiesPositiveHandler = activitiesPositive => {
+    setActivitiesPositive(activitiesPositive);
+  };
+
+  const activitiesNegativeHandler = activitiesNegative => {
+    setActivitiesNegative(activitiesNegative);
+  };
+
+  const environmentalPositiveHandler = environmentalPositive => {
+    setEnvironmentalPositive(environmentalPositive);
+  };
+
+  const environmentalNegativeHandler = environmentalNegative => {
+    setEnvironmentalNegative(environmentalNegative);
+  };
+
+  const shortTermGoalsHandler = shortTermGoals => {
+    setShortTermGoals(shortTermGoals);
+  };
+
+  const longTermGoalsHandler = longTermGoals => {
+    setLongTermGoals(longTermGoals);
+  };
+
+  const interventionHandler = intervention => {
+    setIntervention(intervention);
+  };
+
+  const equipmentsHandler = equipments => {
+    setEquipments(equipments);
+  };
+
+  const recommendationOptionsHandler = recommendationOption => {
+    setRecommendationOptions({
+      ...recommendationOptions,
+      [recommendationOption]: !recommendationOptions[recommendationOption],
+    });
+  };
+  const recommendationOptionsValues = [];
+  Object.entries(recommendationOptions).forEach(([key, value]) => {
+    if (value) {
+      recommendationOptionsValues.push(key);
+    }
+  });
   // Generating html
   const generateHtml = () => {
     let html = `
@@ -1156,7 +1556,7 @@ const Phase_1_Assessment_Form = () => {
       userDob ||
       evaluationDate ||
       informant ||
-      assessmentBy ||
+      AssesmentBy ||
       diagnosis ||
       referredBy ||
       gmfcOptions ||
@@ -1204,8 +1604,8 @@ const Phase_1_Assessment_Form = () => {
     if (informant.trim()) {
       html += `<div class="section"><div class="label"><h2>Informant:</h2></div><div class="value"><h3>${informant.trim()}</h3></div></div>`;
     }
-    if (assessmentBy.trim()) {
-      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${assessmentBy.trim()}</h3></div></div>`;
+    if (AssesmentBy.trim()) {
+      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${AssesmentBy.trim()}</h3></div></div>`;
     }
     if (diagnosis.trim()) {
       html += `<div class="section"><div class="label"><h2>Diagnosis:</h2></div><div class="value"><h3>${diagnosis.trim()}</h3></div></div>`;
@@ -1407,7 +1807,7 @@ const Phase_1_Assessment_Form = () => {
     ) {
       html += `
       <div class="label">
-        <h1>3. Subjective Assessment</h1>
+        <h1>3. Subjective Assesment</h1>
       </div>
       <div class="value">
       </div>
@@ -1580,7 +1980,7 @@ const Phase_1_Assessment_Form = () => {
     if (hypertonia || hypotonia || deformities || contracture || tightness) {
       html += `
       <div class="label">
-        <h1>6. Objective Assessment </h1>
+        <h1>6. Objective Assesment </h1>
       </div>
       <div class="value">
       </div>
@@ -1624,19 +2024,33 @@ const Phase_1_Assessment_Form = () => {
 
     // Section 8 => Modified Ashworth
 
-    html += `
+    if (
+      backExt ||
+      backFlex ||
+      backLat ||
+      neckFlex ||
+      neckExt ||
+      neckLat ||
+      hipFlex ||
+      hipExt ||
+      hipAdd ||
+      hipAbd ||
+      kneeFlex ||
+      hipMedRot
+    ) {
+      html += `
       <div class="label">
         <h1>8. Modified Ashworth </h1>
       </div>
       <div class="value">
       </div>
       `;
-
+    }
     if (backExt) {
       html += `
           <div class="section"><div class="label">
           <h2>Back Extension :</h2></div><div class="value">
-          <h3>${backExt[0]}</h3>
+          <h3>${backExt}</h3>
           </div>
           </div>
         `;
@@ -1646,7 +2060,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Back Flexion :</h2></div><div class="value">
-          <h3>${backFlex[0]}</h3>
+          <h3>${backFlex}</h3>
           </div>
           </div>
         `;
@@ -1656,7 +2070,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Back Lateral Bending :</h2></div><div class="value">
-          <h3>${backLat[0]}</h3>
+          <h3>${backLat}</h3>
           </div>
           </div>
         `;
@@ -1666,7 +2080,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Neck Flexion :</h2></div><div class="value">
-          <h3>${neckFlex[0]}</h3>
+          <h3>${neckFlex}</h3>
           </div>
           </div>
         `;
@@ -1676,7 +2090,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Neck Extension :</h2></div><div class="value">
-          <h3>${neckExt[0]}</h3>
+          <h3>${neckExt}</h3>
           </div>
           </div>
         `;
@@ -1686,7 +2100,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Neck Lateral Bending :</h2></div><div class="value">
-          <h3>${neckLat[0]}</h3>
+          <h3>${neckLat}</h3>
           </div>
           </div>
         `;
@@ -1696,7 +2110,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Hip Flexion :</h2></div><div class="value">
-          <h3>${hipFlex[0]}</h3>
+          <h3>${hipFlex}</h3>
           </div>
           </div>
         `;
@@ -1706,7 +2120,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Hip Extension :</h2></div><div class="value">
-          <h3>${hipExt[0]}</h3>
+          <h3>${hipExt}</h3>
           </div>
           </div>
         `;
@@ -1716,7 +2130,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Hip Adduction :</h2></div><div class="value">
-          <h3>${hipAdd[0]}</h3>
+          <h3>${hipAdd}</h3>
           </div>
           </div>
         `;
@@ -1726,7 +2140,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Hip Abduction :</h2></div><div class="value">
-          <h3>${hipAbd[0]}</h3>
+          <h3>${hipAbd}</h3>
           </div>
           </div>
         `;
@@ -1736,7 +2150,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Knee Flexion :</h2></div><div class="value">
-          <h3>${kneeFlex[0]}</h3>
+          <h3>${kneeFlex}</h3>
           </div>
           </div>
         `;
@@ -1746,7 +2160,7 @@ const Phase_1_Assessment_Form = () => {
       html += `
           <div class="section"><div class="label">
           <h2>Hip medial rotation :</h2></div><div class="value">
-          <h3>${hipMedRot[0]}</h3>
+          <h3>${hipMedRot}</h3>
           </div>
           </div>
         `;
@@ -1754,28 +2168,28 @@ const Phase_1_Assessment_Form = () => {
 
     // Section 9 => functional evaluation
     if (
-      supineToProneMoveable ||
+      supineToProneImmobile ||
       supineToProneAssistance ||
       supineToProneIndependent ||
-      supineToSitMoveable ||
+      supineToSitImmobile ||
       supineToSitAssistance ||
       supineToSitIndependent ||
-      sittingMoveable ||
+      sittingImmobile ||
       sittingAssistance ||
       sittingIndependent ||
-      quadsMoveable ||
+      quadsImmobile ||
       quadsAssistance ||
       quadsIndependent ||
-      kneelingMoveable ||
+      kneelingImmobile ||
       kneelingAssistance ||
       kneelingIndependent ||
-      halfKneelingMoveable ||
+      halfKneelingImmobile ||
       halfKneelingAssistance ||
       halfKneelingIndependent ||
-      standingMoveable ||
+      standingImmobile ||
       standingAssistance ||
       standingIndependent ||
-      ambulationMoveable ||
+      ambulationImmobile ||
       ambulationAssistance ||
       ambulationIndependent
     ) {
@@ -1788,11 +2202,11 @@ const Phase_1_Assessment_Form = () => {
         `;
     }
 
-    if (supineToProneMoveable) {
+    if (supineToProneImmobile) {
       html += `
         <div class="section"><div class="label">
         <h2>Supine to Prone :</h2></div><div class="value">
-        <h3>Moveable</h3>
+        <h3>Immobile</h3>
         </div>
         </div>
       `;
@@ -1814,11 +2228,11 @@ const Phase_1_Assessment_Form = () => {
       `;
     }
 
-    if (supineToSitMoveable) {
+    if (supineToSitImmobile) {
       html += `
         <div class="section"><div class="label">
         <h2>Supine to Sit :</h2></div><div class="value">
-        <h3>Moveable</h3>
+        <h3>Immobile</h3>
         </div>
         </div>
       `;
@@ -1840,11 +2254,11 @@ const Phase_1_Assessment_Form = () => {
       `;
     }
 
-    if (sittingMoveable) {
+    if (sittingImmobile) {
       html += `
         <div class="section"><div class="label">
         <h2>Sitting :</h2></div><div class="value">
-        <h3>Moveable</h3>
+        <h3>Immobile</h3>
         </div>
         </div>
       `;
@@ -1866,11 +2280,11 @@ const Phase_1_Assessment_Form = () => {
       `;
     }
 
-    if (quadsMoveable) {
+    if (quadsImmobile) {
       html += `
       <div class="section"><div class="label">
       <h2>Quads :</h2></div><div class="value">
-      <h3>Moveable</h3>
+      <h3>Immobile</h3>
       </div>
       </div>
     `;
@@ -1892,11 +2306,11 @@ const Phase_1_Assessment_Form = () => {
     `;
     }
 
-    if (kneelingMoveable) {
+    if (kneelingImmobile) {
       html += `
       <div class="section"><div class="label">
       <h2>Kneeling :</h2></div><div class="value">
-      <h3>Moveable</h3>
+      <h3>Immobile</h3>
       </div>
       </div>
     `;
@@ -1918,11 +2332,11 @@ const Phase_1_Assessment_Form = () => {
     `;
     }
 
-    if (halfKneelingMoveable) {
+    if (halfKneelingImmobile) {
       html += `
       <div class="section"><div class="label">
       <h2>Half Kneeling :</h2></div><div class="value">
-      <h3>Moveable</h3>
+      <h3>Immobile</h3>
       </div>
       </div>
     `;
@@ -1944,11 +2358,11 @@ const Phase_1_Assessment_Form = () => {
     `;
     }
 
-    if (standingMoveable) {
+    if (standingImmobile) {
       html += `
       <div class="section"><div class="label">
       <h2>Standing :</h2></div><div class="value">
-      <h3>Moveable</h3>
+      <h3>Immobile</h3>
       </div>
       </div>
     `;
@@ -1970,11 +2384,11 @@ const Phase_1_Assessment_Form = () => {
     `;
     }
 
-    if (ambulationMoveable) {
+    if (ambulationImmobile) {
       html += `
       <div class="section"><div class="label">
       <h2>Ambulation :</h2></div><div class="value">
-      <h3>Moveable</h3>
+      <h3>Immobile</h3>
       </div>
       </div>
     `;
@@ -2053,7 +2467,7 @@ const Phase_1_Assessment_Form = () => {
     ) {
       html += `
         <div class="label">
-          <h1>10. Single System Assessment</h1>
+          <h1>10. Single System Assesment</h1>
         </div>
         <div class="value">
         </div>
@@ -2075,8 +2489,8 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
-     if (initiateComs) {
+    }
+    if (initiateComs) {
       html += `
       <div class="section"><div class="label">
       <h2>Initiation :</h2></div><div class="value">
@@ -2138,7 +2552,7 @@ const Phase_1_Assessment_Form = () => {
       </div>
     `;
     }
-     if (terminationComs) {
+    if (terminationComs) {
       html += `
       <div class="section"><div class="label">
       <h2>Termination :</h2></div><div class="value">
@@ -2172,8 +2586,8 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
-     if (controlGradComs) {
+    }
+    if (controlGradComs) {
       html += `
       <div class="section"><div class="label">
       <h2>Control Gradation :</h2></div><div class="value">
@@ -2191,7 +2605,7 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    }  else if (recruitmentMovement) {
+    } else if (recruitmentMovement) {
       html += `
       <div class="section"><div class="label">
       <h2>Recruitment :</h2></div><div class="value">
@@ -2234,8 +2648,8 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
-     if (contractionComs) {
+    }
+    if (contractionComs) {
       html += `
       <div class="section"><div class="label">
       <h2>Contraction :</h2></div><div class="value">
@@ -2259,7 +2673,7 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
+    }
     if (comsContraction_ReciprocalInhibition) {
       html += `
       <div class="section"><div class="label">
@@ -2284,8 +2698,8 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
-     if (massEnergy_isolatedWorkComs) {
+    }
+    if (massEnergy_isolatedWorkComs) {
       html += `
       <div class="section"><div class="label">
       <h2>Mass  Energy / Isolated Work</h2></div><div class="value">
@@ -2311,7 +2725,7 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
+    }
     if (comsDynamicStiffness) {
       html += `
       <div class="section"><div class="label">
@@ -2338,8 +2752,8 @@ const Phase_1_Assessment_Form = () => {
       </div>
       </div>
     `;
-    } 
-     if (comsExtraneousMovement) {
+    }
+    if (comsExtraneousMovement) {
       html += `
       <div class="section"><div class="label">
       <h2>Extraneous Movement</h2></div><div class="value">
@@ -2550,12 +2964,12 @@ const Phase_1_Assessment_Form = () => {
           </View>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
-              value={assessmentBy}
+              value={AssesmentBy}
               multiline={true}
               numberOfLines={4}
-              onChangeText={assessmentByHandler}
+              onChangeText={AssesmentByHandler}
               keyboardType="ascii-capable"
-              placeholder="Assessment By"
+              placeholder="Assesment By"
               placeholderTextColor="#FFFFFF"
               style={styles.addressedByText}
             />
@@ -2931,7 +3345,7 @@ const Phase_1_Assessment_Form = () => {
               style={styles.complaintText}
             />
           </View>
-          {/* Section III => Subjective Assessment */}
+          {/* Section III => Subjective Assesment */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -2940,7 +3354,7 @@ const Phase_1_Assessment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Subjective Assessment
+            Subjective Assesment
           </Text>
           <View style={styles.checkBoxContainer}>
             <View style={{flexDirection: 'row'}}>
@@ -3182,7 +3596,7 @@ const Phase_1_Assessment_Form = () => {
               style={styles.investigationText}
             />
           </View>
-          {/* Objective Assessment */}
+          {/* Objective Assesment */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -3191,7 +3605,7 @@ const Phase_1_Assessment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Objective Assessment
+            Objective Assesment
           </Text>
           <View style={styles.checkBoxContainer}>
             <View style={{flexDirection: 'row'}}>
@@ -3212,7 +3626,7 @@ const Phase_1_Assessment_Form = () => {
               </View>
             </View>
           </View>
-          <View style={styles.objectiveAssessmentContainer}>
+          <View style={styles.objectiveAssesmentContainer}>
             <TextInput
               value={deformities}
               onChangeText={deformitiesHandler}
@@ -3221,10 +3635,10 @@ const Phase_1_Assessment_Form = () => {
               numberOfLines={4}
               placeholder="Deformities"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssessmentText}
+              style={styles.objectiveAssesmentText}
             />
           </View>
-          <View style={styles.objectiveAssessmentContainer}>
+          <View style={styles.objectiveAssesmentContainer}>
             <TextInput
               value={contracture}
               onChangeText={contractureHandler}
@@ -3233,10 +3647,10 @@ const Phase_1_Assessment_Form = () => {
               numberOfLines={4}
               placeholder="Contracture"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssessmentText}
+              style={styles.objectiveAssesmentText}
             />
           </View>
-          <View style={styles.objectiveAssessmentContainer}>
+          <View style={styles.objectiveAssesmentContainer}>
             <TextInput
               value={tightness}
               onChangeText={tightnessHandler}
@@ -3245,7 +3659,7 @@ const Phase_1_Assessment_Form = () => {
               numberOfLines={4}
               placeholder="Tightness"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssessmentText}
+              style={styles.objectiveAssesmentText}
             />
           </View>
           {/*   Tardieu's*/}
@@ -3260,177 +3674,266 @@ const Phase_1_Assessment_Form = () => {
             Tardieu's
           </Text>
           <View style={styles.normalContainerPicker}>
-            <View
+            <Text
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginVertical: wp('1%'),
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
               }}>
+              1. Tendonitis
+            </Text>
+            <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  fontWeight: 'bold',
+                  marginHorizontal: wp('7%'),
                   color: 'white',
-                  paddingBottom: wp('4%'),
-                  marginHorizontal: wp('10%'),
-                  fontSize: wp('3.4%'),
-                }}>
-                Name
-              </Text>
-              <Text
-                style={{
-                  paddingBottom: wp('4%'),
-                  fontWeight: 'bold',
-                  color: 'white',
-                  marginHorizontal: wp('11%'),
-                  fontSize: wp('3.4%'),
+                  fontSize: wp('3%'),
                 }}>
                 RT
               </Text>
+              <TextInput
+                value={tasRTR1}
+                onChangeText={handleTasRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={tasRTR2}
+                onChangeText={handleTasRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  paddingBottom: wp('4%'),
-                  fontWeight: 'bold',
+                  marginHorizontal: wp('7%'),
                   color: 'white',
-                  marginHorizontal: wp('8%'),
-                  fontSize: wp('3.4%'),
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
                 }}>
                 LT
               </Text>
+              <TextInput
+                value={tasLTR1}
+                onChangeText={handleTasLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={tasLTR2}
+                onChangeText={handleTasLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
             </View>
-            <View style={styles.rowContainer}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Hamstrings
+            </Text>
+            <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  fontWeight: 'bold',
+                  marginHorizontal: wp('7%'),
                   color: 'white',
-                  marginHorizontal: wp('6%'),
-                  marginVertical: wp('1.2%'),
-                  fontSize: wp('3.6%'),
+                  fontSize: wp('3%'),
                 }}>
-                TA'S
+                RT
               </Text>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputRTR1}
-                  onChangeText={handleTasRTR1Change}
-                  value={tasRTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputLTR1}
-                  onChangeText={handleTasLTR1Change}
-                  value={tasLTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputRTR2}
-                  onChangeText={handleTasRTR2Change}
-                  value={tasRTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputLTR2}
-                  onChangeText={handleTasLTR2Change}
-                  value={tasLTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-              </View>
+              <TextInput
+                value={hamstringsRTR1}
+                onChangeText={handleHamstringsRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hamstringsRTR2}
+                onChangeText={handleHamstringsRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
             </View>
-            <View style={styles.rowContainer}>
+            <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  fontWeight: 'bold',
+                  marginHorizontal: wp('7%'),
                   color: 'white',
-                  marginHorizontal: wp('6%'),
-                  marginVertical: wp('1.2%'),
-                  fontSize: wp('3.6%'),
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
                 }}>
-                Hamstrings
+                LT
               </Text>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputRTR1}
-                  onChangeText={handleHamstringsRTR1Change}
-                  value={hamstringsRTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputRTR2}
-                  onChangeText={handleHamstringsRTR2Change}
-                  value={hamstringsRTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputLTR1}
-                  onChangeText={handleHamstringsLTR1Change}
-                  value={hamstringsLTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputLTR2}
-                  onChangeText={handleHamstringsLTR2Change}
-                  value={hamstringsLTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-              </View>
+              <TextInput
+                value={hamstringsLTR1}
+                onChangeText={handleHamstringsLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hamstringsLTR2}
+                onChangeText={handleHamstringsLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
             </View>
-            <View style={styles.rowContainer}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Hip Adductors
+            </Text>
+            <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  fontWeight: 'bold',
+                  marginHorizontal: wp('7%'),
                   color: 'white',
-                  marginHorizontal: wp('6%'),
-                  marginVertical: wp('1.2%'),
-                  fontSize: wp('3.6%'),
+                  fontSize: wp('3%'),
                 }}>
-                Hip Adduction
+                RT
               </Text>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputRTR1}
-                  onChangeText={handleHamstringsRTR1Change}
-                  value={hamstringsRTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputRTR2}
-                  onChangeText={handleHamstringsRTR2Change}
-                  value={hamstringsRTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <TextInput
-                  style={styles.inputLTR1}
-                  onChangeText={handleHamstringsLTR1Change}
-                  value={hamstringsLTR1}
-                  placeholder="R1"
-                  keyboardType="numeric"
-                />
-                <TextInput
-                  style={styles.inputLTR2}
-                  onChangeText={handleHamstringsLTR2Change}
-                  value={hamstringsLTR2}
-                  placeholder="R2"
-                  keyboardType="numeric"
-                />
-              </View>
+              <TextInput
+                value={hipAdductionRTR1}
+                onChangeText={handleHipAdductionRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hipAdductionRTR2}
+                onChangeText={handleHipAdductionRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}>
+                LT
+              </Text>
+              <TextInput
+                value={hipAdductionLTR1}
+                onChangeText={handleHipAdductionLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hipAdductionLTR2}
+                onChangeText={handleHipAdductionLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
             </View>
           </View>
-          {/*   Modified Ashworths */}
+          {/*   ROM */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -3439,7 +3942,7 @@ const Phase_1_Assessment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Modified Ashworths
+            ROM
           </Text>
           <View style={styles.bigContainerPicker}>
             <View style={styles.header}>
@@ -3449,18 +3952,32 @@ const Phase_1_Assessment_Form = () => {
             <View style={styles.row}>
               <Text style={styles.rowText}>Back extension</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={backExt[0]}
-                  onValueChange={value => {
-                    const updatedRange = backExt.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setBackExt(updatedRange);
-                  }}>
-                  {backExt.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={backExt} onValueChange={backExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-15"
+                    value="10-15"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="15-20"
+                    value="15-20"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="20-25"
+                    value="20-25"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
@@ -3468,35 +3985,60 @@ const Phase_1_Assessment_Form = () => {
               <Text style={styles.rowText}>Back flexion</Text>
               <View style={styles.bigContainer}>
                 <Picker
-                  selectedValue={backFlex[0]}
-                  onValueChange={value => {
-                    const updatedRange = backFlex.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setBackFlex(updatedRange);
-                  }}>
-                  {backFlex.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                  selectedValue={backFlex}
+                  onValueChange={backFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Back Lateral Bending</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={backLat[0]}
-                  onValueChange={value => {
-                    const updatedRange = backLat.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setBackLat(updatedRange);
-                  }}>
-                  {backLat.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={backLat} onValueChange={backLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-15"
+                    value="10-15"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="15-20"
+                    value="15-20"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="20-25"
+                    value="20-25"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
@@ -3504,125 +4046,190 @@ const Phase_1_Assessment_Form = () => {
               <Text style={styles.rowText}>Neck flexion</Text>
               <View style={styles.bigContainer}>
                 <Picker
-                  selectedValue={neckFlex[0]}
-                  onValueChange={value => {
-                    const updatedRange = neckFlex.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setNeckFlex(updatedRange);
-                  }}>
-                  {neckFlex.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                  selectedValue={neckFlex}
+                  onValueChange={neckFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-50"
+                    value="30-50"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Neck Extension</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={neckExt[0]}
-                  onValueChange={value => {
-                    const updatedRange = neckExt.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setNeckExt(updatedRange);
-                  }}>
-                  {neckExt.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={neckExt} onValueChange={neckExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Neck lateral bending</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={neckLat[0]}
-                  onValueChange={value => {
-                    const updatedRange = neckLat.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setNeckLat(updatedRange);
-                  }}>
-                  {neckLat.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={neckLat} onValueChange={neckLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Hip Flexion</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={hipFlex[0]}
-                  onValueChange={value => {
-                    const updatedRange = hipFlex.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setHipFlex(updatedRange);
-                  }}>
-                  {hipFlex.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={hipFlex} onValueChange={hipFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-25"
+                    value="0-25"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="25-50"
+                    value="25-50"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="50-75"
+                    value="50-75"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="75-100"
+                    value="75-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Hip extension</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={hipExt[0]}
-                  onValueChange={value => {
-                    const updatedRange = hipExt.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setHipExt(updatedRange);
-                  }}>
-                  {hipExt.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={hipExt} onValueChange={hipExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Hip adduction</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={hipAdd[0]}
-                  onValueChange={value => {
-                    const updatedRange = hipAdd.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setHipAdd(updatedRange);
-                  }}>
-                  {hipAdd.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={hipAdd} onValueChange={hipAddHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
             <View style={styles.row}>
               <Text style={styles.rowText}>Hip abduction</Text>
               <View style={styles.bigContainer}>
-                <Picker
-                  selectedValue={hipAbd[0]}
-                  onValueChange={value => {
-                    const updatedRange = hipAbd.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setHipAbd(updatedRange);
-                  }}>
-                  {hipAbd.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                <Picker selectedValue={hipAbd} onValueChange={hipAbdHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
@@ -3630,17 +4237,28 @@ const Phase_1_Assessment_Form = () => {
               <Text style={styles.rowText}>Knee flexion</Text>
               <View style={styles.bigContainer}>
                 <Picker
-                  selectedValue={kneeFlex[0]}
-                  onValueChange={value => {
-                    const updatedRange = kneeFlex.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setKneeFlex(updatedRange);
-                  }}>
-                  {kneeFlex.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                  selectedValue={kneeFlex}
+                  onValueChange={kneeFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
@@ -3648,17 +4266,504 @@ const Phase_1_Assessment_Form = () => {
               <Text style={styles.rowText}>Hip medial rotation</Text>
               <View style={styles.bigContainer}>
                 <Picker
-                  selectedValue={hipMedRot[0]}
-                  onValueChange={value => {
-                    const updatedRange = hipMedRot.filter(
-                      range => range !== value,
-                    );
-                    updatedRange.unshift(value);
-                    setHipMedRot(updatedRange);
-                  }}>
-                  {hipMedRot.map(range => (
-                    <Picker.Item key={range} label={range} value={range} />
-                  ))}
+                  selectedValue={hipMedRot}
+                  onValueChange={hipMedRotHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip Lateral Rotation</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipLat} onValueChange={hipLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Abduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderAbd}
+                  onValueChange={shoulderAbdHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Adduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderAdd}
+                  onValueChange={shoulderAddHandler}>
+                  <Picker.Item label="Select" value="" />
+                  {/* <Picker.Item
+                    label="0-25"
+                    value="0-25"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="25-50"
+                    value="25-50"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="50-75"
+                    value="50-75"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="75-100"
+                    value="75-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  /> */}
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderFlex}
+                  onValueChange={shoulderFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderExt}
+                  onValueChange={shoulderExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  {/* <Picker.Item
+                    label="0-25"
+                    value="0-25"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="25-50"
+                    value="25-50"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="50-75"
+                    value="50-75"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="75-100"
+                    value="75-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  /> */}
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Elbow Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={elbowFlex}
+                  onValueChange={elbowFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Forearm Supination</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={forearmSup}
+                  onValueChange={forearmSupHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Forearm Pronation</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={forearmPro}
+                  onValueChange={forearmProHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle DF</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={ankleDF} onValueChange={ankleDFHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-20"
+                    value="10-20"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle PF</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={anklePF} onValueChange={anklePFHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle Inversion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={ankleInversion}
+                  onValueChange={ankleInversionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle Eversion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={ankleEversion}
+                  onValueChange={ankleEversionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-20"
+                    value="10-20"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Wrist Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={wristFlex}
+                  onValueChange={wristFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Wrist Extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={wristExt}
+                  onValueChange={wristExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+          </View>
+          {/* Modified Asworths */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Modified Asworths
+          </Text>
+          <View style={styles.normalContainer}>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Upper Extremities</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={upperExtremities}
+                  onValueChange={upperExtremitiesHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="1"
+                    value="1"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="2"
+                    value="2"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="3"
+                    value="3"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="4"
+                    value="4"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="5"
+                    value="5"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Lower Extremities</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={lowerExtremities}
+                  onValueChange={lowerExtremitiesHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="1"
+                    value="1"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="2"
+                    value="2"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="3"
+                    value="3"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="4"
+                    value="4"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="5"
+                    value="5"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
                 </Picker>
               </View>
             </View>
@@ -3680,17 +4785,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Supine to Prone</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={supineToProneMoveable}
-                    onValueChange={supineToProneMoveableHandler}
+                    value={supineToProneImmobile}
+                    onValueChange={supineToProneImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={supineToProneAssistance}
                     onValueChange={supineToProneAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3704,17 +4809,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Supine to Sit</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={supineToSitMoveable}
-                    onValueChange={supineToSitMoveableHandler}
+                    value={supineToSitImmobile}
+                    onValueChange={supineToSitImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={supineToSitAssistance}
                     onValueChange={supineToSitAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3730,17 +4835,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Sitting</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={sittingMoveable}
-                    onValueChange={sittingMoveableHandler}
+                    value={sittingImmobile}
+                    onValueChange={sittingImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={sittingAssistance}
                     onValueChange={sittingAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3754,17 +4859,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Quadriped</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={quadsMoveable}
-                    onValueChange={quadsMoveableHandler}
+                    value={quadsImmobile}
+                    onValueChange={quadsImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={quadsAssistance}
                     onValueChange={quadsAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3780,17 +4885,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Kneeling</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={kneelingMoveable}
-                    onValueChange={kneelingMoveableHandler}
+                    value={kneelingImmobile}
+                    onValueChange={kneelingImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={kneelingAssistance}
                     onValueChange={kneelingAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3804,17 +4909,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Half Kneeling</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={halfKneelingMoveable}
-                    onValueChange={halfKneelingMoveableHandler}
+                    value={halfKneelingImmobile}
+                    onValueChange={halfKneelingImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={halfKneelingAssistance}
                     onValueChange={halfKneelingAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3830,17 +4935,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Standing</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={standingMoveable}
-                    onValueChange={standingMoveableHandler}
+                    value={standingImmobile}
+                    onValueChange={standingImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={standingAssistance}
                     onValueChange={standingAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3854,17 +4959,17 @@ const Phase_1_Assessment_Form = () => {
                 <Text style={styles.multipleChoiceHeader}>Ambulation</Text>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={ambulationMoveable}
-                    onValueChange={ambulationMoveableHandler}
+                    value={ambulationImmobile}
+                    onValueChange={ambulationImmobileHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Moveable</Text>
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
                     value={ambulationAssistance}
                     onValueChange={ambulationAssistanceHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Assisstance</Text>
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -3901,7 +5006,7 @@ const Phase_1_Assessment_Form = () => {
               style={styles.functionalText}
             />
           </View>
-          {/* Single System Assessment */}
+          {/* Single System Assesment */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -3910,7 +5015,7 @@ const Phase_1_Assessment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Single System Assessment
+            Single System Assesment
           </Text>
           <View style={styles.inputFieldContainer10}>
             <Text
@@ -3920,7 +5025,6 @@ const Phase_1_Assessment_Form = () => {
                 fontSize: wp('3.6%'),
                 marginHorizontal: wp('5%'),
                 marginVertical: wp('4%'),
-                textAlign: 'center',
               }}>
               a. Neuromuscular
             </Text>
@@ -4100,7 +5204,7 @@ const Phase_1_Assessment_Form = () => {
                     value={contractionIsometric}
                     onValueChange={contractionIsometricHandler}
                   />
-                  <Text style={styles.checkboxLabel}>Ismoetric</Text>
+                  <Text style={styles.checkboxLabel}>Isometric</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
@@ -4125,15 +5229,15 @@ const Phase_1_Assessment_Form = () => {
               <View style={{flexDirection: 'row'}}>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={canInitiate}
-                    onValueChange={canInitiateHandler}
+                    value={contraction}
+                    onValueChange={contractionHandler}
                   />
                   <Text style={styles.checkboxLabel}>Contraction</Text>
                 </View>
                 <View style={styles.checkboxWrapper}>
                   <CheckBox
-                    value={contraction}
-                    onValueChange={contractionHandler}
+                    value={reciprocalInhibition}
+                    onValueChange={reciprocalInhibitionHandler}
                   />
                   <Text style={styles.checkboxLabel}>
                     Reciprocal Inhibition
@@ -4243,6 +5347,1903 @@ const Phase_1_Assessment_Form = () => {
                   placeholderTextColor="#FFFFFF"
                   style={styles.coms}
                 />
+              </View>
+            </View>
+          </View>
+          {/*   Modified Ashworths */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Multi System Assesment
+          </Text>
+          <View style={styles.inputFieldContainerMs}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.4%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              a) Posture and Alignment
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+              }}>
+              a. Posture
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('1.8%'),
+              }}>
+              What Postures the child normally adopts ?
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={postureAnswer}
+              onChangeText={postureAnswerHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={styles.answerBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('2.2%'),
+              }}>
+              b. Alignment
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={asymmetry} onValueChange={asymmetryHandler} />
+                <Text style={styles.checkboxLabel}>Asymmetry</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={side} onValueChange={sideHandler} />
+                <Text style={styles.checkboxLabel}>Side</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('5%'),
+              }}>
+              Base of Support
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={broad} onValueChange={broadHandler} />
+                <Text style={styles.checkboxLabel}>Broad</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={narrow} onValueChange={narrowHandler} />
+                <Text style={styles.checkboxLabel}>Narrow</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              General Posture
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={generalPosture}
+              onChangeText={generalPostureHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={styles.generalPostureBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              Callosities
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={callosities}
+              onChangeText={callositiesHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={styles.callositiesBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.4%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              b) Movement Systems
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-1%'),
+              }}>
+              1) Movement Strategies Used
+            </Text>
+            <View
+              style={{
+                flexDirection: 'column',
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={momentum} onValueChange={momentumHandler} />
+                <Text style={styles.checkboxLabel}>Momentum</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={overuseOfMs}
+                  onValueChange={overuseOfMsHandler}
+                />
+                <Text style={styles.checkboxLabel}>Overuse of Ms</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={increasingBos}
+                  onValueChange={increasingBosHandler}
+                />
+                <Text style={styles.checkboxLabel}>Increasing BOS</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('1%'),
+              }}>
+              2) Static Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalancePoor}
+                  onValueChange={staticBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalanceFair}
+                  onValueChange={staticBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalanceGood}
+                  onValueChange={staticBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('2%'),
+              }}>
+              3) Anticipatory Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalanceGood}
+                  onValueChange={anticipatoryBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalanceFair}
+                  onValueChange={anticipatoryBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalancePoor}
+                  onValueChange={anticipatoryBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={anticipatoryBalanceComs}
+              onChangeText={anticipatoryBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('3%'),
+              }}>
+              4) Reactive Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalanceGood}
+                  onValueChange={reactiveBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalanceFair}
+                  onValueChange={reactiveBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalancePoor}
+                  onValueChange={reactiveBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={anticipatoryBalanceComs}
+              onChangeText={anticipatoryBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('4%'),
+              }}>
+              5) Co-ordination
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationGood}
+                  onValueChange={coordinationGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationFair}
+                  onValueChange={coordinationFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationPoor}
+                  onValueChange={coordinationPoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={anticipatoryBalanceComs}
+              onChangeText={anticipatoryBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Sensory System */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Sensory System
+          </Text>
+          <View style={styles.inputFieldContainerMCQSensory}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>1. Registration</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Arousal}
+                    onValueChange={() => registrationOptionsHandler('Arousal')}
+                  />
+                  <Text style={styles.checkboxLabel}>Arousal</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Attention}
+                    onValueChange={() =>
+                      registrationOptionsHandler('Attention')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Attention</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Affect}
+                    onValueChange={() => registrationOptionsHandler('Affect')}
+                  />
+                  <Text style={styles.checkboxLabel}>Affect</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Alertness}
+                    onValueChange={() =>
+                      registrationOptionsHandler('Alertness')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Alertness</Text>
+                </View>
+              </View>
+            </View>
+            <TextInput
+              value={registrationComs}
+              onChangeText={registrationComshandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              2.Tactile
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('1.5%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={tactileUnder}
+                  onValueChange={tactileUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={tactileOver}
+                  onValueChange={tactileOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Proprioceptive
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={proprioceptiveUnder}
+                  onValueChange={proprioceptiveUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={proprioceptiveOver}
+                  onValueChange={proprioceptiveOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Vestibular
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={vestibularUnder}
+                  onValueChange={vestibularUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={vestibularOver}
+                  onValueChange={vestibularOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Auditory
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={auditoryUnder}
+                  onValueChange={auditoryUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={auditoryOver}
+                  onValueChange={auditoryOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Visual
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={visualUnder}
+                  onValueChange={visualUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={visualOver}
+                  onValueChange={visualOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Gustatory
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={gustatoryUnder}
+                  onValueChange={gustatoryUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={gustatoryOver}
+                  onValueChange={gustatoryOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <TextInput
+              value={sensorySystemsComs}
+              onChangeText={sensorySystemComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              3. Sensory Profile
+            </Text>
+            <TextInput
+              value={sensoryProfile}
+              onChangeText={sensoryProfileHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Sensory Modulation  */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Sensory Modulation
+          </Text>
+          <View style={styles.inputFieldContainerMCQSensoryM}>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('5%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Gravitational Insecurity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={gravitationalInsecurity}
+                  onValueChange={gravitationalInsecurityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Aversive Response to Movement
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={aversiveResponse}
+                  onValueChange={aversiveResponseHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Postural Insecurity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={posturalInsecurity}
+                  onValueChange={posturalInsecurityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Tactile Defensiveness
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={tactileDefensiveness}
+                  onValueChange={tactileDefensivenessHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="+VE"
+                    value="+VE"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="-VE"
+                    value="-VE"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Sensory Avoiding
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={sensoryAvoiding}
+                  onValueChange={sensoryAvoidingHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Poor registration to stimulation
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={poorRTS} onValueChange={poorRTSHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Distractibility
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={distractibility}
+                  onValueChange={distractibilityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Hyperactivity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={hyperactivity}
+                  onValueChange={hyperactivityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <TextInput
+              value={sensoryComs}
+              onChangeText={sensoryComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d9d9d9"
+              style={{
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3.5%'),
+              }}>
+              b. Sensory Processing
+            </Text>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Form Space
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={formSpace}
+                  onValueChange={formSpaceHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Visuomotor Co-ordination
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={visuomotorcoordination}
+                  onValueChange={visuomotorcoordinationHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Tactile Discrimination
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={tactileDiscrimination}
+                  onValueChange={tactileDiscriminationHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Praxis
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={praxis} onValueChange={praxisHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Vestibular proprioceptive processing
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={vestibularProprioceptiveProcessing}
+                  onValueChange={vestibularProprioceptiveProcessingHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <TextInput
+              value={sensoryBcoms}
+              onChangeText={sensoryBcomsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d9d9d9"
+              style={{
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3.5%'),
+              }}>
+              c. Visual System
+            </Text>
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. Focal Vision
+            </Text>
+            <TextInput
+              value={focalVision}
+              onChangeText={focalVisionHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Ambient Vision
+            </Text>
+            <TextInput
+              value={ambientVision}
+              onChangeText={ambientVisionHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Eye Movement System
+            </Text>
+            <TextInput
+              value={eyeMovementSystem}
+              onChangeText={eyeMovementSystemHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. Localization
+            </Text>
+            <TextInput
+              value={localization}
+              onChangeText={localizationHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              5. Tracking
+            </Text>
+            <TextInput
+              value={tracking}
+              onChangeText={trackingHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <TextInput
+              value={visualComs}
+              onChangeText={visualComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d9d9d9"
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}
+            />
+          </View>
+          {/* Section 16 */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Section 16
+          </Text>
+          <View style={styles.inputFieldContainerS16}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. GMFM
+            </Text>
+            <TextInput
+              value={gmfm}
+              onChangeText={gmfmHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. PEDI
+            </Text>
+            <TextInput
+              value={pedi}
+              onChangeText={pediHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Pediatric Balance Scale
+            </Text>
+            <TextInput
+              value={pediatricBalanceScale}
+              onChangeText={pediatricBalanceScaleHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. WOTA (Aquatic Scale)
+            </Text>
+            <TextInput
+              value={wotaAquaticScale}
+              onChangeText={wotaAquaticScaleHandler}
+              keyboardType="ascii-capable"
+              placeholder="Answer"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Section 17 */}
+          <Text
+            style={{
+              color: '#5F7EFF',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Section 17
+          </Text>
+          <View style={styles.inputFieldContainerS17}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. Body Structure
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={bodyStructurePositive}
+                onChangeText={bodyStructurePositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={bodyStructureNegative}
+                onChangeText={bodyStructureNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Body Function
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={bodyFunctionPositive}
+                onChangeText={bodyFunctionPositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={bodyFunctionNegative}
+                onChangeText={bodyFunctionNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Activites
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={activitiesPositive}
+                onChangeText={activitiesPositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={activitiesNegative}
+                onChangeText={activitiesNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. Environmental
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={environmentalPositive}
+                onChangeText={environmentalPositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={environmentalNegative}
+                onChangeText={environmentalNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Short Term Goals
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={shortTermGoals}
+                onChangeText={shortTermGoalsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Long Term Goals
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={longTermGoals}
+                onChangeText={longTermGoalsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Intervention
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={intervention}
+                onChangeText={interventionHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Equipments / Instruments
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={equipments}
+                onChangeText={equipmentsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Answer"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text
+                style={{
+                  marginVertical: wp('6%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Recommendations
+              </Text>
+              <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.Physiotherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('Physiotherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Physiotherapy</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={recommendationOptions.SensoryIntegration}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('SensoryIntegration')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Sensory Integration</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.OccupationalTherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('OccupationalTherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Occupational Therapy</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={recommendationOptions.AquaticTherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('AquaticTherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Aquatic Therapy</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.SpeechTherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('SpeechTherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Speech Therapy</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={recommendationOptions.RemedialTherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('RemedialTherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Remedial Therapy</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginHorizontal: wp('5%'),
+                    marginVertical: wp('1%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.BehavioralTherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('BehavioralTherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Behavioral Therapy</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -4735,7 +7736,7 @@ const styles = StyleSheet.create({
     marginVertical: hp('1%'),
     marginHorizontal: wp('3%'),
   },
-  objectiveAssessmentContainer: {
+  objectiveAssesmentContainer: {
     width: wp('90%'),
     height: hp('10%'),
     marginVertical: wp('2%'),
@@ -4743,7 +7744,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5F7EFF',
     borderRadius: 10,
   },
-  objectiveAssessmentText: {
+  objectiveAssesmentText: {
     color: 'white',
     fontSize: wp('3.5%'),
     marginVertical: wp('3%'),
@@ -4751,7 +7752,7 @@ const styles = StyleSheet.create({
   },
   bigContainerPicker: {
     width: wp('90%'),
-    height: hp('75%'),
+    height: hp('160%'),
     flex: 1,
     paddingVertical: wp('5%'),
     paddingHorizontal: wp('5%'),
@@ -4786,7 +7787,7 @@ const styles = StyleSheet.create({
   },
   normalContainerPicker: {
     width: wp('90%'),
-    height: hp('75%'),
+    height: hp('65%'),
     flex: 1,
     paddingVertical: wp('5%'),
     paddingHorizontal: wp('5%'),
@@ -4865,6 +7866,87 @@ const styles = StyleSheet.create({
     marginVertical: wp('1%'),
     marginHorizontal: wp('1.5%'),
   },
+  inputFieldContainerMs: {
+    width: wp('90%'),
+    height: hp('190%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  answerBox: {
+    color: 'white',
+    fontSize: wp('3%'),
+    marginVertical: wp('1%'),
+    marginHorizontal: wp('6%'),
+  },
+  generalPostureBox: {
+    color: 'white',
+    fontSize: wp('3%'),
+    marginVertical: wp('-1.5%'),
+    marginHorizontal: wp('6%'),
+  },
+  callositiesBox: {
+    color: 'white',
+    fontSize: wp('3%'),
+    marginVertical: wp('-1.5%'),
+    marginHorizontal: wp('6%'),
+  },
+  inputFieldContainerMCQSensory: {
+    width: wp('90%'),
+    height: hp('120%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  inputFieldContainerMCQSensoryM: {
+    width: wp('90%'),
+    height: hp('230%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  bigContainerSM: {
+    width: wp('20%'),
+    height: hp('5%'),
+    marginHorizontal: wp('5%'),
+    marginVertical: wp('5%'),
+  },
+  rowTextSM: {
+    marginVertical: wp('7%'),
+    marginHorizontal: wp('6%'),
+    color: 'white',
+    fontSize: wp('3%'),
+  },
+  inputFieldContainerS16: {
+    width: wp('90%'),
+    height: hp('60%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  inputFieldContainerS17: {
+    width: wp('90%'),
+    height: hp('180%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
+  normalContainer: {
+    width: wp('90%'),
+    height: hp('20%'),
+    flex: 1,
+    paddingVertical: wp('5%'),
+    paddingHorizontal: wp('5%'),
+    marginVertical: wp('2%'),
+    marginHorizontal: wp('4%'),
+    backgroundColor: '#5F7EFF',
+    borderRadius: 10,
+  },
   inputFieldContainerEXPORT: {
     width: wp('80%'),
     height: hp('5%'),
@@ -4899,4 +7981,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Phase_1_Assessment_Form;
+export default Phase_1_Assesment_Form;

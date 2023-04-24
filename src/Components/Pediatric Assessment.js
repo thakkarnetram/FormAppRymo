@@ -18,14 +18,13 @@ import {
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
 const Pediatric_Assessment = ({navigation}) => {
-  Orientation.lockToPortrait();
-
+ 
   useEffect(() => {
+    Orientation.lockToPortrait();
     return () => {
-      Orientation.unlockAllOrientations();
+      Orientation.unlockAllOrientations(); // Unlocks all orientations when the component unmounts
     };
   }, []);
-
   Immersive.setImmersive(true);
 
   return (

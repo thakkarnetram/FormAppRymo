@@ -19,16 +19,18 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Phase_1_Assessment_Form from './src/Components/Phase 1 Assessment Form ';
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
+
 const Stack = createNativeStackNavigator();
 
 function App() {
-  Orientation.lockToPortrait();
 
   useEffect(() => {
+    Orientation.lockToPortrait();
     return () => {
-      Orientation.unlockAllOrientations();
+      Orientation.unlockAllOrientations(); // Unlocks all orientations when the component unmounts
     };
   }, []);
+
   Immersive.setImmersive(true);
   return (
     <NavigationContainer>
