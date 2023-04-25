@@ -598,7 +598,10 @@ const Phase_1_Assesment_Form = () => {
   const lowerExtremitiesHandler = lowerExtremities => {
     setLowerExtremities(lowerExtremities);
   };
-
+  const [asworthsComs, setAsworthsComs] = useState('');
+  const asworthsComsHandler = asworthsComs => {
+    setAsworthsComs(asworthsComs);
+  }
   // Section => Functional Evaluation
   const [supineToProneImmobile, setSupineToProneImmobile] = useState(false);
   const [supineToProneAssistance, setSupineToProneAssistance] = useState(false);
@@ -1488,19 +1491,20 @@ const Phase_1_Assesment_Form = () => {
     <head>
       <style>
       body{font-family:Arial;
-       padding:10px;} h1{font-size:18px; margin-bottom:10px;} 
-       .section{margin-bottom:5px; border-bottom:1px solid #ccc; padding-bottom:10px;}
-        .label{font-weight:bold; margin-bottom:5px; color:#555;} 
+       padding:6px;} h1{font-size:18px; margin-bottom:5px;} h2{font-size:15px; margin-bottom:1px;} 
+       .section{margin-bottom:2px; border-bottom:1px solid #ccc; padding-bottom:3px; padding-top:3px;}
+        .label{font-weight:bold; margin-bottom:1px; color:#555; font-size:15px;} 
         .value{font-weight:bold;}
+        #head{width:100%; height:100px; }
+        #footer{width:100%; height:50px;}
         </style>
         </head>
         <body>`;
 
     html += `
-        <div class="head">
-        here goes the Head
-        </div>
-
+        <header id="head">
+        <h1>Header</h1>
+        </header>
         `;
 
     // Section I => Patient Details
@@ -1530,50 +1534,50 @@ const Phase_1_Assesment_Form = () => {
       `;
     }
     if (firstName.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>First Name: ${firstName.trim()}</h2>
       </div>
-      </div>`;
+    `;
     }
     if (lastName.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>last Name: ${lastName.trim()}</h2>
       </div>
-      </div>`;
+      `;
     }
     if (userAge.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Patient Age - ${userAge}</h2>
       </div>
-      </div>`;
+      `;
     }
     if (male) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Gender - Male</h2>
       </div>
-      </div>`;
+      `;
     } else if (female) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Gender -  Female</h2>
       </div>
-      </div>`;
+      `;
     }
 
     const today = new Date();
     const dobString =
       userDob.getTime() === 0 ? '00/00/0000' : userDob.toLocaleDateString();
     if (userDob.getTime() !== today.getTime()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2> Date of Birth : ${dobString} </h2>
       </div><div class="value dob">
       </div>
-      </div>`;
+      `;
     }
 
     const doeString =
@@ -1581,70 +1585,71 @@ const Phase_1_Assesment_Form = () => {
         ? '00/00/0000'
         : evaluationDate.toLocaleDateString();
     if (evaluationDate.getTime() !== today.getTime()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Date of Evaluation: ${doeString}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (informant.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Informant: ${informant.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (AssesmentBy.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Addressed By: ${AssesmentBy.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (diagnosis.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Diagnosis: ${diagnosis.trim()}</h2>
       </div></div>`;
     }
     if (referredBy.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Referred By: ${referredBy.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (gmfcOptions) {
       html += `
-          <div class="section"><div class="label">
-          <h2>GMFC - ${gmfcOptions}</h2></div><div class="value">
+          <div class="label">
+          <h2>GMFC - ${gmfcOptions}</h2>
           </div>
-          </div>
+          
         `;
     }
 
     if (macsOptions) {
       html += `
-      <div class="section"><div class="label">
-          <h2>MACS - ${macsOptions}</h2></div><div class="value">
+      <div class="label">
+          <h2>MACS - ${macsOptions}</h2>
           </div>
-          </div>
+         
         `;
     }
 
     if (miniMacOptions) {
       html += `
-      <div class="section"><div class="label">
+     <div class="label">
           <h2>Mini Mac - ${miniMacOptions} </h2>
           </div>
-          </div>
+
         `;
     }
 
     if (cfcsOptions) {
       html += `
-      <div class="section"><div class="label">
+      <div class="label">
       <h2>CFCS - ${cfcsOptions}</h2></div>
-      </div>
         `;
     }
+
+    html+= `<div class="section"></div>`;
 
     html += `</br>`;
     // Section 2
@@ -1663,28 +1668,30 @@ const Phase_1_Assesment_Form = () => {
     );
     if (preNatal.length > 0) {
       html += `
-      <div class="section">
+  
         <div class="label"><h2> Pre Natal ,  Modes of Ambulation:  ${preNatal.join(
           ', ',
         )}</h2></div>
-      </div>
+
     `;
     }
 
     if (fullTerm) {
       html += `
-      <div class="section">
+   
         <div class="label"><h2>Natal : Full Term</h2></div>
-      </div>
+
     `;
     } else if (preTerm) {
       html += `
-      <div class="section">
+
         <div class="label"><h2>Natal : Pre Term</h2></div>
-      </div>
+   
     `;
     }
 
+   html+= `<div class="section"></div>`;
+    
     html += `</br>`;
 
     if (
@@ -1707,60 +1714,62 @@ const Phase_1_Assesment_Form = () => {
 
     if (ciabYes) {
       html += `
-      <div class="section">
+  
         <div class="label"><h2>CIAB :Yes</h2></div>
-      </div>
+   
     `;
     } else if (ciabNo) {
       html += `
-      <div class="section">
+      
         <div class="label"><h2>CIAB : No</h2></div>
-      </div>
+    
     `;
     }
 
     if (userBirthWeight.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Birth Weight (kgs) - ${userBirthWeight.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (userHeadCircumference.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>Head Circumference (cms) - ${userHeadCircumference.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (day1To7days) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>NICU STAY : 1 day - 7 day</h2>
-      </div></div>`;
+      </div>`;
     } else if (week1To4weeks) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>NICU STAY : 1 Week - 4 Week</h2>
-      </div></div>`;
+      </div>`;
     } else if (week4To4months) {
-      html += `<div class="section">
+      html += `
       <div class="label">
       <h2>NICU STAY : 4 Week - 4 Month </h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (presentHistory.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Present History - ${presentHistory.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (chiefComplaint.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Chief Complaint - ${chiefComplaint.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
+    html+= `<div class="section"></div>`;
+    
     html += `</br>`;
 
     // Section 3
@@ -1788,57 +1797,58 @@ const Phase_1_Assesment_Form = () => {
     }
 
     if (sightIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Sight - Intact</h2>
-      </div></div>`;
+      </div>`;
     } else if (sightNotIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Sight - Not Intact</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (hearingIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Hearing -Intact </h2>
-      </div></div>`;
+      </div>`;
     } else if (hearingNotIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Hearing - Not Intact</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (speechIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Speech/Communication - Intact </h2>
-      </div></div>`;
+      </div>`;
     } else if (speechNotIntact) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Speech/Communication - Not Intact </h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (carried) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Mode Of Ambulation - Carried by Parent</h2>
-      </div></div>`;
+      </div>`;
     } else if (walkingSticks) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Mode Of Ambulation - Walking with Sticks</h2>
-      </div></div>`;
+      </div>`;
     } else if (wheelChair) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Mode Of Ambulation - Wheel Chair</h2>
-      </div></div>`;
+      </div>`;
     } else if (walkingWalker) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Mode Of Ambulation - Walking with Walker</h2>
-      </div></div>`;
+      </div>`;
     } else if (walkingIndependently) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Mode Of Ambulation - Walking Independently</h2>
-      </div></div>`;
+      </div>`;
     }
 
+    html+= `<div class="section"></div>`;
     html += `</br>`;
 
     // Section 4
@@ -1853,38 +1863,41 @@ const Phase_1_Assesment_Form = () => {
       `;
     }
     if (handHolding.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Hand Holding - ${handHolding.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
     if (rolling.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Rolling - ${rolling.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
     if (crawling.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Crawling - ${crawling.trim()} </h2>
       </div><div class="value"><h3></h3>
-      </div></div>`;
+      </div>`;
     }
     if (sitting.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Sitting- ${sitting.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
     if (standing.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Standing - ${standing.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (walking.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Walking - ${walking.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
 
     // Section 5
+     html+= `<div class="section"></div>`;
+    
+    html += `</br>`;
 
     if (mri || eeg || bera || opthalmalogy || xRays) {
       html += `
@@ -1897,35 +1910,36 @@ const Phase_1_Assesment_Form = () => {
     }
 
     if (mri.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>MRI - ${mri.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (eeg.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>EEG - ${eeg.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (bera.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Bera - ${bera.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (opthalmalogy.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Ophthalmalogy - ${opthalmalogy.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (xRays.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>X-Rays - ${xRays.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
 
+    html+= `<div class="section"></div>`;
     html += `</br>`;
     // Section 6
 
@@ -1940,32 +1954,34 @@ const Phase_1_Assesment_Form = () => {
     }
 
     if (hypotonia) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Tone - Hypotonia</h2>
-      </div></div>`;
+      </div>`;
     } else if (hypertonia) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Tone - Hypertonia</h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (deformities.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Deformities - ${deformities.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
     if (contracture.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Contracture - ${contracture.trim()} </h2>
-      </div></div>`;
+      </div>`;
     }
 
     if (tightness.trim()) {
-      html += `<div class="section">
+      html += `
       <div class="label"><h2>Tightness - ${tightness.trim()}</h2>
-      </div></div>`;
+      </div>`;
     }
 
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
     // Section 7
     // Tardiues
 
@@ -1994,7 +2010,7 @@ const Phase_1_Assesment_Form = () => {
 
     if (tasRTR1.trim()) {
       html += `
-          <div class="section"><div class="label">
+          <div class="label">
           <h2>Tendonitis RT - R1  :${tasRTR1}</h2></div><div class="value">
           </div>
           </div>
@@ -2002,25 +2018,22 @@ const Phase_1_Assesment_Form = () => {
     }
     if (tasRTR2.trim()) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tendonitis RT - R2  :${tasRTR2}</h2></div><div class="value">
-      </div>
-      </div>
+      <div class="label">
+      <h2>Tendonitis RT - R2  :${tasRTR2}</h2></div>
+
     `;
     }
     if (tasLTR1.trim()) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tendonitis LT - R1  :${tasLTR1}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Tendonitis LT - R1  :${tasLTR1}</h2>
       </div>
     `;
     }
     if (tasLTR2.trim()) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tendonitis LT - R2  :${tasLTR2}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Tendonitis LT - R2  :${tasLTR2}</h2>
       </div>
     `;
     }
@@ -2028,70 +2041,65 @@ const Phase_1_Assesment_Form = () => {
     if (hamstringsRTR1) {
       html += `
       <div class="section"><div class="label">
-      <h2>Hamstrings RT - R1  :${hamstringsRTR1}</h2></div><div class="value">
-      </div>
+      <h2>Hamstrings RT - R1  :${hamstringsRTR1}</h2>
       </div>
     `;
     }
     if (hamstringsRTR2) {
       html += `
       <div class="section"><div class="label">
-      <h2>Hamstrings RT - R2  :${hamstringsRTR2}</h2></div><div class="value">
-      </div>
+      <h2>Hamstrings RT - R2  :${hamstringsRTR2}</h2>
       </div>
     `;
     }
     if (hamstringsLTR1) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hamstrings LT - R1  :${hamstringsLTR1}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Hamstrings LT - R1  :${hamstringsLTR1}</h2>
       </div>
     `;
     }
     if (hamstringsLTR2) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hamstrings LT - R2  :${hamstringsLTR2}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Hamstrings LT - R2  :${hamstringsLTR2}</h2>
       </div>
     `;
     }
 
     if (hipAdductionRTR1) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hip Adductors  RT - R1  :${hipAdductionRTR1}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Hip Adductors  RT - R1  :${hipAdductionRTR1}</h2>
       </div>
     `;
     }
     if (hipAdductionRTR2) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hip Adductors  RT - R2  :${hipAdductionRTR2}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Hip Adductors  RT - R2  :${hipAdductionRTR2}</h2>
       </div>
     `;
     }
     if (hipAdductionLTR1) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hip Adductors  LT - R1  :${hipAdductionLTR1}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Hip Adductors  LT - R1  :${hipAdductionLTR1}</h2>
       </div>
     `;
     }
     if (hipAdductionLTR2) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hip Adductors  LT - L2  :${hipAdductionLTR2}</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Hip Adductors  LT - L2  :${hipAdductionLTR2}</h2>
       </div>
     `;
     }
 
-    // Section 8 => ROM
+    // Section 8 => ROM 
+    html+= `<div class="section"></div>`;
+    
+    html += `</br>`;
 
     if (
       backExt ||
@@ -2131,8 +2139,8 @@ const Phase_1_Assesment_Form = () => {
     }
     if (backExt) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Back Extension :${backExt}</h2></div><div class="value">
+          <div class="label">
+          <h2>Back Extension :${backExt}</h2></div><div class="v>
           </div>
           </div>
         `;
@@ -2140,8 +2148,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (backFlex) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Back Flexion : ${backFlex}</h2></div><div class="value">
+          <div class="label">
+          <h2>Back Flexion : ${backFlex}</h2></div><div class="v>
           </div>
           </div>
         `;
@@ -2149,8 +2157,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (backLat) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Back Lateral Bending : ${backLat}</h2></div><div class="value">
+          <div class="label">
+          <h2>Back Lateral Bending : ${backLat}</h2></div><div c"value">
           </div>
           </div>
         `;
@@ -2158,8 +2166,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (neckFlex) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Neck Flexion : ${neckFlex}</h2></div><div class="value">
+          <div class="label">
+          <h2>Neck Flexion : ${neckFlex}</h2></div><div class="v>
           </div>
           </div>
         `;
@@ -2167,8 +2175,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (neckExt) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Neck Extension : ${neckExt}</h2></div><div class="value">
+          <div class="label">
+          <h2>Neck Extension : ${neckExt}</h2></div><div class="">
           </div>
           </div>
         `;
@@ -2176,8 +2184,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (neckLat) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Neck Lateral Bending : ${neckLat}</h2></div><div class="value">
+          <div class="label">
+          <h2>Neck Lateral Bending : ${neckLat}</h2></div><div c"value">
           </div>
           </div>
         `;
@@ -2185,17 +2193,16 @@ const Phase_1_Assesment_Form = () => {
 
     if (hipFlex) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip Flexion : ${hipFlex}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Hip Flexion : ${hipFlex}</h2></div><div class="val          </div>
           </div>
         `;
     }
 
     if (hipExt) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip Extension : ${hipExt}</h2></div><div class="value">
+          <div class="label">
+          <h2>Hip Extension : ${hipExt}</h2></div><div class="va
           </div>
           </div>
         `;
@@ -2203,8 +2210,8 @@ const Phase_1_Assesment_Form = () => {
 
     if (hipAdd) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip Adduction : ${hipAdd}</h2></div><div class="value">
+          <div class="label">
+          <h2>Hip Adduction : ${hipAdd}</h2></div><div class="va
           </div>
           </div>
         `;
@@ -2212,156 +2219,148 @@ const Phase_1_Assesment_Form = () => {
 
     if (hipAbd) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip Abduction : ${hipAbd}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Hip Abduction : ${hipAbd}</h2>
           </div>
         `;
     }
 
     if (kneeFlex) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Knee Flexion : ${kneeFlex}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Knee Flexion : ${kneeFlex}</h2>
           </div>
         `;
     }
 
     if (hipMedRot) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip medial rotation : ${hipMedRot}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Hip medial rotation : ${hipMedRot}</h2>
           </div>
         `;
     }
 
     if (hipLat) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Hip lateral rotation : ${hipLat}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Hip lateral rotation : ${hipLat}</h2>
           </div>
         `;
     }
 
     if (shoulderAbd) {
       html += `
-          <div class="section"><div class="label">
-          <h2>Shoulder Abduction : ${shoulderAbd}</h2></div><div class="value">
-          </div>
+          <div class="label">
+          <h2>Shoulder Abduction : ${shoulderAbd}</h2>
           </div>
         `;
     }
 
     if (shoulderAdd) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Shoulder Adduction : ${shoulderAdd}</h2></div><div class="value">
-      </div>
+          <div class="label">
+      <h2>Shoulder Adduction : ${shoulderAdd}</h2>
       </div>
     `;
     }
 
     if (shoulderFlex) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Shoulder Flexion: ${shoulderFlex}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Shoulder Flexion: ${shoulderFlex}</h2>
       </div>
     `;
     }
 
     if (shoulderExt) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Shoulder Extension: ${shoulderExt}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Shoulder Extension: ${shoulderExt}</h2>
       </div>
     `;
     }
 
     if (elbowFlex) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Elbow Flexion: ${elbowFlex}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Elbow Flexion: ${elbowFlex}</h2>
       </div>
       `;
     }
 
     if (forearmSup) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Forearm Supination: ${forearmSup}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Forearm Supination: ${forearmSup}</h2>
+
       </div>
       `;
     }
     if (forearmPro) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Forearm Pronation: ${forearmPro}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Forearm Pronation: ${forearmPro}</h2>
+      
       </div>
       `;
     }
 
     if (ankleDF) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ankle DF: ${ankleDF}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Ankle DF: ${ankleDF}</h2>
+    
       </div>
       `;
     }
     if (anklePF) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ankle PF: ${anklePF}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Ankle PF: ${anklePF}</h2>
+      
       </div>
       `;
     }
     if (ankleInversion) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ankle Inversion: ${ankleInversion}</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Ankle Inversion: ${ankleInversion}</h2>
       </div>
       `;
     }
 
     if (ankleEversion) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ankle Eversion: ${ankleEversion}</h2></div><div class="value">
-      </div>
+  <div class="label">
+      <h2>Ankle Eversion: ${ankleEversion}</h2>
+
       </div>
       `;
     }
 
     if (wristFlex) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Wrist Flexion: ${wristFlex}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Wrist Flexion: ${wristFlex}</h2>
+
       </div>
       `;
     }
 
     if (wristExt) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Wrist Extension: ${wristExt}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Wrist Extension: ${wristExt}</h2>
       </div>
       `;
     }
 
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
+
     // Section 9 => Modified Asworths
-    if (upperExtremities || lowerExtremities) {
+    if (upperExtremities || lowerExtremities || asworthsComs) {
       html += `
         <div class="label">
           <h1>9. Modified Asworths</h1>
@@ -2373,8 +2372,17 @@ const Phase_1_Assesment_Form = () => {
 
     if (upperExtremities) {
       html += `
-        <div class="section"><div class="label">
+        <div class="label">
         <h2> Upper Extremities : ${upperExtremities}</h2></div><div class="value">
+        </div>
+        </div>
+      `;
+    }
+
+    if (asworthsComs){
+      html += `
+        <div class="label">
+        <h2> Modified Asworth's Comment : ${asworthsComs}</h2></div><div class="value">
         </div>
         </div>
       `;
@@ -2382,12 +2390,15 @@ const Phase_1_Assesment_Form = () => {
 
     if (lowerExtremities) {
       html += `
-        <div class="section"><div class="label">
+        <div class="label">
         <h2> Lower Extremities : ${lowerExtremities}</h2></div><div class="value">
         </div>
         </div>
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 10 => functional evaluation
     if (
@@ -2427,206 +2438,183 @@ const Phase_1_Assesment_Form = () => {
 
     if (supineToProneImmobile) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Prone : Immobile</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Supine to Prone : Immobile</h2>
         </div>
       `;
     } else if (supineToProneAssistance) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Prone : Assistance </h2></div><div class="value">
-       
-        </div>
+        <div class="label">
+        <h2>Supine to Prone : Assistance </h2>
         </div>
       `;
     } else if (supineToProneIndependent) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Prone : Independent</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Supine to Prone : Independent</h2>
+
         </div>
       `;
     }
 
     if (supineToSitImmobile) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Sit : Immobile</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Supine to Sit : Immobile</h2>
         </div>
       `;
     } else if (supineToSitAssistance) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Sit : Assistance</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Supine to Sit : Assistance</h2>
         </div>
       `;
     } else if (supineToSitIndependent) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Supine to Sit : Independent</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Supine to Sit : Independent</h2>
         </div>
       `;
     }
 
     if (sittingImmobile) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Sitting : Immobile</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Sitting : Immobile</h2>
         </div>
       `;
     } else if (sittingAssistance) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Sitting : Assistance</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Sitting : Assistance</h2>
         </div>
       `;
     } else if (sittingIndependent) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Sitting : Independent</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Sitting : Independent</h2>
         </div>
       `;
     }
 
     if (quadsImmobile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Quads : Immobile</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Quads : Immobile</h2>
       </div>
     `;
     } else if (quadsAssistance) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Quads : Assistance</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Quads : Assistance</h2>
       </div>
     `;
     } else if (quadsIndependent) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Quads :Independent</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Quads :Independent</h2>
       </div>
     `;
     }
 
     if (kneelingImmobile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Kneeling :Immobile</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Kneeling :Immobile</h2>
       </div>
     `;
     } else if (kneelingAssistance) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Kneeling : Assistance</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Kneeling : Assistance</h2>
       </div>
     `;
     } else if (kneelingIndependent) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Kneeling : Independent</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Kneeling : Independent</h2>
       </div>
     `;
     }
 
     if (halfKneelingImmobile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Half Kneeling : Immobile</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Half Kneeling : Immobile</h2>
       </div>
     `;
     } else if (halfKneelingAssistance) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Half Kneeling : Assistance</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Half Kneeling : Assistance</h2>
       </div>
     `;
     } else if (halfKneelingIndependent) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Half Kneeling : Independent</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Half Kneeling : Independent</h2>
       </div>
     `;
     }
 
     if (standingImmobile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Standing : Immobile</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Standing : Immobile</h2>
       </div>
     `;
     } else if (standingAssistance) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Standing : Assistance</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Standing : Assistance</h2>
       </div>
     `;
     } else if (standingIndependent) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Standing : Independent</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Standing : Independent</h2>
       </div>
     `;
     }
 
     if (ambulationImmobile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ambulation : Immobile</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Ambulation : Immobile</h2>
       </div>
     `;
     } else if (ambulationAssistance) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ambulation : Assistance</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Ambulation : Assistance</h2>
       </div>
     `;
     } else if (ambulationIndependent) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ambulation : Independent</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Ambulation : Independent</h2>
       </div>
     `;
     }
 
     if (functionAbilities.trim()) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Function Abilities : ${functionAbilities}</h2></div><div class="value">
-      </div>
+ <div class="label">
+      <h2>Function Abilities : ${functionAbilities}</h2>
       </div>
     `;
     }
 
     if (functionLimitations.trim()) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Function Goals : ${functionLimitations}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Function Goals : ${functionLimitations}</h2>
       </div>
     `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 11 => Single System Assessment
 
@@ -2670,214 +2658,197 @@ const Phase_1_Assesment_Form = () => {
     }
     if (canInitiate) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Initiation : Can Initiate</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Initiation : Can Initiate</h2>
       </div>
     `;
     } else if (cantInitiate) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Initiation : Cannot Initiate</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Initiation : Cannot Initiate</h2>
       </div>
     `;
     }
     if (initiateComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Initiation Comments : ${initiateComs}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Initiation Comments : ${initiateComs}</h2>
       </div>
     `;
     }
 
     if (sustenancePoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sustenance : Poor</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Sustenance : Poor</h2>
       </div>
     `;
     } else if (sustenanceGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sustenance : Good</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Sustenance : Good</h2>
       </div>
     `;
     } else if (sustenanceFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sustenance : Fair</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Sustenance : Fair</h2>
       </div>
     `;
     }
     if (sustenanceComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sustenance Comments : ${sustenanceComs}</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Sustenance Comments : ${sustenanceComs}</h2>
       </div>
     `;
     }
 
     if (terminationPassive) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Termination : Passive </h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Termination : Passive </h2>
       </div>
     `;
     } else if (terminationAbrupt) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Termination : Abrupt</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Termination : Abrupt</h2>
       </div>
     `;
     }
     if (terminationComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Termination Comments: ${terminationComs}</h2></div><div class="value">
-      </div>
+   <div class="label">
+      <h2>Termination Comments: ${terminationComs}</h2>
       </div>
     `;
     }
 
     if (controlGradPoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Control Gradation : Poor</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Control Gradation : Poor</h2>
       </div>
     `;
     } else if (controlGradGood) {
       html += `
-      <div class="section">
+    
       <div class="label">
       <h2>Control Gradation : Good</h2>
-      </div>
       </div>
     `;
     } else if (controlGradFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Control Gradation : Fair</h2></div><div class="value">
-      </div>
+   <div class="label">
+      <h2>Control Gradation : Fair</h2>
       </div>
     `;
     }
     if (controlGradComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Control Gradation Comments : ${controlGradComs}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Control Gradation Comments : ${controlGradComs}</h2>
       </div>
     `;
     }
 
     if (recruitmentPostural) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Recruitment : Postural (So)</h2></div><div class="value">
-      </div>
+       <div class="label">
+      <h2>Recruitment : Postural (So)</h2>
       </div>
     `;
     } else if (recruitmentMovement) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Recruitment : Movement (FF)</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Recruitment : Movement (FF)</h2>
       </div>
     `;
     }
 
     if (contractionConcentric) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Contraction : Concentric</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Contraction : Concentric</h2>
       </div>
     `;
     } else if (contractionEccentric) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Contraction : Eccentric</h2></div><div class="value">
-      </div>
+ <div class="label">
+      <h2>Contraction : Eccentric</h2>
       </div>
     `;
     } else if (contractionIsometric) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Contraction : Isometric</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Contraction : Isometric</h2>
       </div>
     `;
     }
 
     if (contraction) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Co-contraction : ${contraction}</h2></div><div class="value">
-      </div>
+   <div class="label">
+      <h2>Co-contraction : ${contraction}</h2>
       </div>
     `;
     }
     if (reciprocalInhibition) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Reciprocal Inhibition : ${reciprocalInhibition}</h2></div><div class="value">
+    <div class="label">
+      <h2>Reciprocal Inhibition : ${reciprocalInhibition}</h2>
       </div>
-      </div>
+
     `;
     }
 
     if (massEnergy) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Mass Energy  : ${massEnergy}</h2></div><div class="value">
+   <div class="label">
+      <h2>Mass Energy  : ${massEnergy}</h2>
       </div>
-      </div>
+
     `;
     }
     if (isolatedWork) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Isolated Work :  ${isolatedWork}</h2></div><div class="value">
+      <div class="label">
+      <h2>Isolated Work :  ${isolatedWork}</h2>
       </div>
-      </div>
+
     `;
     }
 
     if (dynamicStiffness) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Dynamic Stiffness :  ${dynamicStiffness}</h2></div><div class="value">
+     <div class="label">
+      <h2>Dynamic Stiffness :  ${dynamicStiffness}</h2>
       </div>
-      </div>
+
     `;
     }
 
     if (extraneousMovement) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Extraneous Movement :  ${extraneousMovement}</h2></div><div class="value">
+     <div class="label">
+      <h2>Extraneous Movement :  ${extraneousMovement}</h2>
       </div>
-      </div>
+
     `;
     }
 
     if (singleAssesment) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Single System Assesment Comments :  ${singleAssesment}</h2></div><div class="value">
+     <div class="label">
+      <h2>Single System Assesment Comments :  ${singleAssesment}</h2>
       </div>
-      </div>
+
     `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 12 => Multi System Assessment
     if (
@@ -2900,65 +2871,61 @@ const Phase_1_Assesment_Form = () => {
 
     if (postureAnswer) {
       html += `
-      <div class="section"><div class="label">
-      <h2>What posture the child normally adopts ?  :  ${postureAnswer}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>What posture the child normally adopts ?  :  ${postureAnswer}</h2>
       </div>
     `;
     }
 
     if (asymmetry) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Alignment :  Asymmetry</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Alignment :  Asymmetry</h2>
       </div>
     `;
     }
     if (side) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Alignment Side :  ${side}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Alignment Side :  ${side}</h2>
       </div>
     `;
     }
 
     if (broad) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Base of Support :  Broad</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Base of Support :  Broad</h2>
       </div>
     `;
     }
 
     if (narrow) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Base of Support :  Narrow</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Base of Support :  Narrow</h2>
       </div>
     `;
     }
 
     if (generalPosture) {
       html += `
-      <div class="section"><div class="label">
-      <h2>General Posture : ${generalPosture}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>General Posture : ${generalPosture}</h2>
       </div>
     `;
     }
 
     if (callosities) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Callosities : ${callosities}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Callosities : ${callosities}</h2>
       </div>
     `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     if (
       momentum ||
@@ -2991,143 +2958,142 @@ const Phase_1_Assesment_Form = () => {
 
     if (momentum) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Movement Strategies Used : Momentum</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Movement Strategies Used : Momentum</h2>
       </div>
     `;
     } else if (overuseOfMs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Movement Strategies Used : Overuse Of Ms</h2></div><div class="value">
+      <div class="label">
+      <h2>Movement Strategies Used : Overuse Of Ms</h2>
       </div>
-      </div>
+
     `;
     } else if (increasingBos) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Movement Strategies Used : Increasing BOS</h2></div><div class="value">
+      <div class="label">
+      <h2>Movement Strategies Used : Increasing BOS</h2>
       </div>
-      </div>
+ 
     `;
     }
 
     if (staticBalanceGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Static Balance : Good</h2></div><div class="value">
+     <div class="label">
+      <h2>Static Balance : Good</h2>
       </div>
-      </div>
+
     `;
     } else if (staticBalanceFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Static Balance : Fair</h2></div><div class="value">
+      <div class="label">
+      <h2>Static Balance : Fair</h2>
       </div>
-      </div>
+
       `;
     } else if (staticBalancePoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Static Balance : Poor</h2></div><div class="value">
+      <div class="label">
+      <h2>Static Balance : Poor</h2>
       </div>
-      </div>
+
       `;
     }
 
     if (anticipatoryBalanceGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Anticipatory Balance : Good</h2></div><div class="value">
+     <div class="label">
+      <h2>Anticipatory Balance : Good</h2>
       </div>
-      </div>
+
       `;
     } else if (anticipatoryBalanceFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Anticipatory Balance : Fair</h2></div><div class="value">
+      <div class="label">
+      <h2>Anticipatory Balance : Fair</h2>
       </div>
-      </div>
+
       `;
     } else if (anticipatoryBalancePoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Anticipatory Balance : Poor</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Anticipatory Balance : Poor</h2>
       </div>
       `;
     }
     if (anticipatoryBalanceComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Anticipatory Balance Comments : ${anticipatoryBalanceComs}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Anticipatory Balance Comments : ${anticipatoryBalanceComs}</h2>
       </div>
       `;
     }
 
     if (reactiveBalanceGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Reactive Balance : Good</h2></div><div class="value">
+    <div class="label">
+      <h2>Reactive Balance : Good</h2>
       </div> 
-      </div>
+
       `;
     } else if (reactiveBalanceFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Reactive Balance : Fair</h2></div><div class="value">
+      <div class="label">
+      <h2>Reactive Balance : Fair</h2>
       </div>
-      </div>
+
       `;
     } else if (reactiveBalancePoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Reactive Balance : Poor</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Reactive Balance : Poor</h2>
       </div>
       `;
     }
     if (reactiveBalanceComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Reactive Balance Comments : ${reactiveBalanceComs}</h2></div><div class="value">
+     <div class="label">
+      <h2>Reactive Balance Comments : ${reactiveBalanceComs}</h2>
       </div>
-      </div>
+
       `;
     }
 
     if (coordinationGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Co ordination : Good</h2></div><div class="value">
+      <div class="label">
+      <h2>Co ordination : Good</h2>
       </div>
-      </div>
+      
       `;
     } else if (coordinationFair) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Co ordination : Fair</h2></div><div class="value">
+      <div class="label">
+      <h2>Co ordination : Fair</h2>
       </div>
-      </div>
+      
       `;
     } else if (coordinationPoor) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Co ordination : Poor</h2></div><div class="value">
+      <div class="label">
+      <h2>Co ordination : Poor</h2>
       </div>
-      </div>
+      
       `;
     }
 
     if (coordinationComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Co ordination Coomments : ${coordinationComs}</h2></div><div class="value">
+      <div class="label">
+      <h2>Co ordination Coomments : ${coordinationComs}</h2>
       </div>
-      </div>
+      
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 13 =>  Sensory Systems
     if (
@@ -3161,137 +3127,137 @@ const Phase_1_Assesment_Form = () => {
     );
     if (registrationOpts.length > 0) {
       html += `
-      <div class="section">
-      <h1>13. Sensory Systems</h1>
         <div class="label">
-        <h2> Registraion Options  :  ${registrationOpts.join(', ')}</h2>
+        <h2> Sensory Systems => Registraion Options  :  ${registrationOpts.join(', ')}</h2>
         </div>
-      </div>
     `;
     }
 
     if (registrationComs) {
       html += `
-      <div class="section"><div class="label">
+      <div class="label">
       <h2>Registraion Coomments : ${registrationComs}</h2></div><div class="value">
       </div>
-      </div>
+      
       `;
     }
 
     if (tactileUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tactile : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Tactile : Under Responsive</h2>
       </div>
-      </div>
+      
       `;
     } else if (tactileOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tactile : Over Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Tactile : Over Responsive</h2>
       </div>
-      </div>
+      
       `;
     }
 
     if (proprioceptiveUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Proprioceptive : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Proprioceptive : Under Responsive</h2>
       </div>
-      </div>
+      
       `;
     } else if (proprioceptiveOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Proprioceptive : Over Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Proprioceptive : Over Responsive</h2>
       </div>
-      </div>
+      
       `;
     }
 
     if (vestibularUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Vestibular  : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Vestibular  : Under Responsive</h2>
       </div>
-      </div>
+      
       `;
     } else if (vestibularOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Vestibular  : Over Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Vestibular  : Over Responsive</h2>
       </div>
-      </div>
+      
       `;
     }
 
     if (auditoryUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Auditory  : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Auditory  : Under Responsive</h2>
       </div>
-      </div>
+
       `;
     } else if (auditoryOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Auditory  : Over Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Auditory  : Over Responsive</h2>
       </div>
-      </div>
+
       `;
     }
 
     if (visualUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Visual  : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Visual  : Under Responsive</h2>
       </div>
-      </div>
+
       `;
     } else if (visualOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Visual  : Over Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Visual  : Over Responsive</h2>
       </div>
-      </div>
+ 
       `;
     }
 
     if (gustatoryUnder) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Gustatory  : Under Responsive</h2></div><div class="value">
+      <div class="label">
+      <h2>Gustatory  : Under Responsive</h2>
       </div>
-      </div>
+ 
       `;
     } else if (gustatoryOver) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Gustatory  : Over Responsive</h2></div><div class="value">
+     <div class="label">
+      <h2>Gustatory  : Over Responsive</h2>
       </div>
-      </div>
+ 
       `;
     }
 
     if (sensorySystemsComs) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sensory System Comments  : ${sensorySystemsComs}</h2></div><div class="value">
+      <div class="label">
+      <h2>Sensory System Comments  : ${sensorySystemsComs}</h2>
       </div>
-      </div>
+ 
       `;
     }
 
     if (sensoryProfile) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sensory Profile  : ${sensoryProfile}</h2></div><div class="value">
+     <div class="label">
+      <h2>Sensory Profile  : ${sensoryProfile}</h2>
       </div>
-      </div>
+    
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 14 =>  Sensory Modulation
     if (
@@ -3316,76 +3282,79 @@ const Phase_1_Assesment_Form = () => {
 
     if (gravitationalInsecurity) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Gravitational Insecurity : ${gravitationalInsecurity}</h2></div><div class="value">
+    <div class="label">
+      <h2>Gravitational Insecurity : ${gravitationalInsecurity}</h2>
       </div>
-      </div>
+
       `;
     }
     if (aversiveResponse) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Aversive Response to Movement : ${aversiveResponse}</h2></div><div class="value">
+     <div class="label">
+      <h2>Aversive Response to Movement : ${aversiveResponse}</h2>
       </div>
-      </div>
+   
       `;
     }
     if (posturalInsecurity) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Postural Insecurity : ${posturalInsecurity}</h2></div><div class="value">
+     <div class="label">
+      <h2>Postural Insecurity : ${posturalInsecurity}</h2>
       </div>
-      </div>
+   
       `;
     }
     if (tactileDefensiveness) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tactile Defensiveness : ${tactileDefensiveness}</h2></div><div class="value">
+     <div class="label">
+      <h2>Tactile Defensiveness : ${tactileDefensiveness}</h2>
       </div>
-      </div>
+     
       `;
     }
     if (sensoryAvoiding) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sensory Avoiding : ${sensoryAvoiding}</h2></div><div class="value">
+     <div class="label">
+      <h2>Sensory Avoiding : ${sensoryAvoiding}</h2>
       </div>
-      </div>
+  
       `;
     }
     if (poorRTS) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Poor registration to stimulation : ${poorRTS}</h2></div><div class="value">
+      <div class="label">
+      <h2>Poor registration to stimulation : ${poorRTS}</h2>
       </div>
-      </div>
+    
       `;
     }
     if (distractibility) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Distractibility : ${distractibility}</h2></div><div class="value">
+     <div class="label">
+      <h2>Distractibility : ${distractibility}</h2>
       </div>
-      </div>
+     
       `;
     }
     if (hyperactivity) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Hyperactivity : ${hyperactivity}</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>Hyperactivity : ${hyperactivity}</h2>
+
       </div>
       `;
     }
     if (sensoryComs) {
       html += `
       <div class="section"><div class="label">
-      <h2>Sensory Modulation Comments : ${sensoryComs}</h2></div><div class="value">
+      <h2>Sensory Modulation Comments : ${sensoryComs}</h2>
       </div>
-      </div>
+ 
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     if (
       formSpace ||
@@ -3406,57 +3375,57 @@ const Phase_1_Assesment_Form = () => {
 
     if (formSpace) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Form Space : ${formSpace}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Form Space : ${formSpace}</h2>
+   
       </div>
       `;
     }
 
     if (visuomotorcoordination) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Visuo motor co-ordination : ${visuomotorcoordination}</h2></div><div class="value">
+      <div class="label">
+      <h2>Visuo motor co-ordination : ${visuomotorcoordination}</h2>
       </div>
-      </div>
+
       `;
     }
 
     if (tactileDiscrimination) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tactile Discrimination : ${tactileDiscrimination}</h2></div><div class="value">
+   <div class="label">
+      <h2>Tactile Discrimination : ${tactileDiscrimination}</h2>
       </div>
-      </div>
+  
       `;
     }
 
     if (praxis) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Praxis : ${praxis}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Praxis : ${praxis}</h2>
       </div>
       `;
     }
 
     if (vestibularProprioceptiveProcessing) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Vestibular Proprioceptive Processing : ${vestibularProprioceptiveProcessing}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Vestibular Proprioceptive Processing : ${vestibularProprioceptiveProcessing}</h2>
       </div>
       `;
     }
 
     if (sensoryBcoms) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Sensory Processing Comments: ${sensoryBcoms}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Sensory Processing Comments: ${sensoryBcoms}</h2>
       </div>
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     if (
       focalVision ||
@@ -3476,48 +3445,47 @@ const Phase_1_Assesment_Form = () => {
 
     if (focalVision) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Focal Vision : ${focalVision}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Focal Vision : ${focalVision}</h2>
       </div>
       `;
     }
 
     if (ambientVision) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Ambient Vision : ${ambientVision}</h2></div><div class="value">
+      <div class="label">
+      <h2>Ambient Vision : ${ambientVision}</h2>
       </div>
-      </div>
+  
       `;
     }
 
     if (eyeMovementSystem) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Eye Movement System : ${eyeMovementSystem}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Eye Movement System : ${eyeMovementSystem}</h2>
       </div>
       `;
     }
 
     if (localization) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Localization : ${localization}</h2></div><div class="value">
-      </div>
+      <div class="label">
+      <h2>Localization : ${localization}</h2>
       </div>
       `;
     }
 
     if (tracking) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Tracking : ${tracking}</h2></div><div class="value">
-      </div>
+     <div class="label">
+      <h2>Tracking : ${tracking}</h2>
       </div>
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 16 - Other Scales
     if (gmfm || pedi || pediatricBalanceScale || wotaAquaticScale) {
@@ -3532,38 +3500,39 @@ const Phase_1_Assesment_Form = () => {
 
     if (gmfm) {
       html += `
-      <div class="section"><div class="label">
-      <h2>GMFM : ${gmfm}</h2></div><div class="value">
-      </div>
+    <div class="label">
+      <h2>GMFM : ${gmfm}</h2>
       </div>
       `;
     }
     if (pedi) {
       html += `
-      <div class="section"><div class="label">
-      <h2>PEDI : ${pedi}</h2></div><div class="value">
+      <div class="label">
+      <h2>PEDI : ${pedi}</h2>
       </div>
-      </div>
+
       `;
     }
 
     if (pediatricBalanceScale) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Pediatric Balance Scale : ${pediatricBalanceScale}</h2></div><div class="value">
-      </div>
-      </div>
+     <div class="label">
+      <h2>Pediatric Balance Scale : ${pediatricBalanceScale}</h2>
+
       `;
     }
 
     if (wotaAquaticScale) {
       html += `
-      <div class="section"><div class="label">
-      <h2>WOTA (AquaticScale) : ${wotaAquaticScale}</h2></div><div class="value">
+      <div class="label">
+      <h2>WOTA (AquaticScale) : ${wotaAquaticScale}</h2>
       </div>
-      </div>
+
       `;
     }
+
+    html+= `<div class="section"></div>`;
+    html += `</br>`;
 
     // Section 17 - ICF
     if (
@@ -3592,99 +3561,97 @@ const Phase_1_Assesment_Form = () => {
 
     if (bodyStructurePositive) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Body Structure - Positive  : ${bodyStructurePositive}</h2></div><div class="value">
-        </div>
+   <div class="label">
+        <h2>Body Structure - Positive  : ${bodyStructurePositive}</h2>
         </div>
         `;
-    } else if (bodyStructureNegative) {
+    } 
+     if (bodyStructureNegative) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Body Structure - Negative  : ${bodyStructureNegative}</h2></div><div class="value">
+        <div class="label">
+        <h2>Body Structure - Negative  : ${bodyStructureNegative}</h2>
         </div>
-        </div>
+    
         `;
     }
 
     if (bodyFunctionPositive) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Body Function - Positive  : ${bodyFunctionPositive}</h2></div><div class="value">
+        <div class="label">
+        <h2>Body Function - Positive  : ${bodyFunctionPositive}</h2>
         </div>
-        </div>
+  
         `;
-    } else if (bodyFunctionNegative) {
+    } 
+     if (bodyFunctionNegative) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Body Function - Negative : ${bodyFunctionNegative}</h2></div><div class="value">
+       <div class="label">
+        <h2>Body Function - Negative : ${bodyFunctionNegative}</h2>
         </div>
-        </div>
+
         `;
     }
 
     if (activitiesPositive) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Activities  - Positive  : ${activitiesPositive}</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Activities  - Positive  : ${activitiesPositive}</h2>
         </div>
         `;
-    } else if (activitiesNegative) {
+    } 
+     if (activitiesNegative) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Activities  - Negative  : ${activitiesNegative}</h2></div><div class="value">
+        <div class="label">
+        <h2>Activities  - Negative  : ${activitiesNegative}</h2>
         </div>
-        </div>
+
         `;
     }
 
     if (environmentalPositive) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Environmental - Positive  : ${environmentalPositive}</h2></div><div class="value">
+     <div class="label">
+        <h2>Environmental - Positive  : ${environmentalPositive}</h2>
         </div>
-        </div>
+
         `;
-    } else if (environmentalNegative) {
+    } 
+     if (environmentalNegative) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Environmental - Negative  : ${environmentalNegative}</h2></div><div class="value">
+      <div class="label">
+        <h2>Environmental - Negative  : ${environmentalNegative}</h2>
         </div>
-        </div>
+
         `;
     }
 
     if (shortTermGoals) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Short term goals  : ${shortTermGoals}</h2></div><div class="value">
-        </div>
+       <div class="label">
+        <h2>Short term goals  : ${shortTermGoals}</h2>
         </div>
         `;
     }
     if (longTermGoals) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Long term goals  : ${longTermGoals}</h2></div><div class="value">
-        </div>
+        <div class="label">
+        <h2>Long term goals  : ${longTermGoals}</h2>
         </div>
         `;
     }
 
     if (intervention) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Intervention  : ${intervention}</h2></div><div class="value">
-        </div>
+       <div class="label">
+        <h2>Intervention  : ${intervention}</h2>
         </div>
         `;
     }
 
     if (equipments) {
       html += `
-        <div class="section"><div class="label">
-        <h2>Equipments / Instruments used : ${equipments}</h2></div><div class="value">
-        </div>
+       <div class="label">
+        <h2>Equipments / Instruments used : ${equipments}</h2>
         </div>
         `;
     }
@@ -3694,27 +3661,30 @@ const Phase_1_Assesment_Form = () => {
     );
     if (recommendationOpts.length > 0) {
       html += `
-        <div class="section">
-        <h1>17. ICF</h1>
-          <div class="label"><h2>  Recommendations  :  ${recommendationOpts.join(
+          <div class="label"><h2> ICF =>  Recommendations  :  ${recommendationOpts.join(
             ', ',
           )}</h2>
           </div>
-        </div>
       `;
     }
 
     if (section17Coms) {
       html += `
-        <div class="section"><div class="label">
-        <h2>ICF Comments : ${section17Coms}</h2></div><div class="value">
+       <div class="label">
+        <h2>ICF Comments : ${section17Coms}</h2>
         </div>
-        </div>
+
         `;
     }
 
+
+    html+= `<div class="section"></div>`;
+
     html += `
-    <footer>
+    <footer id="footer">
+    Im the footer bro
+    Im the footer bro
+    Im the footer bro
     Im the footer bro
     </footer>
     `;
@@ -5713,6 +5683,14 @@ const Phase_1_Assesment_Form = () => {
                 </Picker>
               </View>
             </View>
+            <TextInput
+                  value={asworthsComs}
+                  onChangeText={asworthsComsHandler}
+                  keyboardType="ascii-capable"
+                  placeholder="Comments"
+                  placeholderTextColor="#FFFFFF"
+                  style={styles.coms}
+                />
           </View>
           {/* Functional Evaluation */}
           <Text
@@ -6390,7 +6368,7 @@ const Phase_1_Assesment_Form = () => {
               />
             </View>
           </View>
-          {/*   Modified Ashworths */}
+          {/*   Multiple System assesment */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -9020,7 +8998,7 @@ const styles = StyleSheet.create({
   },
   normalContainer: {
     width: wp('90%'),
-    height: hp('20%'),
+    height: hp('30%'),
     flex: 1,
     paddingVertical: wp('5%'),
     paddingHorizontal: wp('5%'),
