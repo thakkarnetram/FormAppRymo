@@ -152,6 +152,7 @@ const Phase_1_Assesment_Form = () => {
       [preNatalOption]: !preNatalOptions[preNatalOption],
     });
   };
+
   const preNatalOptionValues = [];
   Object.entries(preNatalOptions).forEach(([key, value]) => {
     if (value) {
@@ -816,25 +817,21 @@ const Phase_1_Assesment_Form = () => {
   const [contractionEccentric, setContractionEccentric] = useState(false);
   const [contractionComs, setContractionComs] = useState('');
 
-  const [contraction, setContraction] = useState(false);
-  const [reciprocalInhibition, setReciprocalInhibition] = useState(false);
+  const [contraction, setContraction] = useState();
+  const [reciprocalInhibition, setReciprocalInhibition] = useState();
   const [
     comsContraction_ReciprocalInhibition,
     setComsContraction_ReciprocalInhibition,
   ] = useState('');
 
-  const [massEnergy, setMassEnergy] = useState(false);
-  const [isolatedWork, setIsolatedWork] = useState(false);
-  const [massEnergy_isolatedWorkComs, setMassEnergy_isolatedWorkComs] =
-    useState('');
+  const [massEnergy, setMassEnergy] = useState();
+  const [isolatedWork, setIsolatedWork] = useState();
 
-  const [dynamicStiffnessYes, setDynamicStiffnessYes] = useState(false);
-  const [dynamicStiffnessNo, setDynamicStiffnessNo] = useState(false);
-  const [comsDynamicStiffness, setComsDynamicStiffness] = useState('');
+  const [dynamicStiffness, setDynamicStiffness] = useState();
 
-  const [extraneousMovementYes, setExtraneousMovementYes] = useState(false);
-  const [extraneousMovementNo, setExtraneousMovementNo] = useState(false);
-  const [comsExtraneousMovement, setComsExtraneousMovement] = useState('');
+  const [extraneousMovement, setExtraneousMovement] = useState();
+
+  const [singleAssesment, setSingleAssesment] = useState('');
 
   const canInitiateHandler = () => {
     setCanInitiate(true);
@@ -944,63 +941,32 @@ const Phase_1_Assesment_Form = () => {
     setContractionComs(contractionCom);
   };
 
-  const contractionHandler = () => {
-    setContraction(true);
-    setReciprocalInhibition(false);
+  const contractionHandler = contract => {
+    setContraction(contract);
   };
 
-  const reciprocalInhibitionHandler = () => {
-    setContraction(false);
-    setReciprocalInhibition(true);
+  const reciprocalInhibitionHandler = reciprocal => {
+    setReciprocalInhibition(reciprocal);
   };
 
-  const comsContraction_ReciprocalInhibitionHandler =
-    comsContraction_ReciprocalInhibition => {
-      setComsContraction_ReciprocalInhibition(
-        comsContraction_ReciprocalInhibition,
-      );
-    };
-
-  const massEnergyHandler = () => {
-    setMassEnergy(true);
-    setIsolatedWork(false);
+  const massEnergyHandler = mass => {
+    setMassEnergy(mass);
   };
 
-  const isolatedWorkHandler = () => {
-    setMassEnergy(false);
-    setIsolatedWork(true);
+  const isolatedWorkHandler = isolated => {
+    setMassEnergy(isolated);
   };
 
-  const massEnergy_isolatedWorkComsHandler = massEnergy_isolatedWorkComs => {
-    setMassEnergy_isolatedWorkComs(massEnergy_isolatedWorkComs);
+  const dynamicStiffnessHandler = Dyanmic => {
+    setDynamicStiffness(Dyanmic);
   };
 
-  const dynamicStiffnessNoHandler = () => {
-    setDynamicStiffnessNo(true);
-    setDynamicStiffnessYes(false);
+  const extraneousMovementHandler = extraneous => {
+    setExtraneousMovement(extraneous);
   };
 
-  const dynamicStiffnessYesHandler = () => {
-    setDynamicStiffnessNo(false);
-    setDynamicStiffnessYes(true);
-  };
-
-  const comsDynamicStiffnessHandler = comsDynamicStiffness => {
-    setComsDynamicStiffness(comsDynamicStiffness);
-  };
-
-  const extraneousMovementNoHandler = () => {
-    setExtraneousMovementNo(true);
-    setExtraneousMovementYes(false);
-  };
-
-  const extraneousMovementYesHandler = () => {
-    setExtraneousMovementNo(false);
-    setExtraneousMovementYes(true);
-  };
-
-  const comsExtraneousMovementHandler = comsExtraneousMovement => {
-    setComsExtraneousMovement(comsExtraneousMovement);
+  const singleAssesmentHandler = single => {
+    setSingleAssesment(single);
   };
 
   // Multi System Assesment => Posture and Movement
@@ -1009,7 +975,7 @@ const Phase_1_Assesment_Form = () => {
 
   // b alignment
   const [asymmetry, setAsymmetry] = useState(false);
-  const [side, setSide] = useState(false);
+  const [side, setSide] = useState();
 
   // base of support
   const [broad, setBroad] = useState(false);
@@ -1026,9 +992,8 @@ const Phase_1_Assesment_Form = () => {
     setSide(false);
   };
 
-  const sideHandler = () => {
-    setAsymmetry(false);
-    setSide(true);
+  const sideHandler = sideRTLT => {
+    setSide(sideRTLT);
   };
 
   const broadHandler = () => {
@@ -1053,12 +1018,10 @@ const Phase_1_Assesment_Form = () => {
   const [momentum, setMomentum] = useState(false);
   const [overuseOfMs, setOveruseOfMs] = useState(false);
   const [increasingBos, setIncreasingBos] = useState(false);
-  const [movementComs, setMovementComs] = useState('');
 
   const [staticBalanceGood, setStaticBalanceGood] = useState(false);
   const [staticBalanceFair, setStaticBalanceFair] = useState(false);
   const [staticBalancePoor, setStaticBalancePoor] = useState(false);
-  const [staticBalanceComs, setStaticBalanceComs] = useState('');
 
   const [anticipatoryBalanceGood, setAnticipatoryBalanceGood] = useState(false);
   const [anticipatoryBalanceFair, setAnticipatoryBalanceFair] = useState(false);
@@ -1093,10 +1056,6 @@ const Phase_1_Assesment_Form = () => {
     setIncreasingBos(true);
   };
 
-  const movementComsHandler = movementComs => {
-    setMovementComs(movementComs);
-  };
-
   const staticBalanceGoodHandler = () => {
     setStaticBalanceGood(true);
     setStaticBalanceFair(false);
@@ -1113,10 +1072,6 @@ const Phase_1_Assesment_Form = () => {
     setStaticBalanceGood(false);
     setStaticBalanceFair(false);
     setStaticBalancePoor(true);
-  };
-
-  const staticBalanceComsHandler = staticBalanceComs => {
-    setStaticBalanceComs(staticBalanceComs);
   };
 
   const anticipatoryBalanceGoodHandler = () => {
@@ -1391,7 +1346,6 @@ const Phase_1_Assesment_Form = () => {
   const [eyeMovementSystem, setEyeMovementSystem] = useState('');
   const [localization, setLocalization] = useState('');
   const [tracking, setTracking] = useState('');
-  const [visualComs, setVisualComs] = useState('');
 
   const focalVisionHandler = focalVision => {
     setFocalVision(focalVision);
@@ -1413,16 +1367,11 @@ const Phase_1_Assesment_Form = () => {
     setTracking(tracking);
   };
 
-  const visualComsHandler = visualCom => {
-    setVisualComs(visualCom);
-  };
-
   // section 16
   const [gmfm, setGmfm] = useState('');
   const [pedi, setPedi] = useState('');
   const [pediatricBalanceScale, setPediatricBalanceScale] = useState('');
   const [wotaAquaticScale, setWotaAquaticScale] = useState('');
-  const [section16Coms, setSection16Coms] = useState('');
 
   const gmfmHandler = gmfm => {
     setGmfm(gmfm);
@@ -1438,10 +1387,6 @@ const Phase_1_Assesment_Form = () => {
 
   const wotaAquaticScaleHandler = wotaAquaticScale => {
     setWotaAquaticScale(wotaAquaticScale);
-  };
-
-  const section16ComsHandler = section16Coms => {
-    setSection16Coms(section16Coms);
   };
 
   // section  17
@@ -1470,6 +1415,11 @@ const Phase_1_Assesment_Form = () => {
     RemedialTherapy: false,
     BehavioralTherapy: false,
   });
+  const [section17Coms, setSection17Coms] = useState('');
+
+  const section17ComsHandler = section17Coms => {
+    setSection17Coms(section17Coms);
+  };
 
   const bodyStructurePositiveHandler = bodyStructurePositive => {
     setBodyStructurePositive(bodyStructurePositive);
@@ -1538,13 +1488,20 @@ const Phase_1_Assesment_Form = () => {
     <head>
       <style>
       body{font-family:Arial;
-       padding:10px;} h1{font-size:24px; margin-bottom:10px;} 
-       .section{margin-bottom:15px; border-bottom:1px solid #ccc; padding-bottom:20px;}
+       padding:10px;} h1{font-size:18px; margin-bottom:10px;} 
+       .section{margin-bottom:5px; border-bottom:1px solid #ccc; padding-bottom:10px;}
         .label{font-weight:bold; margin-bottom:5px; color:#555;} 
         .value{font-weight:bold;}
         </style>
         </head>
         <body>`;
+
+    html += `
+        <div class="head">
+        here goes the Head
+        </div>
+
+        `;
 
     // Section I => Patient Details
     if (
@@ -1573,25 +1530,50 @@ const Phase_1_Assesment_Form = () => {
       `;
     }
     if (firstName.trim()) {
-      html += `<div class="section"><div class="label"><h2>First Name:</h2></div><div class="value"><h3>${firstName.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>First Name: ${firstName.trim()}</h2>
+      </div>
+      </div>`;
     }
     if (lastName.trim()) {
-      html += `<div class="section"><div class="label"><h2>Last Name:</h2></div><div class="value"><h3>${lastName.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>last Name: ${lastName.trim()}</h2>
+      </div>
+      </div>`;
     }
     if (userAge.trim()) {
-      html += `<div class="section"><div class="label"><h2>Age:</h2></div><div class="value"><h3>${userAge.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Patient Age - ${userAge}</h2>
+      </div>
+      </div>`;
     }
     if (male) {
-      html += `<div class="section"><div class="label"><h2>Gender:</h2></div><div class="value"><h3>Male</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Gender - Male</h2>
+      </div>
+      </div>`;
     } else if (female) {
-      html += `<div class="section"><div class="label"><h2>Gender:</h2></div><div class="value"><h3>Female</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Gender -  Female</h2>
+      </div>
+      </div>`;
     }
 
     const today = new Date();
     const dobString =
       userDob.getTime() === 0 ? '00/00/0000' : userDob.toLocaleDateString();
     if (userDob.getTime() !== today.getTime()) {
-      html += `<div class="section"><div class="label"><h2> Date of Birth : </h2></div><div class="value dob"><h3>${dobString}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2> Date of Birth : ${dobString} </h2>
+      </div><div class="value dob">
+      </div>
+      </div>`;
     }
 
     const doeString =
@@ -1599,26 +1581,40 @@ const Phase_1_Assesment_Form = () => {
         ? '00/00/0000'
         : evaluationDate.toLocaleDateString();
     if (evaluationDate.getTime() !== today.getTime()) {
-      html += `<div class="section"><div class="label"><h2>Date of Evaluation:</h2></div><div class="value doe"><h3>${doeString}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Date of Evaluation: ${doeString}</h2>
+      </div></div>`;
     }
     if (informant.trim()) {
-      html += `<div class="section"><div class="label"><h2>Informant:</h2></div><div class="value"><h3>${informant.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Informant: ${informant.trim()}</h2>
+      </div></div>`;
     }
     if (AssesmentBy.trim()) {
-      html += `<div class="section"><div class="label"><h2>Addressed By:</h2></div><div class="value"><h3>${AssesmentBy.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Addressed By: ${AssesmentBy.trim()}</h2>
+      </div></div>`;
     }
     if (diagnosis.trim()) {
-      html += `<div class="section"><div class="label"><h2>Diagnosis:</h2></div><div class="value"><h3>${diagnosis.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Diagnosis: ${diagnosis.trim()}</h2>
+      </div></div>`;
     }
     if (referredBy.trim()) {
-      html += `<div class="section"><div class="label"><h2>Referred By:</h2></div><div class="value"><h3>${referredBy.trim()}</h3></div></div>`;
+      html += `<div class="section">
+      <div class="label">
+      <h2>Referred By: ${referredBy.trim()}</h2>
+      </div></div>`;
     }
 
     if (gmfcOptions) {
       html += `
           <div class="section"><div class="label">
-          <h2>GMFC</h2></div><div class="value">
-          <h3>${gmfcOptions}</h3>
+          <h2>GMFC - ${gmfcOptions}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -1627,8 +1623,7 @@ const Phase_1_Assesment_Form = () => {
     if (macsOptions) {
       html += `
       <div class="section"><div class="label">
-          <h2>MACS</h2></div><div class="value">
-          <h3>${macsOptions}</h3>
+          <h2>MACS - ${macsOptions}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -1637,8 +1632,7 @@ const Phase_1_Assesment_Form = () => {
     if (miniMacOptions) {
       html += `
       <div class="section"><div class="label">
-          <h2>Mini Mac</h2></div><div class="value">
-          <h3>${miniMacOptions}</h3>
+          <h2>Mini Mac - ${miniMacOptions} </h2>
           </div>
           </div>
         `;
@@ -1647,9 +1641,7 @@ const Phase_1_Assesment_Form = () => {
     if (cfcsOptions) {
       html += `
       <div class="section"><div class="label">
-      <h2>CFCS</h2></div><div class="value">
-      <h3>${cfcsOptions}</h3>
-      </div>
+      <h2>CFCS - ${cfcsOptions}</h2></div>
       </div>
         `;
     }
@@ -1672,10 +1664,9 @@ const Phase_1_Assesment_Form = () => {
     if (preNatal.length > 0) {
       html += `
       <div class="section">
-        <div class="label"><h2> Pre Natal :</h2></div>
-        <div class="value">
-          <h3>Modes of Ambulation: ${preNatal.join(', ')}</h3>
-        </div>
+        <div class="label"><h2> Pre Natal ,  Modes of Ambulation:  ${preNatal.join(
+          ', ',
+        )}</h2></div>
       </div>
     `;
     }
@@ -1683,15 +1674,13 @@ const Phase_1_Assesment_Form = () => {
     if (fullTerm) {
       html += `
       <div class="section">
-        <div class="label"><h2>Natal :</h2></div>
-        <div class="value"><h3>Full Term</h3></div>
+        <div class="label"><h2>Natal : Full Term</h2></div>
       </div>
     `;
     } else if (preTerm) {
       html += `
       <div class="section">
-        <div class="label"><h2>Natal :</h2></div>
-        <div class="value"><h3>Pre Term</h3></div>
+        <div class="label"><h2>Natal : Pre Term</h2></div>
       </div>
     `;
     }
@@ -1713,23 +1702,19 @@ const Phase_1_Assesment_Form = () => {
       <div class="label">
         <h1>Post Natal</h1>
       </div>
-      <div class="value">
-      </div>
       `;
     }
 
     if (ciabYes) {
       html += `
       <div class="section">
-        <div class="label"><h2>CIAB :</h2></div>
-        <div class="value"><h3>Yes</h3></div>
+        <div class="label"><h2>CIAB :Yes</h2></div>
       </div>
     `;
     } else if (ciabNo) {
       html += `
       <div class="section">
-        <div class="label"><h2>CIAB :</h2></div>
-        <div class="value"><h3>No</h3></div>
+        <div class="label"><h2>CIAB : No</h2></div>
       </div>
     `;
     }
@@ -1737,54 +1722,42 @@ const Phase_1_Assesment_Form = () => {
     if (userBirthWeight.trim()) {
       html += `<div class="section">
       <div class="label">
-      <h2>Birth Weight (kgs) </h2>
-      </div><div class="value">
-      <h3>${userBirthWeight.trim()}</h3>
+      <h2>Birth Weight (kgs) - ${userBirthWeight.trim()} </h2>
       </div></div>`;
     }
 
     if (userHeadCircumference.trim()) {
       html += `<div class="section">
       <div class="label">
-      <h2>Head Circumference (cms) </h2>
-      </div><div class="value">
-      <h3>${userHeadCircumference.trim()}</h3>
+      <h2>Head Circumference (cms) - ${userHeadCircumference.trim()}</h2>
       </div></div>`;
     }
 
     if (day1To7days) {
       html += `<div class="section">
       <div class="label">
-      <h2>NICU STAY</h2>
-      </div><div class="value">
-      <h3>1 day - 7 day</h3>
+      <h2>NICU STAY : 1 day - 7 day</h2>
       </div></div>`;
     } else if (week1To4weeks) {
       html += `<div class="section">
       <div class="label">
-      <h2>NICU STAY</h2>
-      </div><div class="value">
-      <h3>1 Week - 4 Week</h3>
+      <h2>NICU STAY : 1 Week - 4 Week</h2>
       </div></div>`;
     } else if (week4To4months) {
       html += `<div class="section">
       <div class="label">
-      <h2>NICU STAY</h2>
-      </div><div class="value">
-      <h3>4 Week - 4 Month</h3>
+      <h2>NICU STAY : 4 Week - 4 Month </h2>
       </div></div>`;
     }
 
     if (presentHistory.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Present History - </h2>
-      </div><div class="value"><h3>${presentHistory.trim()}</h3>
+      <div class="label"><h2>Present History - ${presentHistory.trim()}</h2>
       </div></div>`;
     }
     if (chiefComplaint.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Chief Complaint - </h2>
-      </div><div class="value"><h3>${chiefComplaint.trim()}</h3>
+      <div class="label"><h2>Chief Complaint - ${chiefComplaint.trim()}</h2>
       </div></div>`;
     }
 
@@ -1816,64 +1789,53 @@ const Phase_1_Assesment_Form = () => {
 
     if (sightIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Sight - </h2>
-      </div><div class="value"><h3>Intact</h3>
+      <div class="label"><h2>Sight - Intact</h2>
       </div></div>`;
     } else if (sightNotIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Sight - </h2>
-      </div><div class="value"><h3>Not Intact</h3>
+      <div class="label"><h2>Sight - Not Intact</h2>
       </div></div>`;
     }
 
     if (hearingIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Hearing - </h2>
-      </div><div class="value"><h3>Intact</h3>
+      <div class="label"><h2>Hearing -Intact </h2>
       </div></div>`;
     } else if (hearingNotIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Hearing - </h2>
-      </div><div class="value"><h3>Not Intact</h3>
+      <div class="label"><h2>Hearing - Not Intact</h2>
       </div></div>`;
     }
 
     if (speechIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Speech/Communication - </h2>
-      </div><div class="value"><h3>Intact</h3>
+      <div class="label"><h2>Speech/Communication - Intact </h2>
       </div></div>`;
     } else if (speechNotIntact) {
       html += `<div class="section">
-      <div class="label"><h2>Speech/Communication - </h2>
-      </div><div class="value"><h3>Not Intact</h3>
+      <div class="label"><h2>Speech/Communication - Not Intact </h2>
       </div></div>`;
     }
 
     if (carried) {
       html += `<div class="section">
-      <div class="label"><h2>Mode Of Ambulation -</h2>
-      </div><div class="value"><h3>Carried by Parent</h3>
+      <div class="label"><h2>Mode Of Ambulation - Carried by Parent</h2>
       </div></div>`;
     } else if (walkingSticks) {
       html += `<div class="section">
-      <div class="label"><h2>Mode Of Ambulation -</h2>
-      </div><div class="value"><h3>Walking with Sticks</h3>
+      <div class="label"><h2>Mode Of Ambulation - Walking with Sticks</h2>
       </div></div>`;
     } else if (wheelChair) {
       html += `<div class="section">
-      <div class="label"><h2>Mode Of Ambulation -</h2>
-      </div><div class="value"><h3>Wheel Chair</h3>
+      <div class="label"><h2>Mode Of Ambulation - Wheel Chair</h2>
       </div></div>`;
     } else if (walkingWalker) {
       html += `<div class="section">
-      <div class="label"><h2>Mode Of Ambulation -</h2>
-      </div><div class="value"><h3>Walking with Walker</h3>
+      <div class="label"><h2>Mode Of Ambulation - Walking with Walker</h2>
       </div></div>`;
     } else if (walkingIndependently) {
       html += `<div class="section">
-      <div class="label"><h2>Mode Of Ambulation -</h2>
-      </div><div class="value"><h3>Walking Independently</h3>
+      <div class="label"><h2>Mode Of Ambulation - Walking Independently</h2>
       </div></div>`;
     }
 
@@ -1892,38 +1854,33 @@ const Phase_1_Assesment_Form = () => {
     }
     if (handHolding.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Hand Holding - </h2>
-      </div><div class="value"><h3>${handHolding.trim()}</h3>
+      <div class="label"><h2>Hand Holding - ${handHolding.trim()} </h2>
       </div></div>`;
     }
     if (rolling.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Rolling - </h2>
-      </div><div class="value"><h3>${rolling.trim()}</h3>
+      <div class="label"><h2>Rolling - ${rolling.trim()} </h2>
       </div></div>`;
     }
     if (crawling.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Crawling - </h2>
-      </div><div class="value"><h3>${crawling.trim()}</h3>
+      <div class="label"><h2>Crawling - ${crawling.trim()} </h2>
+      </div><div class="value"><h3></h3>
       </div></div>`;
     }
     if (sitting.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Sitting- </h2>
-      </div><div class="value"><h3>${handHolding.trim()}</h3>
+      <div class="label"><h2>Sitting- ${sitting.trim()} </h2>
       </div></div>`;
     }
     if (standing.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Standing - </h2>
-      </div><div class="value"><h3>${standing.trim()}</h3>
+      <div class="label"><h2>Standing - ${standing.trim()}</h2>
       </div></div>`;
     }
     if (walking.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Walking - </h2>
-      </div><div class="value"><h3>${walking.trim()}</h3>
+      <div class="label"><h2>Walking - ${walking.trim()} </h2>
       </div></div>`;
     }
 
@@ -1941,36 +1898,31 @@ const Phase_1_Assesment_Form = () => {
 
     if (mri.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>MRI - </h2>
-      </div><div class="value"><h3>${mri.trim()}</h3>
+      <div class="label"><h2>MRI - ${mri.trim()} </h2>
       </div></div>`;
     }
 
     if (eeg.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>EEG - </h2>
-      </div><div class="value"><h3>${eeg.trim()}</h3>
+      <div class="label"><h2>EEG - ${eeg.trim()}</h2>
       </div></div>`;
     }
 
     if (bera.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Bera - </h2>
-      </div><div class="value"><h3>${bera.trim()}</h3>
+      <div class="label"><h2>Bera - ${bera.trim()}</h2>
       </div></div>`;
     }
 
     if (opthalmalogy.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Ophthalmalogy - </h2>
-      </div><div class="value"><h3>${opthalmalogy.trim()}</h3>
+      <div class="label"><h2>Ophthalmalogy - ${opthalmalogy.trim()}</h2>
       </div></div>`;
     }
 
     if (xRays.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>X-Rays - </h2>
-      </div><div class="value"><h3>${xRays.trim()}</h3>
+      <div class="label"><h2>X-Rays - ${xRays.trim()} </h2>
       </div></div>`;
     }
 
@@ -1989,40 +1941,157 @@ const Phase_1_Assesment_Form = () => {
 
     if (hypotonia) {
       html += `<div class="section">
-      <div class="label"><h2>Tone - </h2>
-      </div><div class="value"><h3>${hypotonia}</h3>
+      <div class="label"><h2>Tone - Hypotonia</h2>
       </div></div>`;
     } else if (hypertonia) {
       html += `<div class="section">
-      <div class="label"><h2>Tone - </h2>
-      </div><div class="value"><h3>${hypertonia}</h3>
+      <div class="label"><h2>Tone - Hypertonia</h2>
       </div></div>`;
     }
 
     if (deformities.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Deformities - </h2>
-      </div><div class="value"><h3>${deformities.trim()}</h3>
+      <div class="label"><h2>Deformities - ${deformities.trim()}</h2>
       </div></div>`;
     }
     if (contracture.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Contracture - </h2>
-      </div><div class="value"><h3>${contracture.trim()}</h3>
+      <div class="label"><h2>Contracture - ${contracture.trim()} </h2>
       </div></div>`;
     }
 
     if (tightness.trim()) {
       html += `<div class="section">
-      <div class="label"><h2>Tightness - </h2>
-      </div><div class="value"><h3>${tightness.trim()}</h3>
+      <div class="label"><h2>Tightness - ${tightness.trim()}</h2>
       </div></div>`;
     }
 
     // Section 7
     // Tardiues
 
-    // Section 8 => Modified Ashworth
+    if (
+      tasRTR1 ||
+      tasRTR2 ||
+      tasLTR1 ||
+      tasLTR2 ||
+      hamstringsLTR1 ||
+      hamstringsLTR2 ||
+      hamstringsRTR1 ||
+      hamstringsRTR2 ||
+      hipAdductionLTR1 ||
+      hipAdductionLTR2 ||
+      hipAdductionRTR1 ||
+      hipAdductionRTR2
+    ) {
+      html += `
+        <div class="label">
+          <h1>7 . Tardiue's  </h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (tasRTR1.trim()) {
+      html += `
+          <div class="section"><div class="label">
+          <h2>Tendonitis RT - R1  :${tasRTR1}</h2></div><div class="value">
+          </div>
+          </div>
+        `;
+    }
+    if (tasRTR2.trim()) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tendonitis RT - R2  :${tasRTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (tasLTR1.trim()) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tendonitis LT - R1  :${tasLTR1}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (tasLTR2.trim()) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tendonitis LT - R2  :${tasLTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (hamstringsRTR1) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hamstrings RT - R1  :${hamstringsRTR1}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hamstringsRTR2) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hamstrings RT - R2  :${hamstringsRTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hamstringsLTR1) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hamstrings LT - R1  :${hamstringsLTR1}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hamstringsLTR2) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hamstrings LT - R2  :${hamstringsLTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (hipAdductionRTR1) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hip Adductors  RT - R1  :${hipAdductionRTR1}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hipAdductionRTR2) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hip Adductors  RT - R2  :${hipAdductionRTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hipAdductionLTR1) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hip Adductors  LT - R1  :${hipAdductionLTR1}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (hipAdductionLTR2) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hip Adductors  LT - L2  :${hipAdductionLTR2}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    // Section 8 => ROM
 
     if (
       backExt ||
@@ -2036,11 +2105,25 @@ const Phase_1_Assesment_Form = () => {
       hipAdd ||
       hipAbd ||
       kneeFlex ||
-      hipMedRot
+      hipMedRot ||
+      hipLat ||
+      shoulderAbd ||
+      shoulderAdd ||
+      shoulderFlex ||
+      shoulderExt ||
+      elbowFlex ||
+      forearmSup ||
+      forearmPro ||
+      ankleDF ||
+      anklePF ||
+      ankleInversion ||
+      ankleEversion ||
+      wristFlex ||
+      wristExt
     ) {
       html += `
       <div class="label">
-        <h1>8. Modified Ashworth </h1>
+        <h1>8. ROM </h1>
       </div>
       <div class="value">
       </div>
@@ -2049,8 +2132,7 @@ const Phase_1_Assesment_Form = () => {
     if (backExt) {
       html += `
           <div class="section"><div class="label">
-          <h2>Back Extension :</h2></div><div class="value">
-          <h3>${backExt}</h3>
+          <h2>Back Extension :${backExt}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2059,8 +2141,7 @@ const Phase_1_Assesment_Form = () => {
     if (backFlex) {
       html += `
           <div class="section"><div class="label">
-          <h2>Back Flexion :</h2></div><div class="value">
-          <h3>${backFlex}</h3>
+          <h2>Back Flexion : ${backFlex}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2069,8 +2150,7 @@ const Phase_1_Assesment_Form = () => {
     if (backLat) {
       html += `
           <div class="section"><div class="label">
-          <h2>Back Lateral Bending :</h2></div><div class="value">
-          <h3>${backLat}</h3>
+          <h2>Back Lateral Bending : ${backLat}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2079,8 +2159,7 @@ const Phase_1_Assesment_Form = () => {
     if (neckFlex) {
       html += `
           <div class="section"><div class="label">
-          <h2>Neck Flexion :</h2></div><div class="value">
-          <h3>${neckFlex}</h3>
+          <h2>Neck Flexion : ${neckFlex}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2089,8 +2168,7 @@ const Phase_1_Assesment_Form = () => {
     if (neckExt) {
       html += `
           <div class="section"><div class="label">
-          <h2>Neck Extension :</h2></div><div class="value">
-          <h3>${neckExt}</h3>
+          <h2>Neck Extension : ${neckExt}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2099,8 +2177,7 @@ const Phase_1_Assesment_Form = () => {
     if (neckLat) {
       html += `
           <div class="section"><div class="label">
-          <h2>Neck Lateral Bending :</h2></div><div class="value">
-          <h3>${neckLat}</h3>
+          <h2>Neck Lateral Bending : ${neckLat}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2109,8 +2186,7 @@ const Phase_1_Assesment_Form = () => {
     if (hipFlex) {
       html += `
           <div class="section"><div class="label">
-          <h2>Hip Flexion :</h2></div><div class="value">
-          <h3>${hipFlex}</h3>
+          <h2>Hip Flexion : ${hipFlex}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2119,8 +2195,7 @@ const Phase_1_Assesment_Form = () => {
     if (hipExt) {
       html += `
           <div class="section"><div class="label">
-          <h2>Hip Extension :</h2></div><div class="value">
-          <h3>${hipExt}</h3>
+          <h2>Hip Extension : ${hipExt}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2129,8 +2204,7 @@ const Phase_1_Assesment_Form = () => {
     if (hipAdd) {
       html += `
           <div class="section"><div class="label">
-          <h2>Hip Adduction :</h2></div><div class="value">
-          <h3>${hipAdd}</h3>
+          <h2>Hip Adduction : ${hipAdd}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2139,8 +2213,7 @@ const Phase_1_Assesment_Form = () => {
     if (hipAbd) {
       html += `
           <div class="section"><div class="label">
-          <h2>Hip Abduction :</h2></div><div class="value">
-          <h3>${hipAbd}</h3>
+          <h2>Hip Abduction : ${hipAbd}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2149,8 +2222,7 @@ const Phase_1_Assesment_Form = () => {
     if (kneeFlex) {
       html += `
           <div class="section"><div class="label">
-          <h2>Knee Flexion :</h2></div><div class="value">
-          <h3>${kneeFlex}</h3>
+          <h2>Knee Flexion : ${kneeFlex}</h2></div><div class="value">
           </div>
           </div>
         `;
@@ -2159,14 +2231,165 @@ const Phase_1_Assesment_Form = () => {
     if (hipMedRot) {
       html += `
           <div class="section"><div class="label">
-          <h2>Hip medial rotation :</h2></div><div class="value">
-          <h3>${hipMedRot}</h3>
+          <h2>Hip medial rotation : ${hipMedRot}</h2></div><div class="value">
           </div>
           </div>
         `;
     }
 
-    // Section 9 => functional evaluation
+    if (hipLat) {
+      html += `
+          <div class="section"><div class="label">
+          <h2>Hip lateral rotation : ${hipLat}</h2></div><div class="value">
+          </div>
+          </div>
+        `;
+    }
+
+    if (shoulderAbd) {
+      html += `
+          <div class="section"><div class="label">
+          <h2>Shoulder Abduction : ${shoulderAbd}</h2></div><div class="value">
+          </div>
+          </div>
+        `;
+    }
+
+    if (shoulderAdd) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Shoulder Adduction : ${shoulderAdd}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (shoulderFlex) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Shoulder Flexion: ${shoulderFlex}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (shoulderExt) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Shoulder Extension: ${shoulderExt}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (elbowFlex) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Elbow Flexion: ${elbowFlex}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (forearmSup) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Forearm Supination: ${forearmSup}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (forearmPro) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Forearm Pronation: ${forearmPro}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (ankleDF) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Ankle DF: ${ankleDF}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (anklePF) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Ankle PF: ${anklePF}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (ankleInversion) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Ankle Inversion: ${ankleInversion}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (ankleEversion) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Ankle Eversion: ${ankleEversion}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (wristFlex) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Wrist Flexion: ${wristFlex}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (wristExt) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Wrist Extension: ${wristExt}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    // Section 9 => Modified Asworths
+    if (upperExtremities || lowerExtremities) {
+      html += `
+        <div class="label">
+          <h1>9. Modified Asworths</h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (upperExtremities) {
+      html += `
+        <div class="section"><div class="label">
+        <h2> Upper Extremities : ${upperExtremities}</h2></div><div class="value">
+        </div>
+        </div>
+      `;
+    }
+
+    if (lowerExtremities) {
+      html += `
+        <div class="section"><div class="label">
+        <h2> Lower Extremities : ${lowerExtremities}</h2></div><div class="value">
+        </div>
+        </div>
+      `;
+    }
+
+    // Section 10 => functional evaluation
     if (
       supineToProneImmobile ||
       supineToProneAssistance ||
@@ -2195,7 +2418,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
         <div class="label">
-          <h1>9. Functional Evaluation</h1>
+          <h1>10. Functional Evaluation</h1>
         </div>
         <div class="value">
         </div>
@@ -2205,24 +2428,22 @@ const Phase_1_Assesment_Form = () => {
     if (supineToProneImmobile) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Prone :</h2></div><div class="value">
-        <h3>Immobile</h3>
+        <h2>Supine to Prone : Immobile</h2></div><div class="value">
         </div>
         </div>
       `;
     } else if (supineToProneAssistance) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Prone :</h2></div><div class="value">
-        <h3>Assistance</h3>
+        <h2>Supine to Prone : Assistance </h2></div><div class="value">
+       
         </div>
         </div>
       `;
     } else if (supineToProneIndependent) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Prone :</h2></div><div class="value">
-        <h3>Independent</h3>
+        <h2>Supine to Prone : Independent</h2></div><div class="value">
         </div>
         </div>
       `;
@@ -2231,24 +2452,21 @@ const Phase_1_Assesment_Form = () => {
     if (supineToSitImmobile) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Sit :</h2></div><div class="value">
-        <h3>Immobile</h3>
+        <h2>Supine to Sit : Immobile</h2></div><div class="value">
         </div>
         </div>
       `;
     } else if (supineToSitAssistance) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Sit :</h2></div><div class="value">
-        <h3>Assistance</h3>
+        <h2>Supine to Sit : Assistance</h2></div><div class="value">
         </div>
         </div>
       `;
     } else if (supineToSitIndependent) {
       html += `
         <div class="section"><div class="label">
-        <h2>Supine to Sit :</h2></div><div class="value">
-        <h3>Independent</h3>
+        <h2>Supine to Sit : Independent</h2></div><div class="value">
         </div>
         </div>
       `;
@@ -2257,24 +2475,21 @@ const Phase_1_Assesment_Form = () => {
     if (sittingImmobile) {
       html += `
         <div class="section"><div class="label">
-        <h2>Sitting :</h2></div><div class="value">
-        <h3>Immobile</h3>
+        <h2>Sitting : Immobile</h2></div><div class="value">
         </div>
         </div>
       `;
     } else if (sittingAssistance) {
       html += `
         <div class="section"><div class="label">
-        <h2>Sitting :</h2></div><div class="value">
-        <h3>Assistance</h3>
+        <h2>Sitting : Assistance</h2></div><div class="value">
         </div>
         </div>
       `;
     } else if (sittingIndependent) {
       html += `
         <div class="section"><div class="label">
-        <h2>Sitting :</h2></div><div class="value">
-        <h3>Independent</h3>
+        <h2>Sitting : Independent</h2></div><div class="value">
         </div>
         </div>
       `;
@@ -2283,24 +2498,21 @@ const Phase_1_Assesment_Form = () => {
     if (quadsImmobile) {
       html += `
       <div class="section"><div class="label">
-      <h2>Quads :</h2></div><div class="value">
-      <h3>Immobile</h3>
+      <h2>Quads : Immobile</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (quadsAssistance) {
       html += `
       <div class="section"><div class="label">
-      <h2>Quads :</h2></div><div class="value">
-      <h3>Assistance</h3>
+      <h2>Quads : Assistance</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (quadsIndependent) {
       html += `
       <div class="section"><div class="label">
-      <h2>Quads :</h2></div><div class="value">
-      <h3>Independent</h3>
+      <h2>Quads :Independent</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2309,24 +2521,21 @@ const Phase_1_Assesment_Form = () => {
     if (kneelingImmobile) {
       html += `
       <div class="section"><div class="label">
-      <h2>Kneeling :</h2></div><div class="value">
-      <h3>Immobile</h3>
+      <h2>Kneeling :Immobile</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (kneelingAssistance) {
       html += `
       <div class="section"><div class="label">
-      <h2>Kneeling :</h2></div><div class="value">
-      <h3>Assistance</h3>
+      <h2>Kneeling : Assistance</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (kneelingIndependent) {
       html += `
       <div class="section"><div class="label">
-      <h2>Kneeling :</h2></div><div class="value">
-      <h3>Independent</h3>
+      <h2>Kneeling : Independent</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2335,24 +2544,21 @@ const Phase_1_Assesment_Form = () => {
     if (halfKneelingImmobile) {
       html += `
       <div class="section"><div class="label">
-      <h2>Half Kneeling :</h2></div><div class="value">
-      <h3>Immobile</h3>
+      <h2>Half Kneeling : Immobile</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (halfKneelingAssistance) {
       html += `
       <div class="section"><div class="label">
-      <h2>Half Kneeling :</h2></div><div class="value">
-      <h3>Assistance</h3>
+      <h2>Half Kneeling : Assistance</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (halfKneelingIndependent) {
       html += `
       <div class="section"><div class="label">
-      <h2>Half Kneeling :</h2></div><div class="value">
-      <h3>Independent</h3>
+      <h2>Half Kneeling : Independent</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2361,24 +2567,21 @@ const Phase_1_Assesment_Form = () => {
     if (standingImmobile) {
       html += `
       <div class="section"><div class="label">
-      <h2>Standing :</h2></div><div class="value">
-      <h3>Immobile</h3>
+      <h2>Standing : Immobile</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (standingAssistance) {
       html += `
       <div class="section"><div class="label">
-      <h2>Standing :</h2></div><div class="value">
-      <h3>Assistance</h3>
+      <h2>Standing : Assistance</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (standingIndependent) {
       html += `
       <div class="section"><div class="label">
-      <h2>Standing :</h2></div><div class="value">
-      <h3>Independent</h3>
+      <h2>Standing : Independent</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2387,24 +2590,21 @@ const Phase_1_Assesment_Form = () => {
     if (ambulationImmobile) {
       html += `
       <div class="section"><div class="label">
-      <h2>Ambulation :</h2></div><div class="value">
-      <h3>Immobile</h3>
+      <h2>Ambulation : Immobile</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (ambulationAssistance) {
       html += `
       <div class="section"><div class="label">
-      <h2>Ambulation :</h2></div><div class="value">
-      <h3>Assistance</h3>
+      <h2>Ambulation : Assistance</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (ambulationIndependent) {
       html += `
       <div class="section"><div class="label">
-      <h2>Ambulation :</h2></div><div class="value">
-      <h3>Independent</h3>
+      <h2>Ambulation : Independent</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2413,8 +2613,7 @@ const Phase_1_Assesment_Form = () => {
     if (functionAbilities.trim()) {
       html += `
       <div class="section"><div class="label">
-      <h2>Function Abilities :</h2></div><div class="value">
-      <h3>${functionAbilities}</h3>
+      <h2>Function Abilities : ${functionAbilities}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2423,12 +2622,13 @@ const Phase_1_Assesment_Form = () => {
     if (functionLimitations.trim()) {
       html += `
       <div class="section"><div class="label">
-      <h2>Function Goals :</h2></div><div class="value">
-      <h3>${functionLimitations}</h3>
+      <h2>Function Goals : ${functionLimitations}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
+
+    // Section 11 => Single System Assessment
 
     if (
       canInitiate ||
@@ -2457,17 +2657,12 @@ const Phase_1_Assesment_Form = () => {
       comsContraction_ReciprocalInhibition ||
       massEnergy ||
       isolatedWork ||
-      massEnergy_isolatedWorkComs ||
-      dynamicStiffnessYes ||
-      dynamicStiffnessNo ||
-      comsDynamicStiffness ||
-      extraneousMovementNo ||
-      extraneousMovementYes ||
-      comsExtraneousMovement
+      dynamicStiffness ||
+      extraneousMovement
     ) {
       html += `
         <div class="label">
-          <h1>10. Single System Assesment</h1>
+          <h1>11. Single System Assesment</h1>
         </div>
         <div class="value">
         </div>
@@ -2476,16 +2671,14 @@ const Phase_1_Assesment_Form = () => {
     if (canInitiate) {
       html += `
       <div class="section"><div class="label">
-      <h2>Initiation :</h2></div><div class="value">
-      <h3>Can Initiate</h3>
+      <h2>Initiation : Can Initiate</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (cantInitiate) {
       html += `
       <div class="section"><div class="label">
-      <h2>Initiation :</h2></div><div class="value">
-      <h3>Cannot Initiate</h3>
+      <h2>Initiation : Cannot Initiate</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2493,8 +2686,7 @@ const Phase_1_Assesment_Form = () => {
     if (initiateComs) {
       html += `
       <div class="section"><div class="label">
-      <h2>Initiation :</h2></div><div class="value">
-      <h3>${initiateComs}</h3>
+      <h2>Initiation Comments : ${initiateComs}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2503,24 +2695,21 @@ const Phase_1_Assesment_Form = () => {
     if (sustenancePoor) {
       html += `
       <div class="section"><div class="label">
-      <h2>Sustenance :</h2></div><div class="value">
-      <h3>Poor</h3>
+      <h2>Sustenance : Poor</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (sustenanceGood) {
       html += `
       <div class="section"><div class="label">
-      <h2>Sustenance :</h2></div><div class="value">
-      <h3>Good</h3>
+      <h2>Sustenance : Good</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (sustenanceFair) {
       html += `
       <div class="section"><div class="label">
-      <h2>Sustenance :</h2></div><div class="value">
-      <h3>Fair</h3>
+      <h2>Sustenance : Fair</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2528,8 +2717,7 @@ const Phase_1_Assesment_Form = () => {
     if (sustenanceComs) {
       html += `
       <div class="section"><div class="label">
-      <h2>Sustenance :</h2></div><div class="value">
-      <h3>${sustenanceComs}</h3>
+      <h2>Sustenance Comments : ${sustenanceComs}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2538,16 +2726,14 @@ const Phase_1_Assesment_Form = () => {
     if (terminationPassive) {
       html += `
       <div class="section"><div class="label">
-      <h2>Termination :</h2></div><div class="value">
-      <h3>Passive</h3>
+      <h2>Termination : Passive </h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (terminationAbrupt) {
       html += `
       <div class="section"><div class="label">
-      <h2>Termination :</h2></div><div class="value">
-      <h3>Abrupt</h3>
+      <h2>Termination : Abrupt</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2555,8 +2741,7 @@ const Phase_1_Assesment_Form = () => {
     if (terminationComs) {
       html += `
       <div class="section"><div class="label">
-      <h2>Termination :</h2></div><div class="value">
-      <h3>${terminationComs}</h3>
+      <h2>Termination Comments: ${terminationComs}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2565,24 +2750,22 @@ const Phase_1_Assesment_Form = () => {
     if (controlGradPoor) {
       html += `
       <div class="section"><div class="label">
-      <h2>Control Gradation :</h2></div><div class="value">
-      <h3>Poor</h3>
+      <h2>Control Gradation : Poor</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (controlGradGood) {
       html += `
-      <div class="section"><div class="label">
-      <h2>Control Gradation :</h2></div><div class="value">
-      <h3>Good</h3>
+      <div class="section">
+      <div class="label">
+      <h2>Control Gradation : Good</h2>
       </div>
       </div>
     `;
     } else if (controlGradFair) {
       html += `
       <div class="section"><div class="label">
-      <h2>Control Gradation :</h2></div><div class="value">
-      <h3>Fair</h3>
+      <h2>Control Gradation : Fair</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2590,8 +2773,7 @@ const Phase_1_Assesment_Form = () => {
     if (controlGradComs) {
       html += `
       <div class="section"><div class="label">
-      <h2>Control Gradation :</h2></div><div class="value">
-      <h3>${controlGradComs}</h3>
+      <h2>Control Gradation Comments : ${controlGradComs}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2600,25 +2782,14 @@ const Phase_1_Assesment_Form = () => {
     if (recruitmentPostural) {
       html += `
       <div class="section"><div class="label">
-      <h2>Recruitment :</h2></div><div class="value">
-      <h3>Postural (So)</h3>
+      <h2>Recruitment : Postural (So)</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (recruitmentMovement) {
       html += `
       <div class="section"><div class="label">
-      <h2>Recruitment :</h2></div><div class="value">
-      <h3>Movement (FF)</h3>
-      </div>
-      </div>
-    `;
-    }
-    if (recruitmentComs) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Recruitment :</h2></div><div class="value">
-      <h3>${recruitmentComs}</h3>
+      <h2>Recruitment : Movement (FF)</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2627,33 +2798,21 @@ const Phase_1_Assesment_Form = () => {
     if (contractionConcentric) {
       html += `
       <div class="section"><div class="label">
-      <h2>Contraction :</h2></div><div class="value">
-      <h3>Concentric</h3>
+      <h2>Contraction : Concentric</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (contractionEccentric) {
       html += `
       <div class="section"><div class="label">
-      <h2>Contraction :</h2></div><div class="value">
-      <h3>Eccentric</h3>
+      <h2>Contraction : Eccentric</h2></div><div class="value">
       </div>
       </div>
     `;
     } else if (contractionIsometric) {
       html += `
       <div class="section"><div class="label">
-      <h2>Contraction :</h2></div><div class="value">
-      <h3>Isometric</h3>
-      </div>
-      </div>
-    `;
-    }
-    if (contractionComs) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Contraction :</h2></div><div class="value">
-      <h3>${contractionComs}</h3>
+      <h2>Contraction : Isometric</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2662,23 +2821,15 @@ const Phase_1_Assesment_Form = () => {
     if (contraction) {
       html += `
       <div class="section"><div class="label">
-      <h2>Contraction</h2></div><div class="value">
-      </div>
-      </div>
-    `;
-    } else if (reciprocalInhibition) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Reciprocal Inhibition</h2></div><div class="value">
+      <h2>Co-contraction : ${contraction}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
-    if (comsContraction_ReciprocalInhibition) {
+    if (reciprocalInhibition) {
       html += `
       <div class="section"><div class="label">
-      <h2>Contraction / Reciprocal Inhibition</h2></div><div class="value">
-      <h3>${comsContraction_ReciprocalInhibition}</h3>
+      <h2>Reciprocal Inhibition : ${reciprocalInhibition}</h2></div><div class="value">
       </div>
       </div>
     `;
@@ -2687,81 +2838,886 @@ const Phase_1_Assesment_Form = () => {
     if (massEnergy) {
       html += `
       <div class="section"><div class="label">
-      <h2>Mass  Energy</h2></div><div class="value">
-      </div>
-      </div>
-    `;
-    } else if (isolatedWork) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Isolated Work</h2></div><div class="value">
+      <h2>Mass Energy  : ${massEnergy}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
-    if (massEnergy_isolatedWorkComs) {
+    if (isolatedWork) {
       html += `
       <div class="section"><div class="label">
-      <h2>Mass  Energy / Isolated Work</h2></div><div class="value">
-      <h3>${massEnergy_isolatedWorkComs}</h3>
+      <h2>Isolated Work :  ${isolatedWork}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
 
-    if (dynamicStiffnessYes) {
+    if (dynamicStiffness) {
       html += `
       <div class="section"><div class="label">
-      <h2>Dynamic Stiffness</h2></div><div class="value">
-      <h3>Yes</h3>
-      </div>
-      </div>
-    `;
-    } else if (dynamicStiffnessNo) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Dynamic Stiffness</h2></div><div class="value">
-      <h3>No</h3>
-      </div>
-      </div>
-    `;
-    }
-    if (comsDynamicStiffness) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Dynamic Stiffness</h2></div><div class="value">
-      <h3>${comsDynamicStiffness}</h3>
+      <h2>Dynamic Stiffness :  ${dynamicStiffness}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
 
-    if (extraneousMovementYes) {
+    if (extraneousMovement) {
       html += `
       <div class="section"><div class="label">
-      <h2>Extraneous Movement</h2></div><div class="value">
-      <h3>Yes</h3>
-      </div>
-      </div>
-    `;
-    } else if (extraneousMovementNo) {
-      html += `
-      <div class="section"><div class="label">
-      <h2>Extraneous Movement</h2></div><div class="value">
-      <h3>No</h3>
+      <h2>Extraneous Movement :  ${extraneousMovement}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
-    if (comsExtraneousMovement) {
+
+    if (singleAssesment) {
       html += `
       <div class="section"><div class="label">
-      <h2>Extraneous Movement</h2></div><div class="value">
-      <h3>${comsExtraneousMovement}</h3>
+      <h2>Single System Assesment Comments :  ${singleAssesment}</h2></div><div class="value">
       </div>
       </div>
     `;
     }
+
+    // Section 12 => Multi System Assessment
+    if (
+      postureAnswer ||
+      asymmetry ||
+      side ||
+      broad ||
+      narrow ||
+      generalPosture ||
+      callosities
+    ) {
+      html += `
+        <div class="label">
+          <h1>12. Multi System Assesment</h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (postureAnswer) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>What posture the child normally adopts ?  :  ${postureAnswer}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (asymmetry) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Alignment :  Asymmetry</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+    if (side) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Alignment Side :  ${side}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (broad) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Base of Support :  Broad</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (narrow) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Base of Support :  Narrow</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (generalPosture) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>General Posture : ${generalPosture}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (callosities) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Callosities : ${callosities}</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (
+      momentum ||
+      overuseOfMs ||
+      increasingBos ||
+      staticBalanceFair ||
+      staticBalanceGood ||
+      staticBalancePoor ||
+      anticipatoryBalanceFair ||
+      anticipatoryBalanceGood ||
+      anticipatoryBalancePoor ||
+      anticipatoryBalanceComs ||
+      reactiveBalanceComs ||
+      reactiveBalanceFair ||
+      reactiveBalanceGood ||
+      reactiveBalancePoor ||
+      coordinationComs ||
+      coordinationFair ||
+      coordinationGood ||
+      coordinationPoor
+    ) {
+      html += `
+        <div class="label">
+          <h1>Movement Systems</h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (momentum) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Movement Strategies Used : Momentum</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    } else if (overuseOfMs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Movement Strategies Used : Overuse Of Ms</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    } else if (increasingBos) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Movement Strategies Used : Increasing BOS</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    }
+
+    if (staticBalanceGood) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Static Balance : Good</h2></div><div class="value">
+      </div>
+      </div>
+    `;
+    } else if (staticBalanceFair) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Static Balance : Fair</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (staticBalancePoor) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Static Balance : Poor</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (anticipatoryBalanceGood) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Anticipatory Balance : Good</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (anticipatoryBalanceFair) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Anticipatory Balance : Fair</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (anticipatoryBalancePoor) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Anticipatory Balance : Poor</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (anticipatoryBalanceComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Anticipatory Balance Comments : ${anticipatoryBalanceComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (reactiveBalanceGood) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Reactive Balance : Good</h2></div><div class="value">
+      </div> 
+      </div>
+      `;
+    } else if (reactiveBalanceFair) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Reactive Balance : Fair</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (reactiveBalancePoor) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Reactive Balance : Poor</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (reactiveBalanceComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Reactive Balance Comments : ${reactiveBalanceComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (coordinationGood) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Co ordination : Good</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (coordinationFair) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Co ordination : Fair</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (coordinationPoor) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Co ordination : Poor</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (coordinationComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Co ordination Coomments : ${coordinationComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    // Section 13 =>  Sensory Systems
+    if (
+      registrationComs ||
+      sensoryProfile ||
+      tactileUnder ||
+      tactileOver ||
+      auditoryUnder ||
+      auditoryOver ||
+      visualUnder ||
+      visualOver ||
+      vestibularUnder ||
+      vestibularOver ||
+      proprioceptiveUnder ||
+      proprioceptiveOver ||
+      gustatoryOver ||
+      gustatoryUnder ||
+      sensorySystemsComs
+    ) {
+      html += `
+        <div class="label">
+          <h1>13. Sensory Systems</h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    const registrationOpts = Object.keys(registrationOptions).filter(
+      key => registrationOptions[key],
+    );
+    if (registrationOpts.length > 0) {
+      html += `
+      <div class="section">
+      <h1>13. Sensory Systems</h1>
+        <div class="label">
+        <h2> Registraion Options  :  ${registrationOpts.join(', ')}</h2>
+        </div>
+      </div>
+    `;
+    }
+
+    if (registrationComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Registraion Coomments : ${registrationComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (tactileUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tactile : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (tactileOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tactile : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (proprioceptiveUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Proprioceptive : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (proprioceptiveOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Proprioceptive : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (vestibularUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Vestibular  : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (vestibularOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Vestibular  : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (auditoryUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Auditory  : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (auditoryOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Auditory  : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (visualUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Visual  : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (visualOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Visual  : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (gustatoryUnder) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Gustatory  : Under Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    } else if (gustatoryOver) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Gustatory  : Over Responsive</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (sensorySystemsComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Sensory System Comments  : ${sensorySystemsComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (sensoryProfile) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Sensory Profile  : ${sensoryProfile}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    // Section 14 =>  Sensory Modulation
+    if (
+      gravitationalInsecurity ||
+      aversiveResponse ||
+      posturalInsecurity ||
+      tactileDefensiveness ||
+      poorRTS ||
+      sensoryAvoiding ||
+      distractibility ||
+      hyperactivity ||
+      sensoryComs
+    ) {
+      html += `
+        <div class="label">
+          <h1>14. a- Sensory Modulation</h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (gravitationalInsecurity) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Gravitational Insecurity : ${gravitationalInsecurity}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (aversiveResponse) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Aversive Response to Movement : ${aversiveResponse}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (posturalInsecurity) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Postural Insecurity : ${posturalInsecurity}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (tactileDefensiveness) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tactile Defensiveness : ${tactileDefensiveness}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (sensoryAvoiding) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Sensory Avoiding : ${sensoryAvoiding}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (poorRTS) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Poor registration to stimulation : ${poorRTS}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (distractibility) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Distractibility : ${distractibility}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (hyperactivity) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Hyperactivity : ${hyperactivity}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (sensoryComs) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Sensory Modulation Comments : ${sensoryComs}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (
+      formSpace ||
+      visuomotorcoordination ||
+      tactileDiscrimination ||
+      praxis ||
+      vestibularProprioceptiveProcessing ||
+      sensoryBcoms
+    ) {
+      html += `
+      <div class="label">
+        <h1>14. b- Sensory Processing</h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
+
+    if (formSpace) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Form Space : ${formSpace}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (visuomotorcoordination) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Visuo motor co-ordination : ${visuomotorcoordination}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (tactileDiscrimination) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tactile Discrimination : ${tactileDiscrimination}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (praxis) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Praxis : ${praxis}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (vestibularProprioceptiveProcessing) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Vestibular Proprioceptive Processing : ${vestibularProprioceptiveProcessing}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (sensoryBcoms) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Sensory Processing Comments: ${sensoryBcoms}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (
+      focalVision ||
+      ambientVision ||
+      eyeMovementSystem ||
+      localization ||
+      tracking
+    ) {
+      html += `
+      <div class="label">
+        <h1>14. c- Visual System</h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
+
+    if (focalVision) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Focal Vision : ${focalVision}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (ambientVision) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Ambient Vision : ${ambientVision}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (eyeMovementSystem) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Eye Movement System : ${eyeMovementSystem}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (localization) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Localization : ${localization}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (tracking) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Tracking : ${tracking}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    // Section 16 - Other Scales
+    if (gmfm || pedi || pediatricBalanceScale || wotaAquaticScale) {
+      html += `
+      <div class="label">
+        <h1>14. c- Visual System</h1>
+      </div>
+      <div class="value">
+      </div>
+      `;
+    }
+
+    if (gmfm) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>GMFM : ${gmfm}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+    if (pedi) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>PEDI : ${pedi}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (pediatricBalanceScale) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>Pediatric Balance Scale : ${pediatricBalanceScale}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    if (wotaAquaticScale) {
+      html += `
+      <div class="section"><div class="label">
+      <h2>WOTA (AquaticScale) : ${wotaAquaticScale}</h2></div><div class="value">
+      </div>
+      </div>
+      `;
+    }
+
+    // Section 17 - ICF
+    if (
+      bodyStructurePositive ||
+      bodyStructureNegative ||
+      bodyFunctionPositive ||
+      bodyFunctionNegative ||
+      activitiesPositive ||
+      activitiesNegative ||
+      environmentalPositive ||
+      environmentalNegative ||
+      shortTermGoals ||
+      longTermGoals ||
+      intervention ||
+      equipments ||
+      section17Coms
+    ) {
+      html += `
+        <div class="label">
+          <h1>17 - ICF </h1>
+        </div>
+        <div class="value">
+        </div>
+        `;
+    }
+
+    if (bodyStructurePositive) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Body Structure - Positive  : ${bodyStructurePositive}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    } else if (bodyStructureNegative) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Body Structure - Negative  : ${bodyStructureNegative}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (bodyFunctionPositive) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Body Function - Positive  : ${bodyFunctionPositive}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    } else if (bodyFunctionNegative) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Body Function - Negative : ${bodyFunctionNegative}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (activitiesPositive) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Activities  - Positive  : ${activitiesPositive}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    } else if (activitiesNegative) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Activities  - Negative  : ${activitiesNegative}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (environmentalPositive) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Environmental - Positive  : ${environmentalPositive}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    } else if (environmentalNegative) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Environmental - Negative  : ${environmentalNegative}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (shortTermGoals) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Short term goals  : ${shortTermGoals}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+    if (longTermGoals) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Long term goals  : ${longTermGoals}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (intervention) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Intervention  : ${intervention}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    if (equipments) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>Equipments / Instruments used : ${equipments}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    const recommendationOpts = Object.keys(recommendationOptions).filter(
+      key => recommendationOptions[key],
+    );
+    if (recommendationOpts.length > 0) {
+      html += `
+        <div class="section">
+        <h1>17. ICF</h1>
+          <div class="label"><h2>  Recommendations  :  ${recommendationOpts.join(
+            ', ',
+          )}</h2>
+          </div>
+        </div>
+      `;
+    }
+
+    if (section17Coms) {
+      html += `
+        <div class="section"><div class="label">
+        <h2>ICF Comments : ${section17Coms}</h2></div><div class="value">
+        </div>
+        </div>
+        `;
+    }
+
+    html += `
+    <footer>
+    Im the footer bro
+    </footer>
+    `;
 
     return html;
   };
@@ -2848,7 +3804,7 @@ const Phase_1_Assesment_Form = () => {
         message: 'Patient Report Ready',
       });
     } catch (error) {
-      console.error();
+      console.error(error);
     }
   };
 
@@ -4349,9 +5305,9 @@ const Phase_1_Assesment_Form = () => {
                   selectedValue={shoulderAdd}
                   onValueChange={shoulderAddHandler}>
                   <Picker.Item label="Select" value="" />
-                  {/* <Picker.Item
-                    label="0-25"
-                    value="0-25"
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
                     style={{
                       color: 'white',
                       fontSize: wp('2%'),
@@ -4359,20 +5315,15 @@ const Phase_1_Assesment_Form = () => {
                     }}
                   />
                   <Picker.Item
-                    label="25-50"
-                    value="25-50"
+                    label="50-100"
+                    value="50-100"
                     style={{color: 'white', fontSize: wp('2%')}}
                   />
                   <Picker.Item
-                    label="50-75"
-                    value="50-75"
+                    label="100-150"
+                    value="100-150"
                     style={{color: 'white', fontSize: wp('2%')}}
                   />
-                  <Picker.Item
-                    label="75-100"
-                    value="75-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
-                  /> */}
                 </Picker>
               </View>
             </View>
@@ -4412,9 +5363,9 @@ const Phase_1_Assesment_Form = () => {
                   selectedValue={shoulderExt}
                   onValueChange={shoulderExtHandler}>
                   <Picker.Item label="Select" value="" />
-                  {/* <Picker.Item
-                    label="0-25"
-                    value="0-25"
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
                     style={{
                       color: 'white',
                       fontSize: wp('2%'),
@@ -4422,20 +5373,15 @@ const Phase_1_Assesment_Form = () => {
                     }}
                   />
                   <Picker.Item
-                    label="25-50"
-                    value="25-50"
+                    label="50-100"
+                    value="50-100"
                     style={{color: 'white', fontSize: wp('2%')}}
                   />
                   <Picker.Item
-                    label="50-75"
-                    value="50-75"
+                    label="100-150"
+                    value="100-150"
                     style={{color: 'white', fontSize: wp('2%')}}
                   />
-                  <Picker.Item
-                    label="75-100"
-                    value="75-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
-                  /> */}
                 </Picker>
               </View>
             </View>
@@ -5178,16 +6124,6 @@ const Phase_1_Assesment_Form = () => {
                   <Text style={styles.checkboxLabel}>Movement (FF)</Text>
                 </View>
               </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={recruitmentComs}
-                  onChangeText={recruitmentComsHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
-              </View>
             </View>
             <View style={{flexDirection: 'column'}}>
               <Text style={styles.multipleChoiceHeader}>Contraction</Text>
@@ -5214,140 +6150,244 @@ const Phase_1_Assesment_Form = () => {
                   <Text style={styles.checkboxLabel}>Eccentric</Text>
                 </View>
               </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={contractionComs}
-                  onChangeText={contractionComsHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('7%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Co-contraction
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={contraction}
+                  onValueChange={contractionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
               </View>
             </View>
-            <View style={{flexDirection: 'column'}}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={contraction}
-                    onValueChange={contractionHandler}
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Reciprocal Inhibition
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={reciprocalInhibition}
+                  onValueChange={reciprocalInhibitionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
                   />
-                  <Text style={styles.checkboxLabel}>Contraction</Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={reciprocalInhibition}
-                    onValueChange={reciprocalInhibitionHandler}
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
                   />
-                  <Text style={styles.checkboxLabel}>
-                    Reciprocal Inhibition
-                  </Text>
-                </View>
-              </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={comsContraction_ReciprocalInhibition}
-                  onChangeText={comsContraction_ReciprocalInhibitionHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
-              </View>
-            </View>
-            <View style={{flexDirection: 'column'}}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={massEnergy}
-                    onValueChange={massEnergyHandler}
-                  />
-                  <Text style={styles.checkboxLabel}>Mass Energy</Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={isolatedWork}
-                    onValueChange={isolatedWorkHandler}
-                  />
-                  <Text style={styles.checkboxLabel}>Isolated Work</Text>
-                </View>
-              </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={massEnergy_isolatedWorkComs}
-                  onChangeText={massEnergy_isolatedWorkComsHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
+                </Picker>
               </View>
             </View>
-            <View style={{flexDirection: 'column'}}>
-              <Text style={styles.multipleChoiceHeader}>Stiffness</Text>
-              <View style={{flexDirection: 'column'}}>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={dynamicStiffnessYes}
-                    onValueChange={dynamicStiffnessYesHandler}
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Mass energy
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={massEnergy}
+                  onValueChange={massEnergyHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
                   />
-                  <Text style={styles.checkboxLabel}>
-                    Dynamic Stiffness Yes
-                  </Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={dynamicStiffnessNo}
-                    onValueChange={dynamicStiffnessNoHandler}
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
                   />
-                  <Text style={styles.checkboxLabel}>Dynamic Stiffness No</Text>
-                </View>
-              </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={comsDynamicStiffness}
-                  onChangeText={comsDynamicStiffnessHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
+                </Picker>
               </View>
             </View>
-            <View style={{flexDirection: 'column'}}>
-              <Text style={styles.multipleChoiceHeader}>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Isolated work
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={isolatedWork}
+                  onValueChange={isolatedWorkHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Dyanmic Stiffness
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={dynamicStiffness}
+                  onValueChange={dynamicStiffnessHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
                 Extraneous Movement
               </Text>
-              <View style={{flexDirection: 'column'}}>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={extraneousMovementYes}
-                    onValueChange={extraneousMovementYesHandler}
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={extraneousMovement}
+                  onValueChange={extraneousMovementHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
                   />
-                  <Text style={styles.checkboxLabel}>
-                    Extraneous Movement Yes
-                  </Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={extraneousMovementNo}
-                    onValueChange={extraneousMovementNoHandler}
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'white', fontSize: wp('2%')}}
                   />
-                  <Text style={styles.checkboxLabel}>
-                    Extraneous Movement No
-                  </Text>
-                </View>
+                </Picker>
               </View>
-              <View style={styles.inputTextContainerComs}>
-                <TextInput
-                  value={comsExtraneousMovement}
-                  onChangeText={comsExtraneousMovementHandler}
-                  keyboardType="ascii-capable"
-                  placeholder="Comments"
-                  placeholderTextColor="#FFFFFF"
-                  style={styles.coms}
-                />
-              </View>
+            </View>
+            <View style={styles.inputTextContainerComs}>
+              <TextInput
+                value={singleAssesment}
+                onChangeText={singleAssesmentHandler}
+                keyboardType="ascii-capable"
+                placeholder="Comments"
+                placeholderTextColor="#FFFFFF"
+                style={styles.coms}
+              />
             </View>
           </View>
           {/*   Modified Ashworths */}
@@ -5397,7 +6437,7 @@ const Phase_1_Assesment_Form = () => {
               value={postureAnswer}
               onChangeText={postureAnswerHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={styles.answerBox}
             />
@@ -5416,9 +6456,39 @@ const Phase_1_Assesment_Form = () => {
                 <CheckBox value={asymmetry} onValueChange={asymmetryHandler} />
                 <Text style={styles.checkboxLabel}>Asymmetry</Text>
               </View>
-              <View style={styles.checkboxWrapper}>
-                <CheckBox value={side} onValueChange={sideHandler} />
-                <Text style={styles.checkboxLabel}>Side</Text>
+              <Text
+                style={{
+                  marginVertical: wp('5%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Side
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={side} onValueChange={sideHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="RT"
+                    value="RT"
+                    style={{
+                      color: 'white',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="LT"
+                    value="LT"
+                    style={{color: 'white', fontSize: wp('2%')}}
+                  />
+                </Picker>
               </View>
             </View>
             <Text
@@ -5457,7 +6527,7 @@ const Phase_1_Assesment_Form = () => {
               value={generalPosture}
               onChangeText={generalPostureHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={styles.generalPostureBox}
             />
@@ -5477,7 +6547,7 @@ const Phase_1_Assesment_Form = () => {
               value={callosities}
               onChangeText={callositiesHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={styles.callositiesBox}
             />
@@ -5654,8 +6724,8 @@ const Phase_1_Assesment_Form = () => {
               </View>
             </View>
             <TextInput
-              value={anticipatoryBalanceComs}
-              onChangeText={anticipatoryBalanceComsHandler}
+              value={reactiveBalanceComs}
+              onChangeText={reactiveBalanceComsHandler}
               keyboardType="ascii-capable"
               placeholder="Comments"
               placeholderTextColor="#d6d6d6"
@@ -5995,7 +7065,7 @@ const Phase_1_Assesment_Form = () => {
               value={sensoryProfile}
               onChangeText={sensoryProfileHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6564,7 +7634,7 @@ const Phase_1_Assesment_Form = () => {
               value={focalVision}
               onChangeText={focalVisionHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6586,7 +7656,7 @@ const Phase_1_Assesment_Form = () => {
               value={ambientVision}
               onChangeText={ambientVisionHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6608,7 +7678,7 @@ const Phase_1_Assesment_Form = () => {
               value={eyeMovementSystem}
               onChangeText={eyeMovementSystemHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6630,7 +7700,7 @@ const Phase_1_Assesment_Form = () => {
               value={localization}
               onChangeText={localizationHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6652,7 +7722,7 @@ const Phase_1_Assesment_Form = () => {
               value={tracking}
               onChangeText={trackingHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6661,21 +7731,8 @@ const Phase_1_Assesment_Form = () => {
                 marginHorizontal: wp('6%'),
               }}
             />
-            <TextInput
-              value={visualComs}
-              onChangeText={visualComsHandler}
-              keyboardType="ascii-capable"
-              placeholder="Comments"
-              placeholderTextColor="#d9d9d9"
-              style={{
-                marginVertical: wp('4%'),
-                marginHorizontal: wp('6%'),
-                color: 'white',
-                fontSize: wp('3%'),
-              }}
-            />
           </View>
-          {/* Section 16 */}
+          {/* Section 16 => Other Scales */}
           <Text
             style={{
               color: '#5F7EFF',
@@ -6684,7 +7741,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Section 16
+            Other Scales
           </Text>
           <View style={styles.inputFieldContainerS16}>
             <Text
@@ -6700,7 +7757,7 @@ const Phase_1_Assesment_Form = () => {
               value={gmfm}
               onChangeText={gmfmHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6722,7 +7779,7 @@ const Phase_1_Assesment_Form = () => {
               value={pedi}
               onChangeText={pediHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6744,7 +7801,7 @@ const Phase_1_Assesment_Form = () => {
               value={pediatricBalanceScale}
               onChangeText={pediatricBalanceScaleHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6766,7 +7823,7 @@ const Phase_1_Assesment_Form = () => {
               value={wotaAquaticScale}
               onChangeText={wotaAquaticScaleHandler}
               keyboardType="ascii-capable"
-              placeholder="Answer"
+              placeholder="Comments"
               placeholderTextColor="#d6d6d6"
               style={{
                 color: 'white',
@@ -6785,7 +7842,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Section 17
+            ICF
           </Text>
           <View style={styles.inputFieldContainerS17}>
             <Text
@@ -6812,7 +7869,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6826,7 +7883,7 @@ const Phase_1_Assesment_Form = () => {
             <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
-                  marginVertical: wp('1%'),
+                  marginVertical: wp('1.5%'),
                   marginHorizontal: wp('7%'),
                   color: 'white',
                   fontSize: wp('3%'),
@@ -6839,7 +7896,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6874,7 +7931,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6901,7 +7958,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6936,7 +7993,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6963,7 +8020,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -6998,7 +8055,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7025,7 +8082,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7052,7 +8109,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7078,7 +8135,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7104,7 +8161,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7121,7 +8178,7 @@ const Phase_1_Assesment_Form = () => {
                 color: 'white',
                 fontSize: wp('3%'),
               }}>
-              Equipments / Instruments
+              Equipments / Instruments Used
             </Text>
             <View style={{flexDirection: 'row'}}>
               <TextInput
@@ -7130,7 +8187,7 @@ const Phase_1_Assesment_Form = () => {
                 keyboardType="ascii-capable"
                 multiline={true}
                 numberOfLines={2}
-                placeholder="Answer"
+                placeholder="Comments"
                 placeholderTextColor="#d6d6d6"
                 style={{
                   color: 'white',
@@ -7150,7 +8207,7 @@ const Phase_1_Assesment_Form = () => {
                 }}>
                 Recommendations
               </Text>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
                 <View
                   style={{
                     flexDirection: 'row',
@@ -7166,7 +8223,13 @@ const Phase_1_Assesment_Form = () => {
                   />
                   <Text style={styles.checkboxLabel}>Physiotherapy</Text>
                 </View>
-                <View style={styles.checkboxWrapper}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
                   <CheckBox
                     value={recommendationOptions.SensoryIntegration}
                     onValueChange={() =>
@@ -7176,76 +8239,95 @@ const Phase_1_Assesment_Form = () => {
                   <Text style={styles.checkboxLabel}>Sensory Integration</Text>
                 </View>
               </View>
-              <View style={{flexDirection: 'row'}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginVertical: wp('1%'),
-                    marginHorizontal: wp('5%'),
-                  }}>
-                  <CheckBox
-                    value={recommendationOptions.OccupationalTherapy}
-                    onValueChange={() =>
-                      recommendationOptionsHandler('OccupationalTherapy')
-                    }
-                  />
-                  <Text style={styles.checkboxLabel}>Occupational Therapy</Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={recommendationOptions.AquaticTherapy}
-                    onValueChange={() =>
-                      recommendationOptionsHandler('AquaticTherapy')
-                    }
-                  />
-                  <Text style={styles.checkboxLabel}>Aquatic Therapy</Text>
-                </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.OccupationalTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('OccupationalTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Occupational Therapy</Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginVertical: wp('1%'),
-                    marginHorizontal: wp('5%'),
-                  }}>
-                  <CheckBox
-                    value={recommendationOptions.SpeechTherapy}
-                    onValueChange={() =>
-                      recommendationOptionsHandler('SpeechTherapy')
-                    }
-                  />
-                  <Text style={styles.checkboxLabel}>Speech Therapy</Text>
-                </View>
-                <View style={styles.checkboxWrapper}>
-                  <CheckBox
-                    value={recommendationOptions.RemedialTherapy}
-                    onValueChange={() =>
-                      recommendationOptionsHandler('RemedialTherapy')
-                    }
-                  />
-                  <Text style={styles.checkboxLabel}>Remedial Therapy</Text>
-                </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.AquaticTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('AquaticTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Aquatic Therapy</Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginHorizontal: wp('5%'),
-                    marginVertical: wp('1%'),
-                  }}>
-                  <CheckBox
-                    value={recommendationOptions.BehavioralTherapy}
-                    onValueChange={() =>
-                      recommendationOptionsHandler('BehavioralTherapy')
-                    }
-                  />
-                  <Text style={styles.checkboxLabel}>Behavioral Therapy</Text>
-                </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.SpeechTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('SpeechTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Speech Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.RemedialTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('RemedialTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Remedial Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginHorizontal: wp('5%'),
+                  marginVertical: wp('1%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.BehavioralTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('BehavioralTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Behavioral Therapy</Text>
               </View>
             </View>
+            <TextInput
+              value={section17Coms}
+              onChangeText={section17ComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#FFFFFF"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('1%'),
+                marginHorizontal: wp('5%'),
+              }}
+            />
           </View>
           {/* Save & Share Buttons  */}
           <View style={styles.inputFieldContainerSHARE}>
@@ -7845,7 +8927,7 @@ const styles = StyleSheet.create({
   },
   inputFieldContainer10: {
     width: wp('90%'),
-    height: hp('210%'),
+    height: hp('190%'),
     marginVertical: wp('2%'),
     marginHorizontal: wp('4%'),
     backgroundColor: '#5F7EFF',
