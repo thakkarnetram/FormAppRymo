@@ -43,7 +43,7 @@ function App() {
         <Stack.Screen
           name="Phase 1 Assessment Form"
           component={Phase_1_Assessment_Form}
-          options={{headerTitleAlign: 'center'}}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

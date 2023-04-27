@@ -17,6 +17,8 @@ import {
 } from 'react-native-responsive-screen';
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
+
+
 const Pediatric_Assessment = ({navigation}) => {
  
   useEffect(() => {
@@ -32,11 +34,11 @@ const Pediatric_Assessment = ({navigation}) => {
       <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.container}>
           <Image
-            source={require('../assets/rymoPng.png')}
+            source={require('../assets/home.png')}
             style={{
-              width: wp('45%'),
+              width: wp('90%'),
               height: hp('17%'),
-              marginHorizontal: wp('25%'),
+             alignSelf:'center',
               marginVertical: wp('10%'),
             }}
           />
@@ -45,8 +47,17 @@ const Pediatric_Assessment = ({navigation}) => {
             onPress={() => {
               navigation.navigate('Phase 1 Assessment Form');
             }}>
-            <Text style={styles.buttonTextStyle}>Phase 1 Assessment</Text>
+            <Text style={styles.buttonTextStyle}>Start Initial Assessment</Text>
           </TouchableOpacity>
+          <Image
+            source={require('../assets/home2.png')}
+            style={{
+              width: wp('100%'),
+              height: hp('17%'),
+             
+              marginVertical: wp('10%'),
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
