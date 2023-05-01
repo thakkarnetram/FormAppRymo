@@ -4093,7 +4093,7 @@ const Phase_1_Assesment_Form = () => {
                       label="I"
                       value="I"
                       style={{
-                        color: 'white',
+                        color: 'black',
                         fontSize: wp('3%'),
                         textAlign: 'center',
                       }}
@@ -4101,22 +4101,22 @@ const Phase_1_Assesment_Form = () => {
                     <Picker.Item
                       label="II"
                       value="II"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="III"
                       value="III"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="IV"
                       value="IV"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="V"
                       value="V"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                   </Picker>
                 </View>
@@ -4134,7 +4134,7 @@ const Phase_1_Assesment_Form = () => {
                       label="I"
                       value="I"
                       style={{
-                        color: 'white',
+                        color: 'black',
                         fontSize: wp('3%'),
                         textAlign: 'center',
                       }}
@@ -4142,22 +4142,22 @@ const Phase_1_Assesment_Form = () => {
                     <Picker.Item
                       label="II"
                       value="II"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="III"
                       value="III"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="IV"
                       value="IV"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="V"
                       value="V"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                   </Picker>
                 </View>
@@ -4177,7 +4177,7 @@ const Phase_1_Assesment_Form = () => {
                       label="I"
                       value="I"
                       style={{
-                        color: 'white',
+                        color: 'black',
                         fontSize: wp('3%'),
                         textAlign: 'center',
                       }}
@@ -4185,22 +4185,22 @@ const Phase_1_Assesment_Form = () => {
                     <Picker.Item
                       label="II"
                       value="II"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="III"
                       value="III"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="IV"
                       value="IV"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="V"
                       value="V"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                   </Picker>
                 </View>
@@ -4218,7 +4218,7 @@ const Phase_1_Assesment_Form = () => {
                       label="I"
                       value="I"
                       style={{
-                        color: 'white',
+                        color: 'black',
                         fontSize: wp('3%'),
                         textAlign: 'center',
                       }}
@@ -4226,22 +4226,22 @@ const Phase_1_Assesment_Form = () => {
                     <Picker.Item
                       label="II"
                       value="II"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="III"
                       value="III"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="IV"
                       value="IV"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                     <Picker.Item
                       label="V"
                       value="V"
-                      style={{color: 'white', fontSize: wp('3%')}}
+                      style={{color: 'black', fontSize: wp('3%')}}
                     />
                   </Picker>
                 </View>
@@ -5040,7 +5040,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-10"
                     value="0-10"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5048,17 +5048,17 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="10-15"
                     value="10-15"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="15-20"
                     value="15-20"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="20-25"
                     value="20-25"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5074,7 +5074,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-30"
                     value="0-30"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5082,12 +5082,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="30-60"
                     value="30-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="60-90"
                     value="60-90"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5101,7 +5101,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-10"
                     value="0-10"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5109,17 +5109,17 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="10-15"
                     value="10-15"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="15-20"
                     value="15-20"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="20-25"
                     value="20-25"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5135,7 +5135,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5143,12 +5143,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="30-50"
                     value="30-50"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5162,7 +5162,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-20"
                     value="0-20"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5170,12 +5170,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="20-40"
                     value="20-40"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="40-60"
                     value="40-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5189,7 +5189,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5197,12 +5197,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="30-45"
                     value="30-45"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5216,7 +5216,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-25"
                     value="0-25"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5224,17 +5224,17 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="25-50"
                     value="25-50"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="50-75"
                     value="50-75"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="75-100"
                     value="75-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5248,7 +5248,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5256,7 +5256,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5270,7 +5270,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5278,12 +5278,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="30-45"
                     value="30-45"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5297,7 +5297,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5305,12 +5305,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="30-45"
                     value="30-45"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5326,7 +5326,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5334,12 +5334,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5355,7 +5355,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5363,7 +5363,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5377,7 +5377,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5385,12 +5385,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="30-45"
                     value="30-45"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5406,7 +5406,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5414,12 +5414,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5435,7 +5435,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5443,12 +5443,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5464,7 +5464,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5472,12 +5472,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5493,7 +5493,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5501,12 +5501,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5522,7 +5522,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-50"
                     value="0-50"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5530,12 +5530,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="50-100"
                     value="50-100"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="100-150"
                     value="100-150"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5551,7 +5551,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-30"
                     value="0-30"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5559,12 +5559,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="30-60"
                     value="30-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="60-90"
                     value="60-90"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5580,7 +5580,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-30"
                     value="0-30"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5588,12 +5588,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="30-60"
                     value="30-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="60-90"
                     value="60-90"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5607,7 +5607,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-10"
                     value="0-10"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5615,7 +5615,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="10-20"
                     value="10-20"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5629,7 +5629,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-20"
                     value="0-20"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5637,7 +5637,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="20-40"
                     value="20-40"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5653,7 +5653,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-15"
                     value="0-15"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5661,7 +5661,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="15-30"
                     value="15-30"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5677,7 +5677,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-10"
                     value="0-10"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5685,7 +5685,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="10-20"
                     value="10-20"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5701,7 +5701,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-20"
                     value="0-20"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5709,12 +5709,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="20-40"
                     value="20-40"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="40-60"
                     value="40-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5730,7 +5730,7 @@ const Phase_1_Assesment_Form = () => {
                     label="0-20"
                     value="0-20"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5738,12 +5738,12 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="20-40"
                     value="20-40"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="40-60"
                     value="40-60"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5772,7 +5772,7 @@ const Phase_1_Assesment_Form = () => {
                     label="1"
                     value="1"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5780,22 +5780,22 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="2"
                     value="2"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="3"
                     value="3"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="4"
                     value="4"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="5"
                     value="5"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -5811,7 +5811,7 @@ const Phase_1_Assesment_Form = () => {
                     label="1"
                     value="1"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -5819,22 +5819,22 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="2"
                     value="2"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="3"
                     value="3"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="4"
                     value="4"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                   <Picker.Item
                     label="5"
                     value="5"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6310,7 +6310,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6318,7 +6318,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6348,7 +6348,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6356,7 +6356,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6386,7 +6386,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6394,7 +6394,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6424,7 +6424,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6432,7 +6432,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6462,7 +6462,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6470,7 +6470,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6500,7 +6500,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6508,7 +6508,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -6612,7 +6612,7 @@ const Phase_1_Assesment_Form = () => {
                     label="RT"
                     value="RT"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -6620,7 +6620,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="LT"
                     value="LT"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7268,7 +7268,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7276,7 +7276,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7306,7 +7306,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7314,7 +7314,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7344,7 +7344,7 @@ const Phase_1_Assesment_Form = () => {
                     label="Yes"
                     value="Yes"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7352,7 +7352,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="No"
                     value="No"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7382,7 +7382,7 @@ const Phase_1_Assesment_Form = () => {
                     label="+VE"
                     value="+VE"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7390,7 +7390,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="-VE"
                     value="-VE"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7420,7 +7420,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7428,7 +7428,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7456,7 +7456,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7464,7 +7464,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7494,7 +7494,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7502,7 +7502,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7532,7 +7532,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7540,7 +7540,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7592,7 +7592,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7600,7 +7600,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7630,7 +7630,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7638,7 +7638,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7668,7 +7668,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7676,7 +7676,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7704,7 +7704,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7712,7 +7712,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
@@ -7742,7 +7742,7 @@ const Phase_1_Assesment_Form = () => {
                     label="YES"
                     value="YES"
                     style={{
-                      color: 'white',
+                      color: 'black',
                       fontSize: wp('2%'),
                       textAlign: 'center',
                     }}
@@ -7750,7 +7750,7 @@ const Phase_1_Assesment_Form = () => {
                   <Picker.Item
                     label="NO"
                     value="NO"
-                    style={{color: 'white', fontSize: wp('2%')}}
+                    style={{color: 'black', fontSize: wp('2%')}}
                   />
                 </Picker>
               </View>
