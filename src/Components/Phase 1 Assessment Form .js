@@ -1177,8 +1177,8 @@ const Phase_1_Assesment_Form = () => {
 
   const [sensoryProfile, setSensoryProfile] = useState('');
 
-  const [tactileUnder, setTactileOver] = useState(false);
-  const [tactileOver, setTactileUnder] = useState(false);
+  const [tactileUnder, setTactileUnder] = useState(false);
+  const [tactileOver, setTactileOver] = useState(false);
 
   const [proprioceptiveUnder, setProprioceptiveUnder] = useState(false);
   const [proprioceptiveOver, setProprioceptiveOver] = useState(false);
