@@ -1,0 +1,4250 @@
+<Text
+            style={{
+              fontWeight: 'bold',
+              color: '#169cc4',
+              fontSize: wp('5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            History
+          </Text>
+          {/* SECTION II => HISTORY  */}
+          <View style={styles.inputFieldContainerMCQ}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Pre Natal</Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.HyperTension}
+                  onValueChange={() => preNatalOptionsHandler('HyperTension')}
+                />
+                <Text style={styles.checkboxLabel}>HyperTension</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Diabetes}
+                  onValueChange={() => preNatalOptionsHandler('Diabetes')}
+                />
+                <Text style={styles.checkboxLabel}>Diabetes</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Convulsion}
+                  onValueChange={() => preNatalOptionsHandler('Convulsion')}
+                />
+                <Text style={styles.checkboxLabel}>Convulsion</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Any_Medication}
+                  onValueChange={() => preNatalOptionsHandler('Any_Medication')}
+                />
+                <Text style={styles.checkboxLabel}>Any_Medication</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Hyperthyroidism}
+                  onValueChange={() =>
+                    preNatalOptionsHandler('Hyperthyroidism')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Hyperthyroidism</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={preNatalOptions.Infections}
+                  onValueChange={() => preNatalOptionsHandler('Infections')}
+                />
+                <Text style={styles.checkboxLabel}>Infections</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainerNatal}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.natalHead}>NATAL</Text>
+              <View style={styles.checkContainerNatal}>
+                <CheckBox
+                  style={styles.fullTermCheckBox}
+                  value={fullTerm}
+                  onValueChange={fullTermHandler}
+                />
+                <Text style={styles.fullTermBoxText}>Full Term</Text>
+                <CheckBox
+                  style={styles.preTermCheckBox}
+                  value={preTerm}
+                  onValueChange={preTermHandler}
+                />
+                <Text style={styles.preTermCheckBoxText}>Pre Term</Text>
+              </View>
+            </View>
+          </View>
+          {/* Section III => POST NATAL */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Post Natal
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.ciabHead}>CIAB</Text>
+              <View style={styles.ciabContainer}>
+                <CheckBox
+                  style={styles.ciabYesCheck}
+                  value={ciabYes}
+                  onValueChange={ciabYesHandler}
+                />
+                <Text style={styles.ciabYesCheckText}>Yes</Text>
+                <CheckBox
+                  style={styles.ciabNoCheck}
+                  value={ciabNo}
+                  onValueChange={ciabNoHandler}
+                />
+                <Text style={styles.ciabNoCheckText}>No</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.weigthHeightContainer}>
+            <TextInput
+              value={userBirthWeight}
+              onChangeText={userBirthWeightHandler}
+              keyboardType="numeric"
+              placeholder="Birth Weight (kg)"
+              placeholderTextColor="#FFFFFF"
+              style={styles.userWeightText}
+            />
+          </View>
+          <View style={styles.weigthHeightContainer}>
+            <TextInput
+              value={userHeadCircumference}
+              onChangeText={userHeadCircumferenceHandler}
+              keyboardType="numeric"
+              placeholder="Head Circumference (cm)"
+              placeholderTextColor="#FFFFFF"
+              style={styles.userHeightText}
+            />
+          </View>
+          <View style={styles.inputFieldContainer3Q}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>NICU Stay</Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={day1To7days}
+                  onValueChange={day1To7daysHandler}
+                />
+                <Text style={styles.checkboxLabel}>1 day - 7 days</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={week1To4weeks}
+                  onValueChange={week1To4weeksHandler}
+                />
+                <Text style={styles.checkboxLabel}>1 week - 4 weeks</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={week4To4months}
+                  onValueChange={week4To4monthsHandler}
+                />
+                <Text style={styles.checkboxLabel}>4 week - 4 months</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputTextContainerMultiLine}>
+            <TextInput
+              value={presentHistory}
+              multiline={true}
+              numberOfLines={4}
+              onChangeText={presentHistoryHandler}
+              keyboardType="ascii-capable"
+              placeholder="Present History"
+              placeholderTextColor="#FFFFFF"
+              style={styles.presentText}
+            />
+          </View>
+          <View style={styles.inputTextContainerMultiLine}>
+            <TextInput
+              value={chiefComplaint}
+              multiline={true}
+              numberOfLines={4}
+              onChangeText={chiefComplaintHandler}
+              keyboardType="ascii-capable"
+              placeholder="Chief Complaint"
+              placeholderTextColor="#FFFFFF"
+              style={styles.complaintText}
+            />
+          </View>
+          {/* Section III => Subjective Assesment */}          
+            <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4.5%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Subjective Assesment
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.sightHead}>Sight </Text>
+              <View style={styles.sightContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={sightIntact}
+                  onValueChange={sightIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={sightNotIntact}
+                  onValueChange={sightNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.hearingHead}>Hearing </Text>
+              <View style={styles.hearingContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={hearingIntact}
+                  onValueChange={hearingIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={hearingNotIntact}
+                  onValueChange={hearingNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.speechHead}>Speech</Text>
+              <View style={styles.speechContainer}>
+                <CheckBox
+                  style={styles.intactYes}
+                  value={speechIntact}
+                  onValueChange={speechIntactHandler}
+                />
+                <Text style={styles.intactYesText}>Intact</Text>
+                <CheckBox
+                  style={styles.intactNo}
+                  value={speechNotIntact}
+                  onValueChange={speechNotIntactHandler}
+                />
+                <Text style={styles.intactNoText}>Not Intact</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.inputFieldContainer5Q}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader5Q}>
+                Mode of Ambulation
+              </Text>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={carried} onValueChange={carriedHandler} />
+                <Text style={styles.checkboxLabel5Q}>Carried By Parent</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingSticks}
+                  onValueChange={walkingSticksHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Walking Sticks</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={wheelChair}
+                  onValueChange={wheelChairHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Wheel Chair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingWalker}
+                  onValueChange={walkingWalkerHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>Walking Walker</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={walkingIndependently}
+                  onValueChange={walkingIndependentlyHandler}
+                />
+                <Text style={styles.checkboxLabel5Q}>
+                  Walking Independently
+                </Text>
+              </View>
+            </View>
+          </View>
+          {/* Section IV =>  Developemental Milestones (Months) */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Developemental Milestones (Months)
+          </Text>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={handHolding}
+              onChangeText={handHoldingHandler}
+              keyboardType="numeric"
+              placeholder="Hand Holding"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={rolling}
+              onChangeText={rollingHandler}
+              keyboardType="numeric"
+              placeholder="Rolling"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={crawling}
+              onChangeText={crawlingHandler}
+              keyboardType="numeric"
+              placeholder="Crawling"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={sitting}
+              onChangeText={sittingHandler}
+              keyboardType="numeric"
+              placeholder="Sitting"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={standing}
+              onChangeText={standingHandler}
+              keyboardType="numeric"
+              placeholder="Standing"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          <View style={styles.developmentMilestoneContainer}>
+            <TextInput
+              value={walking}
+              onChangeText={walkingHandler}
+              keyboardType="numeric"
+              placeholder="Walking"
+              placeholderTextColor="#FFFFFF"
+              style={styles.developmentMileStoneText}
+            />
+          </View>
+          {/* Section VI => General Observation */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Investigation
+          </Text>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={mri}
+              onChangeText={setMriHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="MRI"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={eeg}
+              onChangeText={setEegHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="EEG"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={bera}
+              onChangeText={setBeraHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="BERA"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={opthalmalogy}
+              onChangeText={setOpthalmalogyHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Opthalmaology"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          <View style={styles.investigationContainer}>
+            <TextInput
+              value={xRays}
+              onChangeText={setXRaysHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="XRAYS"
+              placeholderTextColor="#FFFFFF"
+              style={styles.investigationText}
+            />
+          </View>
+          {/* Objective Assesment */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Objective Assesment
+          </Text>
+          <View style={styles.checkBoxContainer}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.toneHead}>Tone</Text>
+              <View style={styles.toneContainer}>
+                <CheckBox
+                  style={styles.hypotoniaYes}
+                  value={hypotonia}
+                  onValueChange={hypotoniaHandler}
+                />
+                <Text style={styles.hypotoniaYesText}>Hypotonia</Text>
+                <CheckBox
+                  style={styles.hypertoniaNo}
+                  value={hypertonia}
+                  onValueChange={hypertoniaHandler}
+                />
+                <Text style={styles.hypertoniaNoText}>Hypertonia</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.objectiveAssesmentContainer}>
+            <TextInput
+              value={deformities}
+              onChangeText={deformitiesHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Deformities"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssesmentText}
+            />
+          </View>
+          <View style={styles.objectiveAssesmentContainer}>
+            <TextInput
+              value={contracture}
+              onChangeText={contractureHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Contracture"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssesmentText}
+            />
+          </View>
+          <View style={styles.objectiveAssesmentContainer}>
+            <TextInput
+              value={tightness}
+              onChangeText={tightnessHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Tightness"
+              placeholderTextColor="#FFFFFF"
+              style={styles.objectiveAssesmentText}
+            />
+          </View>
+          {/*   Tardieu's*/}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Tardieu's
+          </Text>
+          <View style={styles.normalContainerPicker}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1.Tendoachilles
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                RT
+              </Text>
+              <TextInput
+                value={tasRTR1}
+                onChangeText={handleTasRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={tasRTR2}
+                onChangeText={handleTasRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}>
+                LT
+              </Text>
+              <TextInput
+                value={tasLTR1}
+                onChangeText={handleTasLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={tasLTR2}
+                onChangeText={handleTasLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Hamstrings
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                RT
+              </Text>
+              <TextInput
+                value={hamstringsRTR1}
+                onChangeText={handleHamstringsRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hamstringsRTR2}
+                onChangeText={handleHamstringsRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}>
+                LT
+              </Text>
+              <TextInput
+                value={hamstringsLTR1}
+                onChangeText={handleHamstringsLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hamstringsLTR2}
+                onChangeText={handleHamstringsLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Hip Adductors
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                RT
+              </Text>
+              <TextInput
+                value={hipAdductionRTR1}
+                onChangeText={handleHipAdductionRTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hipAdductionRTR2}
+                onChangeText={handleHipAdductionRTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}>
+                LT
+              </Text>
+              <TextInput
+                value={hipAdductionLTR1}
+                onChangeText={handleHipAdductionLTR1Change}
+                keyboardType="ascii-capable"
+                placeholder="R1"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+              <TextInput
+                value={hipAdductionLTR2}
+                onChangeText={handleHipAdductionLTR2Change}
+                keyboardType="ascii-capable"
+                placeholder="R2"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('10%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+          </View>
+          {/*   ROM */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            ROM
+          </Text>
+          <View style={styles.bigContainerPicker}>
+            <View style={styles.header}>
+              <Text style={styles.headerText}>Movement</Text>
+              <Text style={styles.headerText}>Range of motion</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Back extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={backExt} onValueChange={backExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-15"
+                    value="10-15"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="15-20"
+                    value="15-20"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="20-25"
+                    value="20-25"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Back flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={backFlex}
+                  onValueChange={backFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Back Lateral Bending</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={backLat} onValueChange={backLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-15"
+                    value="10-15"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="15-20"
+                    value="15-20"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="20-25"
+                    value="20-25"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Neck flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={neckFlex}
+                  onValueChange={neckFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-50"
+                    value="30-50"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Neck Extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={neckExt} onValueChange={neckExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Neck lateral bending</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={neckLat} onValueChange={neckLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipFlex} onValueChange={hipFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-25"
+                    value="0-25"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="25-50"
+                    value="25-50"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="50-75"
+                    value="50-75"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="75-100"
+                    value="75-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipExt} onValueChange={hipExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip adduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipAdd} onValueChange={hipAddHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip abduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipAbd} onValueChange={hipAbdHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Knee flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={kneeFlex}
+                  onValueChange={kneeFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip medial rotation</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={hipMedRot}
+                  onValueChange={hipMedRotHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Hip Lateral Rotation</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={hipLat} onValueChange={hipLatHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="30-45"
+                    value="30-45"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Abduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderAbd}
+                  onValueChange={shoulderAbdHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Adduction</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderAdd}
+                  onValueChange={shoulderAddHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderFlex}
+                  onValueChange={shoulderFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Shoulder Extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={shoulderExt}
+                  onValueChange={shoulderExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Elbow Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={elbowFlex}
+                  onValueChange={elbowFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-50"
+                    value="0-50"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="50-100"
+                    value="50-100"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="100-150"
+                    value="100-150"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Forearm Supination</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={forearmSup}
+                  onValueChange={forearmSupHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Forearm Pronation</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={forearmPro}
+                  onValueChange={forearmProHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-30"
+                    value="0-30"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="30-60"
+                    value="30-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="60-90"
+                    value="60-90"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle DF</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={ankleDF} onValueChange={ankleDFHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-20"
+                    value="10-20"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle PF</Text>
+              <View style={styles.bigContainer}>
+                <Picker selectedValue={anklePF} onValueChange={anklePFHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle Inversion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={ankleInversion}
+                  onValueChange={ankleInversionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-15"
+                    value="0-15"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="15-30"
+                    value="15-30"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Ankle Eversion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={ankleEversion}
+                  onValueChange={ankleEversionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-10"
+                    value="0-10"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="10-20"
+                    value="10-20"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Wrist Flexion</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={wristFlex}
+                  onValueChange={wristFlexHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Wrist Extension</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={wristExt}
+                  onValueChange={wristExtHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="0-20"
+                    value="0-20"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="20-40"
+                    value="20-40"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="40-60"
+                    value="40-60"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+          </View>
+          {/* Modified Asworths */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Modified Ashworth's
+          </Text>
+          <View style={styles.normalContainer}>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Upper Extremities</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={upperExtremities}
+                  onValueChange={upperExtremitiesHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="1"
+                    value="1"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="2"
+                    value="2"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="3"
+                    value="3"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="4"
+                    value="4"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="5"
+                    value="5"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Lower Extremities</Text>
+              <View style={styles.bigContainer}>
+                <Picker
+                  selectedValue={lowerExtremities}
+                  onValueChange={lowerExtremitiesHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="1"
+                    value="1"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="2"
+                    value="2"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="3"
+                    value="3"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="4"
+                    value="4"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                  <Picker.Item
+                    label="5"
+                    value="5"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <TextInput
+              value={asworthsComs}
+              onChangeText={asworthsComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#FFFFFF"
+              style={styles.coms}
+            />
+          </View>
+          {/* Functional Evaluation */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Functional Evaluation
+          </Text>
+          <View style={styles.inputFieldContainer3Q8}>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Supine to Prone</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToProneImmobile}
+                    onValueChange={supineToProneImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToProneAssistance}
+                    onValueChange={supineToProneAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToProneIndependent}
+                    onValueChange={supineToProneIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Supine to Sit</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToSitImmobile}
+                    onValueChange={supineToSitImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToSitAssistance}
+                    onValueChange={supineToSitAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={supineToSitIndependent}
+                    onValueChange={supineToSitIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Sitting</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sittingImmobile}
+                    onValueChange={sittingImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sittingAssistance}
+                    onValueChange={sittingAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sittingIndependent}
+                    onValueChange={sittingIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Quadriped</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={quadsImmobile}
+                    onValueChange={quadsImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={quadsAssistance}
+                    onValueChange={quadsAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={quadsIndependent}
+                    onValueChange={quadsIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Kneeling</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={kneelingImmobile}
+                    onValueChange={kneelingImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={kneelingAssistance}
+                    onValueChange={kneelingAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={kneelingIndependent}
+                    onValueChange={kneelingIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Half Kneeling</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={halfKneelingImmobile}
+                    onValueChange={halfKneelingImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={halfKneelingAssistance}
+                    onValueChange={halfKneelingAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={halfKneelingIndependent}
+                    onValueChange={halfKneelingIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Standing</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={standingImmobile}
+                    onValueChange={standingImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={standingAssistance}
+                    onValueChange={standingAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={standingIndependent}
+                    onValueChange={standingIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'column'}}>
+                <Text style={styles.multipleChoiceHeader}>Ambulation</Text>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={ambulationImmobile}
+                    onValueChange={ambulationImmobileHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Immobile</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={ambulationAssistance}
+                    onValueChange={ambulationAssistanceHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Assistance</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={ambulationIndependent}
+                    onValueChange={ambulationIndependentHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Independent</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          {/* Functional TextBoxs */}
+          <View style={styles.functionalContainer}>
+            <TextInput
+              value={functionAbilities}
+              onChangeText={functionalAbilitiesHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Functional Abilities"
+              placeholderTextColor="#FFFFFF"
+              style={styles.functionalText}
+            />
+          </View>
+          <View style={styles.functionalContainer}>
+            <TextInput
+              value={functionLimitations}
+              onChangeText={functionalLimitationsHandler}
+              keyboardType="ascii-capable"
+              multiline={true}
+              numberOfLines={4}
+              placeholder="Functional Limitations"
+              placeholderTextColor="#FFFFFF"
+              style={styles.functionalText}
+            />
+          </View>
+          {/* Single System Assesment */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Single System Assesment
+          </Text>
+          <View style={styles.inputFieldContainer10}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.6%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('4%'),
+              }}>
+              a. Neuromuscular
+            </Text>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Initiation</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={canInitiate}
+                    onValueChange={canInitiateHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Can Initiate</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={cantInitiate}
+                    onValueChange={cantInitiateHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Can not Initiate</Text>
+                </View>
+              </View>
+              <View style={styles.inputTextContainerComs}>
+                <TextInput
+                  value={initiateComs}
+                  onChangeText={initiateComsHandler}
+                  keyboardType="ascii-capable"
+                  placeholder="Comments"
+                  placeholderTextColor="#FFFFFF"
+                  style={styles.coms}
+                />
+              </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Sustenance</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sustenancePoor}
+                    onValueChange={sustenancePoorHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Poor</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sustenanceFair}
+                    onValueChange={sustenanceFairHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Fair</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={sustenanceGood}
+                    onValueChange={sustenanceGoodHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Good</Text>
+                </View>
+              </View>
+              <View style={styles.inputTextContainerComs}>
+                <TextInput
+                  value={sustenanceComs}
+                  onChangeText={sustenanceComsHandler}
+                  keyboardType="ascii-capable"
+                  placeholder="Comments"
+                  placeholderTextColor="#FFFFFF"
+                  style={styles.coms}
+                />
+              </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Termination</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={terminationPassive}
+                    onValueChange={terminationPassiveHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Passive</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={terminationAbrupt}
+                    onValueChange={terminationAbruptHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Abrupt</Text>
+                </View>
+              </View>
+              <View style={styles.inputTextContainerComs}>
+                <TextInput
+                  value={terminationComs}
+                  onChangeText={terminationComsHandler}
+                  keyboardType="ascii-capable"
+                  placeholder="Comments"
+                  placeholderTextColor="#FFFFFF"
+                  style={styles.coms}
+                />
+              </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>
+                Control & Gradation
+              </Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={controlGradPoor}
+                    onValueChange={controlGradPoorHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Poor</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={controlGradFair}
+                    onValueChange={controlGradFairHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Fair</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={controlGradGood}
+                    onValueChange={controlGradGoodHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Good</Text>
+                </View>
+              </View>
+              <View style={styles.inputTextContainerComs}>
+                <TextInput
+                  value={controlGradComs}
+                  onChangeText={controlGradComsHandler}
+                  keyboardType="ascii-capable"
+                  placeholder="Comments"
+                  placeholderTextColor="#FFFFFF"
+                  style={styles.coms}
+                />
+              </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Recruitment</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={recruitmentPostural}
+                    onValueChange={recruitmentPosturalHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Postural (So)</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={recruitmentMovement}
+                    onValueChange={recruitmentMovementHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Movement (FF)</Text>
+                </View>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>Contraction</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={contractionConcentric}
+                    onValueChange={contractionConcentricHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Concentric</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={contractionIsometric}
+                    onValueChange={contractionIsometricHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Isometric</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={contractionEccentric}
+                    onValueChange={contractionEccentricHandler}
+                  />
+                  <Text style={styles.checkboxLabel}>Eccentric</Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('7%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Co-contraction
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={contraction}
+                  onValueChange={contractionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Reciprocal Inhibition
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={reciprocalInhibition}
+                  onValueChange={reciprocalInhibitionHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Mass energy
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={massEnergy}
+                  onValueChange={massEnergyHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Isolated work
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={isolatedWork}
+                  onValueChange={isolatedWorkHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Dyanmic Stiffness
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={dynamicStiffness}
+                  onValueChange={dynamicStiffnessHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Extraneous Movement
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={extraneousMovement}
+                  onValueChange={extraneousMovementHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.inputTextContainerComs}>
+              <TextInput
+                value={singleAssesment}
+                onChangeText={singleAssesmentHandler}
+                keyboardType="ascii-capable"
+                placeholder="Comments"
+                placeholderTextColor="#FFFFFF"
+                style={styles.coms}
+              />
+            </View>
+          </View>
+          {/*   Multiple System assesment */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Multi System Assesment
+          </Text>
+          <View style={styles.inputFieldContainerMs}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.4%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              a) Posture and Alignment
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+              }}>
+              a. Posture
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('1.8%'),
+              }}>
+              What Postures the child normally adopts ?
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={postureAnswer}
+              onChangeText={postureAnswerHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={styles.answerBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('2.2%'),
+              }}>
+              b. Alignment
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={asymmetry} onValueChange={asymmetryHandler} />
+                <Text style={styles.checkboxLabel}>Asymmetry</Text>
+              </View>
+              <Text
+                style={{
+                  marginVertical: wp('5%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Side
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={side} onValueChange={sideHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="RT"
+                    value="RT"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="LT"
+                    value="LT"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('5%'),
+              }}>
+              Base of Support
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={broad} onValueChange={broadHandler} />
+                <Text style={styles.checkboxLabel}>Broad</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox value={narrow} onValueChange={narrowHandler} />
+                <Text style={styles.checkboxLabel}>Narrow</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              General Posture
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={generalPosture}
+              onChangeText={generalPostureHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={styles.generalPostureBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              Callosities
+            </Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={2}
+              value={callosities}
+              onChangeText={callositiesHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={styles.callositiesBox}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.4%'),
+                marginHorizontal: wp('5%'),
+                marginVertical: wp('6%'),
+              }}>
+              b) Movement Systems
+            </Text>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-1%'),
+                marginBottom: wp('2%'),
+              }}>
+              1) Movement Strategies Used
+            </Text>
+            <View style={{flexDirection: 'column'}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1.5%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={movementStratOptions.Momentum}
+                  onValueChange={() => movementStratOptionsHandler('Momentum')}
+                />
+                <Text style={styles.checkboxLabel}>Momentum</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1.5%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={movementStratOptions.OveruseofMs}
+                  onValueChange={() =>
+                    movementStratOptionsHandler('OveruseofMs')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Overuse of Ms</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1.5%'),
+                  marginHorizontal: wp('5%'),
+                  marginBottom: wp('2%'),
+                }}>
+                <CheckBox
+                  value={movementStratOptions.IncreasingBos}
+                  onValueChange={() =>
+                    movementStratOptionsHandler('IncreasingBos')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Increasing Bos</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('1%'),
+              }}>
+              2) Static Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalancePoor}
+                  onValueChange={staticBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalanceFair}
+                  onValueChange={staticBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={staticBalanceGood}
+                  onValueChange={staticBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('2%'),
+              }}>
+              3) Anticipatory Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalanceGood}
+                  onValueChange={anticipatoryBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalanceFair}
+                  onValueChange={anticipatoryBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={anticipatoryBalancePoor}
+                  onValueChange={anticipatoryBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={anticipatoryBalanceComs}
+              onChangeText={anticipatoryBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('3%'),
+              }}>
+              4) Reactive Balance
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalanceGood}
+                  onValueChange={reactiveBalanceGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalanceFair}
+                  onValueChange={reactiveBalanceFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={reactiveBalancePoor}
+                  onValueChange={reactiveBalancePoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={reactiveBalanceComs}
+              onChangeText={reactiveBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('4%'),
+              }}>
+              5) Co-ordination
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('3%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationGood}
+                  onValueChange={coordinationGoodHandler}
+                />
+                <Text style={styles.checkboxLabel}>Good</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationFair}
+                  onValueChange={coordinationFairHandler}
+                />
+                <Text style={styles.checkboxLabel}>Fair</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={coordinationPoor}
+                  onValueChange={coordinationPoorHandler}
+                />
+                <Text style={styles.checkboxLabel}>Poor</Text>
+              </View>
+            </View>
+            <TextInput
+              value={anticipatoryBalanceComs}
+              onChangeText={anticipatoryBalanceComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.2%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Sensory System */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Sensory System
+          </Text>
+          <View style={styles.inputFieldContainerMCQSensory}>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.multipleChoiceHeader}>1. Registration</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Arousal}
+                    onValueChange={() => registrationOptionsHandler('Arousal')}
+                  />
+                  <Text style={styles.checkboxLabel}>Arousal</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Attention}
+                    onValueChange={() =>
+                      registrationOptionsHandler('Attention')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Attention</Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Affect}
+                    onValueChange={() => registrationOptionsHandler('Affect')}
+                  />
+                  <Text style={styles.checkboxLabel}>Affect</Text>
+                </View>
+                <View style={styles.checkboxWrapper}>
+                  <CheckBox
+                    value={registrationOptions.Alertness}
+                    onValueChange={() =>
+                      registrationOptionsHandler('Alertness')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Alertness</Text>
+                </View>
+              </View>
+            </View>
+            <TextInput
+              value={registrationComs}
+              onChangeText={registrationComshandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              2.Tactile
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('1.5%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={tactileUnder}
+                  onValueChange={tactileUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={tactileOver}
+                  onValueChange={tactileOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Proprioceptive
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={proprioceptiveUnder}
+                  onValueChange={proprioceptiveUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={proprioceptiveOver}
+                  onValueChange={proprioceptiveOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Vestibular
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={vestibularUnder}
+                  onValueChange={vestibularUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={vestibularOver}
+                  onValueChange={vestibularOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Auditory
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={auditoryUnder}
+                  onValueChange={auditoryUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={auditoryOver}
+                  onValueChange={auditoryOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Visual
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={visualUnder}
+                  onValueChange={visualUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={visualOver}
+                  onValueChange={visualOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              Gustatory
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('4%'),
+              }}>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={gustatoryUnder}
+                  onValueChange={gustatoryUnderHandler}
+                />
+                <Text style={styles.checkboxLabel}>Under Responsive</Text>
+              </View>
+              <View style={styles.checkboxWrapper}>
+                <CheckBox
+                  value={gustatoryOver}
+                  onValueChange={gustatoryOverHandler}
+                />
+                <Text style={styles.checkboxLabel}>Over Responsive</Text>
+              </View>
+            </View>
+            <TextInput
+              value={sensorySystemsComs}
+              onChangeText={sensorySystemComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: wp('3.5%'),
+                marginHorizontal: wp('4%'),
+                marginVertical: wp('2%'),
+              }}>
+              3. Sensory Profile
+            </Text>
+            <TextInput
+              value={sensoryProfile}
+              onChangeText={sensoryProfileHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Sensory Modulation  */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Sensory Modulation
+          </Text>
+          <View style={styles.inputFieldContainerMCQSensoryM}>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('5%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Gravitational Insecurity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('4%'),
+                }}>
+                <Picker
+                  selectedValue={gravitationalInsecurity}
+                  onValueChange={gravitationalInsecurityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Aversive Response to Movement
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={aversiveResponse}
+                  onValueChange={aversiveResponseHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Postural Insecurity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={posturalInsecurity}
+                  onValueChange={posturalInsecurityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="Yes"
+                    value="Yes"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="No"
+                    value="No"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Tactile Defensiveness
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={tactileDefensiveness}
+                  onValueChange={tactileDefensivenessHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="+VE"
+                    value="+VE"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="-VE"
+                    value="-VE"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Sensory Avoiding
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={sensoryAvoiding}
+                  onValueChange={sensoryAvoidingHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Poor registration to stimulation
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={poorRTS} onValueChange={poorRTSHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Distractibility
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={distractibility}
+                  onValueChange={distractibilityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Hyperactivity
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={hyperactivity}
+                  onValueChange={hyperactivityHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <TextInput
+              value={sensoryComs}
+              onChangeText={sensoryComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d9d9d9"
+              style={{
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3.5%'),
+              }}>
+              b. Sensory Processing
+            </Text>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Form Space
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={formSpace}
+                  onValueChange={formSpaceHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Visuomotor Co-ordination
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={visuomotorcoordination}
+                  onValueChange={visuomotorcoordinationHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Tactile Discrimination
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={tactileDiscrimination}
+                  onValueChange={tactileDiscriminationHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Praxis
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker selectedValue={praxis} onValueChange={praxisHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  marginVertical: wp('4%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Vestibular proprioceptive processing
+              </Text>
+              <View
+                style={{
+                  width: wp('20%'),
+                  height: hp('5%'),
+                  marginHorizontal: wp('4%'),
+                  marginVertical: wp('3%'),
+                }}>
+                <Picker
+                  selectedValue={vestibularProprioceptiveProcessing}
+                  onValueChange={vestibularProprioceptiveProcessingHandler}>
+                  <Picker.Item label="Select" value="" />
+                  <Picker.Item
+                    label="YES"
+                    value="YES"
+                    style={{
+                      color: 'black',
+                      fontSize: wp('2%'),
+                      textAlign: 'center',
+                    }}
+                  />
+                  <Picker.Item
+                    label="NO"
+                    value="NO"
+                    style={{color: 'black', fontSize: wp('2%')}}
+                  />
+                </Picker>
+              </View>
+            </View>
+            <TextInput
+              value={sensoryBcoms}
+              onChangeText={sensoryBcomsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d9d9d9"
+              style={{
+                marginVertical: wp('2%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3.5%'),
+              }}>
+              c. Visual System
+            </Text>
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. Focal Vision
+            </Text>
+            <TextInput
+              value={focalVision}
+              onChangeText={focalVisionHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Ambient Vision
+            </Text>
+            <TextInput
+              value={ambientVision}
+              onChangeText={ambientVisionHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Eye Movement System
+            </Text>
+            <TextInput
+              value={eyeMovementSystem}
+              onChangeText={eyeMovementSystemHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. Localization
+            </Text>
+            <TextInput
+              value={localization}
+              onChangeText={localizationHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              5. Tracking
+            </Text>
+            <TextInput
+              value={tracking}
+              onChangeText={trackingHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Section 16 => Other Scales */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            Other Scales
+          </Text>
+          <View style={styles.inputFieldContainerS16}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. GMFM
+            </Text>
+            <TextInput
+              value={gmfm}
+              onChangeText={gmfmHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. PEDI
+            </Text>
+            <TextInput
+              value={pedi}
+              onChangeText={pediHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Pediatric Balance Scale
+            </Text>
+            <TextInput
+              value={pediatricBalanceScale}
+              onChangeText={pediatricBalanceScaleHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+            <Text
+              style={{
+                marginVertical: wp('4%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. WOTA (Aquatic Scale)
+            </Text>
+            <TextInput
+              value={wotaAquaticScale}
+              onChangeText={wotaAquaticScaleHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('0.8%'),
+                marginHorizontal: wp('6%'),
+              }}
+            />
+          </View>
+          {/* Section 17 */}
+          <Text
+            style={{
+              color: '#169cc4',
+              fontWeight: 'bold',
+              fontSize: wp('4%'),
+              marginHorizontal: wp('5%'),
+              marginVertical: wp('1%'),
+            }}>
+            ICF
+          </Text>
+          <View style={styles.inputFieldContainerS17}>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              1. Body Structure
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={bodyStructurePositive}
+                onChangeText={bodyStructurePositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1.5%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={bodyStructureNegative}
+                onChangeText={bodyStructureNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              2. Body Function
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Positive
+              </Text>
+              <TextInput
+                value={bodyFunctionPositive}
+                onChangeText={bodyFunctionPositiveHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Negative
+              </Text>
+              <TextInput
+                value={bodyFunctionNegative}
+                onChangeText={bodyFunctionNegativeHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              3. Activites
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Participation
+              </Text>
+              <TextInput
+                value={activitiesParticipation}
+                onChangeText={activitiesParticipationHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Limitation
+              </Text>
+              <TextInput
+                value={activitiesLimitation}
+                onChangeText={activitiesLimitationHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('6%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              4. Environmental
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Personal
+              </Text>
+              <TextInput
+                value={environmentalPersonal}
+                onChangeText={environmentalPersonalHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('7%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Contextual
+              </Text>
+              <TextInput
+                value={environmentalContextual}
+                onChangeText={environmentalContextualHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('50%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('6%'),
+                  marginVertical: wp('-3%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Short Term Goals
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={shortTermGoals}
+                onChangeText={shortTermGoalsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Long Term Goals
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={longTermGoals}
+                onChangeText={longTermGoalsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Intervention
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={intervention}
+                onChangeText={interventionHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                marginVertical: wp('10%'),
+                marginHorizontal: wp('6%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              Equipments / Instruments Used
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TextInput
+                value={equipments}
+                onChangeText={equipmentsHandler}
+                keyboardType="ascii-capable"
+                multiline={true}
+                numberOfLines={2}
+                placeholder="Comments"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('7%'),
+                  marginVertical: wp('-10%'),
+                }}
+              />
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text
+                style={{
+                  marginVertical: wp('6%'),
+                  marginHorizontal: wp('6%'),
+                  color: 'white',
+                  fontSize: wp('3%'),
+                }}>
+                Recommendations
+              </Text>
+              <View style={{flexDirection: 'column'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.Physiotherapy}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('Physiotherapy')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Physiotherapy</Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginVertical: wp('1%'),
+                    marginHorizontal: wp('5%'),
+                  }}>
+                  <CheckBox
+                    value={recommendationOptions.SensoryIntegration}
+                    onValueChange={() =>
+                      recommendationOptionsHandler('SensoryIntegration')
+                    }
+                  />
+                  <Text style={styles.checkboxLabel}>Sensory Integration</Text>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.OccupationalTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('OccupationalTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Occupational Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.AquaticTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('AquaticTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Aquatic Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.SpeechTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('SpeechTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Speech Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginVertical: wp('1%'),
+                  marginHorizontal: wp('5%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.RemedialTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('RemedialTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Remedial Therapy</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginHorizontal: wp('5%'),
+                  marginVertical: wp('1%'),
+                }}>
+                <CheckBox
+                  value={recommendationOptions.BehavioralTherapy}
+                  onValueChange={() =>
+                    recommendationOptionsHandler('BehavioralTherapy')
+                  }
+                />
+                <Text style={styles.checkboxLabel}>Behavioral Therapy</Text>
+              </View>
+            </View>
+            <TextInput
+              value={section17Coms}
+              onChangeText={section17ComsHandler}
+              keyboardType="ascii-capable"
+              placeholder="Comments"
+              placeholderTextColor="#FFFFFF"
+              style={{
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('1%'),
+                marginHorizontal: wp('5%'),
+              }}
+            />
+          </View>
+          {/* Save & Share Buttons  */}
+          <View style={styles.inputFieldContainerSHARE}>
+            <TouchableOpacity style={styles.exportBtn} onPress={handleSharePdf}>
+              <Text style={styles.exportText}>Share PDF</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.inputFieldContainerEXPORT}>
+            <TouchableOpacity
+              style={styles.exportBtn}
+              onPress={handleExportPdf}>
+              <Text style={styles.exportText}>Save to Local Storage </Text>
+            </TouchableOpacity>
+          </View>

@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {responsiveScreenHeight} from 'react-native-responsive-dimensions';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -18,9 +17,7 @@ import {
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
 
-
 const Pediatric_Assessment = ({navigation}) => {
- 
   useEffect(() => {
     Orientation.lockToPortrait();
     return () => {
@@ -28,7 +25,6 @@ const Pediatric_Assessment = ({navigation}) => {
     };
   }, []);
   Immersive.setImmersive(true);
-
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <ScrollView style={styles.scrollViewContainer}>
@@ -38,23 +34,23 @@ const Pediatric_Assessment = ({navigation}) => {
             style={{
               width: wp('90%'),
               height: hp('17%'),
-             alignSelf:'center',
+              alignSelf: 'center',
               marginVertical: wp('10%'),
             }}
           />
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              navigation.navigate('Phase 1 Assessment Form');
+              navigation.navigate('AssessmentCopy');
             }}>
-            <Text style={styles.buttonTextStyle}>Start Initial Assessment</Text>
+            <Text style={styles.buttonTextStyle}>Start Assessment</Text>
           </TouchableOpacity>
           <Image
             source={require('../assets/home2.png')}
             style={{
               width: wp('100%'),
               height: hp('17%'),
-             
+
               marginVertical: wp('10%'),
             }}
           />
