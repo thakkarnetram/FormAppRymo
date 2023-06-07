@@ -837,3 +837,266 @@ export const updateHipAdductorsLTR2 = hipAdductorsLTR2 => {
     });
   };
 };
+
+// Section 9
+export const updateBackExt = backExt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBackExt',
+      payload: backExt,
+    });
+  };
+};
+
+export const updateBackFlex = backFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBackFlex',
+      payload: backFlex,
+    });
+  };
+};
+
+export const updateBackLat = backLat => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBackLat',
+      payload: backLat,
+    });
+  };
+};
+
+export const updateNeckFlex = neckFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateNeckFlex',
+      payload: neckFlex,
+    });
+  };
+};
+
+export const updateNeckExt = neckExt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateNeckExt',
+      payload: neckExt,
+    });
+  };
+};
+
+export const updateNeckLat = neckLat => {
+  return dispatch => {
+    dispatch({
+      type: 'updateNeckLat',
+      payload: neckLat,
+    });
+  };
+};
+
+export const updateHipFlex = hipFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipFlex',
+      payload: hipFlex,
+    });
+  };
+};
+
+export const updateHipExt = hipExt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipExt',
+      payload: hipExt,
+    });
+  };
+};
+
+export const updateHipAbd = hipAbd => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipAbd',
+      payload: hipAbd,
+    });
+  };
+};
+
+export const updateHipAdd = hipAdd => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipAdd',
+      payload: hipAdd,
+    });
+  };
+};
+
+export const updateKneeFlex = kneeFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateKneeFlex',
+      payload: kneeFlex,
+    });
+  };
+};
+
+export const updateHipMedRot = hipMedRot => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipMedRot',
+      payload: hipMedRot,
+    });
+  };
+};
+
+export const updateHipLatRot = hipLatRot => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHipLatRot',
+      payload: hipLatRot,
+    });
+  };
+};
+
+export const updateShoulderAbd = shoulderAbd => {
+  return dispatch => {
+    dispatch({
+      type: 'updateShoulderAbd',
+      payload: shoulderAbd,
+    });
+  };
+};
+
+export const updateShoulderFlex = shoulderFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateShoulderFlex',
+      payload: shoulderFlex,
+    });
+  };
+};
+
+export const updateShoulderAdd = shoulderAdd => {
+  return dispatch => {
+    dispatch({
+      type: 'updateShoulderAdd',
+      payload: shoulderAdd,
+    });
+  };
+};
+
+export const updateShoulderExt = shoulderExt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateShoulderExt',
+      payload: shoulderExt,
+    });
+  };
+};
+
+export const updateElbowFlex = elbowFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateElbowFlex',
+      payload: elbowFlex,
+    });
+  };
+};
+
+export const updateForearmPronation = forearmPronation => {
+  return dispatch => {
+    dispatch({
+      type: 'updateForearmPronation',
+      payload: forearmPronation,
+    });
+  };
+};
+
+export const updateForearmSupination = forearmSupination => {
+  return dispatch => {
+    dispatch({
+      type: 'updateForearmSupination',
+      payload: forearmSupination,
+    });
+  };
+};
+
+export const updateAnkleDF = ankleDF => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnkleDF',
+      payload: ankleDF,
+    });
+  };
+};
+
+export const updateAnklePF = anklePF => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnklePF',
+      payload: anklePF,
+    });
+  };
+};
+
+export const updateAnkleInversion = ankleInversion => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnkleInversion',
+      payload: ankleInversion,
+    });
+  };
+};
+
+export const updateAnkleEversion = ankleEversion => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnkleEversion',
+      payload: ankleEversion,
+    });
+  };
+};
+
+export const updateWristFlex = wristFlex => {
+  return dispatch => {
+    dispatch({
+      type: 'updateWristFlex',
+      payload: wristFlex,
+    });
+  };
+};
+
+export const updateWristExt = wristExt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateWristExt',
+      payload: wristExt,
+    });
+  };
+};
+
+// Section 10
+export const updateUpperExtermities = upperExtermities => {
+  return dispatch => {
+    dispatch({
+      type: 'updateUpperExtermities',
+      payload: upperExtermities,
+    });
+  };
+};
+
+export const updateLowerExtermities = lowerExtermities => {
+  return dispatch => {
+    dispatch({
+      type: 'updateLowerExtermities',
+      payload: lowerExtermities,
+    });
+  };
+};
+
+export const updateComsModifiedAshworth = comsModifiedAshworth => {
+  return dispatch => {
+    dispatch({
+      type: 'updateComsModifiedAshworth',
+      payload: comsModifiedAshworth,
+    });
+  };
+};

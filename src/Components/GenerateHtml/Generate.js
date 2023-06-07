@@ -87,7 +87,7 @@ const Generate = () => {
   const walkingIndependently = useSelector(
     state => state.section5.walkingIndependently,
   );
-  // Section 6 
+  // Section 6
   const mri = useSelector(state => state.section6.mri);
   const selectedImageMRI = useSelector(
     state => state.section6.selectedImageMRI,
@@ -128,6 +128,66 @@ const Generate = () => {
   const tightnessR = useSelector(state => state.section7.tightnessR);
   const tightnessL = useSelector(state => state.section7.tightnessL);
 
+  // Section8
+  const tasRTR1 = useSelector(state => state.section8.tendoachillesRTR1);
+  const tasRTR2 = useSelector(state => state.section8.tendoachillesRTR2);
+  const tasLTR1 = useSelector(state => state.section8.tendoachillesLTR1);
+  const tasLTR2 = useSelector(state => state.section8.tendoachillesLTR2);
+  const hamstringsRTR1 = useSelector(state => state.section8.hamstringsRTR1);
+  const hamstringsRTR2 = useSelector(state => state.section8.hamstringsRTR2);
+  const hamstringsLTR1 = useSelector(state => state.section8.hamstringsLTR1);
+  const hamstringsLTR2 = useSelector(state => state.section8.hamstringsLTR2);
+  const hipAdductionRTR1 = useSelector(
+    state => state.section8.hipAdductorsRTR1,
+  );
+  const hipAdductionRTR2 = useSelector(
+    state => state.section8.hipAdductorsRTR2,
+  );
+  const hipAdductionLTR1 = useSelector(
+    state => state.section8.hipAdductorsLTR1,
+  );
+  const hipAdductionLTR2 = useSelector(
+    state => state.section8.hipAdductorsLTR2,
+  );
+  // Section 9
+  const backExt = useSelector(state => state.section9.backExt);
+  const backFlex = useSelector(state => state.section9.backFlex);
+  const backLat = useSelector(state => state.section9.backLat);
+  const neckFlex = useSelector(state => state.section9.neckFlex);
+  const neckExt = useSelector(state => state.section9.neckExt);
+  const neckLat = useSelector(state => state.section9.neckLat);
+  const hipFlex = useSelector(state => state.section9.hipFlex);
+  const hipExt = useSelector(state => state.section9.hipExt);
+  const hipAbd = useSelector(state => state.section9.hipAbd);
+  const hipAdd = useSelector(state => state.section9.hipAdd);
+  const kneeFlex = useSelector(state => state.section9.kneeFlex);
+  const hipMedRot = useSelector(state => state.section9.hipMedRot);
+  const hipLatRot = useSelector(state => state.section9.hipLatRot);
+  const shoulderAbd = useSelector(state => state.section9.shoulderAbd);
+  const shoulderFlex = useSelector(state => state.section9.shoulderFlex);
+  const shoulderAdd = useSelector(state => state.section9.shoulderAdd);
+  const shoulderExt = useSelector(state => state.section9.shoulderExt);
+  const elbowFlex = useSelector(state => state.section9.elbowFlex);
+  const forearmPronation = useSelector(
+    state => state.section9.forearmPronation,
+  );
+  const forearmSupination = useSelector(
+    state => state.section9.forearmSupination,
+  );
+  const ankleDF = useSelector(state => state.section9.ankleDF);
+  const anklePF = useSelector(state => state.section9.anklePF);
+  const ankleInversion = useSelector(state => state.section9.ankleInversion);
+  const ankleEversion = useSelector(state => state.section9.ankleEversion);
+  const wristFlex = useSelector(state => state.section9.wristFlex);
+  const wristExt = useSelector(state => state.section9.wristExt);
+  // Section 10
+  const upperExterimities = useSelector(
+    state => state.section10.upperExterimities,
+  );
+  const lowerExterimities = useSelector(
+    state => state.section10.lowerExterimities,
+  );
+  const asworthsComs = useSelector(state => state.section10.comsModifiedAshworth);
   // Generating html
   const generateHtml = () => {
     let html = `
@@ -642,42 +702,42 @@ const Generate = () => {
 
     // Section 6
 
-        if (
-          mri ||
-          eeg ||
-          bera ||
-          opthalmalogy ||
-          xRays ||
-          selectedImageMRI ||
-          selectedImageEEG ||
-          selectedImageBERA ||
-          selectedImageOPT ||
-          selectedImageXRAYS ||
-          clickedImageMRI ||
-          clickedImageEEG ||
-          clickedImageBERA ||
-          clickedImageOPT ||
-          clickedImageXRAYS
-        ) {
-          html += `
+    if (
+      mri ||
+      eeg ||
+      bera ||
+      opthalmalogy ||
+      xRays ||
+      selectedImageMRI ||
+      selectedImageEEG ||
+      selectedImageBERA ||
+      selectedImageOPT ||
+      selectedImageXRAYS ||
+      clickedImageMRI ||
+      clickedImageEEG ||
+      clickedImageBERA ||
+      clickedImageOPT ||
+      clickedImageXRAYS
+    ) {
+      html += `
           <div class="label">
             <h1>5. General Observations </h1>
           </div>
           <div class="value">
           </div>
           `;
-        }
+    }
 
-        // if (mri) {
-        //   html += `
-        //   <div class="label"><h2>MRI - ${mri} </h2>
-        //   <img src="${
-        //     selectedImageMRI || clickedImageMRI
-        //   }" alt="Selected Image"  style="max-width: 100%; height: auto;" />
-        //   </div>`;
-        // }
+    // if (mri) {
+    //   html += `
+    //   <div class="label"><h2>MRI - ${mri} </h2>
+    //   <img src="${
+    //     selectedImageMRI || clickedImageMRI
+    //   }" alt="Selected Image"  style="max-width: 100%; height: auto;" />
+    //   </div>`;
+    // }
 
-        html += `
+    html += `
         <div class="label">
           ${
             clickedImageMRI && selectedImageMRI
@@ -693,16 +753,16 @@ const Generate = () => {
           }
         </div>`;
 
-        // if (eeg) {
-        //   html += `
-        //   <div class="label"><h2>EEG - ${eeg} </h2>
-        //   <img src="${
-        //     selectedImageEEG || clickedImageEEG
-        //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
-        //   </div>`;
-        // }
+    // if (eeg) {
+    //   html += `
+    //   <div class="label"><h2>EEG - ${eeg} </h2>
+    //   <img src="${
+    //     selectedImageEEG || clickedImageEEG
+    //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
+    //   </div>`;
+    // }
 
-        html += `
+    html += `
         <div class="label">
           ${
             clickedImageEEG && selectedImageEEG
@@ -718,16 +778,16 @@ const Generate = () => {
           }
         </div>`;
 
-        // if (bera) {
-        //   html += `
-        //   <div class="label"><h2>BERA - ${bera} </h2>
-        //   <img src="${
-        //     selectedImageBERA || clickedImageBERA
-        //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
-        //   </div>`;
-        // }
+    // if (bera) {
+    //   html += `
+    //   <div class="label"><h2>BERA - ${bera} </h2>
+    //   <img src="${
+    //     selectedImageBERA || clickedImageBERA
+    //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
+    //   </div>`;
+    // }
 
-        html += `
+    html += `
         <div class="label">
           ${
             clickedImageBERA && selectedImageBERA
@@ -743,16 +803,16 @@ const Generate = () => {
           }
         </div>`;
 
-        // if (opthalmalogy) {
-        //   html += `
-        //   <div class="label"><h2>Opthalmalogy - ${opthalmalogy} </h2>
-        //   <img src="${
-        //     selectedImageOPT || clickedImageOPT
-        //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
-        //   </div>`;
-        // }
+    // if (opthalmalogy) {
+    //   html += `
+    //   <div class="label"><h2>Opthalmalogy - ${opthalmalogy} </h2>
+    //   <img src="${
+    //     selectedImageOPT || clickedImageOPT
+    //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
+    //   </div>`;
+    // }
 
-        html += `
+    html += `
         <div class="label">
           ${
             clickedImageOPT && selectedImageOPT
@@ -768,16 +828,16 @@ const Generate = () => {
           }
         </div>`;
 
-        // if (xRays) {
-        //   html += `
-        //   <div class="label"><h2>XRAYS - ${xRays} </h2>
-        //   <img src="${
-        //     selectedImageXRAYS || clickedImageXRAYS
-        //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
-        //   </div>`;
-        // }
+    // if (xRays) {
+    //   html += `
+    //   <div class="label"><h2>XRAYS - ${xRays} </h2>
+    //   <img src="${
+    //     selectedImageXRAYS || clickedImageXRAYS
+    //   }" alt="Selected Image"  style="max-width: 300px; height: auto;" />
+    //   </div>`;
+    // }
 
-        html += `
+    html += `
         <div class="label">
           ${
             clickedImageXRAYS && selectedImageXRAYS
@@ -793,497 +853,497 @@ const Generate = () => {
           }
         </div>`;
 
-        // Section 6
+    // Section 6
 
-        if (
-          hypertonia ||
-          hypotonia ||
-          deformitiesR ||
-          deformitiesL ||
-          contractureR ||
-          contractureL ||
-          tightnessL ||
-          tightnessR
-        ) {
-          html += `
+    if (
+      hypertonia ||
+      hypotonia ||
+      deformitiesR ||
+      deformitiesL ||
+      contractureR ||
+      contractureL ||
+      tightnessL ||
+      tightnessR
+    ) {
+      html += `
           <div class="label">
             <h1>6. Objective Assesment </h1>
           </div>
           <div class="value">
           </div>
           `;
-        }
+    }
 
-        if (hypotonia) {
-          html += `
+    if (hypotonia) {
+      html += `
           <div class="label"><h2>Tone - Hypotonia</h2>
           </div>`;
-        } else if (hypertonia) {
-          html += `
+    } else if (hypertonia) {
+      html += `
           <div class="label"><h2>Tone - Hypertonia</h2>
           </div>`;
-        }
+    }
 
-        if (deformitiesR) {
-          const formated = deformitiesR.replace(/\n/g, '<br>');
-          html += `
+    if (deformitiesR) {
+      const formated = deformitiesR.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Deformities Right - ${formated}</h2>
           </div>`;
-        }
-        if (deformitiesL) {
-          const formated = deformitiesL.replace(/\n/g, '<br>');
-          html += `
+    }
+    if (deformitiesL) {
+      const formated = deformitiesL.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Deformities Left - ${formated}</h2>
           </div>`;
-        }
-        if (contractureR) {
-          const formated = contractureR.replace(/\n/g, '<br>');
-          html += `
+    }
+    if (contractureR) {
+      const formated = contractureR.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Contracture  Right - ${formated} </h2>
           </div>`;
-        }
+    }
 
-        if (contractureL) {
-          const formated = contractureL.replace(/\n/g, '<br>');
-          html += `
+    if (contractureL) {
+      const formated = contractureL.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Contracture  Left - ${formated} </h2>
           </div>`;
-        }
+    }
 
-        if (tightnessR) {
-          const formated = tightnessR.replace(/\n/g, '<br>');
-          html += `
+    if (tightnessR) {
+      const formated = tightnessR.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Tightness  Right - ${formated}</h2>
           </div>`;
-        }
+    }
 
-        if (tightnessL) {
-          const formated = tightnessL.replace(/\n/g, '<br>');
-          html += `
+    if (tightnessL) {
+      const formated = tightnessL.replace(/\n/g, '<br>');
+      html += `
           <div class="label"><h2>Tightness  Left - ${formated}</h2>
           </div>`;
-        }
+    }
 
-    //     // Section 7
-    //     // Tardiues
+    // Section 7
+    // Tardiues
 
-    //     if (
-    //       tasRTR1 ||
-    //       tasRTR2 ||
-    //       tasLTR1 ||
-    //       tasLTR2 ||
-    //       hamstringsLTR1 ||
-    //       hamstringsLTR2 ||
-    //       hamstringsRTR1 ||
-    //       hamstringsRTR2 ||
-    //       hipAdductionLTR1 ||
-    //       hipAdductionLTR2 ||
-    //       hipAdductionRTR1 ||
-    //       hipAdductionRTR2
-    //     ) {
-    //       html += `
-    //         <div class="label">
-    //           <h1>7 . Tardiue's  </h1>
-    //         </div>
-    //         <div class="value">
-    //         </div>
-    //         `;
-    //     }
+    if (
+      tasRTR1 ||
+      tasRTR2 ||
+      tasLTR1 ||
+      tasLTR2 ||
+      hamstringsLTR1 ||
+      hamstringsLTR2 ||
+      hamstringsRTR1 ||
+      hamstringsRTR2 ||
+      hipAdductionLTR1 ||
+      hipAdductionLTR2 ||
+      hipAdductionRTR1 ||
+      hipAdductionRTR2
+    ) {
+      html += `
+            <div class="label">
+              <h1>7 . Tardiue's  </h1>
+            </div>
+            <div class="value">
+            </div>
+            `;
+    }
 
-    //     if (tasRTR1) {
-    //       const formated = tasRTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //           <div class="label">
-    //           <h2>Tendoachilles RT - R1  :${formated}</h2></div><div class="value">
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
-    //     if (tasRTR2) {
-    //       const formated = tasRTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Tendoachilles RT - R2  :${formated}</h2></div>
+    if (tasRTR1) {
+      const formated = tasRTR1.replace(/\n/g, '<br>');
+      html += `
+              <div class="label">
+              <h2>Tendoachilles RT - R1  :${formated}</h2></div><div class="value">
+              </div>
+              </div>
+            `;
+    }
+    if (tasRTR2) {
+      const formated = tasRTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Tendoachilles RT - R2  :${formated}</h2></div>
 
-    //     `;
-    //     }
-    //     if (tasLTR1) {
-    //       const formated = tasLTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Tendoachilles LT - R1  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (tasLTR2) {
-    //       const formated = tasLTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Tendoachilles LT - R2  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
+        `;
+    }
+    if (tasLTR1) {
+      const formated = tasLTR1.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Tendoachilles LT - R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (tasLTR2) {
+      const formated = tasLTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Tendoachilles LT - R2  :${formated}</h2>
+          </div>
+        `;
+    }
 
-    //     if (hamstringsRTR1) {
-    //       const formated = hamstringsRTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="section"><div class="label">
-    //       <h2>Hamstrings RT - R1  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hamstringsRTR2) {
-    //       const formated = hamstringsRTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="section"><div class="label">
-    //       <h2>Hamstrings RT - R2  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hamstringsLTR1) {
-    //       const formated = hamstringsLTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Hamstrings LT - R1  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hamstringsLTR2) {
-    //       const formated = hamstringsLTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //      <div class="label">
-    //       <h2>Hamstrings LT - R2  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
+    if (hamstringsRTR1) {
+      const formated = hamstringsRTR1.replace(/\n/g, '<br>');
+      html += `
+          <div class="section"><div class="label">
+          <h2>Hamstrings RT - R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hamstringsRTR2) {
+      const formated = hamstringsRTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="section"><div class="label">
+          <h2>Hamstrings RT - R2  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hamstringsLTR1) {
+      const formated = hamstringsLTR1.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Hamstrings LT - R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hamstringsLTR2) {
+      const formated = hamstringsLTR2.replace(/\n/g, '<br>');
+      html += `
+         <div class="label">
+          <h2>Hamstrings LT - R2  :${formated}</h2>
+          </div>
+        `;
+    }
 
-    //     if (hipAdductionRTR1) {
-    //       const formated = hipAdductionRTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //      <div class="label">
-    //       <h2>Hip Adductors  RT - R1  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hipAdductionRTR2) {
-    //       const formated = hipAdductionRTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Hip Adductors  RT - R2  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hipAdductionLTR1) {
-    //       const formated = hipAdductionLTR1.replace(/\n/g, '<br>');
-    //       html += `
-    //       <div class="label">
-    //       <h2>Hip Adductors  LT - R1  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
-    //     if (hipAdductionLTR2) {
-    //       const formated = hipAdductionLTR2.replace(/\n/g, '<br>');
-    //       html += `
-    //     <div class="label">
-    //       <h2>Hip Adductors  LT - L2  :${formated}</h2>
-    //       </div>
-    //     `;
-    //     }
+    if (hipAdductionRTR1) {
+      const formated = hipAdductionRTR1.replace(/\n/g, '<br>');
+      html += `
+         <div class="label">
+          <h2>Hip Adductors  RT - R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hipAdductionRTR2) {
+      const formated = hipAdductionRTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Hip Adductors  RT - R2  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hipAdductionLTR1) {
+      const formated = hipAdductionLTR1.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Hip Adductors  LT - R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (hipAdductionLTR2) {
+      const formated = hipAdductionLTR2.replace(/\n/g, '<br>');
+      html += `
+        <div class="label">
+          <h2>Hip Adductors  LT - L2  :${formated}</h2>
+          </div>
+        `;
+    }
 
-    //     // Section 8 => ROM
+    // Section 8 => ROM
 
-    //     if (
-    //       backExt ||
-    //       backFlex ||
-    //       backLat ||
-    //       neckFlex ||
-    //       neckExt ||
-    //       neckLat ||
-    //       hipFlex ||
-    //       hipExt ||
-    //       hipAdd ||
-    //       hipAbd ||
-    //       kneeFlex ||
-    //       hipMedRot ||
-    //       hipLat ||
-    //       shoulderAbd ||
-    //       shoulderAdd ||
-    //       shoulderFlex ||
-    //       shoulderExt ||
-    //       elbowFlex ||
-    //       forearmSup ||
-    //       forearmPro ||
-    //       ankleDF ||
-    //       anklePF ||
-    //       ankleInversion ||
-    //       ankleEversion ||
-    //       wristFlex ||
-    //       wristExt
-    //     ) {
-    //       html += `
-    //       <div class="label">
-    //         <h1>8. ROM </h1>
-    //       </div>
-    //       <div class="value">
-    //       </div>
-    //       `;
-    //     }
-    //     if (backExt) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Back Extension :${backExt}</h2></div><div class="v>
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (
+      backExt ||
+      backFlex ||
+      backLat ||
+      neckFlex ||
+      neckExt ||
+      neckLat ||
+      hipFlex ||
+      hipExt ||
+      hipAdd ||
+      hipAbd ||
+      kneeFlex ||
+      hipMedRot ||
+      hipLatRot ||
+      shoulderAbd ||
+      shoulderAdd ||
+      shoulderFlex ||
+      shoulderExt ||
+      elbowFlex ||
+      forearmSupination ||
+      forearmPronation ||
+      ankleDF ||
+      anklePF ||
+      ankleInversion ||
+      ankleEversion ||
+      wristFlex ||
+      wristExt
+    ) {
+      html += `
+          <div class="label">
+            <h1>8. ROM </h1>
+          </div>
+          <div class="value">
+          </div>
+          `;
+    }
+    if (backExt) {
+      html += `
+              <div class="label">
+              <h2>Back Extension :${backExt}</h2></div><div class="v>
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (backFlex) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Back Flexion : ${backFlex}</h2></div><div class="v>
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (backFlex) {
+      html += `
+              <div class="label">
+              <h2>Back Flexion : ${backFlex}</h2></div><div class="v>
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (backLat) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Back Lateral Bending : ${backLat}</h2></div><div c"value">
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (backLat) {
+      html += `
+              <div class="label">
+              <h2>Back Lateral Bending : ${backLat}</h2></div><div c"value">
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (neckFlex) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Neck Flexion : ${neckFlex}</h2></div><div class="v>
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (neckFlex) {
+      html += `
+              <div class="label">
+              <h2>Neck Flexion : ${neckFlex}</h2></div><div class="v>
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (neckExt) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Neck Extension : ${neckExt}</h2></div><div class="">
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (neckExt) {
+      html += `
+              <div class="label">
+              <h2>Neck Extension : ${neckExt}</h2></div><div class="">
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (neckLat) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Neck Lateral Bending : ${neckLat}</h2></div><div c"value">
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (neckLat) {
+      html += `
+              <div class="label">
+              <h2>Neck Lateral Bending : ${neckLat}</h2></div><div c"value">
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (hipFlex) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip Flexion : ${hipFlex}</h2></div><div class="val          </div>
-    //           </div>
-    //         `;
-    //     }
+    if (hipFlex) {
+      html += `
+              <div class="label">
+              <h2>Hip Flexion : ${hipFlex}</h2></div><div class="val          </div>
+              </div>
+            `;
+    }
 
-    //     if (hipExt) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip Extension : ${hipExt}</h2></div><div class="va
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (hipExt) {
+      html += `
+              <div class="label">
+              <h2>Hip Extension : ${hipExt}</h2></div><div class="va
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (hipAdd) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip Adduction : ${hipAdd}</h2></div><div class="va
-    //           </div>
-    //           </div>
-    //         `;
-    //     }
+    if (hipAdd) {
+      html += `
+              <div class="label">
+              <h2>Hip Adduction : ${hipAdd}</h2></div><div class="va
+              </div>
+              </div>
+            `;
+    }
 
-    //     if (hipAbd) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip Abduction : ${hipAbd}</h2>
-    //           </div>
-    //         `;
-    //     }
+    if (hipAbd) {
+      html += `
+              <div class="label">
+              <h2>Hip Abduction : ${hipAbd}</h2>
+              </div>
+            `;
+    }
 
-    //     if (kneeFlex) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Knee Flexion : ${kneeFlex}</h2>
-    //           </div>
-    //         `;
-    //     }
+    if (kneeFlex) {
+      html += `
+              <div class="label">
+              <h2>Knee Flexion : ${kneeFlex}</h2>
+              </div>
+            `;
+    }
 
-    //     if (hipMedRot) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip medial rotation : ${hipMedRot}</h2>
-    //           </div>
-    //         `;
-    //     }
+    if (hipMedRot) {
+      html += `
+              <div class="label">
+              <h2>Hip medial rotation : ${hipMedRot}</h2>
+              </div>
+            `;
+    }
 
-    //     if (hipLat) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Hip lateral rotation : ${hipLat}</h2>
-    //           </div>
-    //         `;
-    //     }
+    if (hipLatRot) {
+      html += `
+              <div class="label">
+              <h2>Hip lateral rotation : ${hipLatRot}</h2>
+              </div>
+            `;
+    }
 
-    //     if (shoulderAbd) {
-    //       html += `
-    //           <div class="label">
-    //           <h2>Shoulder Abduction : ${shoulderAbd}</h2>
-    //           </div>
-    //         `;
-    //     }
+    if (shoulderAbd) {
+      html += `
+              <div class="label">
+              <h2>Shoulder Abduction : ${shoulderAbd}</h2>
+              </div>
+            `;
+    }
 
-    //     if (shoulderAdd) {
-    //       html += `
-    //           <div class="label">
-    //       <h2>Shoulder Adduction : ${shoulderAdd}</h2>
-    //       </div>
-    //     `;
-    //     }
+    if (shoulderAdd) {
+      html += `
+              <div class="label">
+          <h2>Shoulder Adduction : ${shoulderAdd}</h2>
+          </div>
+        `;
+    }
 
-    //     if (shoulderFlex) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Shoulder Flexion: ${shoulderFlex}</h2>
-    //       </div>
-    //     `;
-    //     }
+    if (shoulderFlex) {
+      html += `
+          <div class="label">
+          <h2>Shoulder Flexion: ${shoulderFlex}</h2>
+          </div>
+        `;
+    }
 
-    //     if (shoulderExt) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Shoulder Extension: ${shoulderExt}</h2>
-    //       </div>
-    //     `;
-    //     }
+    if (shoulderExt) {
+      html += `
+          <div class="label">
+          <h2>Shoulder Extension: ${shoulderExt}</h2>
+          </div>
+        `;
+    }
 
-    //     if (elbowFlex) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Elbow Flexion: ${elbowFlex}</h2>
-    //       </div>
-    //       `;
-    //     }
+    if (elbowFlex) {
+      html += `
+          <div class="label">
+          <h2>Elbow Flexion: ${elbowFlex}</h2>
+          </div>
+          `;
+    }
 
-    //     if (forearmSup) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Forearm Supination: ${forearmSup}</h2>
+    if (forearmSupination) {
+      html += `
+          <div class="label">
+          <h2>Forearm Supination: ${forearmSupination}</h2>
 
-    //       </div>
-    //       `;
-    //     }
-    //     if (forearmPro) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Forearm Pronation: ${forearmPro}</h2>
+          </div>
+          `;
+    }
+    if (forearmPronation) {
+      html += `
+          <div class="label">
+          <h2>Forearm Pronation: ${forearmPronation}</h2>
 
-    //       </div>
-    //       `;
-    //     }
+          </div>
+          `;
+    }
 
-    //     if (ankleDF) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Ankle DF: ${ankleDF}</h2>
+    if (ankleDF) {
+      html += `
+          <div class="label">
+          <h2>Ankle DF: ${ankleDF}</h2>
 
-    //       </div>
-    //       `;
-    //     }
-    //     if (anklePF) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Ankle PF: ${anklePF}</h2>
+          </div>
+          `;
+    }
+    if (anklePF) {
+      html += `
+          <div class="label">
+          <h2>Ankle PF: ${anklePF}</h2>
 
-    //       </div>
-    //       `;
-    //     }
-    //     if (ankleInversion) {
-    //       html += `
-    //     <div class="label">
-    //       <h2>Ankle Inversion: ${ankleInversion}</h2>
-    //       </div>
-    //       `;
-    //     }
+          </div>
+          `;
+    }
+    if (ankleInversion) {
+      html += `
+        <div class="label">
+          <h2>Ankle Inversion: ${ankleInversion}</h2>
+          </div>
+          `;
+    }
 
-    //     if (ankleEversion) {
-    //       html += `
-    //   <div class="label">
-    //       <h2>Ankle Eversion: ${ankleEversion}</h2>
+    if (ankleEversion) {
+      html += `
+      <div class="label">
+          <h2>Ankle Eversion: ${ankleEversion}</h2>
 
-    //       </div>
-    //       `;
-    //     }
+          </div>
+          `;
+    }
 
-    //     if (wristFlex) {
-    //       html += `
-    //      <div class="label">
-    //       <h2>Wrist Flexion: ${wristFlex}</h2>
+    if (wristFlex) {
+      html += `
+         <div class="label">
+          <h2>Wrist Flexion: ${wristFlex}</h2>
 
-    //       </div>
-    //       `;
-    //     }
+          </div>
+          `;
+    }
 
-    //     if (wristExt) {
-    //       html += `
-    //       <div class="label">
-    //       <h2>Wrist Extension: ${wristExt}</h2>
-    //       </div>
-    //       `;
-    //     }
+    if (wristExt) {
+      html += `
+          <div class="label">
+          <h2>Wrist Extension: ${wristExt}</h2>
+          </div>
+          `;
+    }
 
-    //     // Section 9 => Modified Ashworth's
-    //     if (upperExtremities || lowerExtremities || asworthsComs) {
-    //       html += `
-    //         <div class="label">
-    //           <h1>9. Modified Ashworth's</h1>
-    //         </div>
-    //         <div class="value">
-    //         </div>
-    //         `;
-    //     }
+    // Section 9 => Modified Ashworth's
+    if (upperExterimities || lowerExterimities || asworthsComs) {
+      html += `
+            <div class="label">
+              <h1>9. Modified Ashworth's</h1>
+            </div>
+            <div class="value">
+            </div>
+            `;
+    }
 
-    //     if (upperExtremities) {
-    //       html += `
-    //         <div class="label">
-    //         <h2> Upper Extremities : ${upperExtremities}</h2></div><div class="value">
-    //         </div>
-    //         </div>
-    //       `;
-    //     }
+    if (upperExterimities) {
+      html += `
+            <div class="label">
+            <h2> Upper Extremities : ${upperExterimities}</h2></div><div class="value">
+            </div>
+            </div>
+            `;
+    }
 
-    //     if (asworthsComs) {
-    //       html += `
-    //         <div class="label">
-    //         <h2> Modified Asworth's Comment : ${asworthsComs}</h2></div><div class="value">
-    //         </div>
-    //         </div>
-    //       `;
-    //     }
+    if (lowerExterimities) {
+      html += `
+                      <div class="label">
+                      <h2> Lower Extremities : ${lowerExterimities}</h2></div><div class="value">
+                      </div>
+                      </div>
+                    `;
+    }
 
-    //     if (lowerExtremities) {
-    //       html += `
-    //         <div class="label">
-    //         <h2> Lower Extremities : ${lowerExtremities}</h2></div><div class="value">
-    //         </div>
-    //         </div>
-    //       `;
-    //     }
+    if (asworthsComs) {
+      html += `
+            <div class="label">
+            <h2> Modified Asworth's Comment : ${asworthsComs}</h2></div><div class="value">
+            </div>
+            </div>
+          `;
+    }
 
     //     // Section 10 => functional evaluation
     //     if (

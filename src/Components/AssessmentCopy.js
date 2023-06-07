@@ -9,6 +9,9 @@ import Section4 from '../Components/Sections/Section4';
 import Section5 from '../Components/Sections/Section5';
 import Section6 from '../Components/Sections/Section6';
 import Section7 from '../Components/Sections/Section7';
+import Section8 from '../Components/Sections/Section8';
+import Section9 from '../Components/Sections/Section9';
+import Section10 from '../Components/Sections/Section10';
 import Generate from './GenerateHtml/Generate';
 
 const sections = [
@@ -19,6 +22,9 @@ const sections = [
   {key: 'section5', title: 'Section 5', component: Section5},
   {key: 'section6', title: 'Section 6', component: Section6},
   {key: 'section7', title: 'Section 7', component: Section7},
+  {key: 'section8', title: 'Section 8', component: Section8},
+  {key: 'section9', title: 'Section 9', component: Section9},
+  {key: 'section10', title: 'Section 10', component: Section10},
   // Add more sections as needed
 ];
 
