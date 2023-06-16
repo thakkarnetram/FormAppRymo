@@ -6,9 +6,6 @@ const patientSchema = new Schema({
   patientname: {
     type: String,
   },
-  date: {
-    type: Date,
-  },
   age: {
     type: Number,
   },

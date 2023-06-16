@@ -10,12 +10,10 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   console.log(req.body);
   const patientname = req.body.patientname;
-  const date = Date.parse(req.body.date);
   const age = Number(req.body.age);
 
   const newPatient = new Patient({
     patientname,
-    date,
     age,
   });
 

@@ -130,42 +130,6 @@ export const updateChiefComplaint = chiefComplaint => {
   };
 };
 
-export const updateGmfc = gmfc => {
-  return dispatch => {
-    dispatch({
-      type: 'updateGmfc',
-      payload: gmfc,
-    });
-  };
-};
-
-export const updateMacs = macs => {
-  return dispatch => {
-    dispatch({
-      type: 'updateMacs',
-      payload: macs,
-    });
-  };
-};
-
-export const updateMiniMac = miniMac => {
-  return dispatch => {
-    dispatch({
-      type: 'updateMiniMac',
-      payload: miniMac,
-    });
-  };
-};
-
-export const updateCfcs = cfcs => {
-  return dispatch => {
-    dispatch({
-      type: 'updateCfcs',
-      payload: cfcs,
-    });
-  };
-};
-
 // section 2 History
 
 export const updatefatherAgeConception = fatherAgeConception => {
@@ -1097,6 +1061,595 @@ export const updateComsModifiedAshworth = comsModifiedAshworth => {
     dispatch({
       type: 'updateComsModifiedAshworth',
       payload: comsModifiedAshworth,
+    });
+  };
+};
+
+// Section 11
+export const updateSupineToProneImmobile = supineToProneImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToProneImmobile',
+      payload: supineToProneImmobile,
+    });
+  };
+};
+
+export const updateSupineToProneAssistance = supineToProneAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToProneAssistance',
+      payload: supineToProneAssistance,
+    });
+  };
+};
+
+export const updateSupineToProneIndependent = supineToProneIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToProneIndependent',
+      payload: supineToProneIndependent,
+    });
+  };
+};
+
+export const updateSupineToSitImmobile = supineToSitImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToSitImmobile',
+      payload: supineToSitImmobile,
+    });
+  };
+};
+
+export const updateSupineToSitAssistance = supineToSitAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToSitAssistance',
+      payload: supineToSitAssistance,
+    });
+  };
+};
+
+export const updateSupineToSitIndependent = supineToSitIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSupineToSitIndependent',
+      payload: supineToSitIndependent,
+    });
+  };
+};
+
+export const updateSittingImmobile = sittingImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSittingImmobile',
+      payload: sittingImmobile,
+    });
+  };
+};
+
+export const updateSittingAssistance = sittingAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSittingAssistance',
+      payload: sittingAssistance,
+    });
+  };
+};
+
+export const updateSittingIndependent = sittingIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSittingIndependent',
+      payload: sittingIndependent,
+    });
+  };
+};
+
+export const updateQuadripedImmobile = quadripedImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateQuadripedImmobile',
+      payload: quadripedImmobile,
+    });
+  };
+};
+
+export const updateQuadripedAssistance = quadripedAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateQuadripedAssistance',
+      payload: quadripedAssistance,
+    });
+  };
+};
+
+export const updateQuadripedIndependent = quadripedIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateQuadripedIndependent',
+      payload: quadripedIndependent,
+    });
+  };
+};
+
+export const updateKneelingImmobile = kneelingImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateKneelingImmobile',
+      payload: kneelingImmobile,
+    });
+  };
+};
+
+export const updateKneelingAssistance = kneelingAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateKneelingAssistance',
+      payload: kneelingAssistance,
+    });
+  };
+};
+
+export const updateKneelingIndependent = kneelingIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateKneelingIndependent',
+      payload: kneelingIndependent,
+    });
+  };
+};
+
+export const updateHalfKneelingImmobile = halfKneelingImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHalfKneelingImmobile',
+      payload: halfKneelingImmobile,
+    });
+  };
+};
+
+export const updateHalfKneelingAssistance = halfKneelingAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHalfKneelingAssistance',
+      payload: halfKneelingAssistance,
+    });
+  };
+};
+
+export const updateHalfKneelingIndependent = halfKneelingIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHalfKneelingIndependent',
+      payload: halfKneelingIndependent,
+    });
+  };
+};
+
+export const updateStandingImmobile = standingImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStandingImmobile',
+      payload: standingImmobile,
+    });
+  };
+};
+
+export const updateStandingAssistance = standingAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStandingAssistance',
+      payload: standingAssistance,
+    });
+  };
+};
+
+export const updateStandingIndependent = standingIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStandingIndependent',
+      payload: standingIndependent,
+    });
+  };
+};
+
+export const updateAmbulationImmobile = ambulationImmobile => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAmbulationImmobile',
+      payload: ambulationImmobile,
+    });
+  };
+};
+
+export const updateAmbulationAssistance = ambulationAssistance => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAmbulationAssistance',
+      payload: ambulationAssistance,
+    });
+  };
+};
+
+export const updateAmbulationIndependent = ambulationIndependent => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAmbulationIndependent',
+      payload: ambulationIndependent,
+    });
+  };
+};
+
+export const updateGmfc = gmfc => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGmfc',
+      payload: gmfc,
+    });
+  };
+};
+
+export const updateMacs = macs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateMacs',
+      payload: macs,
+    });
+  };
+};
+
+export const updateMiniMac = miniMacs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateMiniMac',
+      payload: miniMacs,
+    });
+  };
+};
+
+export const updateCfcs = cfcs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCfcs',
+      payload: cfcs,
+    });
+  };
+};
+
+// section 12
+export const updateBodyStructurePositive = bodyStructurePositive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBodyStructurePositive',
+      payload: bodyStructurePositive,
+    });
+  };
+};
+
+export const updateBodyStructureNegative = bodyStructureNegative => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBodyStructureNegative',
+      payload: bodyStructureNegative,
+    });
+  };
+};
+
+export const updateBodyFunctionPositive = bodyFunctionPositive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBodyFunctionPositive',
+      payload: bodyFunctionPositive,
+    });
+  };
+};
+
+export const updateBodyFunctionNegative = bodyFunctionNegative => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBodyFunctionNegative',
+      payload: bodyFunctionNegative,
+    });
+  };
+};
+
+export const updateActivityParticipation = activityParticipation => {
+  return dispatch => {
+    dispatch({
+      type: 'updateActivityParticipation',
+      payload: activityParticipation,
+    });
+  };
+};
+
+export const updateActivityLimitation = activityLimitation => {
+  return dispatch => {
+    dispatch({
+      type: 'updateActivityLimitation',
+      payload: activityLimitation,
+    });
+  };
+};
+
+export const updateEnvironmentalPersonal = environmentalPersonal => {
+  return dispatch => {
+    dispatch({
+      type: 'updateEnvironmentalPersonal',
+      payload: environmentalPersonal,
+    });
+  };
+};
+
+export const updateEnvironmentalContextual = environmentalContextual => {
+  return dispatch => {
+    dispatch({
+      type: 'updateEnvironmentalContextual',
+      payload: environmentalContextual,
+    });
+  };
+};
+
+export const updateShortTermGoals = shortTermGoals => {
+  return dispatch => {
+    dispatch({
+      type: 'updateShortTermGoals',
+      payload: shortTermGoals,
+    });
+  };
+};
+
+export const updateLongTermGoals = longTermGoals => {
+  return dispatch => {
+    dispatch({
+      type: 'updateLongTermGoals',
+      payload: longTermGoals,
+    });
+  };
+};
+
+export const updateIntervention = intervention => {
+  return dispatch => {
+    dispatch({
+      type: 'updateIntervention',
+      payload: intervention,
+    });
+  };
+};
+
+export const updateEquipmentsUsed = equipmentsUsed => {
+  return dispatch => {
+    dispatch({
+      type: 'updateEquipmentsUsed',
+      payload: equipmentsUsed,
+    });
+  };
+};
+
+export const updateSection17Coms = section17Coms => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSection17Coms',
+      payload: section17Coms,
+    });
+  };
+};
+
+// Adl
+export const updateAdl = adl => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAdl',
+      payload: adl,
+    });
+  };
+};
+
+// Section 14  - Multi System Assessment
+export const updatePosture = posture => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePosture',
+      payload: posture,
+    });
+  };
+};
+
+export const updateAlignment = alignment => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAlignment',
+      payload: alignment,
+    });
+  };
+};
+
+export const updateSide = side => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSide',
+      payload: side,
+    });
+  };
+};
+
+export const updateBroad = broad => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBroad',
+      payload: broad,
+    });
+  };
+};
+
+export const updateNarrow = narrow => {
+  return dispatch => {
+    dispatch({
+      type: 'updateNarrow',
+      payload: narrow,
+    });
+  };
+};
+
+export const updateGeneralPosture = generalPosture => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGeneralPosture',
+      payload: generalPosture,
+    });
+  };
+};
+
+export const updateCallosities = callosities => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCallosities',
+      payload: callosities,
+    });
+  };
+};
+
+export const updateMovementStrategies = movementStrategies => {
+  return dispatch => {
+    dispatch({
+      type: 'updateMovementStrategies',
+      payload: movementStrategies,
+    });
+  };
+};
+
+export const updateStaticBalanceGood = staticBalanceGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStaticBalanceGood',
+      payload: staticBalanceGood,
+    });
+  };
+};
+
+export const updateStaticBalanceFair = staticBalanceFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStaticBalanceFair',
+      payload: staticBalanceFair,
+    });
+  };
+};
+
+export const updateStaticBalancePoor = staticBalancePoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStaticBalancePoor',
+      payload: staticBalancePoor,
+    });
+  };
+};
+
+export const updateAnticipatoryBalanceGood = anticipatoryBalanceGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnticipatoryBalanceGood',
+      payload: anticipatoryBalanceGood,
+    });
+  };
+};
+
+export const updateAnticipatoryBalanceFair = anticipatoryBalanceFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnticipatoryBalanceFair',
+      payload: anticipatoryBalanceFair,
+    });
+  };
+};
+
+export const updateAnticipatoryBalancePoor = anticipatoryBalancePoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnticipatoryBalancePoor',
+      payload: anticipatoryBalancePoor,
+    });
+  };
+};
+
+export const updateAnticipatoryBalanceComs = anticipatoryBalanceComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAnticipatoryBalanceComs',
+      payload: anticipatoryBalanceComs,
+    });
+  };
+};
+
+export const updateReactiveBalanceGood = reactiveBalanceGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateReactiveBalanceGood',
+      payload: reactiveBalanceGood,
+    });
+  };
+};
+
+export const updateReactiveBalanceFair = reactiveBalanceFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateReactiveBalanceFair',
+      payload: reactiveBalanceFair,
+    });
+  };
+};
+
+export const updateReactiveBalancePoor = reactiveBalancePoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateReactiveBalancePoor',
+      payload: reactiveBalancePoor,
+    });
+  };
+};
+
+export const updateReactiveBalanceComs = reactiveBalanceComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateReactiveBalanceComs',
+      payload: reactiveBalanceComs,
+    });
+  };
+};
+
+export const updateCoordinationGood = coordinationGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCoordinationGood',
+      payload: coordinationGood,
+    });
+  };
+};
+
+export const updateCoordinationFair = coordinationFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCoordinationFair',
+      payload: coordinationFair,
+    });
+  };
+};
+
+export const updateCoordinationPoor = coordinationPoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCoordinationPoor',
+      payload: coordinationPoor,
+    });
+  };
+};
+
+export const updateCoordinationComs = coordinationComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCoordinationComs',
+      payload: coordinationComs,
     });
   };
 };
