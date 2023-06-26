@@ -13,6 +13,11 @@ import section11Reducer from '../reducers/section11Reducers';
 import section12Reducer from '../reducers/section12Reducers';
 import section13Reducer from '../reducers/section13Reducers';
 import section14Reducer from '../reducers/section14Reducers';
+import section15Reducer from '../reducers/section15Reducers';
+import section16Reducer from '../reducers/section16Reducers';
+import section17Reducer from '../reducers/section17Reducers';
+import section18Reducer from '../reducers/section18Reducers';
+import lastReducer from '../reducers/sectionLastReducers';
 
 const reducers = combineReducers({
   section1: section1Reducer,
@@ -29,6 +34,11 @@ const reducers = combineReducers({
   section12: section12Reducer,
   section13: section13Reducer,
   section14: section14Reducer,
+  section15: section15Reducer,
+  section16: section16Reducer,
+  section17: section17Reducer,
+  section18: section18Reducer,
+  lastSection: lastReducer,
 });
 
 export default reducers;

@@ -9857,6 +9857,7 @@ const Phase_1_Assesment_Form = () => {
               }}
             />
           </View>
+          {/* Section 19 => Recommendations */}
           <View style={styles.inputFieldContainerS17}>
             <View style={{flexDirection: 'column'}}>
               <Text

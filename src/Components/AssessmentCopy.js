@@ -16,6 +16,11 @@ import Section11 from '../Components/Sections/Section11';
 import Section12 from '../Components/Sections/Section12';
 import Section13 from '../Components/Sections/Section13';
 import Section14 from '../Components/Sections/Section14';
+import Section15 from '../Components/Sections/Section15';
+import Section16 from '../Components/Sections/Section16';
+import Section17 from '../Components/Sections/Section17';
+import Section18 from '../Components/Sections/Section18';
+import LastSection from '../Components/Sections/Last';
 import Generate from './GenerateHtml/Generate';
 
 const sections = [
@@ -33,6 +38,11 @@ const sections = [
   {key: 'section13', title: 'Section 13', component: Section13},
   {key: 'section12', title: 'Section 12', component: Section12},
   {key: 'section14', title: 'Section 14', component: Section14},
+  {key: 'section15', title: 'Section 15', component: Section15},
+  {key: 'section16', title: 'Section 16', component: Section16},
+  {key: 'section17', title: 'Section 17', component: Section17},
+  {key: 'section18', title: 'Section 18', component: Section18},
+  {key: 'last', title: 'Last Section', component: LastSection},
   // Add more sections as needed
 ];
 

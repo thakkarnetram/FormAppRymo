@@ -1653,3 +1653,633 @@ export const updateCoordinationComs = coordinationComs => {
     });
   };
 };
+
+// Section 15
+export const updateCanInitiate = canInitiate => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCanInitiate',
+      payload: canInitiate,
+    });
+  };
+};
+
+export const updateCantInitiate = cantInitiate => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCantInitiate',
+      payload: cantInitiate,
+    });
+  };
+};
+
+export const updateInitiationComs = initiationComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateInitiationComs',
+      payload: initiationComs,
+    });
+  };
+};
+
+export const updateSustenancePoor = sustenancePoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSustenancePoor',
+      payload: sustenancePoor,
+    });
+  };
+};
+
+export const updateSustenanceGood = sustenanceGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSustenanceGood',
+      payload: sustenanceGood,
+    });
+  };
+};
+
+export const updateSustenanceFair = sustenanceFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSustenanceFair',
+      payload: sustenanceFair,
+    });
+  };
+};
+
+export const updateSustenanceComs = sustenanceComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSustenanceComs',
+      payload: sustenanceComs,
+    });
+  };
+};
+
+export const updateTerminationPassive = terminationPassive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTerminationPassive',
+      payload: terminationPassive,
+    });
+  };
+};
+
+export const updateTerminationAbrupt = terminationAbrupt => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTerminationAbrupt',
+      payload: terminationAbrupt,
+    });
+  };
+};
+
+export const updateTerminationComs = terminationComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTerminationComs',
+      payload: terminationComs,
+    });
+  };
+};
+
+export const updateControlGradPoor = controlGradPoor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateControlGradPoor',
+      payload: controlGradPoor,
+    });
+  };
+};
+
+export const updateControlGradFair = controlGradFair => {
+  return dispatch => {
+    dispatch({
+      type: 'updateControlGradFair',
+      payload: controlGradFair,
+    });
+  };
+};
+
+export const updateControlGradGood = controlGradGood => {
+  return dispatch => {
+    dispatch({
+      type: 'updateControlGradGood',
+      payload: controlGradGood,
+    });
+  };
+};
+
+export const updateControlGradComs = controlGradComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateControlGradComs',
+      payload: controlGradComs,
+    });
+  };
+};
+
+export const updateRecruitmentSo = recruitmentSo => {
+  return dispatch => {
+    dispatch({
+      type: 'updateRecruitmentSo',
+      payload: recruitmentSo,
+    });
+  };
+};
+
+export const updateRecruitmentFf = recruitmentFf => {
+  return dispatch => {
+    dispatch({
+      type: 'updateRecruitmentFf',
+      payload: recruitmentFf,
+    });
+  };
+};
+
+export const updateContractionConcentric = contractionConcentric => {
+  return dispatch => {
+    dispatch({
+      type: 'updateContractionConcentric',
+      payload: contractionConcentric,
+    });
+  };
+};
+
+export const updateContractionIsometric = contractionIsometric => {
+  return dispatch => {
+    dispatch({
+      type: 'updateContractionIsometric',
+      payload: contractionIsometric,
+    });
+  };
+};
+
+export const updateContractionEccentric = contractionEccentric => {
+  return dispatch => {
+    dispatch({
+      type: 'updateContractionEccentric',
+      payload: contractionEccentric,
+    });
+  };
+};
+
+export const updateCoContraction = coContraction => {
+  return dispatch => {
+    dispatch({
+      type: 'updateCoContraction',
+      payload: coContraction,
+    });
+  };
+};
+
+export const updateReciprocalInhibition = reciprocalInhibition => {
+  return dispatch => {
+    dispatch({
+      type: 'updateReciprocalInhibition',
+      payload: reciprocalInhibition,
+    });
+  };
+};
+
+export const updateMassEnergy = massEnergy => {
+  return dispatch => {
+    dispatch({
+      type: 'updateMassEnergy',
+      payload: massEnergy,
+    });
+  };
+};
+
+export const updateIsolatedWork = isolatedWork => {
+  return dispatch => {
+    dispatch({
+      type: 'updateIsolatedWork',
+      payload: isolatedWork,
+    });
+  };
+};
+
+export const updateDynamicStiffness = dynamicStiffness => {
+  return dispatch => {
+    dispatch({
+      type: 'updateDynamicStiffness',
+      payload: dynamicStiffness,
+    });
+  };
+};
+
+export const updateExtraneousMovement = extraneousMovement => {
+  return dispatch => {
+    dispatch({
+      type: 'updateExtraneousMovement',
+      payload: extraneousMovement,
+    });
+  };
+};
+
+export const updateSection15Coms = section15Coms => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSection15Coms',
+      payload: section15Coms,
+    });
+  };
+};
+
+// Section 16
+
+export const updateRegistrationOptions = registrationOptions => {
+  return dispatch => {
+    dispatch({
+      type: 'updateRegistrationOptions',
+      payload: registrationOptions,
+    });
+  };
+};
+
+export const updateRegistrationComs = registrationComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateRegistrationComs',
+      payload: registrationComs,
+    });
+  };
+};
+
+export const updateTactileUnderResponsive = tactileUnderResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTactileUnderResponsive',
+      payload: tactileUnderResponsive,
+    });
+  };
+};
+
+export const updateTactileOverResponsive = tactileOverResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTactileOverResponsive',
+      payload: tactileOverResponsive,
+    });
+  };
+};
+
+export const updateProprioceptiveUnderResponsive =
+  proprioceptiveUnderResponsive => {
+    return dispatch => {
+      dispatch({
+        type: 'updateProprioceptiveUnderResponsive',
+        payload: proprioceptiveUnderResponsive,
+      });
+    };
+  };
+
+export const updateProprioceptiveOverResponsive =
+  proprioceptiveOverResponsive => {
+    return dispatch => {
+      dispatch({
+        type: 'updateProprioceptiveOverResponsive',
+        payload: proprioceptiveOverResponsive,
+      });
+    };
+  };
+
+export const updateVestibularUnderResponsive = vestibularUnderResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVestibularUnderResponsive',
+      payload: vestibularUnderResponsive,
+    });
+  };
+};
+
+export const updateVestibularOverResponsive = vestibularOverResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVestibularOverResponsive',
+      payload: vestibularOverResponsive,
+    });
+  };
+};
+
+export const updateAuditoryUnderResponsive = auditoryUnderResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAuditoryUnderResponsive',
+      payload: auditoryUnderResponsive,
+    });
+  };
+};
+
+export const updateAuditoryOverResponsive = auditoryOverResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAuditoryOverResponsive',
+      payload: auditoryOverResponsive,
+    });
+  };
+};
+
+export const updateVisualUnderResponsive = visualUnderResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVisualUnderResponsive',
+      payload: visualUnderResponsive,
+    });
+  };
+};
+
+export const updateVisualOverResponsive = visualOverResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVisualOverResponsive',
+      payload: visualOverResponsive,
+    });
+  };
+};
+
+export const updateGustatoryUnderResponsive = gustatoryUnderResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGustatoryUnderResponsive',
+      payload: gustatoryUnderResponsive,
+    });
+  };
+};
+
+export const updateGustatoryOverResponsive = gustatoryOverResponsive => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGustatoryOverResponsive',
+      payload: gustatoryOverResponsive,
+    });
+  };
+};
+
+export const updateGustatoryComs = gustatoryComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGustatoryComs',
+      payload: gustatoryComs,
+    });
+  };
+};
+
+export const updateSensoryProfileComs = sensoryProfileComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSensoryProfileComs',
+      payload: sensoryProfileComs,
+    });
+  };
+};
+
+// Section 17
+export const updateGravitationInsecurity = gravitationInsecurity => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGravitationInsecurity',
+      payload: gravitationInsecurity,
+    });
+  };
+};
+
+export const updateAversiveResponse = aversiveResponse => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAversiveResponse',
+      payload: aversiveResponse,
+    });
+  };
+};
+
+export const updatePosturalInsecurtiy = posturalInsecurtiy => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePosturalInsecurtiy',
+      payload: posturalInsecurtiy,
+    });
+  };
+};
+
+export const updateTactileDefense = tactileDefense => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTactileDefense',
+      payload: tactileDefense,
+    });
+  };
+};
+
+export const updateSensoryAvoiding = sensoryAvoiding => {
+  return dispatch => {
+    dispatch({
+      type: 'updateSensoryAvoiding',
+      payload: sensoryAvoiding,
+    });
+  };
+};
+
+export const updateStimulation = stimulation => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStimulation',
+      payload: stimulation,
+    });
+  };
+};
+
+export const updateDistractibility = distractibility => {
+  return dispatch => {
+    dispatch({
+      type: 'updateDistractibility',
+      payload: distractibility,
+    });
+  };
+};
+
+export const updateHyperActivity = hyperActivity => {
+  return dispatch => {
+    dispatch({
+      type: 'updateHyperActivity',
+      payload: hyperActivity,
+    });
+  };
+};
+
+export const updateComs = coms => {
+  return dispatch => {
+    dispatch({
+      type: 'updateComs',
+      payload: coms,
+    });
+  };
+};
+
+// Sensory Processing
+export const updateFormSpace = formSpace => {
+  return dispatch => {
+    dispatch({
+      type: 'updateFormSpace',
+      payload: formSpace,
+    });
+  };
+};
+
+export const updateVisuoMotor = visuoMotor => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVisuoMotor ',
+      payload: visuoMotor,
+    });
+  };
+};
+
+export const updateTactileDiscrimination = tactileDiscrimination => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTactileDiscrimination',
+      payload: tactileDiscrimination,
+    });
+  };
+};
+
+export const updatePraxis = praxis => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePraxis',
+      payload: praxis,
+    });
+  };
+};
+
+export const updateVestibularProcessing = vestibularProcessing => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVestibularProcessing',
+      payload: vestibularProcessing,
+    });
+  };
+};
+
+export const updateComs2 = coms2 => {
+  return dispatch => {
+    dispatch({
+      type: 'updateComs2',
+      payload: coms2,
+    });
+  };
+};
+
+// Visual System
+export const updateFocalVision = focalVision => {
+  return dispatch => {
+    dispatch({
+      type: 'updateFocalVision',
+      payload: focalVision,
+    });
+  };
+};
+
+export const updateAmbientVision = ambientVision => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAmbientVision',
+      payload: ambientVision,
+    });
+  };
+};
+
+export const updateEyeMovementSystem = eyeMovementSystem => {
+  return dispatch => {
+    dispatch({
+      type: 'updateEyeMovementSystem',
+      payload: eyeMovementSystem,
+    });
+  };
+};
+
+export const updateLocalization = localization => {
+  return dispatch => {
+    dispatch({
+      type: 'updateLocalization',
+      payload: localization,
+    });
+  };
+};
+
+export const updateTracking = tracking => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTracking',
+      payload: tracking,
+    });
+  };
+};
+
+// other Scales
+export const updateGMFM = GMFM => {
+  return dispatch => {
+    dispatch({
+      type: 'updateGMFM',
+      payload: GMFM,
+    });
+  };
+};
+
+export const updatePEDI = PEDI => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePEDI',
+      payload: PEDI,
+    });
+  };
+};
+
+export const updateBalanceScale = balanceScale => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBalanceScale ',
+      payload: balanceScale,
+    });
+  };
+};
+
+export const updateWOTA = WOTA => {
+  return dispatch => {
+    dispatch({
+      type: 'updateWOTA',
+      payload: WOTA,
+    });
+  };
+};
+
+export const updateRecommendationOptions = recommendationOptions => {
+  return dispatch => {
+    dispatch({
+      type: 'updateRecommendationOptions',
+      payload: recommendationOptions,
+    });
+  };
+};
+
+export const updateAssessorsName = assessorsName => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAssessorsName',
+      payload: assessorsName,
+    });
+  };
+};
+
+export const updateAssessorsDesignation = assessorsDesignation => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAssessorsDesignation',
+      payload: assessorsDesignation,
+    });
+  };
+};
