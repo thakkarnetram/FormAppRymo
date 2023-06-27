@@ -33,9 +33,9 @@ const Last = () => {
   const recommendationOptions = useSelector(
     state => state.lastSection.recommendationOptions,
   );
-  const accessorsName = useSelector(state => state.lastSection.accessorsName);
+  const accessorsName = useSelector(state => state.lastSection.assessorsName);
   const accessorsDesignation = useSelector(
-    state => state.lastSection.accessorsDesignation,
+    state => state.lastSection.assessorsDesignation,
   );
   // handle states
   const actions = bindActionCreators(actionCreators, dispatch);
@@ -46,11 +46,11 @@ const Last = () => {
     };
     actions.updateRecommendationOptions(updatedOptions);
   };
-  const accessorNameHandler = text => {
-    actions.updateAssessorsName(text);
+  const accessorNameHandler = accessorsName => {
+    actions.updateAssessorsName(accessorsName);
   };
-  const accessorDesignationHandler = text => {
-    actions.updateAssessorsDesignation(text);
+  const accessorDesignationHandler = accessorsDesignation => {
+    actions.updateAssessorsDesignation(accessorsDesignation);
   };
   return (
     <SafeAreaView>

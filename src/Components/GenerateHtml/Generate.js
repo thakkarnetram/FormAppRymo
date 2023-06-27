@@ -497,9 +497,9 @@ const Generate = () => {
   const recommendationOptions = useSelector(
     state => state.lastSection.recommendationOptions,
   );
-  const accessorsName = useSelector(state => state.lastSection.accessorsName);
+  const accessorsName = useSelector(state => state.lastSection.assessorsName);
   const accessorsDesignation = useSelector(
-    state => state.lastSection.accessorsDesignation,
+    state => state.lastSection.assessorsDesignation,
   );
   // Generating html
   const generateHtml = () => {
@@ -541,12 +541,19 @@ const Generate = () => {
       }
       #footer {
         width: 100%;
-        height: 50px;
+        height: auto;
       }
       #image {
         width: 20%;
         height: auto;
         margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
+      #image2 {
+        width: 20%;
+        height: auto;
+        margin-left:35rem;
         margin-right: 2rem;
         margin-top: 2rem;
       }
@@ -3040,8 +3047,8 @@ const Generate = () => {
           `;
     }
 
+
     html += `
-    
     <footer id="footer">
     <table>
       <tr>
@@ -3050,8 +3057,8 @@ const Generate = () => {
           <img id="image"
           alt=""
            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAA1BMVEX///+nxBvIAAAAR0lEQVR4nO3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBgxUwAAU+n3sIAAAAASUVORK5CYII=" />
-            <h2>${accessorName}</h2>
-            <h2>${accessorDesignation}</h2>
+            <h2>${accessorsName}</h2>
+            <h2>${accessorsDesignation}</h2>
           </div>
         </td>
         <td>
@@ -3115,6 +3122,41 @@ const Generate = () => {
       console.error(error);
     }
   };
+
+  const handleSaveToLocal = async () => {
+    const permissionGranted = await requestStoragePermission();
+    if (permissionGranted) {
+      setPermission(true);
+      handleExportPdf();
+      handleSharePdf();
+    } else {
+      setPermission(false);
+      // Handle permission denied case
+    }
+  };
+
+  const handleExportPdf = async (attachmentUrl, directory, fileName) => {
+    try {
+      // Request storage permission if needed
+      handleSaveToLocal();
+      // Generate the HTML to convert to PDF
+      const htmlContent = generateHtml(attachmentUrl, directory, fileName);
+
+      // Create the options for the PDF conversion
+      const pdfOptions = {
+        html: htmlContent,
+        fileName: `${firstName}_${evaluationDate.toISOString().slice(0, 10)}`,
+        directory: RNHTMLtoPDF.DocumentDirectory,
+      };
+
+      // Convert HTML to PDF and save to device
+      const file = await RNHTMLtoPDF.convert(pdfOptions);
+      console.log(`PDF saved to ${file.filePath} + PDF NAME ${fileName}`);
+    } catch (error) {
+      console.error('Failed to export PDF:', error);
+    }
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.inputFieldContainerSHARE}>
@@ -3122,11 +3164,27 @@ const Generate = () => {
           <Text style={styles.exportText}>Share PDF</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.inputFieldContainerEXPORT}>
+        <TouchableOpacity style={styles.exportBtn} onPress={handleExportPdf}>
+          <Text style={styles.exportText}>Save to Local Storage </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  inputFieldContainerEXPORT: {
+    width: wp('80%'),
+    height: hp('5%'),
+    marginHorizontal: wp('10%'),
+    flexDirection: 'column',
+    backgroundColor: '#0a5e78',
+    borderRadius: 10,
+    marginBottom: 40,
+    marginRight: 50,
+    elevation: 10,
+  },
   inputFieldContainerSHARE: {
     width: wp('80%'),
     height: hp('5%'),

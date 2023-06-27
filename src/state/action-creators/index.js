@@ -2132,7 +2132,7 @@ export const updateFormSpace = formSpace => {
 export const updateVisuoMotor = visuoMotor => {
   return dispatch => {
     dispatch({
-      type: 'updateVisuoMotor ',
+      type: 'updateVisuoMotor',
       payload: visuoMotor,
     });
   };
@@ -2242,7 +2242,7 @@ export const updatePEDI = PEDI => {
 export const updateBalanceScale = balanceScale => {
   return dispatch => {
     dispatch({
-      type: 'updateBalanceScale ',
+      type: 'updateBalanceScale',
       payload: balanceScale,
     });
   };
