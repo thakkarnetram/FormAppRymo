@@ -41,7 +41,7 @@ const Pediatric_Assessment = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              navigation.navigate('AssessmentCopy');
+              navigation.navigate('PatientHome');
             }}>
             <Text style={styles.buttonTextStyle}>Start Assessment</Text>
           </TouchableOpacity>

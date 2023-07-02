@@ -2283,3 +2283,22 @@ export const updateAssessorsDesignation = assessorsDesignation => {
     });
   };
 };
+
+// patient action - creators
+export const updatePatientList = patientList => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientList',
+      payload: patientList,
+    });
+  };
+};
+
+export const updatePatientName = patientName => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientName',
+      payload: patientName,
+    });
+  };
+};

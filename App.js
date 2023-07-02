@@ -19,10 +19,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import Form1 from './src/Components/Form1';
 import Phase_1_Assessment_Form from './src/Components/Phase 1 Assessment Form ';
 import Orientation from 'react-native-orientation-locker';
+import PatientHome from './src/Components/PatientScreen/PatientHome';
 import Immersive from 'react-native-immersive';
 import {Provider} from 'react-redux';
 import store from './src/state/store';
-
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +52,11 @@ function App() {
           <Stack.Screen
             name="AssessmentCopy"
             component={AssessmentCopy}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="PatientHome"
+            component={PatientHome}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
