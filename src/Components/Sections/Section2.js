@@ -19,6 +19,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
 
+
 const Section2 = () => {
   // locking screen to potrait mode
   useEffect(() => {

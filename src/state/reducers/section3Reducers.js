@@ -55,7 +55,7 @@ const reducer = (state = initialState, action) => {
         nicuStayOpt1: '',
         nicuStayOpt2: '',
       };
-    case 'updateReasonforNICUStay':
+    case 'updateReasonForNICUStay':
       return {
         ...state,
         reasonforNICUStay: action.payload,

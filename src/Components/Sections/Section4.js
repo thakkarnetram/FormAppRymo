@@ -17,6 +17,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
 
+
 const Section4 = () => {
   // locking screen to potrait mode
   useEffect(() => {
@@ -29,15 +30,15 @@ const Section4 = () => {
   Immersive.setImmersive(true);
   // declaring states
   const dispatch = useDispatch();
-  const handHolding = useSelector(state => state.handHolding);
-  const rolling = useSelector(state => state.rolling);
-  const crawling = useSelector(state => state.crawling);
-  const sitting = useSelector(state => state.sitting);
-  const standing = useSelector(state => state.standing);
-  const walking = useSelector(state => state.walking);
-  const fineMotor = useSelector(state => state.fineMotor);
-  const communications = useSelector(state => state.communication);
-  const socialBehavior = useSelector(state => state.socialBehavior);
+  const handHolding = useSelector(state => state.section4.handHolding);
+  const rolling = useSelector(state => state.section4.rolling);
+  const crawling = useSelector(state => state.section4.crawling);
+  const sitting = useSelector(state => state.section4.sitting);
+  const standing = useSelector(state => state.section4.standing);
+  const walking = useSelector(state => state.section4.walking);
+  const fineMotor = useSelector(state => state.section4.fineMotor);
+  const communications = useSelector(state => state.section4.communications);
+  const socialBehavior = useSelector(state => state.section4.socialBehaviour);
   const actions = bindActionCreators(actionCreators, dispatch);
   //handlers
   const handHoldingHandler = handHolding => {

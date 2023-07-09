@@ -31,6 +31,7 @@ const Section1 = () => {
   }, []);
   // Immersive fullScreen
   Immersive.setImmersive(true);
+
   // Declaring all the states
   const [permission, setPermission] = useState(false);
   // section I => Personal Details
@@ -110,10 +111,267 @@ const Section1 = () => {
   const handleReferredBy = referredBy => {
     actions.updateReferredBy(referredBy);
   };
+
+  const resetForm = () => {
+    actions.updateFirstName('');
+    actions.updateLastName('');
+    actions.updateAge('');
+    actions.updateFatherName('');
+    actions.updateMotherName('');
+    actions.updateAddress('');
+    actions.updateContactNumber('');
+    actions.updateGenderMale('');
+    actions.updateGenderFemale('');
+    actions.updateChiefComplaint('');
+    actions.updateInformant('');
+    actions.updateAssessedBy('');
+    actions.updateDiagnosis('');
+    actions.updateReferredBy('');
+    actions.updateConsanguinity('');
+    actions.updateNonConsanguinity('');
+    actions.updatePreNatalOptions('');
+    actions.updateWorkLoad('');
+    actions.updateStressLevel('');
+    actions.updatefatherAgeConception('');
+    actions.updatemotherAgeConception('');
+    actions.updateChildren('');
+    actions.updatePreTerm('');
+    actions.updateFullTerm('');
+    actions.updateCiabNo('');
+    actions.updateCiabYes('');
+    actions.updateNICUStayOpt1('');
+    actions.updateNICUStayOpt2('');
+    actions.updateNICUStayOpt3('');
+    actions.updateBirthWeight('');
+    actions.updateHeadCircumference('');
+    actions.updateReasonForNICUStay('');
+    actions.updatePresentHistory('');
+    actions.updateFineMotor('');
+    actions.updateHandHolding('');
+    actions.updateRolling('');
+    actions.updateCrawling('');
+    actions.updateSitting('');
+    actions.updateStanding('');
+    actions.updateWalking('');
+    actions.updateCommunication('');
+    actions.updateSocialBehaviour('');
+    actions.updateSightIntact('');
+    actions.updateSightNotIntact('');
+    actions.updateHearingIntact('');
+    actions.updateHearingNotIntact('');
+    actions.updateSpeechIntact('');
+    actions.updateSpeechNotIntact('');
+    actions.updateCarriedbyParent('');
+    actions.updateWalkingSticks('');
+    actions.updateWheelChair('');
+    actions.updateWalkingWalker('');
+    actions.updateWalkingIndependently('');
+    actions.updateMRI('');
+    actions.updateselectedImageMRI('');
+    actions.updateclickedImageMRI('');
+    actions.updateEEG('');
+    actions.updateselectedImageEEG('');
+    actions.updateclickedImageEEG('');
+    actions.updateBERA('');
+    actions.updateselectedImageBERA('');
+    actions.updateclickedImageBERA('');
+    actions.updateOpthalmalogy('');
+    actions.updateselectedImageOPT('');
+    actions.updateclickedImageOPT('');
+    actions.updateXRays('');
+    actions.updateselectedImageXRAYS('');
+    actions.updateclickedImageXRAYS('');
+    actions.updateDeformitiesRight('');
+    actions.updateDeformitiesLeft('');
+    actions.updateContractureRight('');
+    actions.updateContractureLeft('');
+    actions.updateTightnessRight('');
+    actions.updateTightnessLeft('');
+    actions.updateTendoachillesRTR1('');
+    actions.updateTendoachillesRTR2('');
+    actions.updateTendoachillesLTR1('');
+    actions.updateTendoachillesLTR2('');
+    actions.updateHamstringsRTR1('');
+    actions.updateHamstringsRTR2('');
+    actions.updateHamstringsLTR1('');
+    actions.updateHamstringsLTR2('');
+    actions.updateHipAdductorsRTR1('');
+    actions.updateHipAdductorsRTR2('');
+    actions.updateHipAdductorsLTR1('');
+    actions.updateHipAdductorsLTR2('');
+    actions.updateBackExt('');
+    actions.updateBackFlex('');
+    actions.updateBackLat('');
+    actions.updateNeckFlex('');
+    actions.updateNeckExt('');
+    actions.updateNeckLat('');
+    actions.updateHipFlex('');
+    actions.updateHipExt('');
+    actions.updateHipAbd('');
+    actions.updateHipAdd('');
+    actions.updateKneeFlex('');
+    actions.updateHipMedRot('');
+    actions.updateHipLatRot('');
+    actions.updateShoulderAbd('');
+    actions.updateShoulderFlex('');
+    actions.updateShoulderAdd('');
+    actions.updateShoulderExt('');
+    actions.updateElbowFlex('');
+    actions.updateForearmPronation('');
+    actions.updateForearmSupination('');
+    actions.updateAnkleDF('');
+    actions.updateAnklePF('');
+    actions.updateAnkleInversion('');
+    actions.updateAnkleEversion('');
+    actions.updateWristFlex('');
+    actions.updateWristExt('');
+    actions.updateUpperExtermities('');
+    actions.updateLowerExtermities('');
+    actions.updateComsModifiedAshworth('');
+    actions.updateSupineToProneImmobile('');
+    actions.updateSupineToProneAssistance('');
+    actions.updateSupineToProneIndependent('');
+    actions.updateSupineToSitImmobile('');
+    actions.updateSupineToSitAssistance('');
+    actions.updateSupineToSitIndependent('');
+    actions.updateSittingImmobile('');
+    actions.updateSittingAssistance('');
+    actions.updateSittingIndependent('');
+    actions.updateQuadripedImmobile('');
+    actions.updateQuadripedAssistance('');
+    actions.updateQuadripedIndependent('');
+    actions.updateStandingImmobile('');
+    actions.updateStandingAssistance('');
+    actions.updateStandingIndependent('');
+    actions.updateKneelingImmobile('');
+    actions.updateKneelingAssistance('');
+    actions.updateKneelingIndependent('');
+    actions.updateHalfKneelingImmobile('');
+    actions.updateHalfKneelingAssistance('');
+    actions.updateHalfKneelingIndependent('');
+    actions.updateAmbulationImmobile('');
+    actions.updateAmbulationAssistance('');
+    actions.updateAmbulationIndependent('');
+    actions.updateGmfc('');
+    actions.updateMiniMac('');
+    actions.updateMacs('');
+    actions.updateCfcs('');
+    actions.updateBodyStructurePositive('');
+    actions.updateBodyStructureNegative('');
+    actions.updateBodyFunctionPositive('');
+    actions.updateBodyFunctionNegative('');
+    actions.updateActivityParticipation('');
+    actions.updateActivityLimitation('');
+    actions.updateEnvironmentalPersonal('');
+    actions.updateEnvironmentalContextual('');
+    actions.updateShortTermGoals('');
+    actions.updateLongTermGoals('');
+    actions.updateIntervention('');
+    actions.updateEquipmentsUsed('');
+    actions.updateSection17Coms('');
+    actions.updateAdl('');
+    actions.updateSide('');
+    actions.updateGeneralPosture('');
+    actions.updateCallosities('');
+    actions.updateMovementStrategies('');
+    actions.updateAnticipatoryBalanceComs('');
+    actions.updateReactiveBalanceComs('');
+    actions.updateCoordinationComs('');
+    actions.updateInitiationComs('');
+    actions.updateSustenanceComs('');
+    actions.updateTerminationComs('');
+    actions.updateControlGradComs('');
+    actions.updateCoContraction('');
+    actions.updateReciprocalInhibition('');
+    actions.updateMassEnergy('');
+    actions.updateIsolatedWork('');
+    actions.updateDynamicStiffness('');
+    actions.updateExtraneousMovement('');
+    actions.updateSection15Coms('');
+    actions.updateRegistrationComs('');
+    actions.updateRegistrationOptions('');
+    actions.updateGustatoryComs('');
+    actions.updateSensoryProfileComs('');
+    actions.updateGravitationInsecurity('');
+    actions.updateAversiveResponse('');
+    actions.updateTactileDefense('');
+    actions.updatePosturalInsecurtiy('');
+    actions.updateSensoryAvoiding('');
+    actions.updateStimulation('');
+    actions.updateDistractibility('');
+    actions.updateHyperActivity('');
+    actions.updateComs('');
+    actions.updateFormSpace('');
+    actions.updateVisuoMotor('');
+    actions.updateTactileDiscrimination('');
+    actions.updateVestibularProcessing('');
+    actions.updatePraxis('');
+    actions.updateComs2('');
+    actions.updateFocalVision('');
+    actions.updateAmbientVision('');
+    actions.updateEyeMovementSystem('');
+    actions.updateLocalization('');
+    actions.updateTracking('');
+    actions.updateGMFM('');
+    actions.updatePEDI('');
+    actions.updateBalanceScale('');
+    actions.updateWOTA('');
+    actions.updateRecommendationOptions('');
+    actions.updateRecommendationOptions('');
+    actions.updateAssessorsName('');
+    actions.updateAssessorsDesignation('');
+    actions.updateTactileUnderResponsive('');
+    actions.updateTactileOverResponsive('');
+    actions.updateProprioceptiveOverResponsive('');
+    actions.updateProprioceptiveUnderResponsive('');
+    actions.updateVestibularOverResponsive('');
+    actions.updateVestibularUnderResponsive('');
+    actions.updateAuditoryOverResponsive('');
+    actions.updateAuditoryUnderResponsive('');
+    actions.updateVisualOverResponsive('');
+    actions.updateVisualUnderResponsive('');
+    actions.updateGustatoryOverResponsive('');
+    actions.updateGustatoryUnderResponsive('');
+    actions.updateStaticBalanceGood('');
+    actions.updateStaticBalanceFair('');
+    actions.updateStaticBalancePoor('');
+    actions.updateAnticipatoryBalanceGood('');
+    actions.updateAnticipatoryBalanceFair('');
+    actions.updateAnticipatoryBalancePoor('');
+    actions.updateReactiveBalanceGood('');
+    actions.updateReactiveBalanceFair('');
+    actions.updateReactiveBalancePoor('');
+    actions.updateCoordinationGood('');
+    actions.updateCoordinationFair('');
+    actions.updateCoordinationPoor('');
+    actions.updateCanInitiate('');
+    actions.updateCantInitiate('');
+    actions.updateSustenanceGood('');
+    actions.updateSustenanceFair('');
+    actions.updateSustenancePoor('');
+    actions.updateTerminationPassive('');
+    actions.updateTerminationAbrupt('');
+    actions.updateControlGradGood('');
+    actions.updateControlGradFair('');
+    actions.updateControlGradPoor('');
+    actions.updateRecruitmentSo('');
+    actions.updateRecruitmentFf('');
+    actions.updateContractionConcentric('');
+    actions.updateContractionEccentric('');
+    actions.updateContractionIsometric('');
+    actions.updateBroad('');
+    actions.updateNarrow('');
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
         <View>
+          <View style={styles.inputFieldContainerSAVE}>
+            <TouchableOpacity style={styles.exportBtn} onPress={resetForm}>
+              <Text style={styles.exportText}>Reset Form </Text>
+            </TouchableOpacity>
+          </View>
           {/* SECTION I => PATIENT INFORMATION */}
           <View style={styles.inputTextContainer}>
             <TextInput
@@ -541,6 +799,18 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('10%'),
     flexDirection: 'column',
     backgroundColor: '#169cc4',
+    borderRadius: 10,
+    marginBottom: 20,
+    marginRight: 50,
+    elevation: 10,
+  },
+  inputFieldContainerSAVE: {
+    width: wp('80%'),
+    height: hp('5%'),
+    marginVertical: wp('5%'),
+    marginHorizontal: wp('10%'),
+    flexDirection: 'column',
+    backgroundColor: 'red',
     borderRadius: 10,
     marginBottom: 20,
     marginRight: 50,

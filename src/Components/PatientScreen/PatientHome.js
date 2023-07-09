@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-shadow */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
 import {
   View,
@@ -7,68 +12,251 @@ import {
   TextInput,
   ScrollView,
   Text,
+  PermissionsAndroid,
+  Image,
   Modal,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import Orientation from 'react-native-orientation-locker';
-import Immersive from 'react-native-immersive';
 import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
+import db from '../../db/db';
 
-const PatientHome = () => {
+const PatientHome = ({navigation}) => {
   // locking screen to potrait mode
-  useEffect(() => {
-    Orientation.lockToPortrait();
-    return () => {
-      Orientation.unlockAllOrientations(); // Unlocks all orientations when the component unmounts
-    };
-  }, []);
-  // Immersive fullScreen
-  Immersive.setImmersive(true);
   // declaring states
+
+  useEffect(() => {
+    openDatabase();
+    fetchPatientList();
+  }, []);
+
   const dispatch = useDispatch();
   const patientList = useSelector(state => state.patient.patientList);
   const newPatientName = useSelector(state => state.patient.patientName);
-
+  const patientImage = useSelector(state => state.patient.patientImage);
+  const address = useSelector(state => state.patient.patientAddress);
+  const contact = useSelector(state => state.patient.patientContact);
   // handlers
   const actions = bindActionCreators(actionCreators, dispatch);
   const [isAddModalVisible, setAddModalVisible] = useState(false);
 
+  const openDatabase = () => {
+    db.transaction(txn => {
+      txn.executeSql(
+        'CREATE TABLE IF NOT EXISTS patient_data (_id INTEGER PRIMARY KEY AUTOINCREMENT, patient_name TEXT, patient_address TEXT, patient_contact TEXT, patient_image BLOB, patient_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, patient_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)',
+        [],
+        (_, res) => {
+          if (res.rowsAffected > 0) console.log('Table created');
+          else console.log('Table exists ');
+        },
+        (_, error) => {
+          console.log('Error creating patient table', error);
+        },
+      );
+    });
+    db.transaction(txn => {
+      txn.executeSql(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='form_data' ",
+        [],
+        (txn, res) => {
+          console.log('item:', res.rows.length);
+          if (res.rows.length === 0) {
+            txn.executeSql('DROP TABLE IF EXISTS form_data', []);
+            txn.executeSql(
+              'CREATE TABLE IF NOT EXISTS form_data (' +
+                'ID INTEGER PRIMARY KEY AUTOINCREMENT,' +
+                'patient_id INTEGER,' + // Add the foreign key column right after the primary key
+                'form_data TEXT,' +
+                'patient_data_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,' +
+                'patient_data_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,' +
+                'FOREIGN KEY (patient_id) REFERENCES patient_data (_id)' + // Add the foreign key constraint
+                ')',
+            );
+            console.log('Created table');
+          } else {
+            console.log('Already created table');
+          }
+        },
+      );
+    });
+  };
+
+  const fetchPatientList = () => {
+    // fetching the patientlist from sqlite
+    db.transaction(txn => {
+      txn.executeSql(
+        'SELECT _id , patient_name , patient_address , patient_contact , patient_image FROM patient_data',
+        [],
+        (_, res) => {
+          const patients = [];
+          for (let i = 0; i < res.rows.length; i++) {
+            const patient = res.rows.item(i);
+            const patientData = {
+              id: patient._id,
+              name: patient.patient_name,
+              address: patient.patient_address,
+              contact: patient.patient_contact,
+              image: patient.patient_image,
+            };
+            patients.push(patientData);
+          }
+          actions.updatePatientList(patients);
+        },
+        (_, error) => {
+          console.log("Could't Fetch the patient list", error);
+        },
+      );
+    });
+  };
+
   const handleAddPatient = () => {
+    console.log('ho');
     if (newPatientName.trim() !== '') {
-      actions.updatePatientList([...patientList, newPatientName]);
-      actions.updatePatientName('');
+      // adding patient & details to sqlite
+      console.log('hoa');
+      db.transaction(txn => {
+        txn.executeSql(
+          'INSERT INTO patient_data (patient_name, patient_address, patient_contact, patient_image) VALUES (?, ?, ?, ?)',
+          [newPatientName, address, contact, patientImage],
+          (_, res) => {
+            if (res.rowsAffected > 0)
+              console.log('Patient added to database ' + newPatientName);
+            else console.log('Failed to add patient');
+          },
+          (_, error) => {
+            console.log('Error adding patient' + error);
+          },
+        );
+      });
       setAddModalVisible(false);
+      db.transaction(txn => {
+        txn.executeSql(
+          'SELECT * FROM patient_data ORDER BY patient_created_at DESC LIMIT 1',
+          [],
+          (_, res) => {
+            let patientData = res.rows.item(0);
+            let newPatient = {
+              id: patientData._id,
+              name: patientData.patient_name,
+              address: patientData.patient_address,
+              contact: patientData.patient_contact,
+              image: patientData.patient_image,
+            };
+            actions.updatePatientList([...patientList, newPatient]);
+            actions.updatePatientName('');
+            actions.updatePatientAddress('');
+            actions.updatePatientContact('');
+            actions.updatePatientImageMain(null);
+          },
+        );
+      });
     }
   };
+
+  let options = {
+    saveToPhotos: true,
+    mediaType: 'photo',
+  };
+  const openGallery = async () => {
+    const result = await launchImageLibrary(options);
+    actions.updatePatientImageMain(result.assets[0].uri);
+  };
+
+  const openCamera = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      const result = await launchCamera(options);
+      actions.updatePatientImageMain(result.assets[0].uri);
+    } else {
+      console.log('Camera permission denied');
+    }
+  };
+
+  const navigateToFormPage = (patientId, patientName, address, contact,image) => {
+    navigation.navigate('Pediatric Assessment', {
+      selectedPatientId: patientId,
+      selectedPatientName: patientName,
+      selectedAddress: address,
+      selectedContact: contact,
+      selectedImage: image,
+    });
+  };
+
+  const resetModalFields = () => {
+    setAddModalVisible(true);
+    actions.updatePatientName('');
+    actions.updatePatientAddress('');
+    actions.updatePatientContact('');
+  };
+
+  // TODO - CLICK IMAGE FUNCTION
 
   return (
     <SafeAreaView>
       <ScrollView>
+        <Image
+          source={require('../../assets/home.png')}
+          style={{
+            width: wp('90%'),
+            height: hp('17%'),
+            alignSelf: 'center',
+            marginVertical: wp('5%'),
+          }}
+        />
         <View style={styles.container}>
           <View style={styles.patientContainer}>
             <View>
               <Text style={styles.header}>Patient List</Text>
             </View>
             <View style={styles.patientListContainer}>
-              {patientList.map((patient, index) => (
-                <TouchableOpacity key={index} style={styles.patientItem}>
-                  <Text style={styles.patientText}>{patient}</Text>
-                </TouchableOpacity>
-              ))}
+              {patientList.map((patient, index) => {
+                const {id,name, image} = patient;
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={styles.patientItem}
+                    onPress={() => {
+                      navigateToFormPage(
+                        patient.id,
+                        patient.name,
+                        patient.address,
+                        patient.contact,
+                        patient.image,
+                      );
+                    }}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                      {image && (
+                        <Image
+                          source={{uri: image}}
+                          style={styles.patientImage}
+                        />
+                      )}
+                      <Text style={styles.patientText}>{name}</Text>
+                    </View>
+                  </TouchableOpacity>
+                );
+              })}
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.addButton}
-            onPress={() => setAddModalVisible(true)}>
-            <Text style={styles.buttonText}>Add Patient</Text>
+          <TouchableOpacity style={styles.addButton} onPress={resetModalFields}>
+            <Text style={styles.buttonText1}>Add Patient</Text>
           </TouchableOpacity>
         </View>
+        <Image
+          source={require('../../assets/home2.png')}
+          style={{
+            width: wp('100%'),
+            height: hp('17%'),
+            marginVertical: wp('35%'),
+          }}
+        />
       </ScrollView>
 
       <Modal
@@ -78,6 +266,9 @@ const PatientHome = () => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Add Patient</Text>
+            <View style={styles.headContainer}>
+              <Text style={styles.headText}>Name</Text>
+            </View>
             <TextInput
               style={styles.textInput}
               placeholder="Enter name"
@@ -85,16 +276,48 @@ const PatientHome = () => {
               value={newPatientName}
               onChangeText={text => actions.updatePatientName(text)}
             />
+            <View style={styles.headContainer}>
+              <Text style={styles.headText}>Address</Text>
+            </View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter address"
+              placeholderTextColor={'black'}
+              value={address}
+              onChangeText={text => actions.updatePatientAddress(text)}
+            />
+            <View style={styles.headContainer}>
+              <Text style={styles.headText}>Contact</Text>
+            </View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter contact"
+              keyboardType='numeric'
+              placeholderTextColor={'black'}
+              value={contact}
+              onChangeText={text => actions.updatePatientContact(text)}
+            />
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity onPress={openGallery} style={styles.imageBtn}>
+                <Text style={styles.buttonText}>Select Patient Image</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={openCamera} style={styles.imageBtn}>
+                <Text style={styles.buttonText}>Click Patient Image</Text>
+              </TouchableOpacity>
+            </View>
+            {patientImage && (
+              <Image source={{uri: patientImage}} style={styles.patientImage} />
+            )}
             <View style={styles.modalButtonContainer}>
               <TouchableOpacity
                 style={styles.modalButton}
                 onPress={() => setAddModalVisible(false)}>
-                <Text style={styles.buttonText}>Cancel</Text>
+                <Text style={styles.buttonText1}>Cancel</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.modalButton}
                 onPress={handleAddPatient}>
-                <Text style={styles.buttonText}>Save</Text>
+                <Text style={styles.buttonText1}>Save</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -105,12 +328,29 @@ const PatientHome = () => {
 };
 
 const styles = StyleSheet.create({
+  imageBtn: {
+    marginHorizontal: hp('2%'),
+    marginVertical: hp('2%'),
+  },
   container: {
     flex: 1,
     padding: 16,
   },
   patientContainer: {
     marginBottom: 20,
+  },
+  patientImage: {
+    borderRadius: 20,
+    width: 50,
+    height: 50,
+    left: 50,
+    top: 10,
+  },
+  selectImageButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
   },
   header: {
     fontSize: wp('5%'),
@@ -124,12 +364,15 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('3%'),
   },
   patientItem: {
+    borderRadius: 15,
     backgroundColor: '#9cb3ff',
-    height: hp('5%'),
+    height: hp('7%'),
     marginVertical: wp('2%'),
     marginHorizontal: wp('3%'),
   },
   patientText: {
+    top: 10,
+    left: 40,
     marginVertical: wp('1.5%'),
     color: '#082173',
     marginHorizontal: wp('3%'),
@@ -142,6 +385,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
+    color: 'black',
+    fontSize: wp('2.5%'),
+    fontWeight: 'bold',
+  },
+  buttonText1: {
     color: 'white',
     fontSize: wp('3%'),
     fontWeight: 'bold',
@@ -157,12 +405,24 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 5,
     alignItems: 'center',
-    width: '80%',
+    width: '90%',
+    height: null,
   },
   modalTitle: {
     fontSize: wp('3%'),
     fontWeight: 'bold',
     marginBottom: 10,
+    color: 'black',
+  },
+  headText: {
+    color: 'black',
+    fontSize: wp('2.5%'),
+  },
+  headContainer: {
+    marginRight: hp('40%'),
+    marginVertical: wp('1.5%'),
+    height: hp('2%'),
+    width: wp('20%'),
   },
   textInput: {
     width: '100%',

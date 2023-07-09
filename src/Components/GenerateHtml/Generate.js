@@ -13,8 +13,9 @@ import {
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Share from 'react-native-share';
 import {useSelector} from 'react-redux';
+import db from '../../db/db';
 
-const Generate = () => {
+const Generate = ({selectedPatientName}) => {
   // Section1
   const firstName = useSelector(state => state.section1.firstName);
   const lastName = useSelector(state => state.section1.lastName);
@@ -69,8 +70,8 @@ const Generate = () => {
   const standing = useSelector(state => state.section4.standing);
   const walking = useSelector(state => state.section4.walking);
   const fineMotor = useSelector(state => state.section4.fineMotor);
-  const communications = useSelector(state => state.section4.communication);
-  const socialBehavior = useSelector(state => state.section4.socialBehavior);
+  const communications = useSelector(state => state.section4.communications);
+  const socialBehaviour = useSelector(state => state.section4.socialBehaviour);
   // Section 5
   const sightIntact = useSelector(state => state.section5.sightIntact);
   const sightNotIntact = useSelector(state => state.section5.sightNotIntact);
@@ -358,7 +359,7 @@ const Generate = () => {
   // Section 15
   const canInitiate = useSelector(state => state.section15.canInitiate);
   const cantInitiate = useSelector(state => state.section15.cantInitiate);
-  const initiateComs = useSelector(state => state.section15.initiateComs);
+  const initiateComs = useSelector(state => state.section15.initiationComs);
   const sustenancePoor = useSelector(state => state.section15.sustenancePoor);
   const sustenanceGood = useSelector(state => state.section15.sustenanceGood);
   const sustenanceFair = useSelector(state => state.section15.sustenanceFair);
@@ -884,7 +885,7 @@ const Generate = () => {
       walking ||
       fineMotor ||
       communications ||
-      socialBehavior
+      socialBehaviour
     ) {
       html += `
         <div class="label">
@@ -937,8 +938,8 @@ const Generate = () => {
         <div class="label"><h2>Communications - ${formated} </h2>
         </div>`;
     }
-    if (socialBehavior) {
-      const formated = socialBehavior.replace(/\n/g, '<br>');
+    if (socialBehaviour) {
+      const formated = socialBehaviour.replace(/\n/g, '<br>');
       html += `
         <div class="label"><h2>Social Behavior - ${formated} </h2>
         </div>`;
@@ -3047,7 +3048,6 @@ const Generate = () => {
           `;
     }
 
-
     html += `
     <footer id="footer">
     <table>
@@ -3157,8 +3157,291 @@ const Generate = () => {
     }
   };
 
+  const saveForm = () => {
+    const formData = JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      fatherName: fatherName,
+      motherName: motherName,
+      address: address,
+      contactNumber: contactNumber,
+      male: male,
+      female: female,
+      chiefComplaint: chiefComplaint,
+      informant: informant,
+      assessedBy: assessedBy,
+      diagnosis: diagnosis,
+      referredBy: referredBy,
+      fatherAgeConception: fatherAgeConception,
+      motherAgeConception: motherAgeConception,
+      workLoad: workLoad,
+      stresslevel: stresslevel,
+      consanguinity: consanguinity,
+      nonConsanguinity: nonConsanguinity,
+      children: children,
+      preNatalOptions: preNatalOptions,
+      fullTerm: fullTerm,
+      preTerm: preTerm,
+      ciabYes: ciabYes,
+      ciabNo: ciabNo,
+      userBirthWeight: userBirthWeight,
+      userHeadCircumference: userHeadCircumference,
+      day1To7days: day1To7days,
+      week1To4weeks: week1To4weeks,
+      week4To4months: week4To4months,
+      reasonNicuStay: reasonNicuStay,
+      presentHistory: presentHistory,
+      handHolding: handHolding,
+      rolling: rolling,
+      crawling: crawling,
+      sitting: sitting,
+      standing: standing,
+      walking: walking,
+      fineMotor: fineMotor,
+      communications: communications,
+      socialBehaviour: socialBehaviour,
+      sightIntact: sightIntact,
+      sightNotIntact: sightNotIntact,
+      hearingIntact: hearingIntact,
+      hearingNotIntact: hearingNotIntact,
+      speechIntact: speechIntact,
+      speechNotIntact: speechNotIntact,
+      carriedByParent: carriedByParent,
+      walkingSticks: walkingSticks,
+      wheelChair: wheelChair,
+      walkingWalker: walkingWalker,
+      walkingIndependently: walkingIndependently,
+      mri: mri,
+      selectedImageMRI: selectedImageMRI,
+      clickedImageMRI: clickedImageMRI,
+      eeg: eeg,
+      selectedImageEEG: selectedImageEEG,
+      clickedImageEEG: clickedImageEEG,
+      bera: bera,
+      selectedImageBERA: selectedImageBERA,
+      clickedImageBERA: clickedImageBERA,
+      opthalmalogy: opthalmalogy,
+      selectedImageOPT: selectedImageOPT,
+      clickedImageOPT: clickedImageOPT,
+      xRays: xRays,
+      selectedImageXRAYS: selectedImageXRAYS,
+      clickedImageXRAYS: clickedImageXRAYS,
+      hypotonia: hypotonia,
+      hypertonia: hypertonia,
+      deformitiesR: deformitiesR,
+      deformitiesL: deformitiesL,
+      contractureR: contractureR,
+      contractureL: contractureL,
+      tightnessR: tightnessR,
+      tightnessL: tightnessL,
+      tasRTR1: tasRTR1,
+      tasRTR2: tasRTR2,
+      tasLTR1: tasLTR1,
+      tasLTR2: tasLTR2,
+      hamstringsRTR1: hamstringsRTR1,
+      hamstringsRTR2: hamstringsRTR2,
+      hamstringsLTR1: hamstringsLTR1,
+      hamstringsLTR2: hamstringsLTR2,
+      hipAdductionRTR1: hipAdductionRTR1,
+      hipAdductionRTR2: hipAdductionRTR2,
+      hipAdductionLTR1: hipAdductionLTR1,
+      hipAdductionLTR2: hipAdductionLTR2,
+      backExt: backExt,
+      backFlex: backFlex,
+      backLat: backLat,
+      neckFlex: neckFlex,
+      neckExt: neckExt,
+      neckLat: neckLat,
+      hipFlex: hipFlex,
+      hipExt: hipExt,
+      hipAbd: hipAbd,
+      hipAdd: hipAdd,
+      kneeFlex: kneeFlex,
+      hipMedRot: hipMedRot,
+      hipLatRot: hipLatRot,
+      shoulderAbd: shoulderAbd,
+      shoulderFlex: shoulderFlex,
+      shoulderAdd: shoulderAdd,
+      shoulderExt: shoulderExt,
+      elbowFlex: elbowFlex,
+      forearmPronation: forearmPronation,
+      forearmSupination: forearmSupination,
+      ankleDF: ankleDF,
+      anklePF: anklePF,
+      ankleInversion: ankleInversion,
+      ankleEversion: ankleEversion,
+      wristFlex: wristFlex,
+      wristExt: wristExt,
+      upperExterimities: upperExterimities,
+      lowerExterimities: lowerExterimities,
+      asworthsComs: asworthsComs,
+      supineToProneImmobile: supineToProneImmobile,
+      supineToProneAssistance: supineToProneAssistance,
+      supineToProneIndependent: supineToProneIndependent,
+      supineToSitImmobile: supineToSitImmobile,
+      supineToSitAssistance: supineToSitAssistance,
+      supineToSitIndependent: supineToSitIndependent,
+      sittingImmobile: sittingImmobile,
+      sittingAssistance: sittingAssistance,
+      sittingIndependent: sittingIndependent,
+      quadsImmobile: quadsImmobile,
+      quadsAssistance: quadsAssistance,
+      quadsIndependent: quadsIndependent,
+      standingImmobile: standingImmobile,
+      standingAssistance: standingAssistance,
+      standingIndependent: standingIndependent,
+      kneelingImmobile: kneelingImmobile,
+      kneelingAssistance: kneelingAssistance,
+      kneelingIndependent: kneelingIndependent,
+      halfKneelingImmobile: halfKneelingImmobile,
+      halfKneelingAssistance: halfKneelingAssistance,
+      halfKneelingIndependent: halfKneelingIndependent,
+      ambulationImmobile: ambulationImmobile,
+      ambulationAssistance: ambulationAssistance,
+      ambulationIndependent: ambulationIndependent,
+      gmfc: gmfc,
+      miniMac: miniMac,
+      macs: macs,
+      cfcs: cfcs,
+      bodyStructurePositive: bodyStructurePositive,
+      bodyStructureNegative: bodyStructureNegative,
+      bodyFunctionPositive: bodyFunctionPositive,
+      bodyFunctionNegative: bodyFunctionNegative,
+      activitiesParticipation: activitiesParticipation,
+      activitiesLimitation: activitiesLimitation,
+      environmentalPersonal: environmentalPersonal,
+      environmentalContextual: environmentalContextual,
+      shortTermGoals: shortTermGoals,
+      longTermGoals: longTermGoals,
+      intervention: intervention,
+      equipments: equipments,
+      section17Coms: section17Coms,
+      adl: adl,
+      posture: posture,
+      asymmetry: asymmetry,
+      side: side,
+      broad: broad,
+      narrow: narrow,
+      generalPosture: generalPosture,
+      callosities: callosities,
+      movementStrategies: movementStrategies,
+      staticBalanceGood: staticBalanceGood,
+      staticBalanceFair: staticBalanceFair,
+      staticBalancePoor: staticBalancePoor,
+      anticipatoryBalanceGood: anticipatoryBalanceGood,
+      anticipatoryBalanceFair: anticipatoryBalanceFair,
+      anticipatoryBalancePoor: anticipatoryBalancePoor,
+      anticipatoryBalanceComs: anticipatoryBalanceComs,
+      reactiveBalanceGood: reactiveBalanceGood,
+      reactiveBalanceFair: reactiveBalanceFair,
+      reactiveBalancePoor: reactiveBalancePoor,
+      reactiveBalanceComs: reactiveBalanceComs,
+      coordinationGood: coordinationGood,
+      coordinationFair: coordinationFair,
+      coordinationPoor: coordinationPoor,
+      coordinationComs: coordinationComs,
+      canInitiate: canInitiate,
+      cantInitiate: cantInitiate,
+      initiateComs: initiateComs,
+      sustenancePoor: sustenancePoor,
+      sustenanceGood: sustenanceGood,
+      sustenanceFair: sustenanceFair,
+      sustenanceComs: sustenanceComs,
+      terminationPassive: terminationPassive,
+      terminationAbrupt: terminationAbrupt,
+      terminationComs: terminationComs,
+      controlGradPoor: controlGradPoor,
+      controlGradFair: controlGradFair,
+      controlGradGood: controlGradGood,
+      controlGradComs: controlGradComs,
+      recruitmentPostural: recruitmentPostural,
+      recruitmentMovement: recruitmentMovement,
+      contractionConcentric: contractionConcentric,
+      contractionIsometric: contractionIsometric,
+      contractionEccentric: contractionEccentric,
+      contraction: contraction,
+      reciprocalInhibition: reciprocalInhibition,
+      massEnergy: massEnergy,
+      isolatedWork: isolatedWork,
+      dynamicStiffness: dynamicStiffness,
+      extraneousMovement: extraneousMovement,
+      singleAssesment: singleAssesment,
+      registrationOptions: registrationOptions,
+      registrationComs: registrationComs,
+      tactileUnder: tactileUnder,
+      tactileOver: tactileOver,
+      proprioceptiveUnder: proprioceptiveUnder,
+      proprioceptiveOver: proprioceptiveOver,
+      vestibularUnder: vestibularUnder,
+      vestibularOver: vestibularOver,
+      auditoryUnder: auditoryUnder,
+      auditoryOver: auditoryOver,
+      visualUnder: visualUnder,
+      visualOver: visualOver,
+      gustatoryOver: gustatoryOver,
+      gustatoryUnder: gustatoryUnder,
+      gustatoryComs: gustatoryComs,
+      sensoryProfileComs: sensoryProfileComs,
+      gravitationalInsecurity: gravitationalInsecurity,
+      aversiveResponse: aversiveResponse,
+      posturalInsecurity: posturalInsecurity,
+      tactileDefensiveness: tactileDefensiveness,
+      sensoryAvoiding: sensoryAvoiding,
+      stimulation: stimulation,
+      distractibility: distractibility,
+      hyperActivity: hyperActivity,
+      coms: coms,
+      formSpace: formSpace,
+      visuoMotor: visuoMotor,
+      tactileDiscrimination: tactileDiscrimination,
+      vestibularProcessing: vestibularProcessing,
+      praxis: praxis,
+      coms2: coms2,
+      focalVision: focalVision,
+      ambientVision: ambientVision,
+      eyeMovementSystem: eyeMovementSystem,
+      localization: localization,
+      tracking: tracking,
+      gmfm: gmfm,
+      pedi: pedi,
+      pediatricBalanceScale: pediatricBalanceScale,
+      wotaAquaticScale: wotaAquaticScale,
+      recommendationOptions: recommendationOptions,
+      accessorsName: accessorsName,
+      accessorsDesignation: accessorsDesignation,
+    });
+
+    db.transaction(txn => {
+      txn.executeSql(
+        'SELECT _id FROM patient_data WHERE patient_name = ?',
+        [selectedPatientName],
+        (_, result) => {
+          if (result.rows.length > 0) {
+            const patientId = result.rows.item(0)._id;
+            txn.executeSql(
+              'INSERT INTO form_data(patient_id, form_data) VALUES (?, ?)',
+              [patientId, formData],
+              (_, res) => {
+                console.log(res);
+              },
+              (_, error) => {
+                console.log('Couldnt Save Data ', error);
+              },
+            );
+          }
+        },
+      );
+    });
+  };
+
   return (
     <SafeAreaView>
+      <View style={styles.inputFieldContainerSAVE}>
+        <TouchableOpacity style={styles.exportBtn} onPress={saveForm}>
+          <Text style={styles.exportText}>Save form data </Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.inputFieldContainerSHARE}>
         <TouchableOpacity style={styles.exportBtn} onPress={handleSharePdf}>
           <Text style={styles.exportText}>Share PDF</Text>
@@ -3188,10 +3471,21 @@ const styles = StyleSheet.create({
   inputFieldContainerSHARE: {
     width: wp('80%'),
     height: hp('5%'),
-    marginVertical: wp('10%'),
     marginHorizontal: wp('10%'),
     flexDirection: 'column',
     backgroundColor: '#169cc4',
+    borderRadius: 10,
+    marginBottom: 20,
+    marginRight: 50,
+    elevation: 10,
+  },
+  inputFieldContainerSAVE: {
+    width: wp('80%'),
+    height: hp('5%'),
+    marginVertical: wp('15%'),
+    marginHorizontal: wp('10%'),
+    flexDirection: 'column',
+    backgroundColor: '#4586ff',
     borderRadius: 10,
     marginBottom: 20,
     marginRight: 50,

@@ -6,7 +6,7 @@ const initialState = {
   standing: '',
   walking: '',
   fineMotor: '',
-  communication: '',
+  communications: '',
   socialBehaviour: '',
 };
 
@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
     case 'updateCommunication':
       return {
         ...state,
-        communication: action.payload,
+        communications: action.payload,
       };
     case 'updateSocialBehaviour':
       return {

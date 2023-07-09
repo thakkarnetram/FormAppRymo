@@ -35,7 +35,7 @@ const Section15 = () => {
   const dispatch = useDispatch();
   const canInitiate = useSelector(state => state.section15.canInitiate);
   const cantInitiate = useSelector(state => state.section15.cantInitiate);
-  const initiateComs = useSelector(state => state.section15.initiateComs);
+  const initiateComs = useSelector(state => state.section15.initiationComs);
   const sustenancePoor = useSelector(state => state.section15.sustenancePoor);
   const sustenanceGood = useSelector(state => state.section15.sustenanceGood);
   const sustenanceFair = useSelector(state => state.section15.sustenanceFair);

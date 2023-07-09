@@ -7823,6 +7823,11 @@
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz"
   "version" "0.4.0"
 
+"react-native-sqlite-storage@^6.0.1":
+  "integrity" "sha512-1tDFjrint6X6qSYKf3gDyz+XB+X79jfiL6xTugKHPRtF0WvqMtVgdLuNqZunIXjNEvNtNVEbXaeZ6MsguFu00A=="
+  "resolved" "https://registry.npmjs.org/react-native-sqlite-storage/-/react-native-sqlite-storage-6.0.1.tgz"
+  "version" "6.0.1"
+
 "react-native-vector-icons@>7.0.0":
   "integrity" "sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA=="
   "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.2.0.tgz"
@@ -7836,7 +7841,7 @@
   "resolved" "https://registry.npmjs.org/react-native-windows/-/react-native-windows-1.0.0.tgz"
   "version" "1.0.0"
 
-"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.72 || 1000.0.0", "react-native@>= 0.62", "react-native@>=0.20.0", "react-native@>=0.35", "react-native@>=0.44.1", "react-native@>=0.47.0", "react-native@>=0.57", "react-native@>=0.59", "react-native@>=0.63.2", "react-native@>=0.63.3", "react-native@>=0.65.0", "react-native@0.71.6":
+"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.72 || 1000.0.0", "react-native@>= 0.62", "react-native@>=0.14.0", "react-native@>=0.20.0", "react-native@>=0.35", "react-native@>=0.44.1", "react-native@>=0.47.0", "react-native@>=0.57", "react-native@>=0.59", "react-native@>=0.63.2", "react-native@>=0.63.3", "react-native@>=0.65.0", "react-native@0.71.6":
   "integrity" "sha512-gHrDj7qaAaiE41JwaFCh3AtvOqOLuRgZtHKzNiwxakG/wvPAYmG73ECfWHGxjxIx/QT17Hp37Da3ipCei/CayQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.71.6.tgz"
   "version" "0.71.6"

@@ -369,11 +369,11 @@ export const updateFineMotor = fineMotor => {
   };
 };
 
-export const updateCommunication = communication => {
+export const updateCommunication = communications => {
   return dispatch => {
     dispatch({
       type: 'updateCommunication',
-      payload: communication,
+      payload: communications,
     });
   };
 };
@@ -2302,3 +2302,40 @@ export const updatePatientName = patientName => {
     });
   };
 };
+
+export const updatePatientAddress = patientAddress => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientAddress',
+      payload: patientAddress,
+    });
+  };
+};
+
+export const updatePatientContact = patientContact => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientContact',
+      payload: patientContact,
+    });
+  };
+};
+
+export const updatePatientImageMain = patientImage => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientImageMain',
+      payload: patientImage,
+    });
+  };
+};
+
+export const updatePatientId = patientId => {
+  return dispatch => {
+    dispatch({
+      type: 'updatePatientId',
+      payload: patientId,
+    });
+  };
+};
+

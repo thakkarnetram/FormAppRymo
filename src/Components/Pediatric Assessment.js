@@ -16,8 +16,9 @@ import {
 } from 'react-native-responsive-screen';
 import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
+import db from '../db/db';
 
-const Pediatric_Assessment = ({navigation}) => {
+const Pediatric_Assessment = ({navigation, route}) => {
   useEffect(() => {
     Orientation.lockToPortrait();
     return () => {
@@ -25,6 +26,7 @@ const Pediatric_Assessment = ({navigation}) => {
     };
   }, []);
   Immersive.setImmersive(true);
+  const {selectedPatientName, selectedPatientId, selectedImage} = route.params;
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <ScrollView style={styles.scrollViewContainer}>
@@ -41,16 +43,32 @@ const Pediatric_Assessment = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              navigation.navigate('PatientHome');
+              navigation.navigate('AssessmentCopy', {
+                selectedPatientName: selectedPatientName,
+                selectedPatientId: selectedPatientId,
+              });
             }}>
-            <Text style={styles.buttonTextStyle}>Start Assessment</Text>
+            <Text style={styles.buttonTextStyle}>Start Assessment </Text>
           </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: 'lightblue',
+              borderRadius: 15,
+              width: wp('70%'),
+              height: hp('6%'),
+              marginVertical: wp('1%'),
+              marginHorizontal: wp('15%'),
+            }}>
+            <Image source={{uri: selectedImage}} style={styles.patientImage} />
+            <Text style={styles.patientText}>{selectedPatientName}</Text>
+          </View>
           <Image
             source={require('../assets/home2.png')}
             style={{
               width: wp('100%'),
               height: hp('17%'),
-
               marginVertical: wp('10%'),
             }}
           />
@@ -74,6 +92,18 @@ const styles = StyleSheet.create({
     height: hp('100%'),
     width: wp('100%'),
   },
+  patientImage: {
+    borderRadius: 20,
+    width: 50,
+    height: 50,
+    marginHorizontal: wp('3%'),
+  },
+  patientText: {
+    marginVertical: wp('1.5%'),
+    color: '#082173',
+    marginHorizontal: wp('3%'),
+    fontSize: wp('3%'),
+  },
   buttonStyle: {
     marginHorizontal: wp('20%'),
     marginVertical: wp('10%'),
@@ -89,6 +119,22 @@ const styles = StyleSheet.create({
     marginVertical: hp('1%'),
     marginHorizontal: hp('1%'),
     fontSize: hp('2%'),
+  },
+  displayContainer: {
+    flexDirection: 'row',
+    marginHorizontal: hp('10%'),
+    marginVertical: hp('1%'),
+    borderRadius: 20,
+    width: wp('70%'),
+    height: hp('6%'),
+    backgroundColor: 'lightblue',
+    alignItems: 'center',
+  },
+  displayName: {
+    color: 'black',
+    fontSize: wp('3.5%'),
+    marginVertical: hp('1.5%'),
+    marginRight: wp('30%'),
   },
 });
 
