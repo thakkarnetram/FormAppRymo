@@ -33,7 +33,7 @@
     "react-native-eject": "^0.2.0",
     "react-native-elements": "^3.4.3",
     "react-native-file-picker": "^0.0.21",
-    "react-native-flipper-performance-plugin": "^0.4.0",
+    "react-native-floating-action": "^1.22.0",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.9.0",
     "react-native-html-to-pdf": "^0.12.0",

@@ -40,6 +40,21 @@ const Pediatric_Assessment = ({navigation, route}) => {
               marginVertical: wp('10%'),
             }}
           />
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              borderRadius: 15,
+              width: wp('70%'),
+              height: hp('10%'),
+              marginVertical: wp('1%'),
+              marginHorizontal: wp('10%'),
+            }}>
+            <Image source={{uri: selectedImage}} style={styles.patientImage} />
+            <View style={styles.patientNameContainer}>
+              <Text style={styles.patientText}>{selectedPatientName}</Text>
+            </View>
+          </View>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
@@ -50,20 +65,7 @@ const Pediatric_Assessment = ({navigation, route}) => {
             }}>
             <Text style={styles.buttonTextStyle}>Start Assessment </Text>
           </TouchableOpacity>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              backgroundColor: 'lightblue',
-              borderRadius: 15,
-              width: wp('70%'),
-              height: hp('6%'),
-              marginVertical: wp('1%'),
-              marginHorizontal: wp('15%'),
-            }}>
-            <Image source={{uri: selectedImage}} style={styles.patientImage} />
-            <Text style={styles.patientText}>{selectedPatientName}</Text>
-          </View>
+
           <Image
             source={require('../assets/home2.png')}
             style={{
@@ -135,6 +137,11 @@ const styles = StyleSheet.create({
     fontSize: wp('3.5%'),
     marginVertical: hp('1.5%'),
     marginRight: wp('30%'),
+  },
+  patientNameContainer: {
+    flex: 1,
+    marginLeft: 8, // Add spacing between the image and the patient name
+
   },
 });
 

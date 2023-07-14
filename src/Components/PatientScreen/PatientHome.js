@@ -24,6 +24,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
 import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
+import {FloatingAction} from 'react-native-floating-action';
 import db from '../../db/db';
 
 const PatientHome = ({navigation}) => {
@@ -179,7 +180,13 @@ const PatientHome = ({navigation}) => {
     }
   };
 
-  const navigateToFormPage = (patientId, patientName, address, contact,image) => {
+  const navigateToFormPage = (
+    patientId,
+    patientName,
+    address,
+    contact,
+    image,
+  ) => {
     navigation.navigate('Pediatric Assessment', {
       selectedPatientId: patientId,
       selectedPatientName: patientName,
@@ -196,69 +203,153 @@ const PatientHome = ({navigation}) => {
     actions.updatePatientContact('');
   };
 
-  // TODO - CLICK IMAGE FUNCTION
+  const floatingActions = [
+    {
+      text: 'Add Patient ',
+      name: 'Patient Add',
+      position: 1,
+      icon: require('../../assets/plus.png'),
+    },
+  ];
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredPatientList, setFilteredPatientList] = useState([]);
+
+  const handleSearch = text => {
+    setSearchQuery(text);
+
+    if (text.trim() === '') {
+      setFilteredPatientList([]);
+    } else {
+      const filteredList = patientList.filter(patient =>
+        patient.name.toLowerCase().includes(text.toLowerCase()),
+      );
+      setFilteredPatientList(filteredList);
+    }
+  };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <Image
+        source={require('../../assets/home.png')}
+        style={{
+          width: wp('90%'),
+          height: hp('17%'),
+          alignSelf: 'center',
+          marginVertical: wp('5%'),
+        }}
+      />
+
+      <View style={{flexDirection: 'row'}}>
+        <View>
+          <Text style={styles.header}>Patient</Text>
+        </View>
+        <View style={styles.searchContainer}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search Patient"
+            value={searchQuery}
+            placeholderTextColor={'black'}
+            onChangeText={handleSearch}
+          />
+        </View>
+      </View>
       <ScrollView>
-        <Image
-          source={require('../../assets/home.png')}
-          style={{
-            width: wp('90%'),
-            height: hp('17%'),
-            alignSelf: 'center',
-            marginVertical: wp('5%'),
-          }}
-        />
-        <View style={styles.container}>
+        <View style={styles.container1}>
           <View style={styles.patientContainer}>
-            <View>
-              <Text style={styles.header}>Patient List</Text>
-            </View>
             <View style={styles.patientListContainer}>
-              {patientList.map((patient, index) => {
-                const {id,name, image} = patient;
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    style={styles.patientItem}
-                    onPress={() => {
-                      navigateToFormPage(
-                        patient.id,
-                        patient.name,
-                        patient.address,
-                        patient.contact,
-                        patient.image,
-                      );
-                    }}>
-                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                      {image && (
-                        <Image
-                          source={{uri: image}}
-                          style={styles.patientImage}
-                        />
-                      )}
-                      <Text style={styles.patientText}>{name}</Text>
-                    </View>
-                  </TouchableOpacity>
-                );
-              })}
+              {searchQuery.trim() === ''
+                ? patientList.map((patient, index) => {
+                    const {id, name, image} = patient;
+                    console.log('Patient List NAME ' + name);
+                    return (
+                      <TouchableOpacity
+                        key={index}
+                        style={styles.patientItem}
+                        onPress={() => {
+                          navigateToFormPage(
+                            patient.id,
+                            patient.name,
+                            patient.address,
+                            patient.contact,
+                            patient.image,
+                          );
+                        }}>
+                        <View
+                          style={{flexDirection: 'row', alignItems: 'center'}}>
+                          {image ? (
+                            <Image
+                              source={{uri: image}}
+                              style={styles.patientImage}
+                            />
+                          ) : (
+                            <Image
+                              source={require('../../assets/profile.png')}
+                              style={styles.patientImage}
+                            />
+                          )}
+                          <View style={styles.patientNameContainer}>
+                            <Text style={styles.patientText}>{name}</Text>
+                          </View>
+                        </View>
+                      </TouchableOpacity>
+                    );
+                  })
+                : filteredPatientList.map((patient, index) => {
+                    const {id, name, image} = patient;
+                    console.log('FILTERED NAME ' + name);
+                    return (
+                      <TouchableOpacity
+                        key={index}
+                        style={styles.patientItem}
+                        onPress={() => {
+                          navigateToFormPage(
+                            patient.id,
+                            patient.name,
+                            patient.address,
+                            patient.contact,
+                            patient.image,
+                          );
+                        }}>
+                        <View
+                          style={{flexDirection: 'row', alignItems: 'center'}}>
+                          {image && (
+                            <Image
+                              source={{uri: image}}
+                              style={styles.patientImage}
+                            />
+                          )}
+                          <View style={styles.patientNameContainer}>
+                            <Text style={styles.patientText}>{name}</Text>
+                          </View>
+                        </View>
+                      </TouchableOpacity>
+                    );
+                  })}
             </View>
           </View>
-          <TouchableOpacity style={styles.addButton} onPress={resetModalFields}>
-            <Text style={styles.buttonText1}>Add Patient</Text>
-          </TouchableOpacity>
         </View>
-        <Image
-          source={require('../../assets/home2.png')}
-          style={{
-            width: wp('100%'),
-            height: hp('17%'),
-            marginVertical: wp('35%'),
-          }}
-        />
       </ScrollView>
-
+      <View style={styles.containerFloat}>
+        <View style={styles.floatingContainer}>
+          <FloatingAction
+            actions={floatingActions}
+            onPressItem={resetModalFields}
+            buttonSize={90}
+            position="right"
+            iconHeight={30}
+            iconWidth={30}
+          />
+        </View>
+      </View>
+      <Image
+        source={require('../../assets/home2.png')}
+        style={{
+          width: wp('100%'),
+          height: hp('17%'),
+          marginVertical: wp('5%'),
+        }}
+      />
       <Modal
         visible={isAddModalVisible}
         animationType="slide"
@@ -292,7 +383,7 @@ const PatientHome = ({navigation}) => {
             <TextInput
               style={styles.textInput}
               placeholder="Enter contact"
-              keyboardType='numeric'
+              keyboardType="numeric"
               placeholderTextColor={'black'}
               value={contact}
               onChangeText={text => actions.updatePatientContact(text)}
@@ -335,6 +426,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+  },
+  container1: {
+    flex: 1,
   },
   patientContainer: {
     marginBottom: 20,
@@ -445,6 +539,33 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: wp('2%'),
     marginVertical: wp('2%'),
+  },
+  patientNameContainer: {
+    flex: 1,
+    marginLeft: wp('1%'), // Add spacing between the image and the patient name
+  },
+  searchContainer: {
+    width: wp('70%'),
+    height: hp('5%'),
+    marginVertical: wp('2%'),
+  },
+  searchInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    padding: 10,
+    color: 'black',
+  },
+  searchButton: {
+    marginLeft: 8,
+    backgroundColor: 'blue',
+    borderRadius: 8,
+    padding: 16,
+  },
+  searchButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 
