@@ -177,6 +177,14 @@ const Last = () => {
           </View>
         </View>
         {/* Assessor section */}
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Assessor's Name
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={accessorsName}
@@ -187,6 +195,14 @@ const Last = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Assessor's Designation
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={accessorsDesignation}

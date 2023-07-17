@@ -92,6 +92,14 @@ const Section4 = () => {
           }}>
           Gross Motor
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Hand Holding
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={handHolding}
@@ -102,6 +110,14 @@ const Section4 = () => {
             style={styles.developmentMileStoneText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Rolling
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={rolling}
@@ -112,6 +128,14 @@ const Section4 = () => {
             style={styles.developmentMileStoneText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Crawling
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={crawling}
@@ -122,6 +146,14 @@ const Section4 = () => {
             style={styles.developmentMileStoneText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Sitting
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={sitting}
@@ -132,6 +164,14 @@ const Section4 = () => {
             style={styles.developmentMileStoneText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Standing
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={standing}
@@ -142,6 +182,14 @@ const Section4 = () => {
             style={styles.developmentMileStoneText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Walking
+        </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={walking}

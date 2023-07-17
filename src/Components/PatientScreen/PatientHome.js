@@ -313,9 +313,14 @@ const PatientHome = ({navigation}) => {
                         }}>
                         <View
                           style={{flexDirection: 'row', alignItems: 'center'}}>
-                          {image && (
+                          {image ? (
                             <Image
                               source={{uri: image}}
+                              style={styles.patientImage}
+                            />
+                          ) : (
+                            <Image
+                              source={require('../../assets/profile.png')}
                               style={styles.patientImage}
                             />
                           )}

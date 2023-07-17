@@ -81,6 +81,14 @@ const Section7 = () => {
           }}>
           Objective Assesment
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Tone Options
+        </Text>
         <View style={styles.checkBoxContainer}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.toneHead}>Tone</Text>
@@ -100,6 +108,14 @@ const Section7 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Deformities Right
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={deformitiesR}
@@ -112,6 +128,14 @@ const Section7 = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Deformities Left
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={deformitiesL}
@@ -124,6 +148,14 @@ const Section7 = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Contracture Right
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={contractureR}
@@ -136,6 +168,14 @@ const Section7 = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Contracture Left
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={contractureL}
@@ -148,6 +188,14 @@ const Section7 = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Tightness Right
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={tightnessR}
@@ -160,6 +208,14 @@ const Section7 = () => {
             style={styles.objectiveAssesmentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Tightness Left
+        </Text>
         <View style={styles.objectiveAssesmentContainer}>
           <TextInput
             value={tightnessL}

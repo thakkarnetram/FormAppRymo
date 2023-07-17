@@ -96,6 +96,14 @@ const Section5 = () => {
           }}>
           Subjective Assesment
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Sight Options
+        </Text>
         <View style={styles.checkBoxContainer}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.sightHead}>Sight </Text>
@@ -115,6 +123,14 @@ const Section5 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Hearing Options
+        </Text>
         <View style={styles.checkBoxContainer}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.hearingHead}>Hearing </Text>
@@ -134,6 +150,14 @@ const Section5 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Speech Options
+        </Text>
         <View style={styles.checkBoxContainer}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.speechHead}>Speech</Text>
@@ -153,6 +177,14 @@ const Section5 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Mode of Ambulation Options
+        </Text>
         <View style={styles.inputFieldContainer5Q}>
           <View style={{flexDirection: 'column'}}>
             <Text style={styles.multipleChoiceHeader5Q}>

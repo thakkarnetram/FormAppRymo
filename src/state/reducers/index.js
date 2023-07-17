@@ -19,6 +19,7 @@ import section17Reducer from '../reducers/section17Reducers';
 import section18Reducer from '../reducers/section18Reducers';
 import lastReducer from '../reducers/sectionLastReducers';
 import PatientReducer from '../reducers/patientReducers';
+import LoginReducer from '../reducers/loginReducer';
 
 const reducers = combineReducers({
   section1: section1Reducer,
@@ -41,6 +42,7 @@ const reducers = combineReducers({
   section18: section18Reducer,
   lastSection: lastReducer,
   patient: PatientReducer,
+  login: LoginReducer,
 });
 
 export default reducers;

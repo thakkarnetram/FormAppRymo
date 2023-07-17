@@ -50,7 +50,14 @@ const Pediatric_Assessment = ({navigation, route}) => {
               marginVertical: wp('1%'),
               marginHorizontal: wp('10%'),
             }}>
-            <Image source={{uri: selectedImage}} style={styles.patientImage} />
+            {selectedImage ? (
+              <Image source={{uri: selectedImage}} style={styles.patientImage} />
+            ) : (
+              <Image
+                source={require('../assets/profile.png')}
+                style={styles.patientImage}
+              />
+            )}
             <View style={styles.patientNameContainer}>
               <Text style={styles.patientText}>{selectedPatientName}</Text>
             </View>
@@ -141,7 +148,6 @@ const styles = StyleSheet.create({
   patientNameContainer: {
     flex: 1,
     marginLeft: 8, // Add spacing between the image and the patient name
-
   },
 });
 

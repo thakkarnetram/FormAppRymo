@@ -114,6 +114,26 @@ const Section8 = () => {
             }}>
             1.Tendoachilles
           </Text>
+          <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('25%'),
+                }}>
+                R1
+              </Text>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('-5%'),
+                }}>
+                R2
+              </Text>
+            </View>
+          </View>
           <View style={{flexDirection: 'row'}}>
             <Text
               style={{
@@ -200,6 +220,26 @@ const Section8 = () => {
             }}>
             2. Hamstrings
           </Text>
+          <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('25%'),
+                }}>
+                R1
+              </Text>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('-5%'),
+                }}>
+                R2
+              </Text>
+            </View>
+          </View>
           <View style={{flexDirection: 'row'}}>
             <Text
               style={{
@@ -286,6 +326,26 @@ const Section8 = () => {
             }}>
             3. Hip Adductors
           </Text>
+          <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('25%'),
+                }}>
+                R1
+              </Text>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('-5%'),
+                }}>
+                R2
+              </Text>
+            </View>
+          </View>
           <View style={{flexDirection: 'row'}}>
             <Text
               style={{
@@ -372,7 +432,7 @@ const Section8 = () => {
 const styles = StyleSheet.create({
   normalContainerPicker: {
     width: wp('90%'),
-    height: hp('65%'),  
+    height: hp('65%'),
     flex: 1,
     paddingVertical: wp('5%'),
     paddingHorizontal: wp('5%'),

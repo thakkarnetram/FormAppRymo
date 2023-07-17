@@ -373,6 +373,14 @@ const Section1 = () => {
             </TouchableOpacity>
           </View>
           {/* SECTION I => PATIENT INFORMATION */}
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            First Name
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={firstName}
@@ -383,6 +391,14 @@ const Section1 = () => {
               style={styles.firstName}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Last Name
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={lastName}
@@ -393,6 +409,14 @@ const Section1 = () => {
               style={styles.lastName}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Age
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={age}
@@ -403,6 +427,14 @@ const Section1 = () => {
               style={styles.age}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Father Name
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={fatherName}
@@ -418,6 +450,14 @@ const Section1 = () => {
               }}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Mother Name
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={motherName}
@@ -433,6 +473,14 @@ const Section1 = () => {
               }}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Address
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={address}
@@ -448,6 +496,14 @@ const Section1 = () => {
               }}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Contact Number
+          </Text>
           <View style={styles.inputTextContainer}>
             <TextInput
               value={contactNumber}
@@ -463,6 +519,14 @@ const Section1 = () => {
               }}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Gender
+          </Text>
           <View style={styles.checkBoxContainer}>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.genderHead}>Select your Gender</Text>
@@ -482,6 +546,14 @@ const Section1 = () => {
               </View>
             </View>
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Date of Birth
+          </Text>
           <View style={styles.inputFieldContainerDOB}>
             <Text style={styles.selectDOBText}>Date of Birth :</Text>
             <Text style={styles.dobText}>{userDob.toLocaleDateString()}</Text>
@@ -501,6 +573,14 @@ const Section1 = () => {
               />
             )}
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Date of Evaluation
+          </Text>
           <View style={styles.inputFieldContainerDOE}>
             <Text style={styles.selectDOBText}>Date of Evaluation :</Text>
             <Text style={styles.doeText}>
@@ -522,6 +602,14 @@ const Section1 = () => {
               />
             )}
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Chief Complaint
+          </Text>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
               value={chiefComplaint}
@@ -534,6 +622,14 @@ const Section1 = () => {
               style={styles.complaintText}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Informant
+          </Text>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
               value={informant}
@@ -546,6 +642,14 @@ const Section1 = () => {
               style={styles.informantText}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Assessed by
+          </Text>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
               value={assessedBy}
@@ -558,6 +662,14 @@ const Section1 = () => {
               style={styles.addressedByText}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Diagnosis
+          </Text>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
               value={diagnosis}
@@ -570,6 +682,14 @@ const Section1 = () => {
               style={styles.diagnosisText}
             />
           </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
+            Referred By
+          </Text>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
               value={referredBy}

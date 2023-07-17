@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -17,7 +17,6 @@ import Immersive from 'react-native-immersive';
 import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
-
 
 const Section3 = () => {
   // locking screen to potrait mode
@@ -85,6 +84,14 @@ const Section3 = () => {
           }}>
           Post Natal
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          CIAB Options
+        </Text>
         <View style={styles.checkBoxContainer}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.ciabHead}>CIAB</Text>
@@ -104,6 +111,14 @@ const Section3 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Birth Weight (kg)
+        </Text>
         <View style={styles.weigthHeightContainer}>
           <TextInput
             value={userBirthWeight}
@@ -114,6 +129,14 @@ const Section3 = () => {
             style={styles.userWeightText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Head Circumference (cm)
+        </Text>
         <View style={styles.weigthHeightContainer}>
           <TextInput
             value={userHeadCircumference}
@@ -124,6 +147,14 @@ const Section3 = () => {
             style={styles.userHeightText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Nicu Stay Options
+        </Text>
         <View style={styles.inputFieldContainer3Q}>
           <View style={{flexDirection: 'column'}}>
             <Text style={styles.multipleChoiceHeader}>NICU Stay</Text>
@@ -150,6 +181,14 @@ const Section3 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Reason for NICU Stay
+        </Text>
         <View style={styles.inputTextContainerMultiLine}>
           <TextInput
             value={reasonNicuStay}
@@ -162,6 +201,14 @@ const Section3 = () => {
             style={styles.presentText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Present History
+        </Text>
         <View style={styles.inputTextContainerMultiLine}>
           <TextInput
             value={presentHistory}

@@ -181,6 +181,14 @@ const Section6 = () => {
           }}>
           Investigation
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          MRI
+        </Text>
         <View>
           <View style={styles.investigationContainer}>
             <TextInput
@@ -329,6 +337,14 @@ const Section6 = () => {
             )}
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          EEG
+        </Text>
         <View>
           <View style={styles.investigationContainer}>
             <TextInput
@@ -477,6 +493,14 @@ const Section6 = () => {
             )}
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          BERA
+        </Text>
         <View>
           <View style={styles.investigationContainer}>
             <TextInput
@@ -625,7 +649,14 @@ const Section6 = () => {
             )}
           </View>
         </View>
-
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          OPTHALMALOGY
+        </Text>
         <View>
           <View style={styles.investigationContainer}>
             <TextInput
@@ -774,6 +805,14 @@ const Section6 = () => {
             )}
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          X-RAYS
+        </Text>
         <View>
           <View style={styles.investigationContainer}>
             <TextInput
@@ -874,7 +913,8 @@ const Section6 = () => {
                   }}
                 />
                 <View>
-                  <TouchableOpacity onPress={() => actions.updateclickedImageXRAYS('')}>
+                  <TouchableOpacity
+                    onPress={() => actions.updateclickedImageXRAYS('')}>
                     <Image
                       source={require('../../assets/cross.png')}
                       style={{
@@ -903,7 +943,8 @@ const Section6 = () => {
                 />
                 {clickedImageXRAYS ? (
                   <View>
-                    <TouchableOpacity onPress={() => actions.updateclickedImageXRAYS('')}>
+                    <TouchableOpacity
+                      onPress={() => actions.updateclickedImageXRAYS('')}>
                       <Image
                         source={require('../../assets/cross.png')}
                         style={{

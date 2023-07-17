@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,6 @@ import Immersive from 'react-native-immersive';
 import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
-
 
 const Section2 = () => {
   // locking screen to potrait mode
@@ -97,6 +96,14 @@ const Section2 = () => {
           }}>
           History
         </Text>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Father's Age During Conception
+        </Text>
         <View style={styles.inputTextContainer}>
           <TextInput
             value={fatherAgeConception}
@@ -107,6 +114,14 @@ const Section2 = () => {
             style={styles.userAge}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Mother's Age During Conception
+        </Text>
         <View style={styles.inputTextContainer}>
           <TextInput
             value={motherAgeConception}
@@ -117,6 +132,14 @@ const Section2 = () => {
             style={styles.userAge}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Mother's work load during conception
+        </Text>
         <View style={styles.checkBoxContainerHistory}>
           <View style={styles.row}>
             <Text
@@ -155,6 +178,14 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Mother's stress level during conception
+        </Text>
         <View style={styles.checkBoxContainerHistory}>
           <View style={styles.row}>
             <Text
@@ -195,6 +226,14 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Consanguinity / Non Consanguinity
+        </Text>
         <View style={styles.checkBoxContainerHistory}>
           <View style={{flexDirection: 'row'}}>
             <View style={styles.checkContainer}>
@@ -213,6 +252,14 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          No of Children
+        </Text>
         <View style={styles.weigthHeightContainer}>
           <TextInput
             value={children}
@@ -223,6 +270,14 @@ const Section2 = () => {
             style={styles.userWeightText}
           />
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          PreNatal Options
+        </Text>
         <View style={styles.inputFieldContainerMCQ}>
           <View style={{flexDirection: 'column'}}>
             <Text style={styles.multipleChoiceHeader}>Pre Natal</Text>
@@ -270,6 +325,14 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <Text
+          style={{
+            color: '#195794',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('5%'),
+          }}>
+          Natal Options
+        </Text>
         <View style={styles.checkBoxContainerNatal}>
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.natalHead}>NATAL</Text>
