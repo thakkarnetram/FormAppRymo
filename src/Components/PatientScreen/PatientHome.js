@@ -26,12 +26,14 @@ import {actionCreators} from '../../state/index';
 import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
 import {FloatingAction} from 'react-native-floating-action';
 import db from '../../db/db';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const PatientHome = ({navigation}) => {
   // locking screen to potrait mode
   // declaring states
 
   useEffect(() => {
+    getLoginTime();
     openDatabase();
     fetchPatientList();
   }, []);
@@ -225,6 +227,51 @@ const PatientHome = ({navigation}) => {
         patient.name.toLowerCase().includes(text.toLowerCase()),
       );
       setFilteredPatientList(filteredList);
+    }
+  };
+
+  const TIME = 2592000000; // 30days in milliseconds
+  const getLoginTime = async () => {
+    try {
+      const value = await AsyncStorage.getItem('loginTime');
+      if (!value) {
+        saveLoginTime();
+      } else if (value !== null) {
+        const loginTime = new Date(value);
+        const currentTime = new Date();
+        const timeDifference = currentTime.getTime() - loginTime.getTime();
+        if (timeDifference > TIME) {
+          logout();
+          saveLoginTime();
+        }
+      }
+    } catch (error) {
+      console.log('error logging out ' + error);
+    }
+  };
+
+  const saveLoginTime = async () => {
+    try {
+      await AsyncStorage.setItem('loginTime', new Date().toString());
+    } catch (error) {
+      console.log('Error saving the Key', error);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await AsyncStorage.removeItem('isLoggedIn');
+      if (navigation.canGoBack()) {
+        navigation.goBack(); // First go back
+      }
+      if (navigation.canGoBack()) {
+        navigation.goBack(); // Second go back
+      }
+      if (navigation.canGoBack()) {
+        navigation.goBack(); // Third go back
+      }
+    } catch (error) {
+      console.log('couldnt remove' + error);
     }
   };
 
