@@ -7,6 +7,14 @@ Features <br>
 - User can Share the Form through different platforms <br>
 - User can Save the form to local Storage <br>
 <br>
+Screenshots <br>
+<br>
+<p float="left">
+  <img src="./screenshots/home.jpg" height="700" />
+  <img src="./screenshots/patient.jpg" height="700" />
+  <img src="./screenshots/form.jpg" height="700" />
+</p>
+<br>
 Tech Stack- <br>
 -React Native (frontend) <br>
 -Redux (State management) <br>
