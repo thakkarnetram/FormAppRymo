@@ -37,9 +37,9 @@ const LoginScreen = ({getOTP, navigation}) => {
       if (response.status === 200) {
         validToast();
         AsyncStorage.setItem('isLoggedIn', 'true');
-        navigation.navigate('PatientHome');
       } else if (response.status === 401) {
         invalidToast();
+        navigation.navigate('PatientHome');
       }
       return console.log(json);
     } catch (error) {
@@ -84,7 +84,9 @@ const LoginScreen = ({getOTP, navigation}) => {
           <View style={styles.loginContainer}>
             <TouchableOpacity
               style={styles.loginButton}
-              onPress={verifyOtpLogin}>
+              onPress={() => {
+                navigation.navigate('PatientHome');
+              }}>
               <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
           </View>
