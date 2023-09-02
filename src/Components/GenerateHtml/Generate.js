@@ -591,7 +591,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
       <div class="label">
-        <h1>1. Patient Details</h1>
+        <h1> Patient Details</h1>
       </div>
       <div class="value">
       </div>
@@ -607,7 +607,7 @@ const Generate = ({selectedPatientName}) => {
     if (lastName) {
       html += `
       <div class="label">
-      <h2>last Name: ${lastName}</h2>
+      <h2>Last Name: ${lastName}</h2>
       </div>
       `;
     }
@@ -746,7 +746,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
       <div class="label">
-        <h1>2. HISTORY</h1>
+        <h1> HISTORY</h1>
       </div>
       `;
     }
@@ -889,7 +889,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
         <div class="label">
-          <h1>3. Developemental Milestones (Months)</h1>
+          <h1> Developemental Milestones (Months)</h1>
         </div>
         <div class="value">
         </div>
@@ -962,7 +962,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
       <div class="label">
-        <h1>4. Subjective Assesment</h1>
+        <h1> Subjective Assesment</h1>
       </div>
       <div class="value">
       </div>
@@ -1042,7 +1042,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1>5. General Observations </h1>
+            <h1>General Observations </h1>
           </div>
           <div class="value">
           </div>
@@ -1188,7 +1188,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1>6. Objective Assesment </h1>
+            <h1> Objective Assesment </h1>
           </div>
           <div class="value">
           </div>
@@ -1264,7 +1264,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>7 . Tardiue's  </h1>
+              <h1> Tardiue's  </h1>
             </div>
             <div class="value">
             </div>
@@ -1403,7 +1403,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1>8. ROM </h1>
+            <h1> ROM </h1>
           </div>
           <div class="value">
           </div>
@@ -1632,7 +1632,7 @@ const Generate = ({selectedPatientName}) => {
     if (upperExterimities || lowerExterimities || asworthsComs) {
       html += `
             <div class="label">
-              <h1>9. Modified Ashworth's</h1>
+              <h1> Modified Ashworth's</h1>
             </div>
             <div class="value">
             </div>
@@ -1699,7 +1699,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>10. Functional Evaluation</h1>
+              <h1>Functional Evaluation</h1>
             </div>
             <div class="value">
             </div>
@@ -1934,7 +1934,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>17 - ICF </h1>
+              <h1> ICF </h1>
             </div>
             <div class="value">
             </div>
@@ -2115,7 +2115,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>12. Multi System Assesment</h1>
+              <h1> Multi System Assesment</h1>
             </div>
             <div class="value">
             </div>
@@ -2373,7 +2373,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>11. Single System Assesment</h1>
+              <h1>Single System Assesment</h1>
             </div>
             <div class="value">
             </div>
@@ -2595,7 +2595,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>13. Sensory Systems</h1>
+              <h1> Sensory Systems</h1>
             </div>
             <div class="value">
             </div>
@@ -2752,7 +2752,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
             <div class="label">
-              <h1>14. a- Sensory Modulation</h1>
+              <h1>Sensory Modulation</h1>
             </div>
             <div class="value">
             </div>
@@ -2843,7 +2843,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1>14. b- Sensory Processing</h1>
+            <h1> Sensory Processing</h1>
           </div>
           <div class="value">
           </div>
@@ -2911,7 +2911,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1>14. c- Visual System</h1>
+            <h1> Visual System</h1>
           </div>
           <div class="value">
           </div>
