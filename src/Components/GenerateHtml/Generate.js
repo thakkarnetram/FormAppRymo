@@ -41,6 +41,8 @@ const Generate = ({selectedPatientName}) => {
     state => state.section2.motherAgeConception,
   );
   const workLoad = useSelector(state => state.section2.workLoad);
+  const workLoadComs = useSelector(state => state.section2.workLoadComs);
+  const stressLevelComs = useSelector(state => state.section2.stressLevelComs);
   const stresslevel = useSelector(state => state.section2.stressLevel);
   const consanguinity = useSelector(state => state.section2.consanguinity);
   const nonConsanguinity = useSelector(
@@ -150,6 +152,10 @@ const Generate = ({selectedPatientName}) => {
   const hipAdductionLTR2 = useSelector(
     state => state.section8.hipAdductorsLTR2,
   );
+  const bicepsRTR1 = useSelector(state => state.section8.bicepsRTR1);
+  const bicepsRTR2 = useSelector(state => state.section8.bicepsRTR2);
+  const bicepsLTR1 = useSelector(state => state.section8.bicepsLTR1);
+  const bicepsLTR2 = useSelector(state => state.section8.bicepsLTR2);
   // Section 9
   const backExt = useSelector(state => state.section9.backExt);
   const backFlex = useSelector(state => state.section9.backFlex);
@@ -300,6 +306,16 @@ const Generate = ({selectedPatientName}) => {
   const adl = useSelector(state => state.section13.adl);
 
   // Section 14
+  const alignmentComs = useSelector(state => state.section14.alignmentComs);
+  const baseOfSupportComs = useSelector(
+    state => state.section14.baseOfSupportComs,
+  );
+  const movementStratComs = useSelector(
+    state => state.section14.movementStratComs,
+  );
+  const staticBalanceComs = useSelector(
+    state => state.section14.staticBalanceComs,
+  );
   const posture = useSelector(state => state.section14.posture);
   const asymmetry = useSelector(state => state.section14.alignment);
   const side = useSelector(state => state.section14.side);
@@ -402,7 +418,7 @@ const Generate = ({selectedPatientName}) => {
   const extraneousMovement = useSelector(
     state => state.section15.extraneousMovement,
   );
-  const singleAssesment = useSelector(state => state.section15.section15Coms);
+  const singleassessment = useSelector(state => state.section15.section15Coms);
 
   // Section 16
 
@@ -450,6 +466,15 @@ const Generate = ({selectedPatientName}) => {
   const sensoryProfileComs = useSelector(
     state => state.section16.sensoryProfileComs,
   );
+
+  //  New section 16
+  const tactileComs = useSelector(state => state.section16.tactileComs);
+  const proprioceptiveComs = useSelector(
+    state => state.section16.proprioceptiveComs,
+  );
+  const vestibularComs = useSelector(state => state.section16.vestibularComs);
+  const auditoryComs = useSelector(state => state.section16.vestibularComs);
+  const visualComs = useSelector(state => state.section16.visualComs);
 
   // Section 17
   const gravitationalInsecurity = useSelector(
@@ -701,6 +726,14 @@ const Generate = ({selectedPatientName}) => {
       }
     }
 
+    if (referredBy) {
+      const formated = referredBy.replace(/\n/g, '<br>');
+      html += `
+      <div class="label">
+      <h2>Referred By: ${formated}</h2>
+      </div>`;
+    }
+
     if (informant) {
       const formated = informant.replace(/\n/g, '<br>');
       html += `
@@ -722,13 +755,6 @@ const Generate = ({selectedPatientName}) => {
       <h2>Diagnosis: ${formated}</h2>
       </div></div>`;
     }
-    if (referredBy) {
-      const formated = referredBy.replace(/\n/g, '<br>');
-      html += `
-      <div class="label">
-      <h2>Referred By: ${formated}</h2>
-      </div>`;
-    }
 
     // Section 2
     if (
@@ -740,7 +766,9 @@ const Generate = ({selectedPatientName}) => {
       nonConsanguinity ||
       children ||
       fullTerm ||
-      preTerm
+      preTerm ||
+      workLoadComs ||
+      stressLevelComs
     ) {
       html += `
       <div class="label">
@@ -764,11 +792,26 @@ const Generate = ({selectedPatientName}) => {
       <div class="label"><h2>Mother's Work Load During Conception :${workLoad}</h2></div>
      `;
     }
+    if (workLoadComs) {
+      html += `
+      <div class="label">
+      <h2>Comments ${workLoadComs}</h2>
+      </div>
+      `;
+    }
     if (stresslevel) {
       html += `
   
       <div class="label"><h2>Mother's Stress Level During Conception :${stresslevel}</h2></div>
      `;
+    }
+
+    if (stressLevelComs) {
+      html += `
+      <div class="label">
+      <h2>Comments ${stressLevelComs}</h2>
+      </div>
+      `;
     }
     if (consanguinity) {
       html += `
@@ -887,7 +930,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
         <div class="label">
-          <h1> Developemental Milestones (Months)</h1>
+          <h1> Developmental Milestones (Months)</h1>
         </div>
         <div class="value">
         </div>
@@ -895,7 +938,7 @@ const Generate = ({selectedPatientName}) => {
     }
     if (handHolding) {
       html += `
-        <div class="label"><h2>Hand Holding - ${handHolding} </h2>
+        <div class="label"><h2>Head Holding - ${handHolding} </h2>
         </div>`;
     }
     if (rolling) {
@@ -960,7 +1003,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
       <div class="label">
-        <h1> Subjective Assesment</h1>
+        <h1> Subjective assessment</h1>
       </div>
       <div class="value">
       </div>
@@ -1186,7 +1229,7 @@ const Generate = ({selectedPatientName}) => {
     ) {
       html += `
           <div class="label">
-            <h1> Objective Assesment </h1>
+            <h1> Objective assessment </h1>
           </div>
           <div class="value">
           </div>
@@ -1258,7 +1301,11 @@ const Generate = ({selectedPatientName}) => {
       hipAdductionLTR1 ||
       hipAdductionLTR2 ||
       hipAdductionRTR1 ||
-      hipAdductionRTR2
+      hipAdductionRTR2 ||
+      bicepsRTR1 ||
+      bicepsRTR2 ||
+      bicepsLTR1 ||
+      bicepsLTR2
     ) {
       html += `
             <div class="label">
@@ -1365,6 +1412,41 @@ const Generate = ({selectedPatientName}) => {
       html += `
         <div class="label">
           <h2>Hip Adductors  LT - L2  :${formated}</h2>
+          </div>
+        `;
+    }
+
+    // New
+
+    if (bicepsRTR1) {
+      const formated = bicepsRTR1.replace(/\n/g, '<br>');
+      html += `
+         <div class="label">
+          <h2>Biceps RT R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (bicepsRTR2) {
+      const formated = bicepsRTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Biceps RT R2 :${formated}</h2>
+          </div>
+        `;
+    }
+    if (bicepsLTR1) {
+      const formated = bicepsLTR1.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Biceps LT R1  :${formated}</h2>
+          </div>
+        `;
+    }
+    if (bicepsLTR2) {
+      const formated = bicepsLTR2.replace(/\n/g, '<br>');
+      html += `
+          <div class="label">
+          <h2>Biceps LT R2  :${formated}</h2>
           </div>
         `;
     }
@@ -1899,8 +1981,17 @@ const Generate = ({selectedPatientName}) => {
             `;
     }
 
-
-
+    const recommendationOpts = Object.keys(recommendationOptions).filter(
+      key => recommendationOptions[key],
+    );
+    if (recommendationOpts.length > 0) {
+      html += `
+              <div class="label"><h2> ICF =>  Recommendations  :  ${recommendationOpts.join(
+                ', ',
+              )}</h2>
+              </div>
+          `;
+    }
     // Section 17 - ICF
     if (
       bodyStructurePositive ||
@@ -2091,8 +2182,8 @@ const Generate = ({selectedPatientName}) => {
     if (adl) {
       const lines = adl.split('\n');
       const bulletPoints = lines
-          .map(line => (line !== '' ? `<li>${line}</li>` : ''))
-          .join('');
+        .map(line => (line !== '' ? `<li>${line}</li>` : ''))
+        .join('');
 
       if (bulletPoints) {
         html += `
@@ -2104,18 +2195,22 @@ const Generate = ({selectedPatientName}) => {
     }
 
     // Section 12 => Multi System Assessment
-    if(
+    if (
       posture ||
       asymmetry ||
       side ||
       broad ||
       narrow ||
       generalPosture ||
-      callosities
+      callosities ||
+      alignmentComs ||
+      baseOfSupportComs ||
+      movementStratComs ||
+      staticBalanceComs
     ) {
       html += `
             <div class="label">
-              <h1> Multi System Assesment</h1>
+              <h1> Multi System assessment</h1>
             </div>
             <div class="value">
             </div>
@@ -2146,6 +2241,16 @@ const Generate = ({selectedPatientName}) => {
         `;
     }
 
+    if (alignmentComs) {
+      const formated = alignmentComs.replace(/\n/g, '<br>');
+      html += `
+           <div class="label">
+            <h2>Comments: ${formated}</h2>
+            </div>
+
+            `;
+    }
+
     if (broad) {
       html += `
         <div class="label">
@@ -2160,6 +2265,16 @@ const Generate = ({selectedPatientName}) => {
           <h2>Base of Support :  Narrow</h2>
           </div>
         `;
+    }
+
+    if (baseOfSupportComs) {
+      const formated = baseOfSupportComs.replace(/\n/g, '<br>');
+      html += `
+           <div class="label">
+            <h2>Comments: ${formated}</h2>
+            </div>
+
+            `;
     }
 
     if (generalPosture) {
@@ -2193,35 +2308,35 @@ const Generate = ({selectedPatientName}) => {
     // Section 11 => Single System Assessment
 
     if (
-        canInitiate ||
-        cantInitiate ||
-        initiateComs ||
-        sustenancePoor ||
-        sustenanceGood ||
-        sustenanceFair ||
-        sustenanceComs ||
-        terminationPassive ||
-        terminationAbrupt ||
-        terminationComs ||
-        controlGradPoor ||
-        controlGradGood ||
-        controlGradFair ||
-        controlGradComs ||
-        recruitmentPostural ||
-        recruitmentMovement ||
-        contractionConcentric ||
-        contractionIsometric ||
-        contractionEccentric ||
-        contraction ||
-        reciprocalInhibition ||
-        massEnergy ||
-        isolatedWork ||
-        dynamicStiffness ||
-        extraneousMovement
+      canInitiate ||
+      cantInitiate ||
+      initiateComs ||
+      sustenancePoor ||
+      sustenanceGood ||
+      sustenanceFair ||
+      sustenanceComs ||
+      terminationPassive ||
+      terminationAbrupt ||
+      terminationComs ||
+      controlGradPoor ||
+      controlGradGood ||
+      controlGradFair ||
+      controlGradComs ||
+      recruitmentPostural ||
+      recruitmentMovement ||
+      contractionConcentric ||
+      contractionIsometric ||
+      contractionEccentric ||
+      contraction ||
+      reciprocalInhibition ||
+      massEnergy ||
+      isolatedWork ||
+      dynamicStiffness ||
+      extraneousMovement
     ) {
       html += `
             <div class="label">
-              <h1>Single System Assesment</h1>
+              <h1>Single System assessment</h1>
             </div>
             <div class="value">
             </div>
@@ -2413,11 +2528,11 @@ const Generate = ({selectedPatientName}) => {
         `;
     }
 
-    if (singleAssesment) {
-      const formated = singleAssesment.replace(/\n/g, '<br>');
+    if (singleassessment) {
+      const formated = singleassessment.replace(/\n/g, '<br>');
       html += `
          <div class="label">
-          <h2>Single System Assesment Comments :  ${formated}</h2>
+          <h2>Single System assessment Comments :  ${formated}</h2>
           </div>
 
         `;
@@ -2425,21 +2540,26 @@ const Generate = ({selectedPatientName}) => {
 
     // Section 13 =>  Sensory Systems
     if (
-        registrationComs ||
-        tactileUnder ||
-        tactileOver ||
-        auditoryUnder ||
-        auditoryOver ||
-        visualUnder ||
-        visualOver ||
-        vestibularUnder ||
-        vestibularOver ||
-        proprioceptiveUnder ||
-        proprioceptiveOver ||
-        gustatoryOver ||
-        gustatoryUnder ||
-        gustatoryComs ||
-        sensoryProfileComs
+      registrationComs ||
+      tactileUnder ||
+      tactileOver ||
+      auditoryUnder ||
+      auditoryOver ||
+      visualUnder ||
+      visualOver ||
+      vestibularUnder ||
+      vestibularOver ||
+      proprioceptiveUnder ||
+      proprioceptiveOver ||
+      gustatoryOver ||
+      gustatoryUnder ||
+      gustatoryComs ||
+      sensoryProfileComs ||
+      tactileComs ||
+      proprioceptiveComs ||
+      vestibularComs ||
+      auditoryComs ||
+      visualComs
     ) {
       html += `
             <div class="label">
@@ -2451,14 +2571,14 @@ const Generate = ({selectedPatientName}) => {
     }
 
     const registrationOption = Object.keys(registrationOptions).filter(
-        key => registrationOptions[key],
+      key => registrationOptions[key],
     );
     if (registrationOption.length > 0) {
       html += `
           <div class="label">
           <h2> Sensory Systems => Registraion Options  :  ${registrationOption.join(
-          ', ',
-      )}</h2>
+            ', ',
+          )}</h2>
           </div>
       `;
     }
@@ -2466,7 +2586,7 @@ const Generate = ({selectedPatientName}) => {
     if (registrationComs) {
       html += `
           <div class="label">
-          <h2>Registraion Coomments : ${registrationComs}</h2></div><div class="value">
+          <h2>Registraion Comments : ${registrationComs}</h2></div><div class="value">
           </div>
 
           `;
@@ -2488,6 +2608,15 @@ const Generate = ({selectedPatientName}) => {
           `;
     }
 
+    if (tactileComs) {
+      html += `
+          <div class="label">
+          <h2>Comments : ${tactileComs}</h2></div><div class="value">
+          </div>
+
+          `;
+    }
+
     if (proprioceptiveUnder) {
       html += `
           <div class="label">
@@ -2504,17 +2633,34 @@ const Generate = ({selectedPatientName}) => {
           `;
     }
 
-    if (vestibularUnder) {
+    if (proprioceptiveComs) {
       html += `
           <div class="label">
+          <h2>Comments : ${proprioceptiveComs}</h2></div><div class="value">
+          </div>
+
+          `;
+    }
+
+    if (vestibularUnder) {
+      html += `
+      <div class="label">
           <h2>Vestibular  : Under Responsive</h2>
           </div>
 
           `;
     } else if (vestibularOver) {
       html += `
+      <div class="label">
+      <h2>Vestibular  : Over Responsive</h2>
+      </div>
+      
+      `;
+    }
+    if (vestibularComs) {
+      html += `
           <div class="label">
-          <h2>Vestibular  : Over Responsive</h2>
+          <h2>Comments : ${vestibularComs}</h2></div><div class="value">
           </div>
 
           `;
@@ -2536,6 +2682,15 @@ const Generate = ({selectedPatientName}) => {
           `;
     }
 
+    if (auditoryComs) {
+      html += `
+          <div class="label">
+          <h2>Comments : ${auditoryComs}</h2></div><div class="value">
+          </div>
+
+          `;
+    }
+
     if (visualUnder) {
       html += `
           <div class="label">
@@ -2547,6 +2702,15 @@ const Generate = ({selectedPatientName}) => {
       html += `
           <div class="label">
           <h2>Visual  : Over Responsive</h2>
+          </div>
+
+          `;
+    }
+
+    if (visualComs) {
+      html += `
+          <div class="label">
+          <h2>Comments : ${visualComs}</h2></div><div class="value">
           </div>
 
           `;
@@ -2623,6 +2787,15 @@ const Generate = ({selectedPatientName}) => {
               </div>
           `;
     }
+    if (movementStratComs) {
+      const formated = movementStratComs.replace(/\n/g, '<br>');
+      html += `
+           <div class="label">
+            <h2>Comments: ${formated}</h2>
+            </div>
+
+            `;
+    }
 
     if (staticBalanceGood) {
       html += `
@@ -2645,6 +2818,15 @@ const Generate = ({selectedPatientName}) => {
           </div>
 
           `;
+    }
+    if (staticBalanceComs) {
+      const formated = staticBalanceComs.replace(/\n/g, '<br>');
+      html += `
+           <div class="label">
+            <h2>Comments: ${formated}</h2>
+            </div>
+
+            `;
     }
 
     if (anticipatoryBalanceGood) {
@@ -2737,9 +2919,6 @@ const Generate = ({selectedPatientName}) => {
 
           `;
     }
-
-
-
 
     // Section 14 =>  Sensory Modulation
     if (
@@ -3036,18 +3215,6 @@ const Generate = ({selectedPatientName}) => {
           <h2>WOTA (AquaticScale) : ${formated}</h2>
           </div>
 
-          `;
-    }
-
-    const recommendationOpts = Object.keys(recommendationOptions).filter(
-      key => recommendationOptions[key],
-    );
-    if (recommendationOpts.length > 0) {
-      html += `
-              <div class="label"><h2> ICF =>  Recommendations  :  ${recommendationOpts.join(
-                ', ',
-              )}</h2>
-              </div>
           `;
     }
 
@@ -3369,7 +3536,7 @@ const Generate = ({selectedPatientName}) => {
       isolatedWork: isolatedWork,
       dynamicStiffness: dynamicStiffness,
       extraneousMovement: extraneousMovement,
-      singleAssesment: singleAssesment,
+      singleassessment: singleassessment,
       registrationOptions: registrationOptions,
       registrationComs: registrationComs,
       tactileUnder: tactileUnder,

@@ -26,6 +26,10 @@ const initialState = {
   coordinationFair: '',
   coordinationPoor: '',
   coordinationComs: '',
+  alignmentComs: '',
+  baseOfSupportComs: '',
+  movementStratComs: '',
+  staticBalanceComs: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -170,6 +174,26 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         coordinationComs: action.payload,
+      };
+    case 'updateAlignmentComs':
+      return {
+        ...state,
+        alignmentComs: action.payload,
+      };
+    case 'updateBaseOfSupportComs':
+      return {
+        ...state,
+        baseOfSupportComs: action.payload,
+      };
+    case 'updateMovementStratComs':
+      return {
+        ...state,
+        movementStratComs: action.payload,
+      };
+    case 'updateStaticBalanceComs':
+      return {
+        ...state,
+        staticBalanceComs: action.payload,
       };
     default:
       return state;

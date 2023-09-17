@@ -19,7 +19,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
 
-
 const Section5 = () => {
   // locking screen to potrait mode
   useEffect(() => {
@@ -85,7 +84,7 @@ const Section5 = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        {/* Section V => Subjective Assesment */}
+        {/* Section V => Subjective assessment */}
         <Text
           style={{
             color: '#169cc4',
@@ -94,7 +93,7 @@ const Section5 = () => {
             marginHorizontal: wp('5%'),
             marginVertical: wp('1%'),
           }}>
-          Subjective Assesment
+          Subjective assessment
         </Text>
         <Text
           style={{
@@ -253,7 +252,7 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('4%'),
     backgroundColor: '#169cc4',
     borderRadius: 10,
-  },  
+  },
   checkboxWrapper: {
     flexDirection: 'row',
     alignItems: 'center',

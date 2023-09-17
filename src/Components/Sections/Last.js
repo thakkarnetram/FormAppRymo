@@ -185,14 +185,14 @@ const Last = () => {
           }}>
           Assessor's Name
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={accessorsName}
             onChangeText={accessorNameHandler}
             keyboardType="ascii-capable"
             placeholder="Assessor's Name"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -203,14 +203,14 @@ const Last = () => {
           }}>
           Assessor's Designation
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={accessorsDesignation}
             onChangeText={accessorDesignationHandler}
             keyboardType="ascii-capable"
             placeholder="Assessor's Designation"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
       </ScrollView>
@@ -219,7 +219,7 @@ const Last = () => {
 };
 
 const styles = StyleSheet.create({
-  objectiveAssesmentContainer: {
+  objectiveassessmentContainer: {
     width: wp('90%'),
     height: hp('10%'),
     marginVertical: wp('2%'),
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#169cc4',
     borderRadius: 10,
   },
-  objectiveAssesmentText: {
+  objectiveassessmentText: {
     color: 'white',
     fontSize: wp('3.5%'),
     marginVertical: wp('3%'),

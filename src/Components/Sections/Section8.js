@@ -51,8 +51,24 @@ const Section8 = () => {
   const hipAdductionLTR2 = useSelector(
     state => state.section8.hipAdductorsLTR2,
   );
+  const bicepsRTR1 = useSelector(state => state.section8.bicepsRTR1);
+  const bicepsRTR2 = useSelector(state => state.section8.bicepsRTR2);
+  const bicepsLTR1 = useSelector(state => state.section8.bicepsLTR1);
+  const bicepsLTR2 = useSelector(state => state.section8.bicepsLTR2);
   const actions = bindActionCreators(actionCreators, dispatch);
-
+  // new handlers
+  const handleBicepsRTR1Change = val => {
+    actions.updateBicepsRTR1(val);
+  };
+  const handleBicepsRTR2Change = val => {
+    actions.updateBicepsRTR2(val);
+  };
+  const handleBicepsLTR1Change = val => {
+    actions.updateBicepsLTR1(val);
+  };
+  const handleBicepsLTR2Change = val => {
+    actions.updateBicepsLTR2(val);
+  };
   //handlers
   const handleTasRTR1Change = tasRTR1 => {
     actions.updateTendoachillesRTR1(tasRTR1);
@@ -211,6 +227,7 @@ const Section8 = () => {
               }}
             />
           </View>
+          {/* Start  */}
           <Text
             style={{
               marginVertical: wp('6%'),
@@ -317,6 +334,7 @@ const Section8 = () => {
               }}
             />
           </View>
+          {/* End  */}
           <Text
             style={{
               marginVertical: wp('6%'),
@@ -423,6 +441,113 @@ const Section8 = () => {
               }}
             />
           </View>
+          {/* Biceps  */}
+          <Text
+            style={{
+              marginVertical: wp('6%'),
+              marginHorizontal: wp('6%'),
+              color: 'white',
+              fontSize: wp('3%'),
+            }}>
+            4. Biceps
+          </Text>
+          <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('25%'),
+                }}>
+                R1
+              </Text>
+              <Text
+                style={{
+                  color: '#195794',
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('-5%'),
+                }}>
+                R2
+              </Text>
+            </View>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <Text
+              style={{
+                marginHorizontal: wp('7%'),
+                color: 'white',
+                fontSize: wp('3%'),
+              }}>
+              RT
+            </Text>
+            <TextInput
+              value={bicepsRTR1}
+              onChangeText={handleBicepsRTR1Change}
+              keyboardType="ascii-capable"
+              placeholder="R1"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                width: wp('10%'),
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-3%'),
+              }}
+            />
+            <TextInput
+              value={bicepsRTR2}
+              onChangeText={handleBicepsRTR2Change}
+              keyboardType="ascii-capable"
+              placeholder="R2"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                width: wp('10%'),
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-3%'),
+              }}
+            />
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <Text
+              style={{
+                marginHorizontal: wp('7%'),
+                color: 'white',
+                fontSize: wp('3%'),
+                marginVertical: wp('1%'),
+              }}>
+              LT
+            </Text>
+            <TextInput
+              value={bicepsLTR1}
+              onChangeText={handleBicepsLTR1Change}
+              keyboardType="ascii-capable"
+              placeholder="R1"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                width: wp('10%'),
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-3%'),
+              }}
+            />
+            <TextInput
+              value={bicepsLTR2}
+              onChangeText={handleBicepsLTR2Change}
+              keyboardType="ascii-capable"
+              placeholder="R2"
+              placeholderTextColor="#d6d6d6"
+              style={{
+                color: 'white',
+                width: wp('10%'),
+                fontSize: wp('3%'),
+                marginHorizontal: wp('7%'),
+                marginVertical: wp('-3%'),
+              }}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -432,7 +557,7 @@ const Section8 = () => {
 const styles = StyleSheet.create({
   normalContainerPicker: {
     width: wp('90%'),
-    height: hp('65%'),
+    height: null,
     flex: 1,
     paddingVertical: wp('5%'),
     paddingHorizontal: wp('5%'),

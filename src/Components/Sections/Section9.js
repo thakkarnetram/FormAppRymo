@@ -156,6 +156,7 @@ const Section9 = () => {
             marginVertical: wp('1%'),
           }}>
           ROM
+          {/* TODO ADD TEXT BOXES INSTEAD OF PICKER */}
         </Text>
         <View style={styles.bigContainerPicker}>
           <View style={styles.header}>
@@ -165,712 +166,495 @@ const Section9 = () => {
           <View style={styles.row}>
             <Text style={styles.rowText}>Back extension</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={backExt} onValueChange={backExtHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-10"
-                  value="0-10"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="10-15"
-                  value="10-15"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="15-20"
-                  value="15-20"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="20-25"
-                  value="20-25"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={backExt}
+                onChangeText={backExtHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Back flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={backFlex} onValueChange={backFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-30"
-                  value="0-30"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="30-60"
-                  value="30-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="60-90"
-                  value="60-90"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={backFlex}
+                onChangeText={backFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Back Lateral Bending</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={backLat} onValueChange={backLatHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-10"
-                  value="0-10"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="10-15"
-                  value="10-15"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="15-20"
-                  value="15-20"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="20-25"
-                  value="20-25"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={backLat}
+                onChangeText={backLatHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Neck flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={neckFlex} onValueChange={neckFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="30-50"
-                  value="30-50"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={neckFlex}
+                onChangeText={neckFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Neck Extension</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={neckExt} onValueChange={neckExtHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-20"
-                  value="0-20"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="20-40"
-                  value="20-40"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="40-60"
-                  value="40-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={neckExt}
+                onChangeText={neckExtHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Neck lateral bending</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={neckLat} onValueChange={neckLatHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="30-45"
-                  value="30-45"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={neckLat}
+                onChangeText={neckLatHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip Flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={hipFlex} onValueChange={hipFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-25"
-                  value="0-25"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="25-50"
-                  value="25-50"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="50-75"
-                  value="50-75"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="75-100"
-                  value="75-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipFlex}
+                onChangeText={hipFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip extension</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={hipExt} onValueChange={hipExtHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipExt}
+                onChangeText={hipExtHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip adduction</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={hipAdd} onValueChange={hipAddHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="30-45"
-                  value="30-45"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipAdd}
+                onChangeText={hipAddHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip abduction</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={hipAbd} onValueChange={hipAbdHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="30-45"
-                  value="30-45"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipAbd}
+                onChangeText={hipAbdHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Knee flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={kneeFlex} onValueChange={kneeFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={kneeFlex}
+                onChangeText={kneeFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip medial rotation</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={hipMedRot}
-                onValueChange={hipMedRotHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipMedRot}
+                onChangeText={hipMedRotHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Hip Lateral Rotation</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={hipLatRot}
-                onValueChange={hipLatRotHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="30-45"
-                  value="30-45"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={hipLatRot}
+                onChangeText={hipLatRotHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Shoulder Abduction</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={shoulderAbd}
-                onValueChange={shoulderAbdHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={shoulderAbd}
+                onChangeText={shoulderAbdHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Shoulder Adduction</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={shoulderAdd}
-                onValueChange={shoulderAddHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={shoulderAdd}
+                onChangeText={shoulderAddHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Shoulder Flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={shoulderFlex}
-                onValueChange={shoulderFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={shoulderFlex}
+                onChangeText={shoulderFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Shoulder Extension</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={shoulderExt}
-                onValueChange={shoulderExtHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={shoulderExt}
+                onChangeText={shoulderExtHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Elbow Flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={elbowFlex}
-                onValueChange={elbowFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-50"
-                  value="0-50"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="50-100"
-                  value="50-100"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="100-150"
-                  value="100-150"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={elbowFlex}
+                onChangeText={elbowFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Forearm Supination</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={forearmSupination}
-                onValueChange={forearmSupHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-30"
-                  value="0-30"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="30-60"
-                  value="30-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="60-90"
-                  value="60-90"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={forearmSupination}
+                onChangeText={forearmSupHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Forearm Pronation</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={forearmPronation}
-                onValueChange={forearmProHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-30"
-                  value="0-30"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="30-60"
-                  value="30-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="60-90"
-                  value="60-90"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={forearmPronation}
+                onChangeText={forearmProHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Ankle DF</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={ankleDF} onValueChange={ankleDFHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-10"
-                  value="0-10"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="10-20"
-                  value="10-20"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={ankleDF}
+                onChangeText={ankleDFHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Ankle PF</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={anklePF} onValueChange={anklePFHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-20"
-                  value="0-20"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="20-40"
-                  value="20-40"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={anklePF}
+                onChangeText={anklePFHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Ankle Inversion</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={ankleInversion}
-                onValueChange={ankleInversionHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-15"
-                  value="0-15"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="15-30"
-                  value="15-30"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={ankleInversion}
+                onChangeText={ankleInversionHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Ankle Eversion</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={ankleEversion}
-                onValueChange={ankleEversionHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-10"
-                  value="0-10"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="10-20"
-                  value="10-20"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={ankleEversion}
+                onChangeText={ankleEversionHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Wrist Flexion</Text>
             <View style={styles.bigContainer}>
-              <Picker
-                selectedValue={wristFlex}
-                onValueChange={wristFlexHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-20"
-                  value="0-20"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="20-40"
-                  value="20-40"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="40-60"
-                  value="40-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={wristFlex}
+                onChangeText={wristFlexHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
           <View style={styles.row}>
             <Text style={styles.rowText}>Wrist Extension</Text>
             <View style={styles.bigContainer}>
-              <Picker selectedValue={wristExt} onValueChange={wristExtHandler}>
-                <Picker.Item label="Select" value="" />
-                <Picker.Item
-                  label="0-20"
-                  value="0-20"
-                  style={{
-                    color: 'black',
-                    fontSize: wp('2%'),
-                    textAlign: 'center',
-                  }}
-                />
-                <Picker.Item
-                  label="20-40"
-                  value="20-40"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-                <Picker.Item
-                  label="40-60"
-                  value="40-60"
-                  style={{color: 'black', fontSize: wp('2%')}}
-                />
-              </Picker>
+              <TextInput
+                value={wristExt}
+                onChangeText={wristExtHandler}
+                keyboardType="numeric"
+                placeholder="Value"
+                placeholderTextColor="#d6d6d6"
+                style={{
+                  color: 'white',
+                  width: wp('15%'),
+                  fontSize: wp('3%'),
+                  marginHorizontal: wp('3%'),
+                  marginVertical: wp('1%'),
+                }}
+              />
             </View>
           </View>
         </View>

@@ -17,7 +17,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../state/index';
 
-
 const Section4 = () => {
   // locking screen to potrait mode
   useEffect(() => {
@@ -80,7 +79,7 @@ const Section4 = () => {
             marginHorizontal: wp('5%'),
             marginVertical: wp('1%'),
           }}>
-          Developemental Milestones (Months)
+          Developmental Milestones (Months)
         </Text>
         <Text
           style={{
@@ -98,14 +97,14 @@ const Section4 = () => {
             fontSize: wp('3%'),
             marginHorizontal: wp('5%'),
           }}>
-          Hand Holding
+          Head Holding
         </Text>
         <View style={styles.developmentMilestoneContainer}>
           <TextInput
             value={handHolding}
             onChangeText={handHoldingHandler}
             keyboardType="numeric"
-            placeholder="Hand Holding"
+            placeholder="Head Holding"
             placeholderTextColor="#FFFFFF"
             style={styles.developmentMileStoneText}
           />

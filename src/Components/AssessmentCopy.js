@@ -40,13 +40,13 @@ const sections = [
   {key: 'section10', title: 'Section 10', component: Section10},
   {key: 'section11', title: 'Section 11', component: Section11},
   {key: 'section13', title: 'Section 13', component: Section13},
+  {key: 'last', title: 'Last Section', component: LastSection},
   {key: 'section12', title: 'Section 12', component: Section12},
   {key: 'section14', title: 'Section 14', component: Section14},
   {key: 'section15', title: 'Section 15', component: Section15},
   {key: 'section16', title: 'Section 16', component: Section16},
   {key: 'section17', title: 'Section 17', component: Section17},
   {key: 'section18', title: 'Section 18', component: Section18},
-  {key: 'last', title: 'Last Section', component: LastSection},
   // Add more sections as needed
 ];
 
@@ -265,7 +265,7 @@ const AssessmentCopy = ({route}) => {
             const isolatedWork = formData.isolatedWork;
             const dynamicStiffness = formData.dynamicStiffness;
             const extraneousMovement = formData.extraneousMovement;
-            const singleAssesment = formData.singleAssesment;
+            const singleassessment = formData.singleassessment;
             const registrationOptions = formData.registrationOptions;
             const registrationComs = formData.registrationComs;
             const tactileUnder = formData.tactileUnder;
@@ -433,7 +433,7 @@ const AssessmentCopy = ({route}) => {
             actions.updateIsolatedWork(isolatedWork);
             actions.updateDynamicStiffness(dynamicStiffness);
             actions.updateExtraneousMovement(extraneousMovement);
-            actions.updateSection15Coms(singleAssesment);
+            actions.updateSection15Coms(singleassessment);
             actions.updateRegistrationComs(registrationComs);
             actions.updateRegistrationOptions(registrationOptions);
             actions.updateGustatoryComs(gustatoryComs);

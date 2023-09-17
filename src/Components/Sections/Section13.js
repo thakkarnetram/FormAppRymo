@@ -50,7 +50,7 @@ const Section13 = () => {
             marginVertical: wp('1%'),
           }}>
           ADL - Activities for Daily Living
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={adl}
               onChangeText={adlHandler}
@@ -59,7 +59,7 @@ const Section13 = () => {
               numberOfLines={4}
               placeholder="Comments"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
         </Text>
@@ -69,7 +69,7 @@ const Section13 = () => {
 };
 
 const styles = StyleSheet.create({
-  objectiveAssesmentContainer: {
+  objectiveassessmentContainer: {
     width: wp('90%'),
     height: hp('10%'),
     marginVertical: wp('2%'),
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#169cc4',
     borderRadius: 10,
   },
-  objectiveAssesmentText: {
+  objectiveassessmentText: {
     color: 'white',
     fontSize: wp('3.5%'),
     marginVertical: wp('3%'),

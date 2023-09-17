@@ -70,7 +70,7 @@ const Section7 = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        {/* Objective Assesment */}
+        {/* Objective assessment */}
         <Text
           style={{
             color: '#169cc4',
@@ -79,7 +79,7 @@ const Section7 = () => {
             marginHorizontal: wp('5%'),
             marginVertical: wp('1%'),
           }}>
-          Objective Assesment
+          Objective assessment
         </Text>
         <Text
           style={{
@@ -116,7 +116,7 @@ const Section7 = () => {
           }}>
           Deformities Right
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={deformitiesR}
             onChangeText={deformitiesRHandler}
@@ -125,7 +125,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Deformities Right"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -136,7 +136,7 @@ const Section7 = () => {
           }}>
           Deformities Left
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={deformitiesL}
             onChangeText={deformitiesLHandler}
@@ -145,7 +145,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Deformities Left"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -156,7 +156,7 @@ const Section7 = () => {
           }}>
           Contracture Right
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={contractureR}
             onChangeText={contractureRHandler}
@@ -165,7 +165,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Contracture Right"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -176,7 +176,7 @@ const Section7 = () => {
           }}>
           Contracture Left
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={contractureL}
             onChangeText={contractureLHandler}
@@ -185,7 +185,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Contracture Left"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -196,7 +196,7 @@ const Section7 = () => {
           }}>
           Tightness Right
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={tightnessR}
             onChangeText={tightnessRHandler}
@@ -205,7 +205,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Tightness Right"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
         <Text
@@ -216,7 +216,7 @@ const Section7 = () => {
           }}>
           Tightness Left
         </Text>
-        <View style={styles.objectiveAssesmentContainer}>
+        <View style={styles.objectiveassessmentContainer}>
           <TextInput
             value={tightnessL}
             onChangeText={tightnessLHandler}
@@ -225,7 +225,7 @@ const Section7 = () => {
             numberOfLines={4}
             placeholder="Tightness Left"
             placeholderTextColor="#FFFFFF"
-            style={styles.objectiveAssesmentText}
+            style={styles.objectiveassessmentText}
           />
         </View>
       </ScrollView>
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     marginVertical: hp('1%'),
     marginHorizontal: wp('3%'),
   },
-  objectiveAssesmentContainer: {
+  objectiveassessmentContainer: {
     width: wp('90%'),
     height: hp('10%'),
     marginVertical: wp('2%'),
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#169cc4',
     borderRadius: 10,
   },
-  objectiveAssesmentText: {
+  objectiveassessmentText: {
     color: 'white',
     fontSize: wp('3.5%'),
     marginVertical: wp('3%'),

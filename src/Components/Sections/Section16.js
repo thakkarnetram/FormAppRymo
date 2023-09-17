@@ -78,6 +78,30 @@ const Section16 = () => {
     state => state.section16.sensoryProfileComs,
   );
   const actions = bindActionCreators(actionCreators, dispatch);
+  // NEW
+  const tactileComs = useSelector(state => state.section16.tactileComs);
+  const proprioceptiveComs = useSelector(
+    state => state.section16.proprioceptiveComs,
+  );
+  const vestibularComs = useSelector(state => state.section16.vestibularComs);
+  const auditoryComs = useSelector(state => state.section16.vestibularComs);
+  const visualComs = useSelector(state => state.section16.visualComs);
+  const tactileComsHandler = val => {
+    actions.updateTactileComs(val);
+  };
+  const proprioceptiveComsHandler = val => {
+    actions.updateProprioceptiveComs(val);
+  };
+  const vestibularComsHandler = val => {
+    actions.updateVestibularComs(val);
+  };
+  const auditoryComsHandler = val => {
+    actions.updateAuditoryComs(val);
+  };
+  const visualComsHandler = val => {
+    actions.updateVisualComs(val);
+  };
+  // handlers
   const registrationOptionsHandler = registrationOption => {
     const updatedOptions = {
       ...registrationOptions,
@@ -224,6 +248,19 @@ const Section16 = () => {
               <Text style={styles.checkboxLabel}>Over Responsive</Text>
             </View>
           </View>
+          <TextInput
+            value={tactileComs}
+            onChangeText={tactileComsHandler}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={{
+              color: 'white',
+              fontSize: wp('3%'),
+              marginVertical: wp('0.8%'),
+              marginHorizontal: wp('6%'),
+            }}
+          />
           <Text
             style={{
               color: 'white',
@@ -255,6 +292,19 @@ const Section16 = () => {
               <Text style={styles.checkboxLabel}>Over Responsive</Text>
             </View>
           </View>
+          <TextInput
+            value={proprioceptiveComs}
+            onChangeText={proprioceptiveComsHandler}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={{
+              color: 'white',
+              fontSize: wp('3%'),
+              marginVertical: wp('0.8%'),
+              marginHorizontal: wp('6%'),
+            }}
+          />
           <Text
             style={{
               color: 'white',
@@ -286,6 +336,19 @@ const Section16 = () => {
               <Text style={styles.checkboxLabel}>Over Responsive</Text>
             </View>
           </View>
+          <TextInput
+            value={vestibularComs}
+            onChangeText={vestibularComsHandler}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={{
+              color: 'white',
+              fontSize: wp('3%'),
+              marginVertical: wp('0.8%'),
+              marginHorizontal: wp('6%'),
+            }}
+          />
           <Text
             style={{
               color: 'white',
@@ -317,6 +380,19 @@ const Section16 = () => {
               <Text style={styles.checkboxLabel}>Over Responsive</Text>
             </View>
           </View>
+          <TextInput
+            value={auditoryComs}
+            onChangeText={auditoryComsHandler}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={{
+              color: 'white',
+              fontSize: wp('3%'),
+              marginVertical: wp('0.8%'),
+              marginHorizontal: wp('6%'),
+            }}
+          />
           <Text
             style={{
               color: 'white',
@@ -345,6 +421,19 @@ const Section16 = () => {
               <Text style={styles.checkboxLabel}>Over Responsive</Text>
             </View>
           </View>
+          <TextInput
+            value={visualComs}
+            onChangeText={visualComsHandler}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={{
+              color: 'white',
+              fontSize: wp('3%'),
+              marginVertical: wp('0.8%'),
+              marginHorizontal: wp('6%'),
+            }}
+          />
           <Text
             style={{
               color: 'white',

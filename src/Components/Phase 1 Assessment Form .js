@@ -30,7 +30,7 @@ import Orientation from 'react-native-orientation-locker';
 import Immersive from 'react-native-immersive';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-const Phase_1_Assesment_Form = () => {
+const Phase_1_assessment_Form = () => {
   // locking screen to potrait mode
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Phase_1_Assesment_Form = () => {
   const [userDob, setUserDob] = useState(new Date());
   const [evaluationDate, setEvaluationDate] = useState(new Date());
   const [informant, setInformant] = useState('');
-  const [AssesmentBy, setAssesmentBy] = useState('');
+  const [assessmentBy, setassessmentBy] = useState('');
   const [diagnosis, setDiagnosis] = useState('');
   const [referredBy, setReferredBy] = useState('');
   const [gmfcOptions, setGmfcOptions] = useState();
@@ -117,8 +117,8 @@ const Phase_1_Assesment_Form = () => {
   const informantHandler = text => {
     setInformant(text);
   };
-  const AssesmentByHandler = text => {
-    setAssesmentBy(text);
+  const assessmentByHandler = text => {
+    setassessmentBy(text);
   };
   const diagnosisHandler = text => {
     setDiagnosis(text);
@@ -327,7 +327,7 @@ const Phase_1_Assesment_Form = () => {
     setWalking(walking);
   };
 
-  // Section V => Subjective Assesment
+  // Section V => Subjective assessment
   const [sightIntact, setSightIntact] = useState(false);
   const [sightNotIntact, setSightNotIntact] = useState(false);
   const [hearingIntact, setHearingIntact] = useState(false);
@@ -546,7 +546,7 @@ const Phase_1_Assesment_Form = () => {
     setXRays(xRays);
   };
 
-  // Section VII => Objective Assesment
+  // Section VII => Objective assessment
   const [hypotonia, sethypotonia] = useState(false);
   const [hypertonia, sethypertonia] = useState(false);
   const [deformitiesR, setDeformitiesR] = useState('');
@@ -988,7 +988,7 @@ const Phase_1_Assesment_Form = () => {
     setFunctionLimitations(functionLimitation);
   };
 
-  // Single System Assesment
+  // Single System assessment
   const [canInitiate, setCanInitiate] = useState(false);
   const [cantInitiate, setCantInitiate] = useState(false);
   const [initiateComs, setInitiateComs] = useState('');
@@ -1030,7 +1030,7 @@ const Phase_1_Assesment_Form = () => {
 
   const [extraneousMovement, setExtraneousMovement] = useState();
 
-  const [singleAssesment, setSingleAssesment] = useState('');
+  const [singleassessment, setSingleassessment] = useState('');
 
   const canInitiateHandler = () => {
     setCanInitiate(true);
@@ -1164,11 +1164,11 @@ const Phase_1_Assesment_Form = () => {
     setExtraneousMovement(extraneous);
   };
 
-  const singleAssesmentHandler = single => {
-    setSingleAssesment(single);
+  const singleassessmentHandler = single => {
+    setSingleassessment(single);
   };
 
-  // Multi System Assesment => Posture and Movement
+  // Multi System assessment => Posture and Movement
   // a posture
   const [postureAnswer, setPostureAnswer] = useState('');
 
@@ -1780,7 +1780,7 @@ const Phase_1_Assesment_Form = () => {
       evaluationDate ||
       chiefComplaint ||
       informant ||
-      AssesmentBy ||
+      assessmentBy ||
       diagnosis ||
       referredBy
     ) {
@@ -1905,8 +1905,8 @@ const Phase_1_Assesment_Form = () => {
       <h2>Informant: ${formated}</h2>
       </div>`;
     }
-    if (AssesmentBy) {
-      const formated = AssesmentBy.replace(/\n/g, '<br>');
+    if (assessmentBy) {
+      const formated = assessmentBy.replace(/\n/g, '<br>');
       html += `
       <div class="label">
       <h2>Assessed by: ${formated}</h2>
@@ -2120,7 +2120,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
         <div class="label">
-          <h1>4. Developemental Milestones (Months)</h1>
+          <h1>4. Developmental Milestones (Months)</h1>
         </div>
         <div class="value">
         </div>
@@ -2128,7 +2128,7 @@ const Phase_1_Assesment_Form = () => {
     }
     if (handHolding.trim()) {
       html += `
-        <div class="label"><h2>Hand Holding - ${handHolding.trim()} </h2>
+        <div class="label"><h2>Head Holding - ${handHolding.trim()} </h2>
         </div>`;
     }
     if (rolling.trim()) {
@@ -2193,7 +2193,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
       <div class="label">
-        <h1>3. Subjective Assesment</h1>
+        <h1>3. Subjective Assessment</h1>
       </div>
       <div class="value">
       </div>
@@ -2419,7 +2419,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
       <div class="label">
-        <h1>6. Objective Assesment </h1>
+        <h1>6. Objective assessment </h1>
       </div>
       <div class="value">
       </div>
@@ -3356,7 +3356,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
         <div class="label">
-          <h1>12. Multi System Assesment</h1>
+          <h1>12. Multi System assessment</h1>
         </div>
         <div class="value">
         </div>
@@ -3465,7 +3465,7 @@ const Phase_1_Assesment_Form = () => {
     ) {
       html += `
         <div class="label">
-          <h1>11. Single System Assesment</h1>
+          <h1>11. Single System assessment</h1>
         </div>
         <div class="value">
         </div>
@@ -3657,11 +3657,11 @@ const Phase_1_Assesment_Form = () => {
     `;
     }
 
-    if (singleAssesment) {
-      const formated = singleAssesment.replace(/\n/g, '<br>');
+    if (singleassessment) {
+      const formated = singleassessment.replace(/\n/g, '<br>');
       html += `
      <div class="label">
-      <h2>Single System Assesment Comments :  ${formated}</h2>
+      <h2>Single System assessment Comments :  ${formated}</h2>
       </div>
 
     `;
@@ -4600,10 +4600,10 @@ const Phase_1_Assesment_Form = () => {
           </View>
           <View style={styles.inputTextContainerMultiLine}>
             <TextInput
-              value={AssesmentBy}
+              value={assessmentBy}
               multiline={true}
               numberOfLines={4}
-              onChangeText={AssesmentByHandler}
+              onChangeText={assessmentByHandler}
               keyboardType="ascii-capable"
               placeholder="Assessed by"
               placeholderTextColor="#FFFFFF"
@@ -4950,7 +4950,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Developemental Milestones (Months)
+            Developmental Milestones (Months)
           </Text>
           <Text
             style={{
@@ -4967,7 +4967,7 @@ const Phase_1_Assesment_Form = () => {
               value={handHolding}
               onChangeText={handHoldingHandler}
               keyboardType="numeric"
-              placeholder="Hand Holding"
+              placeholder="Head Holding"
               placeholderTextColor="#FFFFFF"
               style={styles.developmentMileStoneText}
             />
@@ -5088,7 +5088,7 @@ const Phase_1_Assesment_Form = () => {
               style={styles.developmentMileStoneText}
             />
           </View>
-          {/* Section III => Subjective Assesment */}
+          {/* Section III => Subjective assessment */}
           <Text
             style={{
               color: '#169cc4',
@@ -5097,7 +5097,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Subjective Assesment
+            Subjective assessment
           </Text>
           <View style={styles.checkBoxContainer}>
             <View style={{flexDirection: 'row'}}>
@@ -5942,7 +5942,7 @@ const Phase_1_Assesment_Form = () => {
               )}
             </View>
           </View>
-          {/* Objective Assesment */}
+          {/* Objective assessment */}
           <Text
             style={{
               color: '#169cc4',
@@ -5951,7 +5951,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Objective Assesment
+            Objective assessment
           </Text>
           <View style={styles.checkBoxContainer}>
             <View style={{flexDirection: 'row'}}>
@@ -5972,7 +5972,7 @@ const Phase_1_Assesment_Form = () => {
               </View>
             </View>
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={deformitiesR}
               onChangeText={deformitiesRHandler}
@@ -5981,10 +5981,10 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Deformities Right"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={deformitiesL}
               onChangeText={deformitiesLHandler}
@@ -5993,10 +5993,10 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Deformities Left"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={contractureR}
               onChangeText={contractureRHandler}
@@ -6005,10 +6005,10 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Contracture Right"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={contractureL}
               onChangeText={contractureLHandler}
@@ -6017,10 +6017,10 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Contracture Left"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={tightnessR}
               onChangeText={tightnessRHandler}
@@ -6029,10 +6029,10 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Tightness Right"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={tightnessL}
               onChangeText={tightnessLHandler}
@@ -6041,7 +6041,7 @@ const Phase_1_Assesment_Form = () => {
               numberOfLines={4}
               placeholder="Tightness Left"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
           {/*   Tardieu's*/}
@@ -7540,7 +7540,7 @@ const Phase_1_Assesment_Form = () => {
               marginVertical: wp('1%'),
             }}>
             ADL - Activities for Daily Living
-            <View style={styles.objectiveAssesmentContainer}>
+            <View style={styles.objectiveassessmentContainer}>
               <TextInput
                 value={adl}
                 onChangeText={adlHandler}
@@ -7549,7 +7549,7 @@ const Phase_1_Assesment_Form = () => {
                 numberOfLines={4}
                 placeholder="Comments"
                 placeholderTextColor="#FFFFFF"
-                style={styles.objectiveAssesmentText}
+                style={styles.objectiveassessmentText}
               />
             </View>
           </Text>
@@ -7934,7 +7934,7 @@ const Phase_1_Assesment_Form = () => {
             />
           </View>
 
-          {/*   Multiple System assesment */}
+          {/*   Multiple System assessment */}
           <Text
             style={{
               color: '#169cc4',
@@ -7943,7 +7943,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Multi System Assesment
+            Multi System assessment
           </Text>
           <View style={styles.inputFieldContainerMs}>
             <Text
@@ -8354,7 +8354,7 @@ const Phase_1_Assesment_Form = () => {
               }}
             />
           </View>
-          {/* Single System Assesment */}
+          {/* Single System assessment */}
           <Text
             style={{
               color: '#169cc4',
@@ -8363,7 +8363,7 @@ const Phase_1_Assesment_Form = () => {
               marginHorizontal: wp('5%'),
               marginVertical: wp('1%'),
             }}>
-            Single System Assesment
+            Single System assessment
           </Text>
           <View style={styles.inputFieldContainer10}>
             <Text
@@ -8783,8 +8783,8 @@ const Phase_1_Assesment_Form = () => {
             </View>
             <View style={styles.inputTextContainerComs}>
               <TextInput
-                value={singleAssesment}
-                onChangeText={singleAssesmentHandler}
+                value={singleassessment}
+                onChangeText={singleassessmentHandler}
                 keyboardType="ascii-capable"
                 placeholder="Comments"
                 placeholderTextColor="#FFFFFF"
@@ -9979,24 +9979,24 @@ const Phase_1_Assesment_Form = () => {
             </View>
           </View>
           {/* Assessor section */}
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={accessorName}
               onChangeText={accessorNameHandler}
               keyboardType="ascii-capable"
               placeholder="Assessor's Name"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
-          <View style={styles.objectiveAssesmentContainer}>
+          <View style={styles.objectiveassessmentContainer}>
             <TextInput
               value={accessorDesignation}
               onChangeText={accessorDesignationHandler}
               keyboardType="ascii-capable"
               placeholder="Assessor's Designation"
               placeholderTextColor="#FFFFFF"
-              style={styles.objectiveAssesmentText}
+              style={styles.objectiveassessmentText}
             />
           </View>
           {/* Column n Stuff try */}
@@ -10529,7 +10529,7 @@ const styles = StyleSheet.create({
     marginVertical: hp('1%'),
     marginHorizontal: wp('3%'),
   },
-  objectiveAssesmentContainer: {
+  objectiveassessmentContainer: {
     width: wp('90%'),
     height: hp('10%'),
     marginVertical: wp('2%'),
@@ -10537,7 +10537,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#169cc4',
     borderRadius: 10,
   },
-  objectiveAssesmentText: {
+  objectiveassessmentText: {
     color: 'white',
     fontSize: wp('3.5%'),
     marginVertical: wp('3%'),
@@ -10790,4 +10790,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Phase_1_Assesment_Form;
+export default Phase_1_assessment_Form;

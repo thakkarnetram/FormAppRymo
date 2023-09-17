@@ -20,6 +20,11 @@ const initialState = {
   gustatoryOverResponsive: '',
   gustatoryComs: '',
   sensoryProfileComs: '',
+  tactileComs: '',
+  proprioceptiveComs: '',
+  vestibularComs: '',
+  auditoryComs: '',
+  visualComs: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -115,6 +120,31 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         sensoryProfileComs: action.payload,
+      };
+    case 'updateTactileComs':
+      return {
+        ...state,
+        tactileComs: action.payload,
+      };
+    case 'updateProprioceptiveComs':
+      return {
+        ...state,
+        proprioceptiveComs: action.payload,
+      };
+    case 'updateVestibularComs':
+      return {
+        ...state,
+        vestibularComs: action.payload,
+      };
+    case 'updateAuditoryComs':
+      return {
+        ...state,
+        auditoryComs: action.payload,
+      };
+    case 'updateVisualComs':
+      return {
+        ...state,
+        visualComs: action.payload,
       };
     default:
       return state;

@@ -11,6 +11,10 @@ const initialState = {
   hipAdductorsRTR2: '',
   hipAdductorsLTR1: '',
   hipAdductorsLTR2: '',
+  bicepsRTR1: '',
+  bicepsRTR2: '',
+  bicepsLTR1: '',
+  bicepsLTR2: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -74,6 +78,26 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         hipAdductorsLTR2: action.payload,
+      };
+    case 'updateBicepsRTR1':
+      return {
+        ...state,
+        bicepsRTR1: action.payload,
+      };
+    case 'updateBicepsRTR2':
+      return {
+        ...state,
+        bicepsRTR2: action.payload,
+      };
+    case 'updateBicepsLTR1':
+      return {
+        ...state,
+        bicepsLTR1: action.payload,
+      };
+    case 'updateBicepsLTR2':
+      return {
+        ...state,
+        bicepsLTR2: action.payload,
       };
     default:
       return state;

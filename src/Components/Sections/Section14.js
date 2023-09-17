@@ -88,6 +88,16 @@ const Section14 = () => {
   const coordinationComs = useSelector(
     state => state.section14.coordinationComs,
   );
+  const alignmentComs = useSelector(state => state.section14.alignmentComs);
+  const baseOfSupportComs = useSelector(
+    state => state.section14.baseOfSupportComs,
+  );
+  const movementStratComs = useSelector(
+    state => state.section14.movementStratComs,
+  );
+  const staticBalanceComs = useSelector(
+    state => state.section14.staticBalanceComs,
+  );
   //handlers
   const actions = bindActionCreators(actionCreators, dispatch);
   const postureHandler = val => {
@@ -163,10 +173,22 @@ const Section14 = () => {
   const coordinationComsHandler = val => {
     actions.updateCoordinationComs(val);
   };
+  const handleAlignmentComs = val => {
+    actions.updateAlignmentComs(val);
+  };
+  const handleBaseOfSupport = val => {
+    actions.updateBaseOfSupportComs(val);
+  };
+  const handleMovementStratComs = val => {
+    actions.updateMovementStratComs(val);
+  };
+  const handleStaticBalanceComs = val => {
+    actions.updateStaticBalanceComs(val);
+  };
   return (
     <SafeAreaView>
       <ScrollView>
-        {/*   Multiple System assesment */}
+        {/*   Multiple System assessment */}
         <Text
           style={{
             color: '#169cc4',
@@ -175,7 +197,7 @@ const Section14 = () => {
             marginHorizontal: wp('5%'),
             marginVertical: wp('1%'),
           }}>
-          Multi System Assesment
+          Multi System assessment
         </Text>
         <View style={styles.inputFieldContainerMs}>
           <Text
@@ -267,6 +289,16 @@ const Section14 = () => {
               </Picker>
             </View>
           </View>
+          <TextInput
+            multiline={true}
+            numberOfLines={4}
+            value={alignmentComs}
+            onChangeText={handleAlignmentComs}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={styles.answerBox}
+          />
           <Text
             style={{
               color: 'white',
@@ -287,6 +319,16 @@ const Section14 = () => {
               <Text style={styles.checkboxLabel}>Narrow</Text>
             </View>
           </View>
+          <TextInput
+            multiline={true}
+            numberOfLines={4}
+            value={baseOfSupportComs}
+            onChangeText={handleBaseOfSupport}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={styles.answerBox}
+          />
           <Text
             style={{
               color: 'white',
@@ -390,6 +432,16 @@ const Section14 = () => {
               <Text style={styles.checkboxLabel}>Increasing Bos</Text>
             </View>
           </View>
+          <TextInput
+            multiline={true}
+            numberOfLines={4}
+            value={movementStratComs}
+            onChangeText={handleMovementStratComs}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={styles.answerBox}
+          />
           <Text
             style={{
               color: 'white',
@@ -428,6 +480,16 @@ const Section14 = () => {
               <Text style={styles.checkboxLabel}>Poor</Text>
             </View>
           </View>
+          <TextInput
+            multiline={true}
+            numberOfLines={4}
+            value={staticBalanceComs}
+            onChangeText={handleStaticBalanceComs}
+            keyboardType="ascii-capable"
+            placeholder="Comments"
+            placeholderTextColor="#d6d6d6"
+            style={styles.answerBox}
+          />
           <Text
             style={{
               color: 'white',

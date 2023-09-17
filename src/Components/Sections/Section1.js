@@ -628,6 +628,26 @@ const Section1 = () => {
               fontSize: wp('3%'),
               marginHorizontal: wp('5%'),
             }}>
+            Referred By
+          </Text>
+          <View style={styles.inputTextContainerMultiLine}>
+            <TextInput
+              value={referredBy}
+              multiline={true}
+              numberOfLines={4}
+              onChangeText={handleReferredBy}
+              keyboardType="ascii-capable"
+              placeholder="Referred By"
+              placeholderTextColor="#FFFFFF"
+              style={styles.referredByText}
+            />
+          </View>
+          <Text
+            style={{
+              color: '#195794',
+              fontSize: wp('3%'),
+              marginHorizontal: wp('5%'),
+            }}>
             Informant
           </Text>
           <View style={styles.inputTextContainerMultiLine}>
@@ -680,26 +700,6 @@ const Section1 = () => {
               placeholder="Diagnosis"
               placeholderTextColor="#FFFFFF"
               style={styles.diagnosisText}
-            />
-          </View>
-          <Text
-            style={{
-              color: '#195794',
-              fontSize: wp('3%'),
-              marginHorizontal: wp('5%'),
-            }}>
-            Referred By
-          </Text>
-          <View style={styles.inputTextContainerMultiLine}>
-            <TextInput
-              value={referredBy}
-              multiline={true}
-              numberOfLines={4}
-              onChangeText={handleReferredBy}
-              keyboardType="ascii-capable"
-              placeholder="Referred By"
-              placeholderTextColor="#FFFFFF"
-              style={styles.referredByText}
             />
           </View>
         </View>

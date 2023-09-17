@@ -2,7 +2,9 @@ const initialState = {
   fatherAgeConception: '',
   motherAgeConception: '',
   workLoad: '',
+  workLoadComs: '',
   stressLevel: '',
+  stressLevelComs: '',
   consanguinity: '',
   nonConsanguinity: '',
   children: '',
@@ -34,6 +36,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         workLoad: action.payload,
+      };
+    case 'updateWorkLoadComs':
+      return {
+        ...state,
+        workLoadComs: action.payload,
+      };
+    case 'updateStressLevelComs':
+      return {
+        ...state,
+        stressLevelComs: action.payload,
       };
     case 'updateStressLevel':
       return {

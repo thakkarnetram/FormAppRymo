@@ -191,11 +191,29 @@ export const updateWorkLoad = workLoad => {
   };
 };
 
+export const updateWorkLoadComs = workLoadComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateWorkLoadComs',
+      payload: workLoadComs,
+    });
+  };
+};
+
 export const updateStressLevel = stressLevel => {
   return dispatch => {
     dispatch({
       type: 'updateStressLevel',
       payload: stressLevel,
+    });
+  };
+};
+
+export const updateStressLevelComs = stressLevelComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStressLevelComs',
+      payload: stressLevelComs,
     });
   };
 };
@@ -2367,6 +2385,128 @@ export const updatePatientId = patientId => {
     dispatch({
       type: 'updatePatientId',
       payload: patientId,
+    });
+  };
+};
+
+/// New creators
+// Section 14
+export const updateAlignmentComs = alignmentComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAlignmentComs',
+      payload: alignmentComs,
+    });
+  };
+};
+
+export const updateBaseOfSupportComs = baseOfSupportComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBaseOfSupportComs',
+      payload: baseOfSupportComs,
+    });
+  };
+};
+
+export const updateMovementStratComs = movementStratComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateMovementStratComs',
+      payload: movementStratComs,
+    });
+  };
+};
+
+export const updateStaticBalanceComs = staticBalanceComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateStaticBalanceComs',
+      payload: staticBalanceComs,
+    });
+  };
+};
+
+// Section 16
+
+export const updateTactileComs = tactileComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateTactileComs',
+      payload: tactileComs,
+    });
+  };
+};
+
+export const updateProprioceptiveComs = proprioceptiveComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateProprioceptiveComs',
+      payload: proprioceptiveComs,
+    });
+  };
+};
+
+export const updateVestibularComs = vestibularComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVestibularComs',
+      payload: vestibularComs,
+    });
+  };
+};
+
+export const updateAuditoryComs = auditoryComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateAuditoryComs',
+      payload: auditoryComs,
+    });
+  };
+};
+
+export const updateVisualComs = visualComs => {
+  return dispatch => {
+    dispatch({
+      type: 'updateVisualComs',
+      payload: visualComs,
+    });
+  };
+};
+
+// TARDIEUS
+export const updateBicepsRTR1 = bicepsRTR1 => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBicepsRTR1',
+      payload: bicepsRTR1,
+    });
+  };
+};
+
+export const updateBicepsRTR2 = bicepsRTR2 => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBicepsRTR2',
+      payload: bicepsRTR2,
+    });
+  };
+};
+
+export const updateBicepsLTR1 = bicepsLTR1 => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBicepsLTR1',
+      payload: bicepsLTR1,
+    });
+  };
+};
+
+export const updateBicepsLTR2 = bicepsLTR2 => {
+  return dispatch => {
+    dispatch({
+      type: 'updateBicepsLTR2',
+      payload: bicepsLTR2,
     });
   };
 };

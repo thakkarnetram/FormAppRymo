@@ -78,7 +78,7 @@ const Section15 = () => {
   const extraneousMovement = useSelector(
     state => state.section15.extraneousMovement,
   );
-  const singleAssesment = useSelector(state => state.section15.section15Coms);
+  const singleassessment = useSelector(state => state.section15.section15Coms);
   // handlers
   const actions = bindActionCreators(actionCreators, dispatch);
   const canInitiateHandler = val => {
@@ -156,13 +156,13 @@ const Section15 = () => {
   const extraneousMovementHandler = val => {
     actions.updateExtraneousMovement(val);
   };
-  const singleAssesmentHandler = val => {
+  const singleassessmentHandler = val => {
     actions.updateSection15Coms(val);
   };
   return (
     <SafeAreaView>
       <ScrollView>
-        {/* Single System Assesment */}
+        {/* Single System assessment */}
         <Text
           style={{
             color: '#169cc4',
@@ -171,7 +171,7 @@ const Section15 = () => {
             marginHorizontal: wp('5%'),
             marginVertical: wp('1%'),
           }}>
-          Single System Assesment
+          Single System assessment
         </Text>
         <View style={styles.inputFieldContainer10}>
           <Text
@@ -589,8 +589,8 @@ const Section15 = () => {
           </View>
           <View style={styles.inputTextContainerComs}>
             <TextInput
-              value={singleAssesment}
-              onChangeText={singleAssesmentHandler}
+              value={singleassessment}
+              onChangeText={singleassessmentHandler}
               keyboardType="ascii-capable"
               placeholder="Comments"
               placeholderTextColor="#FFFFFF"

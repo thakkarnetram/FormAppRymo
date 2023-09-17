@@ -23,75 +23,44 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   useEffect(() => {
-    isUserLoggedIn();
     Orientation.lockToPortrait();
     return () => {
       Orientation.unlockAllOrientations(); // Unlocks all orientations when the component unmounts
     };
   }, []);
   Immersive.setImmersive(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const isUserLoggedIn = async () => {
-    try {
-      const value = await AsyncStorage.getItem('isLoggedIn');
-      setIsLoggedIn(value === 'true');
-    } catch (error) {
-      console.log('Couldnt get login Status', error);
-    }
-  };
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const isUserLoggedIn = async () => {
+  //   try {
+  //     const value = await AsyncStorage.getItem('isLoggedIn');
+  //     setIsLoggedIn(value === 'true');
+  //   } catch (error) {
+  //     console.log('Couldnt get login Status', error);
+  //   }
+  // };
 
   Immersive.setImmersive(true);
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          {isLoggedIn ? (
-            <>
-              <Stack.Screen
-                name="PatientHome"
-                component={PatientHome}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="Pediatric Assessment"
-                component={Pediatric_Assessment}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="AssessmentCopy"
-                component={AssessmentCopy}
-                options={{headerShown: false}}
-              />
-            </>
-          ) : (
-            <>
-              <Stack.Screen
-                name="LoginScreen"
-                component={Login}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="PatientHome"
-                component={PatientHome}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="Pediatric Assessment"
-                component={Pediatric_Assessment}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="AssessmentCopy"
-                component={AssessmentCopy}
-                options={{headerShown: false}}
-              />
-            </>
-          )}
-          {/* <Stack.Screen
-              name="Phase 1 Assessment Form"
-              component={Phase_1_Assessment_Form}
+          <>
+            <Stack.Screen
+              name="PatientHome"
+              component={PatientHome}
               options={{headerShown: false}}
-            /> */}
+            />
+            <Stack.Screen
+              name="Pediatric Assessment"
+              component={Pediatric_Assessment}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="AssessmentCopy"
+              component={AssessmentCopy}
+              options={{headerShown: false}}
+            />
+          </>
         </Stack.Navigator>
       </NavigationContainer>
       <Toast />

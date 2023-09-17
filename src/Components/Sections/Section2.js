@@ -48,6 +48,14 @@ const Section2 = () => {
   const fullTerm = useSelector(state => state.section2.fullTerm);
   const preTerm = useSelector(state => state.section2.preTerm);
   const actions = bindActionCreators(actionCreators, dispatch);
+  const workLoadComs = useSelector(state => state.section2.workLoadComs);
+  const stressLevelComs = useSelector(state => state.section2.stressLevelComs);
+  const workLoadComsHandler = val => {
+    actions.updateWorkLoadComs(val);
+  };
+  const stressLevelComsHandler = val => {
+    actions.updateStressLevelComs(val);
+  };
   // handle states
   const fatherAgeHandler = fatherAgeConception => {
     actions.updatefatherAgeConception(fatherAgeConception);
@@ -178,6 +186,18 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <TextInput
+          value={workLoadComs}
+          onChangeText={workLoadComsHandler}
+          placeholder="Comments"
+          placeholderTextColor="black"
+          style={{
+            color: 'black',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('4%'),
+            marginVertical: wp('2%'),
+          }}
+        />
         <Text
           style={{
             color: '#195794',
@@ -226,6 +246,18 @@ const Section2 = () => {
             </View>
           </View>
         </View>
+        <TextInput
+          value={stressLevelComs}
+          onChangeText={workLoadComsHandler}
+          placeholder="Comments"
+          placeholderTextColor="black"
+          style={{
+            color: 'black',
+            fontSize: wp('3%'),
+            marginHorizontal: wp('4%'),
+            marginVertical: wp('2%'),
+          }}
+        />
         <Text
           style={{
             color: '#195794',
